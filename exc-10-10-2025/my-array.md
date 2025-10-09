@@ -99,14 +99,14 @@ int main() {
     StaticArray<int, 5> arr;
     
     // Set values
-    arr[^0] = 10;
-    arr[^1] = 20;
-    arr[^2] = 30;
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
     
     // Print values
-    std::cout << "arr[^0] = " << arr[^0] << std::endl;
-    std::cout << "arr[^1] = " << arr[^1] << std::endl;
-    std::cout << "arr[^2] = " << arr[^2] << std::endl;
+    std::cout << "arr[0] = " << arr[0] << std::endl;
+    std::cout << "arr[1] = " << arr[1] << std::endl;
+    std::cout << "arr[2] = " << arr[2] << std::endl;
     
     return 0;
 }
@@ -147,7 +147,7 @@ const T& at(size_t index) const {
 ```cpp
 int main() {
     StaticArray<int, 5> arr;
-    arr[^0] = 100;
+    arr[0] = 100;
     
     try {
         std::cout << "arr.at(0) = " << arr.at(0) << std::endl;
@@ -170,11 +170,11 @@ int main() {
 ```cpp
 // Add these methods:
 T& front() {
-    return data[^0];
+    return data[0];
 }
 
 const T& front() const {
-    return data[^0];
+    return data[0];
 }
 ```
 
@@ -188,8 +188,8 @@ const T& front() const {
 ```cpp
 int main() {
     StaticArray<int, 5> arr;
-    arr[^0] = 111;
-    arr[^1] = 222;
+    arr[0] = 111;
+    arr[1] = 222;
     
     std::cout << "First element: " << arr.front() << std::endl;
     
@@ -228,8 +228,8 @@ const T& back() const {
 ```cpp
 int main() {
     StaticArray<int, 5> arr;
-    arr[^0] = 10;
-    arr[^4] = 50;
+    arr[0] = 10;
+    arr[4] = 50;
     
     std::cout << "First: " << arr.front() << std::endl;
     std::cout << "Last: " << arr.back() << std::endl;
@@ -327,11 +327,11 @@ int main() {
     
     // Fill array manually
     std::cout << "Test 2: Manual filling\n";
-    arr[^0] = 1;
-    arr[^1] = 2;
-    arr[^2] = 3;
-    arr[^3] = 4;
-    arr[^4] = 5;
+    arr[0] = 1;
+    arr[1] = 2;
+    arr[2] = 3;
+    arr[3] = 4;
+    arr[4] = 5;
     
     std::cout << "Elements: ";
     for (size_t i = 0; i < arr.size(); ++i) {
@@ -424,11 +424,11 @@ const_iterator cend() const {
 int main() {
     StaticArray<int, 5> arr;
     arr.fill(0);
-    arr[^0] = 10;
-    arr[^1] = 20;
-    arr[^2] = 30;
-    arr[^3] = 40;
-    arr[^4] = 50;
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
+    arr[3] = 40;
+    arr[4] = 50;
     
     std::cout << "Range-based for loop: ";
     for (const auto& elem : arr) {
@@ -487,11 +487,11 @@ const_reverse_iterator crend() const {
 ```cpp
 int main() {
     StaticArray<int, 5> arr;
-    arr[^0] = 1;
-    arr[^1] = 2;
-    arr[^2] = 3;
-    arr[^3] = 4;
-    arr[^4] = 5;
+    arr[0] = 1;
+    arr[1] = 2;
+    arr[2] = 3;
+    arr[3] = 4;
+    arr[4] = 5;
     
     std::cout << "Normal: ";
     for (const auto& elem : arr) {
@@ -535,18 +535,18 @@ int main() {
     StaticArray<int, 3> arr1;
     StaticArray<int, 3> arr2;
     
-    arr1[^0] = 1; arr1[^1] = 2; arr1[^2] = 3;
-    arr2[^0] = 10; arr2[^1] = 20; arr2[^2] = 30;
+    arr1[0] = 1; arr1[1] = 2; arr1[2] = 3;
+    arr2[0] = 10; arr2[1] = 20; arr2[2] = 30;
     
     std::cout << "Before swap:\n";
-    std::cout << "arr1: " << arr1[^0] << " " << arr1[^1] << " " << arr1[^2] << std::endl;
-    std::cout << "arr2: " << arr2[^0] << " " << arr2[^1] << " " << arr2[^2] << std::endl;
+    std::cout << "arr1: " << arr1[0] << " " << arr1[1] << " " << arr1[2] << std::endl;
+    std::cout << "arr2: " << arr2[0] << " " << arr2[1] << " " << arr2[2] << std::endl;
     
     arr1.swap(arr2);
     
     std::cout << "After swap:\n";
-    std::cout << "arr1: " << arr1[^0] << " " << arr1[^1] << " " << arr1[^2] << std::endl;
-    std::cout << "arr2: " << arr2[^0] << " " << arr2[^1] << " " << arr2[^2] << std::endl;
+    std::cout << "arr1: " << arr1[0] << " " << arr1[1] << " " << arr1[2] << std::endl;
+    std::cout << "arr2: " << arr2[0] << " " << arr2[1] << " " << arr2[2] << std::endl;
     
     return 0;
 }
@@ -580,9 +580,9 @@ int main() {
     StaticArray<int, 3> arr2;
     StaticArray<int, 3> arr3;
     
-    arr1[^0] = 1; arr1[^1] = 2; arr1[^2] = 3;
-    arr2[^0] = 1; arr2[^1] = 2; arr2[^2] = 3;
-    arr3[^0] = 1; arr3[^1] = 2; arr3[^2] = 9;
+    arr1[0] = 1; arr1[1] = 2; arr1[2] = 3;
+    arr2[0] = 1; arr2[1] = 2; arr2[2] = 3;
+    arr3[0] = 1; arr3[1] = 2; arr3[2] = 9;
     
     std::cout << "arr1 == arr2: " << (arr1 == arr2 ? "true" : "false") << std::endl;
     std::cout << "arr1 == arr3: " << (arr1 == arr3 ? "true" : "false") << std::endl;
@@ -613,8 +613,8 @@ int main() {
     StaticArray<int, 3> arr1;
     StaticArray<int, 3> arr2;
     
-    arr1[^0] = 1; arr1[^1] = 2; arr1[^2] = 3;
-    arr2[^0] = 1; arr2[^1] = 2; arr2[^2] = 9;
+    arr1[0] = 1; arr1[1] = 2; arr1[2] = 3;
+    arr2[0] = 1; arr2[1] = 2; arr2[2] = 9;
     
     std::cout << "arr1 != arr2: " << (arr1 != arr2 ? "true" : "false") << std::endl;
     
@@ -648,8 +648,8 @@ int main() {
     StaticArray<int, 3> arr1;
     StaticArray<int, 3> arr2;
     
-    arr1[^0] = 1; arr1[^1] = 2; arr1[^2] = 3;
-    arr2[^0] = 1; arr2[^1] = 2; arr2[^2] = 5;
+    arr1[0] = 1; arr1[1] = 2; arr1[2] = 3;
+    arr2[0] = 1; arr2[1] = 2; arr2[2] = 5;
     
     std::cout << "arr1 < arr2: " << (arr1 < arr2 ? "true" : "false") << std::endl;
     std::cout << "arr2 < arr1: " << (arr2 < arr1 ? "true" : "false") << std::endl;
@@ -688,8 +688,8 @@ int main() {
     StaticArray<int, 3> arr1;
     StaticArray<int, 3> arr2;
     
-    arr1[^0] = 1; arr1[^1] = 2; arr1[^2] = 3;
-    arr2[^0] = 1; arr2[^1] = 2; arr2[^2] = 3;
+    arr1[0] = 1; arr1[1] = 2; arr1[2] = 3;
+    arr2[0] = 1; arr2[1] = 2; arr2[2] = 3;
     
     std::cout << "arr1 <= arr2: " << (arr1 <= arr2 ? "true" : "false") << std::endl;
     std::cout << "arr1 >= arr2: " << (arr1 >= arr2 ? "true" : "false") << std::endl;
@@ -723,9 +723,9 @@ const T* data_ptr() const {
 ```cpp
 int main() {
     StaticArray<int, 5> arr;
-    arr[^0] = 10;
-    arr[^1] = 20;
-    arr[^2] = 30;
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
     
     int* ptr = arr.data_ptr();
     
@@ -779,12 +779,12 @@ int main() {
     
     // Basic functionality
     StaticArray<int, 6> arr;
-    arr[^0] = 5;
-    arr[^1] = 2;
-    arr[^2] = 8;
-    arr[^3] = 1;
-    arr[^4] = 9;
-    arr[^5] = 3;
+    arr[0] = 5;
+    arr[1] = 2;
+    arr[2] = 8;
+    arr[3] = 1;
+    arr[4] = 9;
+    arr[5] = 3;
     
     std::cout << "Test 1: Initial array\n";
     for (const auto& elem : arr) {
@@ -812,16 +812,16 @@ int main() {
     StaticArray<int, 6> arr2;
     arr2.fill(99);
     
-    std::cout << "Before: arr[^0]=" << arr[^0] << ", arr2[^0]=" << arr2[^0] << std::endl;
+    std::cout << "Before: arr[0]=" << arr[0] << ", arr2[0]=" << arr2[0] << std::endl;
     arr.swap(arr2);
-    std::cout << "After:  arr[^0]=" << arr[^0] << ", arr2[^0]=" << arr2[^0] << "\n\n";
+    std::cout << "After:  arr[0]=" << arr[0] << ", arr2[0]=" << arr2[0] << "\n\n";
     
     // Comparison operators
     std::cout << "Test 5: Comparison\n";
     StaticArray<int, 3> a1, a2, a3;
-    a1[^0] = 1; a1[^1] = 2; a1[^2] = 3;
-    a2[^0] = 1; a2[^1] = 2; a2[^2] = 3;
-    a3[^0] = 1; a3[^1] = 2; a3[^2] = 9;
+    a1[0] = 1; a1[1] = 2; a1[2] = 3;
+    a2[0] = 1; a2[1] = 2; a2[2] = 3;
+    a3[0] = 1; a3[1] = 2; a3[2] = 9;
     
     std::cout << "a1 == a2: " << (a1 == a2) << std::endl;
     std::cout << "a1 != a3: " << (a1 != a3) << std::endl;

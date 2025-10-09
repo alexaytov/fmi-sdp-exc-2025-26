@@ -116,7 +116,7 @@ void clear() {
 
 ```cpp
 T& front() {
-    return data[^0];
+    return data[0];
 }
 
 T& back() {
