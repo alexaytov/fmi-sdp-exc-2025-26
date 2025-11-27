@@ -12,4 +12,49 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Home') focusCard(0);
     if (e.key === 'End') focusCard(cards.length - 1);
   });
+
+  // Dynamically compute correct base prefix for links (local vs GitHub Pages)
+  const repoPrefix = '/fmi-sdp-exc-2025-26/';
+  const isFile = window.location.protocol === 'file:';
+  const path = window.location.pathname;
+  const inPages = !isFile && path.startsWith(repoPrefix);
+  // Local dev: if served from repo root (e.g., http://localhost:8000/), docs index is at /docs/
+  // Use '/' as base. If served from within /docs/, use '../' to go up to repo root.
+  const localPrefix = (function() {
+    if (isFile) return '../'; // navigate from docs/ up to repo root on file://
+    if (path.endsWith('/docs/') || path.endsWith('/docs/index.html')) return '/';
+    if (path.endsWith('/index.html') || path === '/') return '/';
+    // If opened directly under /docs via a local server
+    if (path.includes('/docs/')) return '../';
+    return '/';
+  })();
+
+  const base = inPages ? repoPrefix : localPrefix;
+  const links = document.querySelectorAll('a.link-dynamic[data-path]');
+  links.forEach(a => {
+    const target = a.getAttribute('data-path');
+    // Encode each segment for both HTTP and file:// to handle spaces and '+' correctly
+    const encoded = target.split('/').map(encodeURIComponent).join('/');
+    a.setAttribute('href', `${base}${encoded}`);
+  });
+
+  // Optional: hide buttons if target 404s (skip on file:// to avoid errors)
+  if (!isFile) {
+    links.forEach(async a => {
+      const href = a.getAttribute('href');
+      try {
+        const res = await fetch(href, { method: 'HEAD' });
+        if (!res.ok) {
+          a.style.display = 'none';
+        }
+      } catch {
+        // Ignore network/CORS errors on local dev
+      }
+    });
+  }
+
+  // Minimal debug to aid troubleshooting without noise
+  if (window.console && console.debug) {
+    console.debug('[docs] base prefix:', base, 'inPages:', inPages, 'isFile:', isFile);
+  }
 });
