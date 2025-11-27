@@ -14,10 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Dynamically compute correct base prefix for links (local vs GitHub Pages)
-  const repoPrefix = '/fmi-sdp-exc-2025-26/';
   const isFile = window.location.protocol === 'file:';
   const path = window.location.pathname;
-  const inPages = !isFile && path.startsWith(repoPrefix);
+  // GitHub Pages project sites live at /<owner>/<repo>/...
+  const segments = path.split('/').filter(Boolean);
+  const pagesPrefix = segments.length >= 2 ? `/${segments[0]}/${segments[1]}/` : '/';
+  const inPages = !isFile && path.startsWith(pagesPrefix);
   // Local dev: if served from repo root (e.g., http://localhost:8000/), docs index is at /docs/
   // Use '/' as base. If served from within /docs/, use '../' to go up to repo root.
   const localPrefix = (function() {
@@ -29,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return '/';
   })();
 
-  const base = inPages ? repoPrefix : localPrefix;
+  const base = inPages ? pagesPrefix : localPrefix;
   const links = document.querySelectorAll('a.link-dynamic[data-path]');
   links.forEach(a => {
     const target = a.getAttribute('data-path');
