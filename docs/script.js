@@ -23,14 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let base;
   if (isGitHubPages) {
-    // Extract /<owner>/<repo>/ from pathname
-    // Path format on GitHub Pages: /<repo>/docs/index.html or /<repo>/...
-    const segments = path.split('/').filter(Boolean);
-    if (segments.length >= 1) {
-      base = `/${segments[0]}/`; // e.g., /fmi-sdp-exc-2025-26/
-    } else {
-      base = '/';
-    }
+    // GitHub Pages serves from /fmi-sdp-exc-2025-26/docs/ but lecture folders are at repo root
+    // We need to go up one level: from /docs/ to / (repo root)
+    // Use '../' so links go from /fmi-sdp-exc-2025-26/docs/index.html
+    // to /fmi-sdp-exc-2025-26/1. Concepts.../index.html
+    base = '../';
   } else if (isFile) {
     base = '../'; // navigate from docs/ up to repo root on file://
   } else {
