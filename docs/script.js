@@ -15,23 +15,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Dynamically compute correct base prefix for links (local vs GitHub Pages)
   const isFile = window.location.protocol === 'file:';
+  const hostname = window.location.hostname;
   const path = window.location.pathname;
-  // GitHub Pages project sites live at /<owner>/<repo>/...
-  const segments = path.split('/').filter(Boolean);
-  const pagesPrefix = segments.length >= 2 ? `/${segments[0]}/${segments[1]}/` : '/';
-  const inPages = !isFile && path.startsWith(pagesPrefix);
-  // Local dev: if served from repo root (e.g., http://localhost:8000/), docs index is at /docs/
-  // Use '/' as base. If served from within /docs/, use '../' to go up to repo root.
-  const localPrefix = (function() {
-    if (isFile) return '../'; // navigate from docs/ up to repo root on file://
-    if (path.endsWith('/docs/') || path.endsWith('/docs/index.html')) return '/';
-    if (path.endsWith('/index.html') || path === '/') return '/';
-    // If opened directly under /docs via a local server
-    if (path.includes('/docs/')) return '../';
-    return '/';
-  })();
-
-  const base = inPages ? pagesPrefix : localPrefix;
+  
+  // GitHub Pages detection: github.io domain and path contains repo name
+  const isGitHubPages = hostname.includes('github.io');
+  
+  let base;
+  if (isGitHubPages) {
+    // Extract /<owner>/<repo>/ from pathname
+    // Path format on GitHub Pages: /<repo>/docs/index.html or /<repo>/...
+    const segments = path.split('/').filter(Boolean);
+    if (segments.length >= 1) {
+      base = `/${segments[0]}/`; // e.g., /fmi-sdp-exc-2025-26/
+    } else {
+      base = '/';
+    }
+  } else if (isFile) {
+    base = '../'; // navigate from docs/ up to repo root on file://
+  } else {
+    // Local dev server
+    if (path.endsWith('/docs/') || path.endsWith('/docs/index.html')) {
+      base = '/';
+    } else if (path.includes('/docs/')) {
+      base = '../';
+    } else {
+      base = '/';
+    }
+  }
   const links = document.querySelectorAll('a.link-dynamic[data-path]');
   links.forEach(a => {
     const target = a.getAttribute('data-path');
@@ -57,6 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Minimal debug to aid troubleshooting without noise
   if (window.console && console.debug) {
-    console.debug('[docs] base prefix:', base, 'inPages:', inPages, 'isFile:', isFile);
+    console.debug('[docs] base prefix:', base, 'isGitHubPages:', isGitHubPages, 'isFile:', isFile, 'hostname:', hostname);
   }
 });
