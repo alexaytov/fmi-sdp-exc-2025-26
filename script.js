@@ -23,24 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let base;
   if (isGitHubPages) {
-    // GitHub Pages serves from /fmi-sdp-exc-2025-26/docs/ but lecture folders are at repo root
-    // Current: /fmi-sdp-exc-2025-26/docs/index.html
-    // Target:  /fmi-sdp-exc-2025-26/1. Concepts.../index.html
-    // Extract repo name and use absolute path from root
+    // GitHub Pages now serves from repo root
+    // Both index.html and lecture folders are at same level
     const segments = path.split('/').filter(Boolean);
     const repoName = segments[0]; // 'fmi-sdp-exc-2025-26'
     base = `/${repoName}/`;
   } else if (isFile) {
-    base = '../'; // navigate from docs/ up to repo root on file://
+    base = './'; // same directory for file://
   } else {
-    // Local dev server
-    if (path.endsWith('/docs/') || path.endsWith('/docs/index.html')) {
-      base = '/';
-    } else if (path.includes('/docs/')) {
-      base = '../';
-    } else {
-      base = '/';
-    }
+    // Local dev server from repo root
+    base = '/';
   }
   const links = document.querySelectorAll('a.link-dynamic[data-path]');
   links.forEach(a => {
