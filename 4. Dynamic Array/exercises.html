@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Динамичен масив в C++ | Упражнения</title>
+    <link rel="stylesheet" href="exercises-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Упражнения: Динамичен масив в C++</h1>
+            <p class="subtitle">Практически задачи за затвърждаване на знанията</p>
+            <div class="meta-badges">
+                <span class="badge badge-exercises">Упражнения</span>
+                <span class="badge badge-cpp">C++</span>
+                <span class="badge badge-practice">Практика</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="sticky-nav">
+        <a href="index.html">← Обратно към лекцията</a>
+        <a href="#easy">Лесни</a>
+        <a href="#medium">Средни</a>
+        <a href="#medium-hard">Средно-трудни</a>
+        <a href="#hard">Трудни</a>
+        <a href="#answers">Отговори</a>
+    </nav>
+
+    <main class="container">
+        <!-- Introduction -->
+        <section id="intro" class="content-section">
+            <div class="box box-info">
+                <h3>📚 За тези упражнения</h3>
+                <p>Тези упражнения са разделени на четири нива на трудност и имат за цел да затвърдят вашите знания за динамичните масиви в C++. Започнете с лесните задачи и постепенно преминете към по-трудните.</p>
+            </div>
+
+            <div class="difficulty-legend">
+                <h3>Легенда на трудността:</h3>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <span class="difficulty-badge easy">EASY</span>
+                        <span>Основни концепции и теория</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="difficulty-badge medium">MEDIUM</span>
+                        <span>Анализ и разбиране на код</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="difficulty-badge medium-hard">MEDIUM-HARD</span>
+                        <span>Приложение и имплементация</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="difficulty-badge hard">HARD</span>
+                        <span>Напреднали концепции и оптимизация</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Easy Exercises -->
+        <section id="easy" class="content-section">
+            <h2>🟢 Лесни упражнения</h2>
+            <p class="section-description">Основни концепции и теоретични въпроси</p>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 1</span>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Кое от следните твърдения е <strong>вярно</strong> за статичните масиви в C++?</p>
+                    <ul class="options-list">
+                        <li>A) Размерът им може да се променя по време на изпълнение</li>
+                        <li>B) Заделят памет в heap-а</li>
+                        <li>C) Имат фиксиран размер, определен по време на компилация</li>
+                        <li>D) Използват указатели за достъп до елементи</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 2</span>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Какво е основното <strong>предимство</strong> на динамичните масиви спрямо статичните?</p>
+                    <ul class="options-list">
+                        <li>A) По-бърз достъп до елементи</li>
+                        <li>B) Възможност за автоматично изменение на размера</li>
+                        <li>C) По-малко използване на памет</li>
+                        <li>D) По-проста синтаксис</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 3</span>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> В контекста на динамичните масиви, какво представлява <strong>capacity (капацитет)</strong>?</p>
+                    <ul class="options-list">
+                        <li>A) Броят на текущо съхранените елементи</li>
+                        <li>B) Максималният брой елементи, които могат да бъдат съхранени преди преразпределение</li>
+                        <li>C) Размерът на всеки елемент в байтове</li>
+                        <li>D) Броят на извършените операции push_back</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 4</span>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Коя операция се използва за <strong>освобождаване</strong> на динамично заделена памет в C++?</p>
+                    <ul class="options-list">
+                        <li>A) <code>free()</code> или <code>delete[]</code></li>
+                        <li>B) <code>release()</code></li>
+                        <li>C) <code>clear()</code></li>
+                        <li>D) <code>remove()</code></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 5</span>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Каква е времевата сложност за <strong>достъп по индекс</strong> в динамичен масив?</p>
+                    <ul class="options-list">
+                        <li>A) O(n)</li>
+                        <li>B) O(log n)</li>
+                        <li>C) O(1)</li>
+                        <li>D) O(n²)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 6</span>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Дадена е следната декларация. Къде се разпределя паметта?</p>
+                    <div class="code-example">
+                        <pre><code>int arr[10];</code></pre>
+                    </div>
+                    <ul class="options-list">
+                        <li>A) В heap-а</li>
+                        <li>B) В стека</li>
+                        <li>C) В глобалната памет</li>
+                        <li>D) В регистрите на процесора</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medium Exercises -->
+        <section id="medium" class="content-section">
+            <h2>🟡 Средни упражнения</h2>
+            <p class="section-description">Анализ и разбиране на код</p>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 7</span>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Обяснете с <strong>2-3 изречения</strong> защо капацитетът на динамичен масив обикновено е <strong>по-голям</strong> от текущия размер. Каква е целта на тази стратегия?</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 8</span>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Разгледайте следния код:</p>
+                    <div class="code-example">
+                        <pre><code>DynamicArray arr(2);
+arr.push_back(10);
+arr.push_back(20);
+arr.push_back(30);</code></pre>
+                    </div>
+                    <p>Какъв ще бъде капацитетът след третата операция <code>push_back</code>, ако масивът удвоява капацитета си при преразпределение? Обяснете стъпка по стъпка.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 9</span>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Каква е разликата между <strong>size</strong> и <strong>capacity</strong> в динамичен масив? Дайте конкретен пример със стойности.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 10</span>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Анализирайте следния фрагмент от resize метода:</p>
+                    <div class="code-example">
+                        <pre><code>int* new_data = (int*)malloc(new_capacity * sizeof(int));
+for (int i = 0; i < size; i++) {
+    new_data[i] = data[i];
+}
+free(data);
+data = new_data;</code></pre>
+                    </div>
+                    <p>Каква е <strong>времевата сложност</strong> на този код и защо?</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 11</span>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Защо използването на <code>std::vector</code> е <strong>предпочитано</strong> пред ръчна имплементация на динамичен масив в production код? Посочете поне <strong>3 причини</strong>.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 12</span>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Какво е <strong>RAII</strong> принципът и как се прилага при реализацията на динамичен масив? Дайте пример с конструктор и деструктор.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 13</span>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Напишете <strong>псевдокод</strong> за метод <code>pop_back()</code>, който премахва последния елемент от динамичен масив. Трябва ли да се преразпределя памет?</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 14</span>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Идентифицирайте <strong>грешката</strong> в следния код:</p>
+                    <div class="code-example">
+                        <pre><code>DynamicArray* arr = new DynamicArray(5);
+arr->push_back(10);
+// ... някакъв код
+// програмата завършва</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medium-Hard Exercises -->
+        <section id="medium-hard" class="content-section">
+            <h2>🟠 Средно-трудни упражнения</h2>
+            <p class="section-description">Приложение и имплементация</p>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 15</span>
+                    <span class="difficulty-badge medium-hard">MEDIUM-HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Имплементирайте метод <code>insert(int index, int value)</code>, който вмъква елемент на определена позиция в динамичен масив. Каква е времевата сложност на този метод в най-лошия случай?</p>
+                    <div class="hint-box">
+                        <strong>Hint:</strong> Помислете за това как да преместите елементите след позицията на вмъкване и дали е нужно преразпределение на памет.
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 16</span>
+                    <span class="difficulty-badge medium-hard">MEDIUM-HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Обяснете концепцията за <strong>амортизирана сложност</strong>. Защо операцията <code>push_back</code> има амортизирана O(1) сложност, въпреки че понякога отнема O(n) време?</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 17</span>
+                    <span class="difficulty-badge medium-hard">MEDIUM-HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Напишете функция, която <strong>обединява</strong> два динамични масива в нов масив. Каква стратегия бихте използвали за определяне на началния капацитет?</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 18</span>
+                    <span class="difficulty-badge medium-hard">MEDIUM-HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Сравнете динамичния масив със <strong>свързан списък</strong> по отношение на:</p>
+                    <ul>
+                        <li>Достъп по индекс</li>
+                        <li>Вмъкване в началото</li>
+                        <li>Вмъкване в края</li>
+                        <li>Използване на памет</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hard Exercises -->
+        <section id="hard" class="content-section">
+            <h2>🔴 Трудни упражнения</h2>
+            <p class="section-description">Напреднали концепции и оптимизация</p>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 19</span>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Напишете пълна имплементация на метод <code>shrink_to_fit()</code>, който намалява капацитета на динамичен масив до текущия размер. Кога използването на такъв метод е <strong>оправдано</strong>?</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 20</span>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Разгледайте следната модификация на resize стратегията: вместо да удвоява капацитета, масивът го увеличава с коефициент <strong>1.5</strong>.</p>
+                    <ul>
+                        <li>Какви са предимствата и недостатъците на този подход?</li>
+                        <li>Изчислете колко пъти ще се извърши преразпределение при добавяне на 100 елемента при начален капацитет 4 (за коефициент 1.5 и коефициент 2).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 21</span>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Имплементирайте <strong>generic</strong> (шаблонен) клас <code>DynamicArray&lt;T&gt;</code>, който работи с произволен тип данни, не само с <code>int</code>. Какви допълнителни предизвикателства възникват?</p>
+                    <div class="hint-box">
+                        <strong>Hint:</strong> Помислете за конструктори, копиране, преместване и управление на паметта за сложни типове.
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 22</span>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Анализирайте <strong>пространствената сложност</strong> на динамичен масив с коефициент на растеж 2. В най-лошия случай, каква е максималната неизползвана памет като процент от общата заделена памет?</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 23</span>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Имплементирайте метод <code>reserve(int new_capacity)</code>, подобен на <code>std::vector::reserve()</code>, който <strong>предварително</strong> заделя капацитет. Защо такъв метод може да подобри производителността?</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 24</span>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Представете си, че работите със <strong>системи с ограничена памет</strong> (embedded systems). Каква алтернативна стратегия за растеж бихте предложили вместо експоненциално удвояване? Обосновете отговора си.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-number">Упражнение 25</span>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Напишете функция <code>benchmark()</code>, която <strong>измерва времето</strong> за добавяне на 1 милион елемента в:</p>
+                    <ol>
+                        <li>Динамичен масив с начален капацитет 1</li>
+                        <li>Динамичен масив с предварително резервиран капацитет 1000000</li>
+                        <li><code>std::vector</code> без резервация</li>
+                    </ol>
+                    <p>Обяснете разликите в производителността.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Answers Section -->
+        <section id="answers" class="content-section">
+            <h2>📝 Отговори и насоки</h2>
+
+            <div class="box box-info">
+                <h3>ℹ️ Забележка</h3>
+                <p>По-долу ще намерите отговори на някои от задачите. За останалите се насърчава самостоятелно мислене и обсъждане с колеги.</p>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-header">
+                    <strong>Упражнение 1:</strong> <span class="correct-answer">C</span>
+                </div>
+                <p>Статичните масиви имат фиксиран размер, определен по време на компилация.</p>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-header">
+                    <strong>Упражнение 2:</strong> <span class="correct-answer">B</span>
+                </div>
+                <p>Основното предимство е възможността за автоматично изменение на размера.</p>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-header">
+                    <strong>Упражнение 3:</strong> <span class="correct-answer">B</span>
+                </div>
+                <p>Капацитетът е максималният брой елементи преди преразпределение.</p>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-header">
+                    <strong>Упражнение 4:</strong> <span class="correct-answer">A</span>
+                </div>
+                <p>Използват се <code>free()</code> или <code>delete[]</code> за освобождаване на динамична памет.</p>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-header">
+                    <strong>Упражнение 5:</strong> <span class="correct-answer">C</span>
+                </div>
+                <p>Достъпът по индекс е O(1) - константно време.</p>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-header">
+                    <strong>Упражнение 6:</strong> <span class="correct-answer">B</span>
+                </div>
+                <p>Статичните масиви се разпределят в стека.</p>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-header">
+                    <strong>Упражнение 7:</strong>
+                </div>
+                <p>Капацитетът е по-голям от размера, за да се избегнат чести операции по преразпределение на памет, които са скъпи (O(n)). Това позволява добавяне на нови елементи без веднага да се налага копиране на цялата структура.</p>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-header">
+                    <strong>Упражнение 8:</strong>
+                </div>
+                <ul>
+                    <li>Начало: capacity=2, size=0</li>
+                    <li>След push_back(10): size=1, capacity=2</li>
+                    <li>След push_back(20): size=2, capacity=2</li>
+                    <li>При push_back(30): size==capacity → resize → новия capacity=4</li>
+                    <li><strong>Резултат:</strong> size=3, capacity=4</li>
+                </ul>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-header">
+                    <strong>Упражнение 10:</strong>
+                </div>
+                <p>Времевата сложност е <strong>O(n)</strong>, където n е size, защото се копират всички съществуващи елементи от стария масив в новия.</p>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-header">
+                    <strong>Упражнение 14:</strong>
+                </div>
+                <p><strong>Memory leak</strong> - обектът се създава с <code>new</code>, но никъде не се извиква <code>delete</code>. Трябва <code>delete arr;</code> преди края на програмата.</p>
+            </div>
+
+            <div class="box box-success">
+                <h3>💡 Съвет за учене</h3>
+                <p>Най-добрият начин да научите тези концепции е да имплементирате собствен динамичен масив от нулата. Опитайте да напишете пълна имплементация, тествайте я и сравнете поведението с <code>std::vector</code>.</p>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section class="practice-section">
+            <h2>🚀 Следващи стъпки</h2>
+            <div class="practice-cards">
+                <div class="practice-card">
+                    <h3>1. Имплементирайте</h3>
+                    <p>Напишете собствена пълна имплементация на динамичен масив с всички методи.</p>
+                </div>
+                <div class="practice-card">
+                    <h3>2. Тествайте</h3>
+                    <p>Създайте unit тестове за вашата имплементация и проверете всички случаи.</p>
+                </div>
+                <div class="practice-card">
+                    <h3>3. Сравнете</h3>
+                    <p>Сравнете производителността на вашата имплементация с <code>std::vector</code>.</p>
+                </div>
+                <div class="practice-card">
+                    <h3>4. Разширете</h3>
+                    <p>Добавете допълнителни методи като <code>insert</code>, <code>erase</code>, <code>reserve</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="back-to-lecture">
+            <a href="index.html" class="btn-primary">← Обратно към лекцията</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 FMI СДП - Курс по структури от данни и програмиране</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cpp.min.js"></script>
+    <script src="exercises-script.js"></script>
+</body>
+</html>

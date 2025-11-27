@@ -1,0 +1,484 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --info-color: #06b6d4;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --gray: #64748b;
+    --gray-light: #e2e8f0;
+    --code-bg: #f1f5f9;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.7;
+    color: var(--dark);
+    background-color: var(--light);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.meta-badges {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.badge-exercises {
+    background-color: rgba(16, 185, 129, 0.3);
+}
+
+.badge-cpp {
+    background-color: rgba(239, 68, 68, 0.3);
+}
+
+.badge-practice {
+    background-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Sticky Navigation */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    z-index: 100;
+}
+
+.sticky-nav a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.sticky-nav a:hover,
+.sticky-nav a.active {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Content Sections */
+.content-section {
+    margin-bottom: 4rem;
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-section h2 {
+    font-size: 2.2rem;
+    color: var(--warning-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--warning-color);
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+/* Boxes */
+.box {
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin: 1.5rem 0;
+    border-left: 4px solid;
+    background-color: white;
+    box-shadow: var(--box-shadow);
+}
+
+.box h3 {
+    margin-top: 0;
+}
+
+.box-info {
+    border-left-color: var(--info-color);
+    background-color: rgba(6, 182, 212, 0.05);
+}
+
+.box-success {
+    border-left-color: var(--success-color);
+    background-color: rgba(16, 185, 129, 0.05);
+}
+
+/* Difficulty Legend */
+.difficulty-legend {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin: 2rem 0;
+}
+
+.difficulty-legend h3 {
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+}
+
+.legend-items {
+    display: grid;
+    gap: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Difficulty Badges */
+.difficulty-badge {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.difficulty-badge.easy {
+    background-color: #10b981;
+    color: white;
+}
+
+.difficulty-badge.medium {
+    background-color: #f59e0b;
+    color: white;
+}
+
+.difficulty-badge.medium-hard {
+    background-color: #f97316;
+    color: white;
+}
+
+.difficulty-badge.hard {
+    background-color: #ef4444;
+    color: white;
+}
+
+/* Exercise Cards */
+.exercise-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin: 1.5rem 0;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.exercise-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.exercise-header {
+    background: linear-gradient(135deg, var(--gray-light) 0%, #cbd5e1 100%);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exercise-number {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--dark);
+}
+
+.exercise-content {
+    padding: 1.5rem;
+}
+
+.exercise-content p {
+    margin-bottom: 1rem;
+}
+
+.exercise-content ul {
+    margin: 1rem 0;
+}
+
+/* Options List */
+.options-list {
+    list-style: none;
+    padding: 0;
+}
+
+.options-list li {
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    background-color: var(--light);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--gray-light);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.options-list li:hover {
+    background-color: #e0e7ff;
+    border-left-color: var(--primary-color);
+}
+
+.options-list li code {
+    background-color: var(--code-bg);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Code Example */
+.code-example {
+    background-color: var(--code-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border: 1px solid var(--gray-light);
+    overflow-x: auto;
+}
+
+.code-example pre {
+    margin: 0;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.code-example code {
+    color: var(--dark);
+}
+
+/* Hint Box */
+.hint-box {
+    background-color: rgba(6, 182, 212, 0.1);
+    border-left: 4px solid var(--info-color);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: var(--border-radius);
+}
+
+/* Answer Cards */
+.answer-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin: 1rem 0;
+    border-left: 4px solid var(--success-color);
+}
+
+.answer-header {
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+}
+
+.correct-answer {
+    display: inline-block;
+    background-color: var(--success-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-weight: 700;
+    margin-left: 0.5rem;
+}
+
+/* Practice Section */
+.practice-section {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    padding: 3rem 2rem;
+    border-radius: var(--border-radius);
+    margin: 3rem 0;
+}
+
+.practice-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    border: none;
+}
+
+.practice-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.practice-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.practice-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.practice-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Back to Lecture Button */
+.back-to-lecture {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .sticky-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .sticky-nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .content-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .exercise-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .practice-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--warning-color), var(--danger-color));
+    z-index: 1000;
+    transition: width 0.1s ease;
+}
+
+/* Print Styles */
+@media print {
+    .sticky-nav,
+    .back-to-lecture,
+    footer {
+        display: none;
+    }
+
+    .exercise-card {
+        page-break-inside: avoid;
+    }
+}

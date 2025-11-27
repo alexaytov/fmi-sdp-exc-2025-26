@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BST - Упражнения</title>
+    <link rel="stylesheet" href="exercises-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>🌳 Бинарни Дървета за Търсене</h1>
+            <p class="subtitle">Прогресивен Набор от Упражнения</p>
+            <div class="meta-info">
+                <span class="badge badge-easy">25 Задачи</span>
+                <span class="badge badge-primary">Easy → Hard</span>
+                <span class="badge badge-accent">C++ Практика</span>
+            </div>
+            <div class="progress-section">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p class="progress-text" id="progressText">Напредък: 0 от 25 задачи</p>
+                <button class="reset-progress-btn" id="resetProgress" title="Изчисти прогреса и започни отначало">🔄 Изчисти прогрес</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="nav-bar" id="navbar">
+        <div class="nav-content">
+            <a href="#overview" class="nav-link active">Въведение</a>
+            <a href="#easy" class="nav-link">Easy</a>
+            <a href="#easy-medium" class="nav-link">Easy-Medium</a>
+            <a href="#medium" class="nav-link">Medium</a>
+            <a href="#medium-hard" class="nav-link">Medium-Hard</a>
+            <a href="#hard" class="nav-link">Hard</a>
+            <a href="#answer-key" class="nav-link">Обобщение</a>
+            <a href="index.html" class="nav-link" title="Към лекцията">Лекция</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Въведение -->
+        <section id="overview" class="intro-section" aria-labelledby="intro-heading">
+            <h2 id="intro-heading">📋 За Упражненията</h2>
+            <div class="box-info">
+                <p>Този набор от упражнения прогресира от базови концепции до сложен анализ и дизайн. Студентите ще могат да:</p>
+                <ul>
+                    <li>Идентифицират и верифицират BST свойства (Упражнения 1-5)</li>
+                    <li>Проследяват и предсказват дървовидни операции (Упражнения 6-10)</li>
+                    <li>Имплементират основни функции (Упражнения 11-15)</li>
+                    <li>Обработват сложни сценарии като изтриване (Упражнения 16-18)</li>
+                    <li>Анализират сложност и проектират решения (Упражнения 19-25)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- EASY LEVEL -->
+        <section id="easy" class="section">
+            <h2>🟢 EASY LEVEL - Фундаментални Концепции</h2>
+
+            <div class="exercise" data-exercise="1">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex1" aria-label="Маркирай като завършено">
+                        <label for="ex1" class="exercise-number">Упражнение 1</label>
+                    </div>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Кое от следните твърдения описва правилно свойството на Binary Search Tree (BST)?</p>
+                    <ul class="options-list">
+                        <li>A) Всички леви деца трябва да бъдат листа</li>
+                        <li>B) За всеки възел, всички стойности в лявото му поддърво са по-малки от стойността на възела, а всички стойности в дясното поддърво са по-големи</li>
+                        <li>C) Дървото трябва да бъде перфектно балансирано</li>
+                        <li>D) Родителските възли винаги имат точно две деца</li>
+                    </ul>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <p><strong>Отговор: B</strong></p>
+                            <p>BST свойството изисква всички стойности в лявото поддърво да са по-малки от корена, а всички в дясното - по-големи. Това е рекурсивно вярно за всяко поддърво.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise" data-exercise="2">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex2" aria-label="Маркирай като завършено">
+                        <label for="ex2" class="exercise-number">Упражнение 2</label>
+                    </div>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Дадено е следното дърво, идентифицирайте дали е валидно BST:</p>
+                    <div class="code-block-wrapper">
+                        <button class="copy-btn" data-copy="    10\n   /  \\\n  5    15\n / \\   / \\\n3  7  12 20">📋 Копирай</button>
+                        <pre><code>    10
+   /  \
+  5    15
+ / \   / \
+3  7  12 20</code></pre>
+                    </div>
+                    <p>Отговор: Да или Не, и обяснете защо.</p>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <p><strong>Отговор: ДА</strong></p>
+                            <p><strong>Обяснение:</strong> Проверка на всеки възел:</p>
+                            <ul>
+                                <li>3 &lt; 5 &lt; 7 (ляво поддърво на 10) ✓</li>
+                                <li>12 &lt; 15 &lt; 20 (дясно поддърво на 10) ✓</li>
+                                <li>Всички стойности наляво от 10 (3, 5, 7) &lt; 10 ✓</li>
+                                <li>Всички стойности надясно от 10 (12, 15, 20) &gt; 10 ✓</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex3" aria-label="Маркирай като завършено">
+                        <label for="ex3" class="exercise-number">Упражнение 3</label>
+                    </div>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Какъв е изходът от inorder обхождане на BST от Упражнение 2? Напишете последователността от стойности.</p>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <p><strong>Отговор:</strong> 3 5 7 10 12 15 20</p>
+                            <p><strong>Обяснение:</strong> Inorder обхождане (ляво→възел→дясно) винаги произвежда сортиран изход за BST.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex4" aria-label="Маркирай като завършено">
+                        <label for="ex4" class="exercise-number">Упражнение 4</label>
+                    </div>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> В следната C++ TreeNode структура, идентифицирайте какво представлява всеки член:</p>
+                    <pre><code class="language-cpp">class TreeNode {
+public:
+    int value;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int val) : value(val), left(nullptr), right(nullptr) {}
+};</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <ul>
+                                <li><strong>value:</strong> Стойността (ключът) на възела</li>
+                                <li><strong>left:</strong> Указател към лявото дете</li>
+                                <li><strong>right:</strong> Указател към дясното дете</li>
+                                <li><strong>TreeNode(int val):</strong> Конструктор, който инициализира стойността и поставя децата на nullptr</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex5" aria-label="Маркирай като завършено">
+                        <label for="ex5" class="exercise-number">Упражнение 5</label>
+                    </div>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Кой метод за обхождане (inorder, preorder или postorder) би произвел сортирана последователност от стойности от BST?</p>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <p><strong>Отговор: Inorder</strong></p>
+                            <p>Inorder обхождане (ляво→възел→дясно) винаги произвежда сортиран изход за BST благодарение на BST свойството за подредба.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex6" aria-label="Маркирай като завършено">
+                        <label for="ex6" class="exercise-number">Упражнение 6</label>
+                    </div>
+                    <span class="difficulty-badge easy">EASY</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Ако вмъкнеш стойностите 5, 3, 7, 1, 9 в този ред в първоначално празно BST, нарисувай получената структура на дървото.</p>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <pre><code>    5
+   / \
+  3   7
+ /     \
+1       9</code></pre>
+                            <p><strong>Обяснение на вмъкването:</strong></p>
+                            <ol>
+                                <li>5 става корен</li>
+                                <li>3 &lt; 5 → отива наляво от 5</li>
+                                <li>7 &gt; 5 → отива надясно от 5</li>
+                                <li>1 &lt; 5, 1 &lt; 3 → отива наляво от 3</li>
+                                <li>9 &gt; 5, 9 &gt; 7 → отива надясно от 7</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EASY-MEDIUM LEVEL -->
+        <section id="easy-medium" class="section">
+            <h2>🟡 EASY-MEDIUM LEVEL - Основни Операции</h2>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex7" aria-label="Маркирай като завършено">
+                        <label for="ex7" class="exercise-number">Упражнение 7</label>
+                    </div>
+                    <span class="difficulty-badge easy-medium">EASY-MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Попълни липсващия базов случай в тази функция за търсене:</p>
+                    <pre><code class="language-cpp">node* search(node* root, int key) {
+    // Попълни базовия случай тук
+    if (key < root->key)
+        return search(root->left, key);
+    else
+        return search(root->right, key);
+}</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <div class="code-block-wrapper">
+                        <button class="copy-btn">📋 Копирай</button>
+                        <pre><code class="language-cpp">node* search(node* root, int key) {
+    // Базови случаи: празно дърво или намерен възел
+    if (!root || root->key == key) 
+        return root;
+    
+    if (key < root->key)
+        return search(root->left, key);
+    else
+        return search(root->right, key);
+}</code></pre>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex8" aria-label="Маркирай като завършено">
+                        <label for="ex8" class="exercise-number">Упражнение 8</label>
+                    </div>
+                    <span class="difficulty-badge easy-medium">EASY-MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Каква е времевата сложност на търсенето на стойност в балансирано BST с n възела? А в напълно изкривено (unbalanced) BST?</p>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <ul>
+                                <li><strong>Балансирано BST:</strong> O(log n)</li>
+                                <li><strong>Изкривено BST:</strong> O(n)</li>
+                            </ul>
+                            <p><strong>Обяснение:</strong> В балансирано дърво височината е ~log n, а в изкривено (например свързан списък) височината е n.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex9" aria-label="Маркирай като завършено">
+                        <label for="ex9" class="exercise-number">Упражнение 9</label>
+                    </div>
+                    <span class="difficulty-badge easy-medium">EASY-MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Дадено е това BST, проследи пътя, когато търсиш стойността 12:</p>
+                    <pre><code>    15
+   /  \
+  10   20
+ / \   / \
+5  12 18 25</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <p><strong>Път: 15 → 10 → 12</strong></p>
+                            <ol>
+                                <li>Започни от корен (15): 12 &lt; 15 → отиди наляво</li>
+                                <li>При 10: 12 &gt; 10 → отиди надясно</li>
+                                <li>При 12: намерено! Върни възела</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex10" aria-label="Маркирай като завършено">
+                        <label for="ex10" class="exercise-number">Упражнение 10</label>
+                    </div>
+                    <span class="difficulty-badge easy-medium">EASY-MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Коя от следните последователности би създала изкривено BST, ако се вмъкне по ред?</p>
+                    <ul class="options-list">
+                        <li>A) 5, 3, 7, 2, 8</li>
+                        <li>B) 1, 2, 3, 4, 5</li>
+                        <li>C) 4, 2, 6, 1, 3</li>
+                        <li>D) 10, 5, 15, 3, 7</li>
+                    </ul>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <p><strong>Отговор: B (1, 2, 3, 4, 5)</strong></p>
+                            <p>Вмъкването на сортирани данни създава напълно изкривено дърво:</p>
+                            <pre><code>1
+ \
+  2
+   \
+    3
+     \
+      4
+       \
+        5</code></pre>
+                            <p>Това е ефективно свързан списък с O(n) операции.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEDIUM LEVEL -->
+        <section id="medium" class="section">
+            <h2>🟠 MEDIUM LEVEL - Имплементация и Анализ</h2>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex11" aria-label="Маркирай като завършено">
+                        <label for="ex11" class="exercise-number">Упражнение 11</label>
+                    </div>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Напиши итеративната версия на функцията за търсене в BST. Твоята функция трябва да връща указател към възела, ако е намерен, или nullptr, ако не е.</p>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи подсказка</button>
+                        <div class="hint-content">
+                            <p>Използвай while цикъл вместо рекурсия. Обходи дървото, като сравняваш key с текущия възел.</p>
+                        </div>
+                    </div>
+                    <div class="hint-box">
+                        <button class="hint-btn">✅ Покажи решение</button>
+                        <div class="hint-content">
+                            <div class="code-block-wrapper">
+                        <button class="copy-btn">📋 Копирай</button>
+                        <pre><code class="language-cpp">node* searchIterative(node* root, int key) {
+    node* current = root;
+    
+    while (current != nullptr) {
+        if (current->key == key)
+            return current;  // Намерено
+        else if (key < current->key)
+            current = current->left;   // Търси наляво
+        else
+            current = current->right;  // Търси надясно
+    }
+    
+    return nullptr;  // Не е намерено
+}</code></pre>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex12" aria-label="Маркирай като завършено">
+                        <label for="ex12" class="exercise-number">Упражнение 12</label>
+                    </div>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Разгледай тази последователност за вмъкване в празно BST: 50, 30, 70, 20, 40, 60, 80</p>
+                    <p>а) Нарисувай получените дърво</p>
+                    <p>б) Каква е височината на това дърво?</p>
+                    <p>в) Колко листа има?</p>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <p><strong>а) Дървото:</strong></p>
+                            <pre><code>       50
+      /  \
+    30    70
+   / \   / \
+  20 40 60 80</code></pre>
+                            <p><strong>б) Височина:</strong> 2 (броят на ребрата от корен до най-дълбокото листо)</p>
+                            <p><strong>в) Листа:</strong> 4 (възли 20, 40, 60, 80)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex13" aria-label="Маркирай като завършено">
+                        <label for="ex13" class="exercise-number">Упражнение 13</label>
+                    </div>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Въпрос:</strong> Обясни какво би се случило, ако се опиташ да изтриеш възел със стойност 30 от това BST. Кой случай (листо, едно дете, две деца) се прилага?</p>
+                    <pre><code>    50
+   /  \
+  30   70
+ / \
+20 40</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <p><strong>Случай: Възел с две деца</strong></p>
+                            <p><strong>Процес:</strong></p>
+                            <ol>
+                                <li>Намери inorder successor на 30 (най-малката стойност в дясното поддърво) = 40</li>
+                                <li>Замести стойността на 30 с 40</li>
+                                <li>Изтрий оригиналния възел 40 (който има 0 деца)</li>
+                            </ol>
+                            <p><strong>Резултат:</strong></p>
+                            <pre><code>    50
+   /  \
+  40   70
+ /
+20</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex14" aria-label="Маркирай като завършено">
+                        <label for="ex14" class="exercise-number">Упражнение 14</label>
+                    </div>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Имплементирай функция <code>findMax()</code>, която връща максималната стойност в BST:</p>
+                    <pre><code class="language-cpp">node* findMax(node* root) {
+    // Твоята имплементация тук
+}</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи подсказка</button>
+                        <div class="hint-content">
+                            <p>В BST максималната стойност винаги е в най-дясния възел.</p>
+                        </div>
+                    </div>
+                    <div class="hint-box">
+                        <button class="hint-btn">✅ Покажи решение</button>
+                        <div class="hint-content">
+                            <div class="code-block-wrapper">
+                        <button class="copy-btn">📋 Копирай</button>
+                        <pre><code class="language-cpp">// Итеративна версия
+node* findMax(node* root) {
+    if (!root) return nullptr;
+    
+    while (root->right != nullptr) {
+        root = root->right;
+    }
+    
+    return root;
+}
+
+// Рекурсивна версия
+node* findMaxRecursive(node* root) {
+    if (!root) return nullptr;
+    if (!root->right) return root;
+    return findMaxRecursive(root->right);
+}</code></pre>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex15" aria-label="Маркирай като завършено">
+                        <label for="ex15" class="exercise-number">Упражнение 15</label>
+                    </div>
+                    <span class="difficulty-badge medium">MEDIUM</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача за дебъгване:</strong> Идентифицирай и поправи грешката в тази функция за вмъкване:</p>
+                    <pre><code class="language-cpp">node* insert(node* root, int key) {
+    if (!root) return new node{key, nullptr, nullptr};
+    if (key < root->key)
+        insert(root->left, key);  // Грешка тук
+    else
+        insert(root->right, key); // Грешка тук
+    return root;
+}</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <p><strong>Проблем:</strong> Резултатът от рекурсивното извикване не се присвоява обратно на указателите left/right.</p>
+                            <p><strong>Поправено:</strong></p>
+                            <div class="code-block-wrapper">
+                        <button class="copy-btn">📋 Копирай</button>
+                        <pre><code class="language-cpp">node* insert(node* root, int key) {
+    if (!root) return new node{key, nullptr, nullptr};
+    if (key < root->key)
+        root->left = insert(root->left, key);   // ✅ Присвоява се
+    else
+        root->right = insert(root->right, key); // ✅ Присвоява се
+    return root;
+}</code></pre>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEDIUM-HARD LEVEL -->
+        <section id="medium-hard" class="section">
+            <h2>🔴 MEDIUM-HARD LEVEL - Сложни Операции</h2>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex16" aria-label="Маркирай като завършено">
+                        <label for="ex16" class="exercise-number">Упражнение 16</label>
+                    </div>
+                    <span class="difficulty-badge medium-hard">MEDIUM-HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Имплементирай функция за преброяване на общия брой възли в BST:</p>
+                    <pre><code class="language-cpp">int countNodes(node* root) {
+    // Твоята имплементация тук
+}</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">✅ Покажи решение</button>
+                        <div class="hint-content">
+                            <div class="code-block-wrapper">
+                        <button class="copy-btn">📋 Копирай</button>
+                        <pre><code class="language-cpp">int countNodes(node* root) {
+    // Базов случай: празно дърво
+    if (!root) return 0;
+    
+    // Рекурсивно: 1 (текущ възел) + възли отляво + възли отдясно
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}</code></pre>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex17" aria-label="Маркирай като завършено">
+                        <label for="ex17" class="exercise-number">Упражнение 17</label>
+                    </div>
+                    <span class="difficulty-badge medium-hard">MEDIUM-HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Дадено е следното BST, ръчно извърши изтриването на възел 50 (който има две деца) използвайки метода на inorder successor. Покажи всяка стъпка:</p>
+                    <pre><code>      50
+     /  \
+   30    70
+  / \   / \
+20 40 60 80
+       \
+       65</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи решение</button>
+                        <div class="hint-content">
+                            <p><strong>Стъпки:</strong></p>
+                            <ol>
+                                <li><strong>Намери inorder successor:</strong> Най-малката стойност в дясното поддърво на 50 → отиди надясно към 70, после наляво докрай → намираме 60</li>
+                                <li><strong>Замести:</strong> Копирай стойността 60 в позицията на 50</li>
+                                <li><strong>Изтрий successor:</strong> Изтрий оригиналния възел 60 (който има едно дясно дете 65)</li>
+                            </ol>
+                            <p><strong>Резултат:</strong></p>
+                            <pre><code>      60
+     /  \
+   30    70
+  / \   / \
+20 40 65 80</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex18" aria-label="Маркирай като завършено">
+                        <label for="ex18" class="exercise-number">Упражнение 18</label>
+                    </div>
+                    <span class="difficulty-badge medium-hard">MEDIUM-HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Напиши функция, която определя дали бинарно дърво е валидно BST. Имай предвид, че трябва да проверяваш BST свойството за ВСИЧКИ възли, не само за непосредствените деца:</p>
+                    <pre><code class="language-cpp">bool isValidBST(node* root, int minVal, int maxVal) {
+    // Твоята имплементация тук
+}</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи подсказка</button>
+                        <div class="hint-content">
+                            <p>Използвай диапазон [minVal, maxVal] за валидиране. За лявото поддърво, maxVal става стойността на текущия възел. За дясното поддърво, minVal става стойността на текущия възел.</p>
+                        </div>
+                    </div>
+                    <div class="hint-box">
+                        <button class="hint-btn">✅ Покажи решение</button>
+                        <div class="hint-content">
+                            <div class="code-block-wrapper">
+                        <button class="copy-btn">📋 Копирай</button>
+                        <pre><code class="language-cpp">bool isValidBST(node* root, int minVal, int maxVal) {
+    // Базов случай: празно дърво е валидно BST
+    if (!root) return true;
+    
+    // Проверка дали текущата стойност е в валидния диапазон
+    if (root->key <= minVal || root->key >= maxVal)
+        return false;
+    
+    // Рекурсивно проверяваме лявото и дясното поддърво
+    return isValidBST(root->left, minVal, root->key) &&
+           isValidBST(root->right, root->key, maxVal);
+}
+
+// Wrapper функция
+bool isValidBST(node* root) {
+    return isValidBST(root, INT_MIN, INT_MAX);
+}</code></pre>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HARD LEVEL -->
+        <section id="hard" class="section">
+            <h2>⚫ HARD LEVEL - Напреднали Приложения и Анализ</h2>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex19" aria-label="Маркирай като завършено">
+                        <label for="ex19" class="exercise-number">Упражнение 19</label>
+                    </div>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача за анализ:</strong> Анализирай пространствената сложност на рекурсивната функция за вмъкване. Ако вмъкнеш n елемента в BST:</p>
+                    <p>а) Каква е пространствената сложност в най-добрия случай (балансирано дърво)?</p>
+                    <p>б) Каква е пространствената сложност в най-лошия случай (изкривено дърво)?</p>
+                    <p>в) Обясни защо пространствената сложност се различава между тези случаи.</p>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <p><strong>а) Най-добър случай (балансирано):</strong> O(log n)</p>
+                            <p><strong>б) Най-лош случай (изкривено):</strong> O(n)</p>
+                            <p><strong>в) Обяснение:</strong></p>
+                            <ul>
+                                <li>Пространствената сложност идва от стека за рекурсия</li>
+                                <li>Дълбочината на рекурсията = височината на дървото</li>
+                                <li><strong>Балансирано дърво:</strong> Височина h ≈ log n → O(log n) стекови фреймове</li>
+                                <li><strong>Изкривено дърво:</strong> Височина h ≈ n → O(n) стекови фреймове</li>
+                                <li>Всяко рекурсивно извикване добавя фрейм в стека докато не достигне базовия случай</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex20" aria-label="Маркирай като завършено">
+                        <label for="ex20" class="exercise-number">Упражнение 20</label>
+                    </div>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Имплементирай функция за намиране на k-тия най-малък елемент в BST без използване на допълнителна памет за съхранение (подсказка: използвай inorder обхождане с брояч):</p>
+                    <pre><code class="language-cpp">void kthSmallestHelper(node* root, int k, int& count, int& result) {
+    // Твоята имплементация тук
+}
+
+int kthSmallest(node* root, int k) {
+    int count = 0;
+    int result = -1;
+    kthSmallestHelper(root, k, count, result);
+    return result;
+}</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">✅ Покажи решение</button>
+                        <div class="hint-content">
+                            <div class="code-block-wrapper">
+                        <button class="copy-btn">📋 Копирай</button>
+                        <pre><code class="language-cpp">void kthSmallestHelper(node* root, int k, int& count, int& result) {
+    if (!root || result != -1) return;  // Спри ако сме намерили резултата
+    
+    // Inorder: ляво → възел → дясно
+    kthSmallestHelper(root->left, k, count, result);
+    
+    // Обработка на текущия възел
+    count++;
+    if (count == k) {
+        result = root->key;
+        return;
+    }
+    
+    kthSmallestHelper(root->right, k, count, result);
+}
+
+int kthSmallest(node* root, int k) {
+    int count = 0;
+    int result = -1;
+    kthSmallestHelper(root, k, count, result);
+    return result;
+}
+
+// Пример: За дървото с inorder: 1,2,3,4,5
+// kthSmallest(root, 3) връща 3</code></pre>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex21" aria-label="Маркирай като завършено">
+                        <label for="ex21" class="exercise-number">Упражнение 21</label>
+                    </div>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Дадено BST и две стойности k1 и k2 (където k1 &lt; k2), напиши функция, която принтира всички ключове в диапазона [k1, k2] в сортиран ред. Оптимизирай решението си, за да избягваш посещаването на възли извън диапазона:</p>
+                    <pre><code class="language-cpp">void printRange(node* root, int k1, int k2) {
+    // Твоята имплементация тук
+}</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи подсказка</button>
+                        <div class="hint-content">
+                            <p>Използвай BST свойството: ако текущият възел е &lt; k1, не отивай наляво. Ако възелът е &gt; k2, не отивай надясно.</p>
+                        </div>
+                    </div>
+                    <div class="hint-box">
+                        <button class="hint-btn">✅ Покажи решение</button>
+                        <div class="hint-content">
+                            <div class="code-block-wrapper">
+                        <button class="copy-btn">📋 Копирай</button>
+                        <pre><code class="language-cpp">void printRange(node* root, int k1, int k2) {
+    if (!root) return;
+    
+    // Ако текущата стойност е по-голяма от k1, има смисъл да проверим лявото поддърво
+    if (root->key > k1)
+        printRange(root->left, k1, k2);
+    
+    // Ако текущата стойност е в диапазона, принтирай я
+    if (root->key >= k1 && root->key <= k2)
+        cout << root->key << " ";
+    
+    // Ако текущата стойност е по-малка от k2, има смисъл да проверим дясното поддърво
+    if (root->key < k2)
+        printRange(root->right, k1, k2);
+}
+
+// Пример: printRange(root, 15, 25) принтира всички стойности между 15 и 25</code></pre>
+                    </div>
+                            <p><strong>Сложност:</strong> O(k + log n), където k е броят възли в диапазона</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex22" aria-label="Маркирай като завършено">
+                        <label for="ex22" class="exercise-number">Упражнение 22</label>
+                    </div>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Предизвикателство: Управление на паметта:</strong> Напиши функция за изтриване на цяло BST и освобождаване на цялата заделена памет. Използвай postorder обхождане, за да гарантираш, че децата се изтриват преди родителите:</p>
+                    <pre><code class="language-cpp">void deleteBST(node*& root) {
+    // Твоята имплементация тук
+}</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">✅ Покажи решение</button>
+                        <div class="hint-content">
+                            <div class="code-block-wrapper">
+                        <button class="copy-btn">📋 Копирай</button>
+                        <pre><code class="language-cpp">void deleteBST(node*& root) {
+    if (!root) return;
+    
+    // Postorder: ляво → дясно → възел
+    // Първо изтриваме децата, после родителя
+    deleteBST(root->left);
+    deleteBST(root->right);
+    
+    delete root;
+    root = nullptr;  // Важно: поставяме указателя на nullptr
+}
+
+// Алтернативна версия без референция
+void deleteBST(node* root) {
+    if (!root) return;
+    
+    deleteBST(root->left);
+    deleteBST(root->right);
+    delete root;
+}</code></pre>
+                    </div>
+                            <p><strong>Защо postorder?</strong> Осигуряваме, че не достъпваме изтрити възли.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex23" aria-label="Маркирай като завършено">
+                        <label for="ex23" class="exercise-number">Упражнение 23</label>
+                    </div>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача:</strong> Разгледай сценарий, в който трябва да построиш балансирано BST от сортиран масив с n елемента. Напиши функция, която конструира балансирано по височина BST от сортирания масив в O(n) време:</p>
+                    <pre><code class="language-cpp">node* sortedArrayToBST(int arr[], int start, int end) {
+    // Твоята имплементация тук
+}</code></pre>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи подсказка</button>
+                        <div class="hint-content">
+                            <p>Използвай средния елемент като корен. Рекурсивно построй лявото поддърво от лявата половина и дясното поддърво от дясната половина.</p>
+                        </div>
+                    </div>
+                    <div class="hint-box">
+                        <button class="hint-btn">✅ Покажи решение</button>
+                        <div class="hint-content">
+                            <div class="code-block-wrapper">
+                        <button class="copy-btn">📋 Копирай</button>
+                        <pre><code class="language-cpp">node* sortedArrayToBST(int arr[], int start, int end) {
+    // Базов случай
+    if (start > end) return nullptr;
+    
+    // Намери средата
+    int mid = start + (end - start) / 2;
+    
+    // Направи средния елемент корен
+    node* root = new node{arr[mid], nullptr, nullptr};
+    
+    // Рекурсивно построй лявото и дясното поддърво
+    root->left = sortedArrayToBST(arr, start, mid - 1);
+    root->right = sortedArrayToBST(arr, mid + 1, end);
+    
+    return root;
+}
+
+// Използване
+int arr[] = {1, 2, 3, 4, 5, 6, 7};
+int n = sizeof(arr) / sizeof(arr[0]);
+node* root = sortedArrayToBST(arr, 0, n - 1);
+
+// Резултат: Балансирано дърво с корен 4
+//       4
+//      / \
+//     2   6
+//    / \ / \
+//   1  3 5  7</code></pre>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex24" aria-label="Маркирай като завършено">
+                        <label for="ex24" class="exercise-number">Упражнение 24</label>
+                    </div>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Задача за анализ на сложността:</strong> Имаш три структури от данни, съдържащи n сортирани елемента:</p>
+                    <ul>
+                        <li>Сортиран масив</li>
+                        <li>Сортиран свързан списък</li>
+                        <li>Балансирано BST</li>
+                    </ul>
+                    <p>За всяка структура, определи времевата сложност за:</p>
+                    <p>а) Търсене на специфичен елемент</p>
+                    <p>б) Вмъкване на нов елемент при запазване на сортираността</p>
+                    <p>в) Изтриване на елемент при запазване на сортираността</p>
+                    <p>Създай сравнителна таблица и обясни коя структура е най-добра за кои сценарии.</p>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <table class="complexity-comparison">
+                                <thead>
+                                    <tr>
+                                        <th>Структура</th>
+                                        <th>Търсене</th>
+                                        <th>Вмъкване</th>
+                                        <th>Изтриване</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Сортиран масив</strong></td>
+                                        <td class="good">O(log n)</td>
+                                        <td class="bad">O(n)</td>
+                                        <td class="bad">O(n)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Сортиран свързан списък</strong></td>
+                                        <td class="bad">O(n)</td>
+                                        <td class="bad">O(n)</td>
+                                        <td class="bad">O(n)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Балансирано BST</strong></td>
+                                        <td class="good">O(log n)</td>
+                                        <td class="good">O(log n)</td>
+                                        <td class="good">O(log n)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p><strong>Кога да използваме всяка структура:</strong></p>
+                            <ul>
+                                <li><strong>Сортиран масив:</strong> Данните са статични или рядко се променят, нуждата е главно от търсене</li>
+                                <li><strong>Свързан списък:</strong> Рядко се използва за сортирани данни; по-добър е за несортирани с чести вмъквания/изтривания</li>
+                                <li><strong>Балансирано BST:</strong> Динамични данни с чести търсения, вмъквания и изтривания - най-универсалният избор</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex25" aria-label="Маркирай като завършено">
+                        <label for="ex25" class="exercise-number">Упражнение 25</label>
+                    </div>
+                    <span class="difficulty-badge hard">HARD</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Предизвикателство за дизайн:</strong> Строиш система за автодовършване за търсачка, която трябва да:</p>
+                    <ul>
+                        <li>Съхранява милиони думи ефективно</li>
+                        <li>Поддържа бързо търсене по префикс (намиране на всички думи, започващи с "abc")</li>
+                        <li>Обработва чести вмъквания на нови думи</li>
+                        <li>Минимизира използването на памет</li>
+                    </ul>
+                    <p>Би ли бил подходящ стандартен BST? Ако не, какви модификации или алтернативни дървовидни структури би предложил и защо? Разгледай Tries, Ternary Search Trees или самобалансиращи се BST в отговора си.</p>
+                    <div class="hint-box">
+                        <button class="hint-btn">💡 Покажи отговор</button>
+                        <div class="hint-content">
+                            <p><strong>Стандартен BST НЕ е подходящ за този случай.</strong></p>
+                            
+                            <p><strong>Проблеми със стандартен BST:</strong></p>
+                            <ul>
+                                <li>Търсене по префикс изисква сканиране на много възли</li>
+                                <li>Няма ефективен начин да намериш всички думи с даден префикс</li>
+                                <li>Времева сложност O(k * n) за префикс търсене, където k = дължина на префикса</li>
+                            </ul>
+                            
+                            <p><strong>По-добри алтернативи:</strong></p>
+                            
+                            <div class="solution-option">
+                                <h4>1. Trie (Prefix Tree) - ПРЕПОРЪЧИТЕЛЕН</h4>
+                                <ul>
+                                    <li><strong>Предимства:</strong>
+                                        <ul>
+                                            <li>O(k) търсене и вмъкване, където k = дължина на думата</li>
+                                            <li>Естествено поддържа префиксно търсене</li>
+                                            <li>Може да съхранява честоти/популярност на думите</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Недостатък:</strong> Може да използва много памет за големи азбуки</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="solution-option">
+                                <h4>2. Ternary Search Tree (TST)</h4>
+                                <ul>
+                                    <li>Комбинация от Trie и BST</li>
+                                    <li>По-малко памет от Trie</li>
+                                    <li>Все още бързо префиксно търсене</li>
+                                    <li>Добър компромис между памет и скорост</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="solution-option">
+                                <h4>3. Самобалансиращ се BST + String key</h4>
+                                <ul>
+                                    <li>Може да се използва със специална string сравнителна функция</li>
+                                    <li>Добър за общо търсене, но бавен за префиксни заявки</li>
+                                    <li>Ще изисква допълнителна обработка за автодовършване</li>
+                                </ul>
+                            </div>
+                            
+                            <p><strong>Заключение:</strong> За автодовършване система, <strong>Trie е най-подходящата структура</strong>, с Ternary Search Tree като добра алтернатива за спестяване на памет при големи азбуки.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Заключение -->
+        <section id="answer-key" class="conclusion-section" aria-labelledby="answer-key-heading">
+            <h2 id="answer-key-heading">🎓 Заключение и Обобщение</h2>
+            <div class="box-success">
+                <p>Тези упражнения прогресират от базово разпознаване на концепции до имплементация и сложен анализ и дизайнерски решения. Студентите трябва да могат да:</p>
+                <ul>
+                    <li>✅ Идентифицират и верифицират BST свойства</li>
+                    <li>✅ Проследяват и предсказват дървовидни операции</li>
+                    <li>✅ Имплементират основни и сложни функции</li>
+                    <li>✅ Анализират сложност и оптимизират решения</li>
+                    <li>✅ Проектират подходящи структури за реални проблеми</li>
+                </ul>
+            </div>
+            <div class="box-info">
+                <h3>🔎 Групиране по Цели (Answer Key Notes)</h3>
+                <ul>
+                    <li><strong>Упражнения 1–5:</strong> Свойства и базова верификация</li>
+                    <li><strong>Упражнения 6–10:</strong> Трасиране и формиране на дървета</li>
+                    <li><strong>Упражнения 11–15:</strong> Имплементация и дебъг</li>
+                    <li><strong>Упражнения 16–18:</strong> Сложни операции и валидация</li>
+                    <li><strong>Упражнения 19–25:</strong> Анализ на сложност и дизайн</li>
+                </ul>
+            </div>
+            
+            <div class="box-info">
+                <h3>📚 Препоръки за практика</h3>
+                <ul>
+                    <li>Започни с EASY нивото и се уверете, че разбираш основите</li>
+                    <li>Имплементирай всички функции в C++ и ги тествай</li>
+                    <li>Използвай дебъгер за проследяване на рекурсията</li>
+                    <li>Нарисувай дърветата на хартия преди да кодираш</li>
+                    <li>Обръщай внимание на edge cases (празно дърво, един възел)</li>
+                    <li>Практикувай с различни входни последователности</li>
+                </ul>
+            </div>
+            
+            <div class="box-info">
+                <h3>⌨️ Клавишни комбинации</h3>
+                <ul>
+                    <li><strong>Ctrl/Cmd + K:</strong> Бързо връщане към началото на страницата</li>
+                    <li><strong>Ctrl/Cmd + H:</strong> Показване/скриване на най-близкия отговор</li>
+                    <li><strong>Checkboxes:</strong> Маркирай решените задачи - прогресът се запазва автоматично!</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Структури от Данни и Програмиране (СДП) © 2025</p>
+            <p>Факултет по Математика и Информатика, СУ "Св. Климент Охридски"</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cpp.min.js"></script>
+    <script src="exercises-script.js"></script>
+</body>
+</html>

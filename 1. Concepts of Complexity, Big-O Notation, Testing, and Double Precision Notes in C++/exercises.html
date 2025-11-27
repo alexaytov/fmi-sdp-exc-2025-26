@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Упражнения: Сложност, Big-O, Тестване и Double Precision</title>
+    <link rel="stylesheet" href="exercises-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-sticky">
+        <div class="nav-container">
+            <div class="nav-logo">SDP Упражнения 1</div>
+            <ul class="nav-menu">
+                <li><a href="#easy">Лесни</a></li>
+                <li><a href="#easy-medium">Средно-Лесни</a></li>
+                <li><a href="#medium">Средни</a></li>
+                <li><a href="#medium-hard">Средно-Трудни</a></li>
+                <li><a href="#hard">Трудни</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="meta-badges">
+                <span class="badge badge-primary">Упражнения</span>
+                <span class="badge badge-secondary">30 Задачи</span>
+                <span class="badge badge-accent">От Лесни до Трудни</span>
+            </div>
+            <h1>Упражнения: Сложност, Big-O, Тестване и Double Precision</h1>
+            <p class="hero-description">
+                Практически упражнения за укрепване на концепциите за изчислителна сложност, Big-O нотация, тестване и обработка на floating-point стойности в C++.
+            </p>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Лесни задачи</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Средно-лесни</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Средни задачи</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Средно-трудни</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Трудни задачи</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="easy" class="section fade-in">
+            <h2>Лесни Упражнения (Фундаментални Концепции)</h2>
+            
+            <div class="exercise-card difficulty-easy">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 1</span>
+                    <span class="difficulty-badge easy">ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Какви са двата основни типа изчислителна сложност, обсъдени в лекцията? Опишете накратко какво измерва всеки от тях.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-easy">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 2</span>
+                    <span class="difficulty-badge easy">ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        В Big-O нотацията, когато казваме че алгоритъм е O(n), какво представлява 'n'?
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-easy">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 3</span>
+                    <span class="difficulty-badge easy">ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Вярно или Невярно: В Big-O нотацията запазваме константните фактори и членовете от по-нисък ред при изразяване на сложността.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-easy">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 4</span>
+                    <span class="difficulty-badge easy">ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Съпоставете всеки клас на Big-O сложност с неговото описание на скоростта на растеж:
+                    </p>
+                    <ul>
+                        <li>O(1)</li>
+                        <li>O(log n)</li>
+                        <li>O(n)</li>
+                        <li>O(n²)</li>
+                    </ul>
+                    <p><strong>Опции:</strong> Константно, Линейно, Квадратично, Логаритмично</p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-easy">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 5</span>
+                    <span class="difficulty-badge easy">ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Според IEEE 754, колко бита използва <code>double</code> в C++?
+                    </p>
+                    <div class="options-list">
+                        <div class="option">a) 32 бита</div>
+                        <div class="option">b) 64 бита</div>
+                        <div class="option">c) 128 бита</div>
+                        <div class="option">d) 16 бита</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-easy">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 6</span>
+                    <span class="difficulty-badge easy">ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Кой C++ header файл съдържа функции като <code>std::isnan()</code> и <code>std::isinf()</code>?
+                    </p>
+                    <div class="options-list">
+                        <div class="option">a) <code>&lt;limits&gt;</code></div>
+                        <div class="option">b) <code>&lt;cmath&gt;</code></div>
+                        <div class="option">c) <code>&lt;iostream&gt;</code></div>
+                        <div class="option">d) <code>&lt;algorithm&gt;</code></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-easy">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 7</span>
+                    <span class="difficulty-badge easy">ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Какво означава NaN и дайте един пример за операция, която произвежда NaN.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-easy">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 8</span>
+                    <span class="difficulty-badge easy">ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Кои са трите стъпки в Arrange-Act-Assert (A-A-A) тестовия pattern?
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="easy-medium" class="section fade-in">
+            <h2>Средно-Лесни Упражнения (Основно Приложение)</h2>
+
+            <div class="exercise-card difficulty-easy-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 9</span>
+                    <span class="difficulty-badge easy-medium">СРЕДНО-ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Определете времевата Big-O сложност на следния код:
+                    </p>
+                    <div class="code-block">
+                        <code>for (int i = 0; i < n; i++) {
+    std::cout << arr[i] << std::endl;
+}</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-easy-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 10</span>
+                    <span class="difficulty-badge easy-medium">СРЕДНО-ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Какъв е резултатът от следния C++ израз?
+                    </p>
+                    <div class="code-block">
+                        <code>double result = 1.0 / 0.0;</code>
+                    </div>
+                    <div class="options-list">
+                        <div class="option">a) NaN</div>
+                        <div class="option">b) Положителна Безкрайност</div>
+                        <div class="option">c) Отрицателна Безкрайност</div>
+                        <div class="option">d) 0.0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-easy-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 11</span>
+                    <span class="difficulty-badge easy-medium">СРЕДНО-ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Защо трябва да избягвате използването на директно сравнение за равенство (<code>==</code>) с floating-point числа? Какъв подход трябва да използвате вместо това?
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-easy-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 12</span>
+                    <span class="difficulty-badge easy-medium">СРЕДНО-ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Изброете три типа гранични случаи, които винаги трябва да тествате при валидиране на алгоритъм.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-easy-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 13</span>
+                    <span class="difficulty-badge easy-medium">СРЕДНО-ЛЕСНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Определете времевата Big-O сложност:
+                    </p>
+                    <div class="code-block">
+                        <code>for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+        sum += arr[i][j];
+    }
+}</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="medium" class="section fade-in">
+            <h2>Средни Упражнения (Междинен Анализ)</h2>
+
+            <div class="exercise-card difficulty-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 14</span>
+                    <span class="difficulty-badge medium">СРЕДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Анализирайте времевата сложност на този код:
+                    </p>
+                    <div class="code-block">
+                        <code>for (int i = 0; i < n; i++) {
+    for (int j = i; j < n; j++) {
+        std::cout << arr[i] + arr[j] << std::endl;
+    }
+}</code>
+                    </div>
+                    <p class="exercise-question">Обяснете вашето разсъждение стъпка по стъпка.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 15</span>
+                    <span class="difficulty-badge medium">СРЕДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Какъв е изходът на този C++ код и защо?
+                    </p>
+                    <div class="code-block">
+                        <code>double x = 0.0 / 0.0;
+if (x == x) {
+    std::cout << "Equal" << std::endl;
+} else {
+    std::cout << "Not equal" << std::endl;
+}</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 16</span>
+                    <span class="difficulty-badge medium">СРЕДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Проектирайте изчерпателен набор от тест случаи за функция, която намира максималната стойност в масив от double стойности. Включете нормални случаи, гранични случаи и специални floating-point случаи.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 17</span>
+                    <span class="difficulty-badge medium">СРЕДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Обяснете защо двоичното търсене има O(log n) времева сложност. Обяснете как размерът на входа се променя с всяка итерация.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 18</span>
+                    <span class="difficulty-badge medium">СРЕДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Каква е пространствената сложност на следната рекурсивна функция? Обяснете вашия отговор.
+                    </p>
+                    <div class="code-block">
+                        <code>int factorial(int n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 19</span>
+                    <span class="difficulty-badge medium">СРЕДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Напишете C++ код, който правилно проверява дали две double стойности са приблизително равни, използвайки толерантно сравнение с epsilon = 1e-9.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-medium">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 20</span>
+                    <span class="difficulty-badge medium">СРЕДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Разгледайте Bubble Sort с най-добър вход (вече сортиран масив). Въпреки че е O(n²) в най-лошия случай, каква оптимизация може да намали неговата сложност в най-добрия случай до O(n)? Опишете модификацията.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="medium-hard" class="section fade-in">
+            <h2>Средно-Трудни Упражнения (Напреднало Приложение)</h2>
+
+            <div class="exercise-card difficulty-medium-hard">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 21</span>
+                    <span class="difficulty-badge medium-hard">СРЕДНО-ТРУДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Анализирайте времевата сложност на тази рекурсивна имплементация на двоично търсене:
+                    </p>
+                    <div class="code-block">
+                        <code>int binarySearch(int arr[], int left, int right, int target) {
+    if (right >= left) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target) return mid;
+        if (arr[mid] > target)
+            return binarySearch(arr, left, mid - 1, target);
+        return binarySearch(arr, mid + 1, right, target);
+    }
+    return -1;
+}</code>
+                    </div>
+                    <p class="exercise-question">Предоставете рекурентното уравнение и обяснете как се опростява до финалното Big-O.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-medium-hard">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 22</span>
+                    <span class="difficulty-badge medium-hard">СРЕДНО-ТРУДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Дебъгнете този код, който трябва да изчисли средната стойност на масив от double стойности. Идентифицирайте потенциални floating-point проблеми и предложете подобрения:
+                    </p>
+                    <div class="code-block">
+                        <code>double calculateAverage(double arr[], int size) {
+    double sum = 0.0;
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+    return sum / size;
+}</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-medium-hard">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 23</span>
+                    <span class="difficulty-badge medium-hard">СРЕДНО-ТРУДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Сравнете времевите сложности на тези два подхода за намиране на дубликати в масив:
+                    </p>
+                    <ul>
+                        <li><strong>Подход A:</strong> Вложени цикли, сравняващи всеки елемент с всеки друг елемент</li>
+                        <li><strong>Подход B:</strong> Сортиране на масива първо, след това сканиране за съседни дубликати</li>
+                    </ul>
+                    <p class="exercise-question">Кой е по-ефективен за голямо n и защо?</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="hard" class="section fade-in">
+            <h2>Трудни Упражнения (Комплексен Анализ и Синтез)</h2>
+
+            <div class="exercise-card difficulty-hard">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 24</span>
+                    <span class="difficulty-badge hard">ТРУДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Анализирайте времевата и пространствената сложност на Merge Sort. Предоставете рекурентното уравнение, обяснете сложността на процеса на сливане и изведете финалната O(n log n) сложност използвайки Master Theorem или метода на дървото на рекурсията.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-hard">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 25</span>
+                    <span class="difficulty-badge hard">ТРУДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Проектирайте изчерпателна стратегия за тестване на функция за числово интегриране (като трапецоидално правило), която работи с double стойности. Вашата стратегия трябва да включва:
+                    </p>
+                    <ul>
+                        <li>Unit тестове за коректност</li>
+                        <li>Performance тестове за ефективност</li>
+                        <li>Тестове за floating-point гранични случаи (NaN, Inf, signed zeros)</li>
+                        <li>Stress тестове</li>
+                    </ul>
+                    <p class="exercise-question">Посочете поне 8 различни тест случая с обосновка.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-hard">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 26</span>
+                    <span class="difficulty-badge hard">ТРУДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Разгледайте този сценарий: Имплементирате финансово приложение, което изчислява сложна лихва за много години. Обяснете потенциалните проблеми с прецизността на floating-point, които могат да възникнат, и предложете робустна стратегия за имплементация, която минимизира натрупаните грешки при закръгляване.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-hard">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 27</span>
+                    <span class="difficulty-badge hard">ТРУДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Имплементирайте и анализирайте функция, която открива дали floating-point изчисление е "станало грешно" (произвело NaN или Inf). Вашата имплементация трябва да:
+                    </p>
+                    <div class="code-block">
+                        <code>bool isValidCalculation(double result);</code>
+                    </div>
+                    <p class="exercise-question">След това напишете wrapper функция, която безопасно извършва деление и връща статус, указващ дали резултатът е валиден, безкрайност или NaN.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-hard">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 28</span>
+                    <span class="difficulty-badge hard">ТРУДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Даден следният алгоритмичен скиц, определете неговата времева сложност и обяснете дали може да бъде оптимизиран:
+                    </p>
+                    <div class="code-block">
+                        <code>Алгоритъм: Намиране на всички двойки в масив със сума равна на target
+1. За всеки елемент i от 0 до n-1:
+2.     За всеки елемент j от i+1 до n-1:
+3.         Ако arr[i] + arr[j] == target:
+4.             Добави двойката към резултата</code>
+                    </div>
+                    <p class="exercise-question">След това предложете O(n) или O(n log n) алтернатива, използвайки подходящи структури от данни.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-hard">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 29</span>
+                    <span class="difficulty-badge hard">ТРУДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Обяснете защо сложността на Quick Sort в най-лошия случай е O(n²), въпреки че средният случай е O(n log n). Проектирайте тест случай, който би предизвикал това поведение в най-лошия случай в наивна имплементация на Quick Sort (винаги избиране на първия елемент като pivot). След това обяснете как произволният избор на pivot или median-of-three помага за избягване на това.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card difficulty-hard">
+                <div class="exercise-header">
+                    <span class="exercise-number">Задача 30</span>
+                    <span class="difficulty-badge hard">ТРУДНА</span>
+                </div>
+                <div class="exercise-content">
+                    <p class="exercise-question">
+                        Разгледайте катастрофално съкращаване във floating-point аритметика. Анализирайте тази формула за изчисляване на корените на квадратно уравнение:
+                    </p>
+                    <div class="code-block">
+                        <code>x = (-b ± sqrt(b² - 4ac)) / (2a)</code>
+                    </div>
+                    <p class="exercise-question">Обяснете кога тази формула може да загуби прецизност поради floating-point аритметика, и предложете алтернативна формулировка, която е числено стабилна за проблемните случаи.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in">
+            <div class="info-box">
+                <h3>📝 Бележки за решаване</h3>
+                <ul>
+                    <li>За всяка задача обмислете внимателно концепциите от лекцията</li>
+                    <li>При анализ на сложност, винаги обяснявайте вашето разсъждение стъпка по стъпка</li>
+                    <li>При floating-point задачи, помислете за специалните стойности (NaN, Inf, ±0)</li>
+                    <li>Тествайте вашите решения с различни входове, включително гранични случаи</li>
+                    <li>Използвайте <code>&lt;cmath&gt;</code> функциите за проверка на специални стойности</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <h3>✅ Ключ с отговори достъпен при запитване</h3>
+                <p>
+                    Тези упражнения прогресират от основно припомняне и разпознаване (Лесни) през приложение и анализ (Средни) до синтез и оценка (Трудни), осигурявайки изчерпателно покритие на лекционния материал, докато изграждат умения систематично.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 СУ "Св. Климент Охридски" - Факултет по математика и информатика</p>
+        <p>Курс: Структури от Данни и Програмиране</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cpp.min.js"></script>
+    <script src="exercises-script.js"></script>
+</body>
+</html>

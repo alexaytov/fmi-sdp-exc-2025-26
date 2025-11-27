@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Упражнения: Структури от Данни и Управление на Памет в C++</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="exercises-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="meta-badges">
+                <span class="badge badge-primary">Упражнения</span>
+                <span class="badge badge-secondary">C++</span>
+                <span class="badge badge-accent">30 Задачи</span>
+            </div>
+            <h1 class="hero-title">C++ Структури от Данни и Управление на Памет: Упражнения</h1>
+            <p class="hero-description">
+                Набор от 30 упражнения разпределени в три нива на трудност (Лесни, Средни, Трудни) 
+                за затвърдяване на знанията за списъци, итератори и управление на паметта в C++.
+            </p>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="sticky-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#easy" class="nav-link">Лесни (1-10)</a></li>
+                <li><a href="#medium" class="nav-link">Средни (11-20)</a></li>
+                <li><a href="#hard" class="nav-link">Трудни (21-30)</a></li>
+                <li><a href="#guidelines" class="nav-link">Насоки</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container main-content">
+        <!-- Easy Exercises -->
+        <section id="easy" class="content-section">
+            <h2>🟢 Лесни Упражнения (Фундаментални Концепции)</h2>
+            <p class="section-intro">Упражнения 1-10 се фокусират върху дефиниции, основно разбиране и разпознаване на фундаментални концепции.</p>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex1">
+                        <label for="ex1" class="exercise-number">Упражнение 1</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Multiple Choice</p>
+                    <p><strong>Въпрос:</strong> Кое е основното предимство на свързания списък пред масива?</p>
+                    <div class="options">
+                        <div class="option">A) По-бърз произволен достъп до елементи</div>
+                        <div class="option">B) По-добра локалност на кеша</div>
+                        <div class="option">C) Динамичен размер, който може да расте или намалява по време на изпълнение</div>
+                        <div class="option">D) По-малко паметно натоварване на елемент</div>
+                    </div>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: C) Динамичен размер, който може да расте или намалява по време на изпълнение</strong>
+                            <p><strong>Обяснение:</strong> Основното предимство на свързания списък е динамичността - можем да добавяме и премахваме елементи без предварително заделена памет. Масивите имат по-бърз произволен достъп (А е невярно), по-добра локалност (В е невярно) и по-малко паметно натоварване на елемент (D е невярно, защото всеки възел трябва да съхранява указатели).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex2">
+                        <label for="ex2" class="exercise-number">Упражнение 2</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> True/False</p>
+                    <p><strong>Въпрос:</strong> В едносвързан списък, указателят <code>next</code> на последния възел трябва да сочи към първия възел за завършване на списъка.</p>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: False (Невярно)</strong>
+                            <p><strong>Обяснение:</strong> В едносвързан списък, указателят <code>next</code> на последния възел трябва да е <code>nullptr</code> (или NULL), за да обозначи края на списъка. Списък, в който последният възел сочи към първия, се нарича кръгов (циркулярен) списък и е специален вид структура.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex3">
+                        <label for="ex3" class="exercise-number">Упражнение 3</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Fill in the blank</p>
+                    <p><strong>Въпрос:</strong> В C++, указател съхранява __________ на друга променлива.</p>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: адреса (или паметния адрес)</strong>
+                            <p><strong>Обяснение:</strong> Указателят е променлива, която съхранява паметния адрес на друга променлива. Чрез този адрес можем да достъпим стойността на променливата индиректно.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex4">
+                        <label for="ex4" class="exercise-number">Упражнение 4</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Multiple Choice</p>
+                    <p><strong>Въпрос:</strong> На какво се преобразува операцията за индексиране на масив <code>arr[3]</code> използвайки аритметика на указатели?</p>
+                    <div class="options">
+                        <div class="option">A) <code>*(arr - 3)</code></div>
+                        <div class="option">B) <code>*(arr + 3)</code></div>
+                        <div class="option">C) <code>&(arr + 3)</code></div>
+                        <div class="option">D) <code>arr->3</code></div>
+                    </div>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: B) <code>*(arr + 3)</code></strong>
+                            <p><strong>Обяснение:</strong> Операцията <code>arr[i]</code> е синтактична захар за <code>*(arr + i)</code>. Добавяме <code>i</code> към базовия адрес на масива и дереференцираме резултата. <code>arr + 3</code> сочи към четвъртия елемент, а <code>*</code> взема стойността на този адрес.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex5">
+                        <label for="ex5" class="exercise-number">Упражнение 5</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Short Answer</p>
+                    <p><strong>Въпрос:</strong> Каква е разликата между <code>struct</code> и <code>class</code> в C++ относно достъпа до членовете по подразбиране?</p>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор:</strong>
+                            <p>В <code>struct</code>, членовете са <code>public</code> по подразбиране, докато в <code>class</code>, членовете са <code>private</code> по подразбиране. Това е единствената реална разлика между двете ключови думи в C++. Традицията е да се използва <code>struct</code> за прости структури от данни и <code>class</code> за по-сложни обекти с поведение.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex6">
+                        <label for="ex6" class="exercise-number">Упражнение 6</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Code Identification</p>
+                    <p><strong>Въпрос:</strong> Идентифицирайте грешката в този код за създаване на възел:</p>
+                    <div class="code-block">
+                        <pre><code>struct Node {
+    int data;
+    Node* next;
+};
+Node* head = new Node();
+head->data = 10;
+// ... програмата продължава ...
+// Програмата завършва без почистване</code></pre>
+                    </div>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: Изтичане на памет (Memory Leak)</strong>
+                            <p><strong>Обяснение:</strong> Кодът заделя динамична памет с <code>new</code>, но никога не я освобождава с <code>delete</code>. Указателят <code>next</code> също не е инициализиран и може да съдържа случайна стойност. Правилният код трябва да включва:</p>
+                            <div class="code-block">
+                                <pre><code>Node* head = new Node();
+head->data = 10;
+head->next = nullptr;  // Инициализация
+// ... използване ...
+delete head;  // Освобождаване на паметта</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex7">
+                        <label for="ex7" class="exercise-number">Упражнение 7</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Multiple Choice</p>
+                    <p><strong>Въпрос:</strong> Каква е времевата сложност на достъпа до елемент по индекс в едносвързан списък?</p>
+                    <div class="options">
+                        <div class="option">A) O(1)</div>
+                        <div class="option">B) O(log n)</div>
+                        <div class="option">C) O(n)</div>
+                        <div class="option">D) O(n²)</div>
+                    </div>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: C) O(n)</strong>
+                            <p><strong>Обяснение:</strong> За да достъпим елемент по индекс в едносвързан списък, трябва да обходим списъка от началото до търсената позиция. В най-лошия случай (достъп до последния елемент) трябва да преминем през всички n възела, което дава линейна времева сложност O(n). За разлика от масивите, където достъпът по индекс е O(1), свързаните списъци не поддържат произволен достъп.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex8">
+                        <label for="ex8" class="exercise-number">Упражнение 8</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> True/False</p>
+                    <p><strong>Въпрос:</strong> Възел на двусвързан списък съдържа указатели както към следващия, така и към предишния възел.</p>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: True (Вярно)</strong>
+                            <p><strong>Обяснение:</strong> Това е основната характеристика на двусвързания списък. Всеки възел съдържа два указателя: <code>next</code> (към следващия възел) и <code>prev</code> (към предишния възел). Това позволява обхождане на списъка и в двете посоки - напред и назад.</p>
+                            <div class="code-block">
+                                <pre><code>struct Node {
+    int data;
+    Node* next;  // Към следващия възел
+    Node* prev;  // Към предишния възел
+};</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex9">
+                        <label for="ex9" class="exercise-number">Упражнение 9</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Short Answer</p>
+                    <p><strong>Въпрос:</strong> Към каква стойност трябва да бъдат инициализирани указателите при създаване на нов възел?</p>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: nullptr (или NULL)</strong>
+                            <p><strong>Обяснение:</strong> При създаване на нов възел, всички указатели трябва да бъдат инициализирани към <code>nullptr</code>. Това гарантира, че указателят има валидна (макар и нулева) стойност и не сочи към случаен адрес в паметта. Неинициализираните указатели съдържат произволни стойности и могат да причинят сериозни грешки при дереференциране.</p>
+                            <div class="code-block">
+                                <pre><code>Node* newNode = new Node();
+newNode->data = 42;
+newNode->next = nullptr;  // Правилна инициализация
+newNode->prev = nullptr;  // За двусвързан списък</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex10">
+                        <label for="ex10" class="exercise-number">Упражнение 10</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Multiple Choice</p>
+                    <p><strong>Въпрос:</strong> Коя операция е обикновено O(1) и за масиви, и за свързани списъци?</p>
+                    <div class="options">
+                        <div class="option">A) Търсене на елемент</div>
+                        <div class="option">B) Достъп по индекс</div>
+                        <div class="option">C) Вмъкване в началото</div>
+                        <div class="option">D) Обхождане на всички елементи</div>
+                    </div>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: C) Вмъкване в началото</strong>
+                            <p><strong>Обяснение:</strong> Вмъкването в началото е O(1) и за свързаните списъци (актуализиране на head указателя), и за динамични масиви като std::vector (макар че векторът технически е O(n) заради местенето на елементите, но std::deque го прави за O(1)). Търсенето е O(n), достъпът по индекс е O(1) само за масиви, а обхождането е O(n) и за двете структури.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medium Exercises -->
+        <section id="medium" class="content-section">
+            <h2>🟡 Средни Упражнения (Приложение и Анализ)</h2>
+            <p class="section-intro">Упражнения 11-20 изискват приложение на концепции, прости имплементации и анализ на коректността на кода.</p>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex11">
+                        <label for="ex11" class="exercise-number">Упражнение 11</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Code Writing</p>
+                    <p><strong>Задача:</strong> Напишете функция за обхождане на едносвързан списък и преброяване на възлите:</p>
+                    <div class="code-block">
+                        <pre><code>struct Node {
+    int data;
+    Node* next;
+};
+
+int countNodes(Node* head) {
+    // Вашата имплементация тук
+}</code></pre>
+                    </div>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор:</strong>
+                            <div class="code-block">
+                                <pre><code>int countNodes(Node* head) {
+    int count = 0;
+    Node* current = head;
+    while (current != nullptr) {
+        count++;
+        current = current->next;
+    }
+    return count;
+}</code></pre>
+                            </div>
+                            <p><strong>Обяснение:</strong> Започваме от head и обхождаме списъка, следвайки next указателите. Увеличаваме брояча при всеки възел докато не достигнем nullptr, който означава края на списъка.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex12">
+                        <label for="ex12" class="exercise-number">Упражнение 12</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Problem Analysis</p>
+                    <p><strong>Задача:</strong> Обяснете защо изтриването на възел в края на едносвързан списък (без tail указател) е O(n), докато същата операция в двусвързан списък (с tail указател) е O(1).</p>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор:</strong>
+                            <p><strong>Едносвързан списък без tail:</strong> За да изтрием последния възел, трябва първо да намерим предпоследния възел, за да променим неговия next указател на nullptr. Това изисква обхождане на целия списък от начало до предпоследен възел - O(n) операции.</p>
+                            <p><strong>Двусвързан списък с tail:</strong> Имаме директен достъп до последния възел чрез tail указателя. Използваме неговия prev указател за да достъпим предпоследния възел и актуализираме връзките само с постоянен брой операции: tail->prev->next = nullptr, tail = tail->prev, delete oldTail - O(1) операции.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex13">
+                        <label for="ex13" class="exercise-number">Упражнение 13</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Code Debugging</p>
+                    <p><strong>Задача:</strong> Намерете и поправете всички бъгове в тази функция за вмъкване в двусвързан списък:</p>
+                    <div class="code-block">
+                        <pre><code>void insertAtHead(Node** head, int value) {
+    Node* newNode = new Node();
+    newNode->data = value;
+    newNode->next = *head;
+    *head = newNode;
+}</code></pre>
+                    </div>
+                    <p><em>Подсказка: Това трябва да работи за двусвързан списък</em></p>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: Липсва инициализация и актуализация на prev указателите</strong>
+                            <p><strong>Проблеми:</strong></p>
+                            <ul>
+                                <li>Не се инициализира newNode->prev</li>
+                                <li>Не се актуализира prev указателят на старата глава</li>
+                            </ul>
+                            <div class="code-block">
+                                <pre><code>void insertAtHead(Node** head, int value) {
+    Node* newNode = new Node();
+    newNode->data = value;
+    newNode->next = *head;
+    newNode->prev = nullptr;  // Новият възел няма предишен
+    
+    if (*head != nullptr) {
+        (*head)->prev = newNode;  // Старият head сега има предишен
+    }
+    
+    *head = newNode;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex14">
+                        <label for="ex14" class="exercise-number">Упражнение 14</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Design Question</p>
+                    <p><strong>Задача:</strong> Каква е целта на шаблона за дизайн Iterator и какъв проблем решава в контекста на структурите от данни?</p>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор:</strong>
+                            <p>Шаблонът Iterator предоставя унифициран начин за обхождане на елементите в контейнер <strong>без да се излагат вътрешните му детайли</strong> за представяне (инкапсулация).</p>
+                            <p><strong>Проблем който решава:</strong> Различните структури от данни (масиви, списъци, дървета) имат различни начини за достъп до елементи. Без итератори клиентският код трябва да знае вътрешната структура за да обходи елементите.</p>
+                            <p><strong>Ключови предимства:</strong></p>
+                            <ul>
+                                <li>Разделяне на обхождането от вътрешната структура</li>
+                                <li>Еднакъв интерфейс (++, *, !=) за различни контейнери</li>
+                                <li>Подкрепа за различни видове обхождане (forward, bidirectional, random access)</li>
+                                <li>Интеграция с C++ алгоритми и range-based for loops</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex15">
+                        <label for="ex15" class="exercise-number">Упражнение 15</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Code Implementation</p>
+                    <p><strong>Задача:</strong> Имплементирайте оператора за дереференциране (<code>operator*</code>) и оператора за неравенство (<code>operator!=</code>) за итератор на едносвързан списък:</p>
+                    <div class="code-block">
+                        <pre><code>template &lt;typename T&gt;
+class SinglyLinkedListIterator {
+private:
+    Node&lt;T&gt;* current_;
+public:
+    SinglyLinkedListIterator(Node&lt;T&gt;* ptr) : current_(ptr) {}
+    
+    // Имплементирайте тези два оператора
+    T& operator*() const {
+        // Вашият код тук
+    }
+    
+    bool operator!=(const SinglyLinkedListIterator&lt;T&gt;& other) const {
+        // Вашият код тук
+    }
+};</code></pre>
+                    </div>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор:</strong>
+                            <div class="code-block">
+                                <pre><code>T& operator*() const {
+    return current_->data;
+}
+
+bool operator!=(const SinglyLinkedListIterator&lt;T&gt;& other) const {
+    return current_ != other.current_;
+}</code></pre>
+                            </div>
+                            <p><strong>Обяснение:</strong></p>
+                            <ul>
+                                <li><code>operator*</code> - Връща референция към данните на текущия възел, позволявайки достъп и модификация чрез <code>*iter</code></li>
+                                <li><code>operator!=</code> - Сравнява указателите на двата итератора. Връща true ако сочат към различни възли (използва се в for loops)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex16">
+                        <label for="ex16" class="exercise-number">Упражнение 16</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Multiple Choice</p>
+                    <p><strong>Въпрос:</strong> Какво представлява изтичане на памет?</p>
+                    <div class="options">
+                        <div class="option">A) Когато програма използва твърде много памет</div>
+                        <div class="option">B) Когато динамично заделена памет не се освободи след като вече не е необходима</div>
+                        <div class="option">C) Когато указател сочи към невалидна памет</div>
+                        <div class="option">D) Когато заделянето на памет се провали</div>
+                    </div>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: B) Когато динамично заделена памет не се освободи след като вече не е необходима</strong>
+                            <p><strong>Обяснение:</strong> Изтичането на памет (memory leak) възниква когато програмата заделя динамична памет с <code>new</code>/<code>malloc</code>, но никога не я освобождава с <code>delete</code>/<code>free</code>. Паметта остава заделена, но програмата вече няма указател към нея, така че не може да бъде използвана или освободена. С течение на времето това води до изчерпване на наличната памет.</p>
+                            <div class="code-block">
+                                <pre><code>// Пример за memory leak:
+void leak() {
+    int* data = new int[100];
+    // ... използване ...
+    // Липсва delete[] data; ← LEAK!
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex17">
+                        <label for="ex17" class="exercise-number">Упражнение 17</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Short Answer</p>
+                    <p><strong>Задача:</strong> Обяснете разликата между <code>std::unique_ptr</code> и <code>std::shared_ptr</code> относно семантиката на собственост.</p>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор:</strong>
+                            <p><strong><code>std::unique_ptr</code></strong> - <em>Уникална собственост.</em> Само един unique_ptr може да притежава даден ресурс в даден момент. Не може да се копира, само да се премести (move). Когато unique_ptr бъде унищожен, автоматично изтрива ресурса.</p>
+                            <div class="code-block">
+                                <pre><code>std::unique_ptr&lt;int&gt; p1(new int(10));
+// std::unique_ptr&lt;int&gt; p2 = p1; // ГРЕШКА! Не може да се копира
+std::unique_ptr&lt;int&gt; p2 = std::move(p1); // OK - преместване</code></pre>
+                            </div>
+                            <p><strong><code>std::shared_ptr</code></strong> - <em>Споделена собственост.</em> Множество shared_ptr могат да споделят собствеността върху един ресурс чрез reference counting (брояч на референции). Ресурсът се изтрива само когато последният shared_ptr бъде унищожен.</p>
+                            <div class="code-block">
+                                <pre><code>std::shared_ptr&lt;int&gt; p1(new int(10));
+std::shared_ptr&lt;int&gt; p2 = p1; // OK - споделяне
+// Ресурсът ще бъде изтрит, когато и p1, и p2 излезат от scope</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex18">
+                        <label for="ex18" class="exercise-number">Упражнение 18</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Code Analysis</p>
+                    <p><strong>Задача:</strong> Ще причини ли този код изтичане на памет? Обяснете защо или защо не:</p>
+                    <div class="code-block">
+                        <pre><code>void processData() {
+    int* data = new int[100];
+    // Обработка на данни...
+    if (errorCondition) {
+        return; // Ранно връщане при грешка
+    }
+    delete[] data;
+}</code></pre>
+                    </div>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор: Да, ще причини изтичане на памет</strong>
+                            <p><strong>Обяснение:</strong> Ако <code>errorCondition</code> е true, функцията ще върне рано (early return) преди да се изпълни <code>delete[] data</code>. Динамично заделената памет няма да бъде освободена.</p>
+                            <p><strong>Решения:</strong></p>
+                            <div class="code-block">
+                                <pre><code>// Решение 1: Освободи паметта преди return
+void processData() {
+    int* data = new int[100];
+    if (errorCondition) {
+        delete[] data;
+        return;
+    }
+    delete[] data;
+}
+
+// Решение 2 (по-добро): Използвай RAII
+void processData() {
+    std::unique_ptr&lt;int[]&gt; data(new int[100]);
+    if (errorCondition) {
+        return; // Паметта автоматично се освобождава
+    }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex19">
+                        <label for="ex19" class="exercise-number">Упражнение 19</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Comparison Question</p>
+                    <p><strong>Задача:</strong> Попълнете следващата таблица сравняваща операции:</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Операция</th>
+                                    <th>Масив</th>
+                                    <th>Едносвързан списък</th>
+                                    <th>Двусвързан списък (с tail ptr)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Вмъкване в края</td>
+                                    <td>?</td>
+                                    <td>?</td>
+                                    <td>?</td>
+                                </tr>
+                                <tr>
+                                    <td>Изтриване в началото</td>
+                                    <td>?</td>
+                                    <td>?</td>
+                                    <td>?</td>
+                                </tr>
+                                <tr>
+                                    <td>Произволен достъп</td>
+                                    <td>?</td>
+                                    <td>?</td>
+                                    <td>?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор:</strong>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Операция</th>
+                                        <th>Масив</th>
+                                        <th>Едносвързан списък</th>
+                                        <th>Двусвързан списък (с tail ptr)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Вмъкване в края</td>
+                                        <td>O(1) амортизирано*</td>
+                                        <td>O(n) без tail, O(1) с tail</td>
+                                        <td><strong>O(1)</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Изтриване в началото</td>
+                                        <td>O(n)</td>
+                                        <td><strong>O(1)</strong></td>
+                                        <td><strong>O(1)</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Произволен достъп</td>
+                                        <td><strong>O(1)</strong></td>
+                                        <td>O(n)</td>
+                                        <td>O(n)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p style="margin-top: 1rem; font-size: 0.9rem;"><em>* За динамични масиви като std::vector. За статични масиви не можем да вмъкваме.</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex20">
+                        <label for="ex20" class="exercise-number">Упражнение 20</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Code Writing</p>
+                    <p><strong>Задача:</strong> Имплементирайте функция за вмъкване на възел след даден възел в двусвързан списък:</p>
+                    <div class="code-block">
+                        <pre><code>void insertAfter(Node* prevNode, int value) {
+    // Вашата имплементация тук
+    // Обработете крайни случаи
+}</code></pre>
+                    </div>
+                    <div class="answer-section">
+                        <button class="answer-toggle">Покажи отговор</button>
+                        <div class="answer-content">
+                            <strong>✅ Отговор:</strong>
+                            <div class="code-block">
+                                <pre><code>void insertAfter(Node* prevNode, int value) {
+    if (prevNode == nullptr) {
+        return; // Грешка: невалиден възел
+    }
+    
+    Node* newNode = new Node();
+    newNode->data = value;
+    
+    // Настройка на указателите на новия възел
+    newNode->next = prevNode->next;
+    newNode->prev = prevNode;
+    
+    // Актуализация на next възела (ако съществува)
+    if (prevNode->next != nullptr) {
+        prevNode->next->prev = newNode;
+    }
+    
+    // Актуализация на prevNode
+    prevNode->next = newNode;
+}</code></pre>
+                            </div>
+                            <p><strong>Важни крайни случаи:</strong></p>
+                            <ul>
+                                <li>prevNode е nullptr - връщаме рано</li>
+                                <li>Вмъкване в края (prevNode->next е nullptr) - не актуализираме next->prev</li>
+                                <li>Вмъкване по средата - актуализираме всички 4 указателя</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hard Exercises -->
+        <section id="hard" class="content-section">
+            <h2>🔴 Трудни Упражнения (Напреднало Приложение и Синтез)</h2>
+            <p class="section-intro">Упражнения 21-30 изискват синтез на множество концепции, пълни имплементации с обработка на крайни случаи, дебъгване на сложни сценарии и вземане на информирани решения за дизайн.</p>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex21">
+                        <label for="ex21" class="exercise-number">Упражнение 21</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Implementation Challenge</p>
+                    <p><strong>Задача:</strong> Имплементирайте пълен метод <code>push_back</code> за клас двусвързан списък, който правилно обработва:</p>
+                    <ul>
+                        <li>Празен списък</li>
+                        <li>Непразен списък</li>
+                        <li>Заделяне на памет</li>
+                        <li>Актуализиране на head, tail и size</li>
+                    </ul>
+                    <div class="code-block">
+                        <pre><code>template &lt;typename T&gt;
+class DoublyLinkedList {
+private:
+    Node&lt;T&gt;* head_;
+    Node&lt;T&gt;* tail_;
+    unsigned int size_;
+public:
+    void push_back(const T& value) {
+        // Вашата пълна имплементация тук
+    }
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex22">
+                        <label for="ex22" class="exercise-number">Упражнение 22</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Debugging Challenge</p>
+                    <p><strong>Задача:</strong> Този деструктор причинява изтичане на памет. Идентифицирайте проблема и предоставете коректна имплементация:</p>
+                    <div class="code-block">
+                        <pre><code>template &lt;typename T&gt;
+class DoublyLinkedList {
+    ~DoublyLinkedList() {
+        Node&lt;T&gt;* current = head_;
+        while (current != nullptr) {
+            current = current->next;
+            delete current;
+        }
+    }
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex23">
+                        <label for="ex23" class="exercise-number">Упражнение 23</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Design & Implementation</p>
+                    <p><strong>Задача:</strong> Имплементирайте пълен клас iterator за двусвързан списък, който поддържа:</p>
+                    <ul>
+                        <li>Pre-increment (++iter)</li>
+                        <li>Post-increment (iter++)</li>
+                        <li>Pre-decrement (--iter)</li>
+                        <li>Дереференциране (operator*)</li>
+                        <li>Сравнение за равенство (operator==)</li>
+                        <li>Сравнение за неравенство (operator!=)</li>
+                    </ul>
+                    <p>Включете методите <code>begin()</code> и <code>end()</code> в класа за списъка.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex24">
+                        <label for="ex24" class="exercise-number">Упражнение 24</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Memory Management</p>
+                    <p><strong>Задача:</strong> Имплементирайте правилен копиращ конструктор за двусвързан списък, който извършва дълбоко копиране. Обяснете защо плиткото копиране би било проблематично.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex25">
+                        <label for="ex25" class="exercise-number">Упражнение 25</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Problem Solving</p>
+                    <p><strong>Задача:</strong> Напишете функция, която открива дали има цикъл в едносвързан списък без използване на допълнителна памет (O(1) пространствена сложност). Обяснете вашия алгоритъм.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex26">
+                        <label for="ex26" class="exercise-number">Упражнение 26</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Tool Usage</p>
+                    <p><strong>Задача:</strong> Даден е този код с умишлено изтичане на памет, опишете точните команди, които бихте използвали с Valgrind за да го открият, и обяснете какво би показал изходът:</p>
+                    <div class="code-block">
+                        <pre><code>void leakyFunction() {
+    int* arr = new int[50];
+    arr[0] = 10;
+    // Упс, забравихме да изтрием!
+}
+
+int main() {
+    leakyFunction();
+    return 0;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex27">
+                        <label for="ex27" class="exercise-number">Упражнение 27</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Advanced Implementation</p>
+                    <p><strong>Задача:</strong> Имплементирайте метод <code>insert</code>, който приема позиция итератор и стойност, вмъквайки нов възел преди позицията на итератора. Обработете всички крайни случаи:</p>
+                    <div class="code-block">
+                        <pre><code>template &lt;typename T&gt;
+void DoublyLinkedList&lt;T&gt;::insert(iterator position, const T& value) {
+    // Вашата имплементация
+    // Обмислете: празен списък, вмъкване в началото, 
+    // вмъкване в края, вмъкване по средата
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex28">
+                        <label for="ex28" class="exercise-number">Упражнение 28</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> RAII Application</p>
+                    <p><strong>Задача:</strong> Рефакторирайте този код да използва RAII принципи и интелигентни указатели за предотвратяване на изтичане на памет:</p>
+                    <div class="code-block">
+                        <pre><code>class FileProcessor {
+    int* buffer;
+    FILE* file;
+public:
+    FileProcessor(const char* filename) {
+        buffer = new int[1000];
+        file = fopen(filename, "r");
+    }
+    
+    void process() {
+        // Код за обработка, който може да хвърли изключения
+        if (errorCondition) {
+            throw std::runtime_error("Обработката се провали");
+        }
+    }
+    
+    ~FileProcessor() {
+        delete[] buffer;
+        fclose(file);
+    }
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex29">
+                        <label for="ex29" class="exercise-number">Упражнение 29</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Analysis & Optimization</p>
+                    <p><strong>Задача:</strong> Имате приложение, което трябва да:</p>
+                    <ol>
+                        <li>Често вмъква елементи и на двата края</li>
+                        <li>Понякога достъпва средния елемент</li>
+                        <li>Обхожда напред и назад</li>
+                        <li>Минимизира използването на памет</li>
+                    </ol>
+                    <p>Трябва ли да използвате масив, едносвързан списък или двусвързан списък? Обосновете избора си с анализ на сложността и компромиси.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex30">
+                        <label for="ex30" class="exercise-number">Упражнение 30</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <p><strong>Тип:</strong> Comprehensive Problem</p>
+                    <p><strong>Задача:</strong> Проектирайте и имплементирайте генеричен метод <code>reverse()</code> за двусвързан списък, който обръща списъка на място (без заделяне на нови възли). Вашата имплементация трябва да:</p>
+                    <ul>
+                        <li>Обработва празни списъци</li>
+                        <li>Обработва списъци с един възел</li>
+                        <li>Правилно актуализира всички указатели (head, tail, next, prev)</li>
+                        <li>Поддържа O(n) времева сложност и O(1) пространствена сложност</li>
+                    </ul>
+                    <div class="code-block">
+                        <pre><code>template &lt;typename T&gt;
+void DoublyLinkedList&lt;T&gt;::reverse() {
+    // Вашата имплементация тук
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guidelines -->
+        <section id="guidelines" class="content-section">
+            <h2>📝 Насоки за Решаване</h2>
+            
+            <div class="box box-info">
+                <h3>Лесни (1-10):</h3>
+                <p>Фокусирайте се върху дефиниции, основно разбиране и разпознаване на фундаментални концепции. Тези упражнения изграждат основата за по-напреднати теми.</p>
+            </div>
+
+            <div class="box box-warning">
+                <h3>Средни (11-20):</h3>
+                <p>Изискват приложение на концепции, прости имплементации и анализ на коректността на кода. Тествайте решенията си с различни входни данни.</p>
+            </div>
+
+            <div class="box box-danger">
+                <h3>Трудни (21-30):</h3>
+                <p>Изискват синтез на множество концепции, пълни имплементации с обработка на крайни случаи, дебъгване на сложни сценарии и вземане на информирани решения за дизайн. Обмислете edge cases и оптимизация.</p>
+            </div>
+
+            <div class="tips-section">
+                <h3>💡 Съвети за успех:</h3>
+                <ul>
+                    <li>Винаги тествайте с крайни случаи (празен списък, един елемент, много елементи)</li>
+                    <li>Използвайте Valgrind или AddressSanitizer за проверка на изтичане на памет</li>
+                    <li>Начертайте диаграми на указателите преди имплементация на сложни операции</li>
+                    <li>Прочетете условието внимателно и се уверете, че разбирате всички изисквания</li>
+                    <li>Коментирайте кода си - обяснете логиката и обработката на крайни случаи</li>
+                    <li>Разгледайте примерите от лекцията за референция</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 FMI SDP Course. Всички права запазени.</p>
+            <p><a href="index.html" style="color: #94a3b8; text-decoration: none;">← Обратно към лекцията</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cpp.min.js"></script>
+    <script src="exercises-script.js"></script>
+</body>
+</html>
