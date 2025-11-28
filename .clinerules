@@ -1,0 +1,344 @@
+# Cline Instructions - FMI SDP Course Project
+
+## Project Overview
+
+Data Structures and Programming course materials built with Docusaurus.
+Deployed at: https://alexaytov.github.io/fmi-sdp-exc-2025-26/
+
+## Directory Structure
+
+```
+docusaurus-site/
+├── docs/XX-topic-name/     # Lecture directories
+│   ├── _category_.json     # Category metadata
+│   ├── lecture.md          # Main lecture content
+│   └── exercises.md        # Practice exercises
+├── src/components/         # React components
+└── docusaurus.config.ts   # Site configuration
+```
+
+## Creating New Lectures - Step by Step
+
+### 1. Create Directory
+```bash
+cd docusaurus-site/docs
+mkdir XX-topic-name  # e.g., 11-hash-tables
+```
+
+Naming: `XX-topic-name` (number-hyphenated-lowercase)
+
+### 2. Create _category_.json
+```json
+{
+  "label": "XX. Bulgarian Title",
+  "position": XX,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "Brief description in Bulgarian"
+  }
+}
+```
+
+### 3. Create lecture.md
+
+**Frontmatter**:
+```yaml
+---
+title: "Лекция"
+sidebar_position: 1
+slug: lecture
+tags: [topic, subtopic, data-structures, cpp]
+---
+```
+
+**Required Imports** (at top, after frontmatter):
+```jsx
+import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
+import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
+import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
+import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
+import LearningObjectives from '@site/src/components/LearningObjectives';
+import CollapsibleSection from '@site/src/components/CollapsibleSection';
+import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
+import Grid from '@site/src/components/Grid/Grid';
+import Card from '@site/src/components/Grid/Card';
+```
+
+**Structure**:
+```markdown
+# Title in Bulgarian
+
+<LearningObjectives
+  objectives={[
+    "Learning objective 1",
+    "Learning objective 2",
+    "Learning objective 3"
+  ]}
+/>
+
+---
+
+[Main content with components]
+
+---
+
+## Допълнителни Ресурси
+
+### Онлайн Туториали
+
+- [Name](url) - Description
+
+### Визуализация
+
+- [Tool](url) - Description
+
+### Практически Задачи
+
+- [Platform - Topic](url) - Description
+
+### Книги
+
+- "Title" - Description
+```
+
+### 4. Create exercises.md
+
+**Frontmatter**:
+```yaml
+---
+title: "Упражнения"
+sidebar_position: 2
+slug: exercises
+tags: [exercises, practice, topic]
+---
+```
+
+**Required Imports**:
+```jsx
+import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
+import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
+import CollapsibleSection from '@site/src/components/CollapsibleSection';
+import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
+```
+
+**Structure**:
+```markdown
+# Упражнения - Topic
+
+<ProgressTracker
+  exercises={[
+    { id: 1, difficulty: "easy" },
+    { id: 2, difficulty: "medium" },
+    { id: 3, difficulty: "hard" }
+  ]}
+/>
+
+---
+
+## Задача 1: Title
+
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="15 min"
+  tags={["tag1", "tag2"]}
+>
+
+Problem description in Bulgarian
+
+</ExerciseCard>
+
+<CollapsibleSection title="💡 Подсказка" icon="💡">
+
+Hint content
+
+</CollapsibleSection>
+
+<CollapsibleSection title="✅ Решение" icon="✅">
+
+\`\`\`cpp
+// Solution code with English comments
+\`\`\`
+
+Explanation in Bulgarian
+
+</CollapsibleSection>
+```
+
+## Component Reference
+
+### InfoBox Variants
+```jsx
+<InfoBox title="Title">Content</InfoBox>
+<SuccessBox title="Title">Content</SuccessBox>
+<WarningBox title="Title">Content</WarningBox>
+<WhyBox title="Защо?">Content</WhyBox>
+```
+
+### Collapsible Sections
+```jsx
+<CollapsibleSection title="Title" icon="🎯">
+Hidden content
+</CollapsibleSection>
+```
+
+### Grid Layout
+```jsx
+<Grid columns={2}>
+  <Card title="Title 1">Content 1</Card>
+  <Card title="Title 2">Content 2</Card>
+</Grid>
+```
+
+### Comparison
+```jsx
+<ComparisonBox
+  left={{ title: "Approach 1", content: "Details 1" }}
+  right={{ title: "Approach 2", content: "Details 2" }}
+/>
+```
+
+### Exercise Components
+```jsx
+<ExerciseCard
+  difficulty="easy|medium|hard"
+  timeEstimate="XX min"
+  tags={["tag1", "tag2"]}
+>
+Problem description
+</ExerciseCard>
+
+<ProgressTracker
+  exercises={[
+    { id: 1, difficulty: "easy" },
+    { id: 2, difficulty: "medium" }
+  ]}
+/>
+```
+
+## Code Blocks
+
+Always specify language:
+
+```cpp
+#include <iostream>
+
+int main() {
+    // English comments
+    std::cout << "Output" << std::endl;
+    return 0;
+}
+```
+
+## LaTeX Math
+
+Inline: `$O(n \log n)$`
+
+Block:
+```
+$$
+T(n) = 2T(n/2) + O(n)
+$$
+```
+
+## Language Rules
+
+- **Content**: Bulgarian (Cyrillic)
+- **Code**: English (comments, variable names)
+- **Technical terms**: English when standard (e.g., "Big-O", "hash table")
+- **Component props**: English
+
+## Tags
+
+**Standard tags**:
+- General: `data-structures`, `algorithms`, `cpp`, `exercises`, `practice`
+- Topics: `arrays`, `linked-lists`, `trees`, `graphs`, `hash-tables`
+- Concepts: `complexity`, `recursion`, `sorting`, `searching`
+- Difficulty: `easy`, `medium`, `hard` (in ExerciseCard only)
+
+## Required Sections
+
+### Every lecture.md needs:
+1. Learning objectives at top
+2. Main content with components
+3. Code examples
+4. "Допълнителни Ресурси" section at end
+
+### Every exercises.md needs:
+1. Progress tracker at top
+2. Multiple exercises with:
+   - ExerciseCard for problem
+   - Collapsible hint
+   - Collapsible solution
+
+## Testing Workflow
+
+```bash
+# 1. Start dev server
+cd docusaurus-site
+npm start
+
+# 2. Check http://localhost:3000
+
+# 3. Build (checks for errors)
+npm run build
+
+# 4. If successful, commit
+git add docs/XX-topic-name/
+git commit -m "Add lecture XX: Topic"
+git push origin main
+```
+
+## Common Mistakes to Avoid
+
+1. ❌ Missing imports at top of file
+2. ❌ Wrong component paths (use `@site/src/components/...`)
+3. ❌ Mixing Bulgarian/English inconsistently
+4. ❌ Forgetting "Допълнителни Ресурси" section
+5. ❌ Not using components (plain markdown is less engaging)
+6. ❌ Missing frontmatter or wrong format
+7. ❌ Incorrect directory naming
+8. ❌ Not testing locally before push
+
+## Checklist for New Lecture
+
+- [ ] Directory created: `XX-topic-name`
+- [ ] `_category_.json` with correct position
+- [ ] `lecture.md` with:
+  - [ ] Correct frontmatter
+  - [ ] All required imports
+  - [ ] `<LearningObjectives>` at top
+  - [ ] Content with components
+  - [ ] Code examples
+  - [ ] "Допълнителни Ресурси" section
+- [ ] `exercises.md` with:
+  - [ ] Correct frontmatter
+  - [ ] Required imports
+  - [ ] `<ProgressTracker>` at top
+  - [ ] At least 3 exercises with cards
+  - [ ] Hints and solutions in collapsible sections
+- [ ] Tested locally (`npm start`)
+- [ ] Build successful (`npm run build`)
+- [ ] Committed with descriptive message
+- [ ] Pushed to main
+
+## Deployment
+
+- Automatic via GitHub Actions on push to `main`
+- Check: https://github.com/alexaytov/fmi-sdp-exc-2025-26/actions
+- Live: https://alexaytov.github.io/fmi-sdp-exc-2025-26/
+
+## Priority Rules
+
+1. **Always use components** over plain markdown
+2. **Test locally** before committing
+3. **Follow naming conventions** strictly
+4. **Include educational resources**
+5. **Write in Bulgarian** for content
+6. **Use English** for code
+7. **Add comprehensive tags**
+8. **Create interactive exercises**
+
+---
+
+Last updated: November 28, 2025
