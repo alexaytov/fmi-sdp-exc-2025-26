@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shunting Yard - Упражнения</title>
+    <link rel="stylesheet" href="exercises-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cpp.min.js"></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-meta">
+                <span class="badge badge-exercises">Упражнения 8</span>
+                <span class="badge badge-topic">Shunting Yard & RPN</span>
+            </div>
+            <h1>Stack и Queue Applications: Практически Задачи</h1>
+            <p class="hero-subtitle">32 упражнения от лесни до напреднали</p>
+            <p class="hero-description">
+                Практикувайте Shunting Yard алгоритъма, конверсия в RPN, 
+                изчисляване на изрази и C++ имплементация с различни нива на трудност.
+            </p>
+        </div>
+    </header>
+
+    <div class="progress-section">
+        <div class="progress-container">
+            <h2>Вашият прогрес</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="progress-stats">
+                <span id="progressText">0 / 32 завършени</span>
+                <button class="clear-progress-btn" id="clearProgressBtn">Изчисти прогреса</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="filter-nav">
+        <button class="filter-btn active" data-filter="all">Всички (32)</button>
+        <button class="filter-btn" data-filter="easy">Лесни (8)</button>
+        <button class="filter-btn" data-filter="easy-medium">Лесни-Средни (4)</button>
+        <button class="filter-btn" data-filter="medium">Средни (8)</button>
+        <button class="filter-btn" data-filter="medium-hard">Средни-Трудни (4)</button>
+        <button class="filter-btn" data-filter="hard">Трудни (8)</button>
+    </nav>
+
+    <main class="content">
+        <section class="exercises-section">
+            <h2>Лесни упражнения (Основни концепции)</h2>
+            
+            <div class="exercise-card" data-difficulty="easy">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex1">
+                        <label for="ex1" class="exercise-number">Упражнение 1</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Stack и Queue основи</h3>
+                    <p>Дадена е следната последователност от операции върху празен стек: <code>push(5), push(3), pop(), push(7), top(), pop()</code>. Каква стойност връща операцията <code>top()</code>?</p>
+                    <div class="hint-box">
+                        <strong>💡 Подсказка:</strong> Проследете стека стъпка по стъпка след всяка операция.
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="easy">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex2">
+                        <label for="ex2" class="exercise-number">Упражнение 2</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>LIFO vs FIFO</h3>
+                    <p>Обяснете със свои думи защо стекът използва LIFO (Last In, First Out) подредба и защо това свойство го прави подходящ за Shunting Yard алгоритъма.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="easy">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex3">
+                        <label for="ex3" class="exercise-number">Упражнение 3</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Приоритет на операторите</h3>
+                    <p>Подредете следните оператори от най-нисък към най-висок приоритет: <code>^</code>, <code>+</code>, <code>*</code>, <code>-</code>, <code>/</code></p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="easy">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex4">
+                        <label for="ex4" class="exercise-number">Упражнение 4</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Разпознаване на инфиксна vs RPN нотация</h3>
+                    <p>Идентифицирайте кои от следните изрази са в инфиксна нотация и кои в RPN (постфиксна):</p>
+                    <ul>
+                        <li>a) <code>3 + 4</code></li>
+                        <li>b) <code>3 4 +</code></li>
+                        <li>c) <code>5 2 * 3 +</code></li>
+                        <li>d) <code>(2 + 3) * 4</code></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="easy">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex5">
+                        <label for="ex5" class="exercise-number">Упражнение 5</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Просто RPN изчисляване</h3>
+                    <p>Изчислете RPN израза <code>5 3 +</code> стъпка по стъпка, показвайки съдържанието на стека след всяка операция.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="easy">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex6">
+                        <label for="ex6" class="exercise-number">Упражнение 6</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Основна токенизация</h3>
+                    <p>Изброете всички токени в израза <code>12 + 34 * 5</code> в реда, в който ще бъдат обработени.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="easy">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex7">
+                        <label for="ex7" class="exercise-number">Упражнение 7</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Концепция за асоциативност</h3>
+                    <p>Каква е разликата между ляво-асоциативни и дясно-асоциативни оператори? Дайте по един пример за всеки от лекцията.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="easy">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex8">
+                        <label for="ex8" class="exercise-number">Упражнение 8</label>
+                    </div>
+                    <span class="difficulty-badge easy">ЛЕСНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Роля на скобите</h3>
+                    <p>Защо изразът <code>2 + 3 * 4</code> се изчислява на 14, но <code>(2 + 3) * 4</code> се изчислява на 20? Обяснете ролята на скобите.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="exercises-section">
+            <h2>Лесни-Средни упражнения (Приложение на основни концепции)</h2>
+            
+            <div class="exercise-card" data-difficulty="easy-medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex9">
+                        <label for="ex9" class="exercise-number">Упражнение 9</label>
+                    </div>
+                    <span class="difficulty-badge easy-medium">ЛЕСНО-СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Проста конверсия инфикс към RPN</h3>
+                    <p>Конвертирайте инфиксния израз <code>A + B</code> в RPN нотация. Покажете работата си стъпка по стъпка със състоянията на стека и изходната опашка.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="easy-medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex10">
+                        <label for="ex10" class="exercise-number">Упражнение 10</label>
+                    </div>
+                    <span class="difficulty-badge easy-medium">ЛЕСНО-СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>RPN изчисляване с множество операции</h3>
+                    <p>Изчислете RPN израза <code>2 3 + 4 *</code>, показвайки състоянието на стека след обработката на всеки токен.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="easy-medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex11">
+                        <label for="ex11" class="exercise-number">Упражнение 11</label>
+                    </div>
+                    <span class="difficulty-badge easy-medium">ЛЕСНО-СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Приоритет в действие</h3>
+                    <p>Конвертирайте инфиксния израз <code>2 + 3 * 4</code> в RPN. Обяснете защо операторът за умножение се обработва преди събирането.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="easy-medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex12">
+                        <label for="ex12" class="exercise-number">Упражнение 12</label>
+                    </div>
+                    <span class="difficulty-badge easy-medium">ЛЕСНО-СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Проследяване на Stack операции</h3>
+                    <p>Дадени са операциите <code>push(10), push(20), push(30), pop(), top()</code>. Какво е крайното състояние на стека и каква стойност връща <code>top()</code>?</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="exercises-section">
+            <h2>Средни упражнения (Междинно решаване на проблеми)</h2>
+            
+            <div class="exercise-card" data-difficulty="medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex13">
+                        <label for="ex13" class="exercise-number">Упражнение 13</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Инфикс към RPN със скоби</h3>
+                    <p>Конвертирайте инфиксния израз <code>(A + B) * C</code> в RPN нотация. Покажете стека с оператори и изходната опашка на всяка стъпка.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex14">
+                        <label for="ex14" class="exercise-number">Упражнение 14</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Множество оператори</h3>
+                    <p>Конвертирайте <code>A + B * C - D</code> в RPN. Покажете всички междинни стъпки със съдържанието на стека и опашката.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex15">
+                        <label for="ex15" class="exercise-number">Упражнение 15</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Предизвикателство с асоциативност</h3>
+                    <p>Конвертирайте <code>10 - 3 - 2</code> в RPN, след това го изчислете. Обяснете как лявата асоциативност влияе на резултата (сравнете с това какво би се случило, ако изваждането беше дясно-асоциативно).</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex16">
+                        <label for="ex16" class="exercise-number">Упражнение 16</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>RPN изчисляване с деление</h3>
+                    <p>Изчислете RPN израза <code>15 3 / 2 +</code>, показвайки всяка стъпка. Какъв е крайният резултат?</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex17">
+                        <label for="ex17" class="exercise-number">Упражнение 17</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Откриване на грешки</h3>
+                    <p>Идентифицирайте какво не е наред със следния RPN израз: <code>3 + 4 5 *</code>. Как бихте го поправили?</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex18">
+                        <label for="ex18" class="exercise-number">Упражнение 18</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Вложени скоби</h3>
+                    <p>Конвертирайте инфиксния израз <code>((A + B) * C)</code> в RPN. Проследете алгоритъма, показвайки как се обработват вложените скоби.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex19">
+                        <label for="ex19" class="exercise-number">Упражнение 19</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Дясна асоциативност</h3>
+                    <p>Конвертирайте <code>2 ^ 3 ^ 2</code> в RPN, правилно обработвайки дясната асоциативност на степенуването. След това изчислете RPN израза.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="medium">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex20">
+                        <label for="ex20" class="exercise-number">Упражнение 20</label>
+                    </div>
+                    <span class="difficulty-badge medium">СРЕДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Смесен приоритет</h3>
+                    <p>Конвертирайте инфиксния израз <code>A * B + C / D</code> в RPN. Покажете как се обработват операторите с еднакъв приоритет.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="exercises-section">
+            <h2>Средни-Трудни упражнения (Сложни приложения)</h2>
+            
+            <div class="exercise-card" data-difficulty="medium-hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex21">
+                        <label for="ex21" class="exercise-number">Упражнение 21</label>
+                    </div>
+                    <span class="difficulty-badge medium-hard">СРЕДНО-ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Конверсия на сложен израз</h3>
+                    <p>Конвертирайте инфиксния израз <code>3 + 4 * 2 / (1 - 5)</code> в RPN. Покажете пълни проследявания на стека с оператори и изходната опашка.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="medium-hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex22">
+                        <label for="ex22" class="exercise-number">Упражнение 22</label>
+                    </div>
+                    <span class="difficulty-badge medium-hard">СРЕДНО-ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Идентификация на унарен оператор</h3>
+                    <p>В израза <code>-3 + 4 * -5</code>, идентифицирайте кои знаци за минус са унарни и кои са бинарни. Обяснете как сте определили това.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="medium-hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex23">
+                        <label for="ex23" class="exercise-number">Упражнение 23</label>
+                    </div>
+                    <span class="difficulty-badge medium-hard">СРЕДНО-ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Симулация на алгоритъма</h3>
+                    <p>Дадени израз <code>A + B * C + D</code>, ръчно симулирайте Shunting Yard алгоритъма. Създайте таблица, показваща: Текущ токен | Стек с оператори | Изходна опашка за всяка стъпка.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="medium-hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex24">
+                        <label for="ex24" class="exercise-number">Упражнение 24</label>
+                    </div>
+                    <span class="difficulty-badge medium-hard">СРЕДНО-ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Изчисляване с проверка за грешки</h3>
+                    <p>Напишете псевдокод за RPN изчислител, който включва проверка за грешки при недостатъчни операнди и невалидни изрази.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="exercises-section">
+            <h2>Трудни упражнения (Напреднало решаване на проблеми)</h2>
+            
+            <div class="exercise-card" data-difficulty="hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex25">
+                        <label for="ex25" class="exercise-number">Упражнение 25</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Класическият пример от Wikipedia</h3>
+                    <p>Конвертирайте пълния израз <code>3 + 4 * 2 / (1 - 5) ^ 2 ^ 3</code> в RPN, следвайки всички правила за приоритет, асоциативност и скоби. След това изчислете RPN израза, за да получите крайния числен резултат.</p>
+                    <div class="hint-box">
+                        <strong>💡 Подсказка:</strong> Обърнете специално внимание на дясната асоциативност на степенуването.
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex26">
+                        <label for="ex26" class="exercise-number">Упражнение 26</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Обработка на унарни оператори</h3>
+                    <p>Проектирайте модификация на алгоритъма за обработка на израза <code>-3 * (4 + -5)</code>, където и двете унарни отрицания трябва да бъдат правилно идентифицирани и обработени. Покажете пълната конверсия в RPN.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex27">
+                        <label for="ex27" class="exercise-number">Упражнение 27</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Дизайн на C++ имплементация</h3>
+                    <p>Напишете детайлна C++ функция сигнатура и опишете подхода за имплементация на <code>std::vector&lt;std::string&gt; infixToRPN(const std::string& expression)</code>. Включете как ще обработите токенизацията, приоритета на операторите и грешните условия.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex28">
+                        <label for="ex28" class="exercise-number">Упражнение 28</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Предизвикателство за дебъгване</h3>
+                    <p>Имплементацията на Shunting Yard на студент произвежда <code>2 3 4 + *</code> за входа <code>2 * 3 + 4</code>. Идентифицирайте грешката в логиката на техния алгоритъм и обяснете правилното поведение.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex29">
+                        <label for="ex29" class="exercise-number">Упражнение 29</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Имплементация на дясна асоциативност</h3>
+                    <p>Обяснете подробно как функцията <code>shouldPop()</code> в Shunting Yard алгоритъма трябва да бъде модифицирана, за да обработва правилно дясно-асоциативни оператори като степенуването. Предоставете логическото условие.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex30">
+                        <label for="ex30" class="exercise-number">Упражнение 30</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Сложен вложен израз</h3>
+                    <p>Конвертирайте и изчислете: <code>((15 / (7 - (1 + 1))) * 3) - (2 + (1 + 1))</code>. Покажете пълната RPN конверсия с всички междинни стъпки, след това изчислете RPN, за да намерите крайния отговор.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex31">
+                        <label for="ex31" class="exercise-number">Упражнение 31</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Дизайн на разширение за функции</h3>
+                    <p>Проектирайте разширение на Shunting Yard алгоритъма за обработка на функционални извиквания като <code>sin(30)</code> или <code>max(3, 5, 7)</code>. Опишете как бихте модифицирали етапите на токенизация, конверсия и изчисляване.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card" data-difficulty="hard">
+                <div class="exercise-header">
+                    <div class="exercise-title-group">
+                        <input type="checkbox" class="exercise-checkbox" id="ex32">
+                        <label for="ex32" class="exercise-number">Упражнение 32</label>
+                    </div>
+                    <span class="difficulty-badge hard">ТРУДНО</span>
+                </div>
+                <div class="exercise-content">
+                    <h3>Цялостна имплементация</h3>
+                    <p>Напишете пълен C++ клас <code>ExpressionParser</code>, който включва:</p>
+                    <ul>
+                        <li>Метод за токенизация</li>
+                        <li>Метод за конверсия от инфикс към RPN</li>
+                        <li>Метод за изчисляване на RPN</li>
+                        <li>Обработка на грешки за несъответстващи скоби и невалидни изрази</li>
+                    </ul>
+                    <p>Включете дефиницията на класа с всички необходими членове и сигнатури на методи.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 FMI Структури от Данни и Програмиране. Всички права запазени.</p>
+            <p>Упражнения 8: Shunting Yard Algorithm, Expression Evaluation, and Reverse Polish Notation</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize syntax highlighting
+        hljs.highlightAll();
+    </script>
+    <script src="solutions.js"></script>
+    <script src="exercises-script.js"></script>
+</body>
+</html>
