@@ -1,0 +1,89 @@
+.comparisonBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.comparisonItem {
+  border-radius: 8px;
+  border: 2px solid;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.comparisonItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.comparisonItem.wrong {
+  border-color: #f44336;
+  background-color: #ffebee;
+}
+
+.comparisonItem.correct {
+  border-color: #4caf50;
+  background-color: #e8f5e9;
+}
+
+.header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wrong .header {
+  background-color: #ffcdd2;
+}
+
+.correct .header {
+  background-color: #c8e6c9;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.content {
+  padding: 1.5rem;
+  line-height: 1.7;
+}
+
+.content pre {
+  margin: 0;
+}
+
+/* Dark mode */
+[data-theme='dark'] .comparisonItem.wrong {
+  background-color: #5d1f1f;
+  border-color: #ef5350;
+}
+
+[data-theme='dark'] .comparisonItem.correct {
+  background-color: #1b5e20;
+  border-color: #66bb6a;
+}
+
+[data-theme='dark'] .wrong .header {
+  background-color: #7f1d1d;
+}
+
+[data-theme='dark'] .correct .header {
+  background-color: #2e7d32;
+}
+
+@media (max-width: 768px) {
+  .comparisonBox {
+    grid-template-columns: 1fr;
+  }
+}

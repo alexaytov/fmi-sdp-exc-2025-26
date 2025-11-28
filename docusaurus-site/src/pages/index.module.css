@@ -1,0 +1,226 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Lectures Section */
+.lecturesSection {
+  padding: 4rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.lecturesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.lectureCard {
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid var(--ifm-color-primary-light);
+}
+
+.lectureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.lectureCardPending {
+  opacity: 0.7;
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+.lectureCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.lectureNumber {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--ifm-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusBadge {
+  background: var(--ifm-color-success);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.statusBadgePending {
+  background: var(--ifm-color-warning);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.lectureTitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  color: var(--ifm-heading-color);
+}
+
+.lectureTopics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.topicTag {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-800);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.lectureLinks {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.lectureLink,
+.exerciseLink {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.lectureLink {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.lectureLink:hover {
+  background: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
+
+.exerciseLink {
+  background: var(--ifm-color-success);
+  color: white;
+}
+
+.exerciseLink:hover {
+  background: var(--ifm-color-success-dark);
+  color: white;
+  text-decoration: none;
+}
+
+.comingSoon {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  color: var(--ifm-color-emphasis-600);
+  font-style: italic;
+}
+
+/* Features Section */
+.featuresSection {
+  padding: 4rem 0;
+  background: var(--ifm-background-color);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.featureCard {
+  text-align: center;
+  padding: 2rem;
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+}
+
+.featureIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.featureCard h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+}
+
+.featureCard p {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+  .lecturesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+}

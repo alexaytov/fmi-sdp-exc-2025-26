@@ -1,0 +1,8 @@
+{
+  "label": "01. Концепции за Сложност и Big-O Нотация",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Концепции за сложност, Big-O нотация, тестване и double precision в C++"
+  }
+}

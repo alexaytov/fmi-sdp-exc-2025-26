@@ -1,0 +1,96 @@
+.infoBox {
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.infoBox:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.infoBox.info {
+  background-color: #e3f2fd;
+  border-color: #2196F3;
+}
+
+.infoBox.warning {
+  background-color: #fff3e0;
+  border-color: #ff9800;
+}
+
+.infoBox.success {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+}
+
+.infoBox.why {
+  background-color: #f3e5f5;
+  border-color: #9c27b0;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  font-size: 1.3rem;
+}
+
+.content {
+  line-height: 1.7;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.content ul, .content ol {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.content li {
+  margin-bottom: 0.5rem;
+}
+
+.content code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .infoBox.info {
+  background-color: #0d47a1;
+  border-color: #42a5f5;
+}
+
+[data-theme='dark'] .infoBox.warning {
+  background-color: #e65100;
+  border-color: #ff9800;
+}
+
+[data-theme='dark'] .infoBox.success {
+  background-color: #1b5e20;
+  border-color: #66bb6a;
+}
+
+[data-theme='dark'] .infoBox.why {
+  background-color: #4a148c;
+  border-color: #ab47bc;
+}
+
+[data-theme='dark'] .content code {
+  background-color: rgba(255, 255, 255, 0.1);
+}

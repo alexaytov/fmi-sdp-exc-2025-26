@@ -1,0 +1,276 @@
+.exerciseCard {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.exerciseCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.exerciseCard.easy {
+  border-left: 4px solid #4caf50;
+}
+
+.exerciseCard.medium {
+  border-left: 4px solid #ff9800;
+}
+
+.exerciseCard.hard {
+  border-left: 4px solid #f44336;
+}
+
+.header {
+  padding: 1rem 1.5rem;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.exerciseNumber {
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.easy {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+}
+
+.badge.medium {
+  background-color: #ffe0b2;
+  color: #e65100;
+}
+
+.badge.hard {
+  background-color: #ffcdd2;
+  color: #b71c1c;
+}
+
+.showAnswerBtn {
+  padding: 0.5rem 1rem;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.showAnswerBtn:hover {
+  background-color: #1976D2;
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.question {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.answer {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: #e8f5e9;
+  border-left: 4px solid #4caf50;
+  border-radius: 4px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.answerLabel {
+  margin-bottom: 0.75rem;
+  color: #1b5e20;
+  font-size: 1.05rem;
+}
+
+.answer pre {
+  margin: 0.75rem 0;
+}
+
+/* Progress Tracker */
+.progressTracker {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.progressHeader h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.clearButton {
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.clearButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.progressBarWrapper {
+  margin: 1rem 0;
+}
+
+.progressBar {
+  width: 100%;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50 0%, #8bc34a 100%);
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+}
+
+.progressText {
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  font-size: 1.1rem;
+}
+
+.statItem strong {
+  font-size: 1.3rem;
+}
+
+.hint {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Dark mode */
+[data-theme='dark'] .exerciseCard {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+[data-theme='dark'] .header {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+[data-theme='dark'] .answer {
+  background-color: #1b5e20;
+  border-color: #66bb6a;
+}
+
+[data-theme='dark'] .badge.easy {
+  background-color: #2e7d32;
+  color: #c8e6c9;
+}
+
+[data-theme='dark'] .badge.medium {
+  background-color: #e65100;
+  color: #ffe0b2;
+}
+
+[data-theme='dark'] .badge.hard {
+  background-color: #c62828;
+  color: #ffcdd2;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

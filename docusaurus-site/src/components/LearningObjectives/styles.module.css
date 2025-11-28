@@ -1,0 +1,63 @@
+.learningObjectives {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+.title {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+.objectivesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.objectiveItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.checkmark {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-top: 0.1rem;
+}
+
+.objectiveText {
+  flex: 1;
+}
+
+/* Dark mode (gradient already works well, but adjust if needed) */
+[data-theme='dark'] .learningObjectives {
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.5);
+}
