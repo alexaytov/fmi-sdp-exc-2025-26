@@ -84,11 +84,15 @@ const config: Config = {
           items: [
             {
               label: 'Complexity - Big O',
-              to: '/docs/complexity-big-o',
+              to: '/docs/complexity-big-o/lecture',
             },
             {
-              label: 'Линейни Структури',
-              to: '/docs/linear-structures',
+              label: 'Масиви и Двоично Търсене',
+              to: '/docs/arrays-binary-search/lecture',
+            },
+            {
+              label: 'Динамични Масиви',
+              to: '/docs/dynamic-array/lecture',
             },
           ],
         },
