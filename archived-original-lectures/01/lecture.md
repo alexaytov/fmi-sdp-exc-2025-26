@@ -281,7 +281,7 @@ Let's put some of these concepts into practice with examples.
 *   **Step-by-Step Big-O Analysis:**
     *   **Outer Loop:** Runs `n` times (for each pass over the array).
     *   **Inner Loop:** For each pass, it compares adjacent elements. In the first pass, it makes `n-1` comparisons, then `n-2`, and so on, down to 1 comparison in the last pass.
-    *   **Total Comparisons:** The total number of comparisons is approximately the sum of an arithmetic series: $$(n-1) + (n-2) + \cdots + 1 = \frac{n(n-1)}{2}$$
+    *   **Total Comparisons:** The total number of comparisons is approximately the sum of an arithmetic series: $$(n-1) + (n-2) + \cdots + 1 = \frac\{n(n-1)\}{2}$$
     *   **Simplification:** As `n` becomes large, $\frac{n(n-1)}{2}$ is dominated by $n^2/2$. Dropping the constant factor $1/2$, we get $O(n^2)$.
     *   **Swaps:** In the worst case (a reverse-sorted array), every comparison results in a swap, also $O(n^2)$.
 

@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 
 interface ExerciseCardProps {
-  id: string;
-  difficulty: 'easy' | 'medium' | 'hard';
-  question: React.ReactNode;
-  answer: React.ReactNode;
+  id?: string;
+  difficulty: 'easy' | 'medium' | 'hard' | 'easy-medium' | 'medium-hard';
+  question?: React.ReactNode;
+  answer?: React.ReactNode;
   number?: number;
+  timeEstimate?: string;
+  tags?: string[];
+  children?: React.ReactNode;
 }
 
 export default function ExerciseCard({
@@ -14,7 +17,10 @@ export default function ExerciseCard({
   difficulty,
   question,
   answer,
-  number
+  number,
+  timeEstimate,
+  tags,
+  children
 }: ExerciseCardProps): JSX.Element {
   const [showAnswer, setShowAnswer] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
@@ -38,8 +44,13 @@ export default function ExerciseCard({
   const difficultyLabels = {
     easy: 'ЛЕСНО',
     medium: 'СРЕДНО',
-    hard: 'ТРУДНО'
+    hard: 'ТРУДНО',
+    'easy-medium': 'ЛЕСНО-СРЕДНО',
+    'medium-hard': 'СРЕДНО-ТРУДНО'
   };
+
+  // When using children pattern, CollapsibleSection handles answer visibility
+  const isChildrenPattern = !!children;
 
   return (
     <div className={`${styles.exerciseCard} ${styles[difficulty]}`} data-difficulty={difficulty}>
@@ -57,29 +68,42 @@ export default function ExerciseCard({
           </label>
         </div>
         <div className={styles.actions}>
+          {timeEstimate && (
+            <span className={styles.timeEstimate}>{timeEstimate}</span>
+          )}
           <span className={`${styles.badge} ${styles[difficulty]}`}>
             {difficultyLabels[difficulty]}
           </span>
-          <button
-            className={styles.showAnswerBtn}
-            onClick={() => setShowAnswer(!showAnswer)}
-            type="button"
-          >
-            {showAnswer ? 'Скрий отговор' : 'Покажи отговор'}
-          </button>
+          {!isChildrenPattern && (
+            <button
+              className={styles.showAnswerBtn}
+              onClick={() => setShowAnswer(!showAnswer)}
+              type="button"
+            >
+              {showAnswer ? 'Скрий отговор' : 'Покажи отговор'}
+            </button>
+          )}
         </div>
       </div>
       <div className={styles.content}>
-        <div className={styles.question}>
-          {question}
-        </div>
-        {showAnswer && (
-          <div className={styles.answer}>
-            <div className={styles.answerLabel}>
-              <strong>Отговор:</strong>
-            </div>
-            {answer}
+        {isChildrenPattern ? (
+          <div className={styles.question}>
+            {children}
           </div>
+        ) : (
+          <>
+            <div className={styles.question}>
+              {question}
+            </div>
+            {showAnswer && (
+              <div className={styles.answer}>
+                <div className={styles.answerLabel}>
+                  <strong>Отговор:</strong>
+                </div>
+                {answer}
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

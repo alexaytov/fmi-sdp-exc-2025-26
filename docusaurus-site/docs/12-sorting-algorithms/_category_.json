@@ -1,0 +1,9 @@
+{
+  "label": "12. Алгоритми за Сортиране",
+  "position": 12,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Задълбочено изучаване на алгоритмите за сортиране - от основни comparison-based методи (bubble, selection, insertion) до напреднали техники (merge sort, quicksort, heap sort) и специализирани алгоритми (counting, bucket, radix sort). Научете кога и как да избирате правилния алгоритъм за вашата задача."
+  }
+}

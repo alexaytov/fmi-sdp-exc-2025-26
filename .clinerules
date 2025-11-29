@@ -190,13 +190,34 @@ Hidden content
 </Grid>
 ```
 
+**IMPORTANT Grid/Card Rules:**
+- Grid should contain **multiple Card components** (typically 2 or 4)
+- Each Card **MUST have a title prop**
+- For single-item content, use InfoBox/SuccessBox/WarningBox instead of Grid with one Card
+- Grid with only one Card will cause rendering issues
+
+**Example - DO NOT do this:**
+```jsx
+❌ WRONG:
+<Grid columns={1}>
+  <Card title="Single Item">Content</Card>
+</Grid>
+
+✅ CORRECT:
+<InfoBox title="Single Item">Content</InfoBox>
+```
+
 ### Comparison
 ```jsx
 <ComparisonBox
-  left={{ title: "Approach 1", content: "Details 1" }}
-  right={{ title: "Approach 2", content: "Details 2" }}
+  wrong={{ title: "Approach 1", content: "Details 1" }}
+  correct={{ title: "Approach 2", content: "Details 2" }}
 />
 ```
+
+**IMPORTANT:** ComparisonBox uses `wrong` and `correct` props, NOT `left` and `right`!
+- `wrong` prop shows content with ❌ icon (typically the less optimal approach)
+- `correct` prop shows content with ✅ icon (typically the better approach)
 
 ### Exercise Components
 ```jsx
@@ -299,6 +320,9 @@ git push origin main
 6. ❌ Missing frontmatter or wrong format
 7. ❌ Incorrect directory naming
 8. ❌ Not testing locally before push
+9. ❌ Using `left`/`right` props in ComparisonBox (use `wrong`/`correct`)
+10. ❌ Using Grid with single Card (use InfoBox instead)
+11. ❌ Card components without `title` prop
 
 ## Checklist for New Lecture
 
@@ -339,6 +363,30 @@ git push origin main
 7. **Add comprehensive tags**
 8. **Create interactive exercises**
 
+## Component Prop Reference (Critical!)
+
+### ComparisonBox Props
+```typescript
+interface ComparisonBoxProps {
+  wrong: { title: string; content: ReactNode }   // Shows with ❌
+  correct: { title: string; content: ReactNode } // Shows with ✅
+}
+```
+
+### Card Props
+```typescript
+interface CardProps {
+  title: string;  // REQUIRED - will crash without it!
+  children: ReactNode;
+}
+```
+
+### Grid Best Practices
+- Use `columns={2}` or `columns={3}` or `columns={4}`
+- Always include 2+ Card components inside Grid
+- Each Card MUST have a title
+- For single items, use InfoBox/SuccessBox/WarningBox instead
+
 ---
 
-Last updated: November 28, 2025
+Last updated: November 29, 2025

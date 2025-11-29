@@ -1,0 +1,9 @@
+{
+  "label": "11. Binary Heaps и Heap Sort",
+  "position": 11,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "Двоични пирамиди (Binary Heaps) като фундаментална структура от данни и алгоритъм Heap Sort с гарантирана O(n log n) сложност."
+  }
+}
