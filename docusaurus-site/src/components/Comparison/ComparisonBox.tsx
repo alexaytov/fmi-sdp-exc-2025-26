@@ -7,29 +7,39 @@ interface ComparisonItem {
 }
 
 interface ComparisonBoxProps {
-  wrong: ComparisonItem;
-  correct: ComparisonItem;
+  wrong?: ComparisonItem;
+  correct?: ComparisonItem;
+  left?: ComparisonItem;
+  right?: ComparisonItem;
 }
 
-export default function ComparisonBox({ wrong, correct }: ComparisonBoxProps): JSX.Element {
+export default function ComparisonBox({ wrong, correct, left, right }: ComparisonBoxProps): React.JSX.Element {
+  // Support both naming conventions: wrong/correct OR left/right
+  const leftItem = wrong || left;
+  const rightItem = correct || right;
+
+  if (!leftItem || !rightItem) {
+    console.error('ComparisonBox: Missing required props. Use either (wrong, correct) or (left, right)');
+    return <div>Error: Missing comparison items</div>;
+  }
   return (
     <div className={styles.comparisonBox}>
       <div className={`${styles.comparisonItem} ${styles.wrong}`}>
         <div className={styles.header}>
           <span className={styles.icon}>❌</span>
-          <h4>{wrong.title}</h4>
+          <h4>{leftItem.title}</h4>
         </div>
         <div className={styles.content}>
-          {wrong.content}
+          {leftItem.content}
         </div>
       </div>
       <div className={`${styles.comparisonItem} ${styles.correct}`}>
         <div className={styles.header}>
           <span className={styles.icon}>✅</span>
-          <h4>{correct.title}</h4>
+          <h4>{rightItem.title}</h4>
         </div>
         <div className={styles.content}>
-          {correct.content}
+          {rightItem.content}
         </div>
       </div>
     </div>
