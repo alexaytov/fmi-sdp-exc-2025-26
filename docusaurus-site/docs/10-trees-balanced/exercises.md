@@ -13,8 +13,36 @@ import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
+import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
+import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 # Упражнения: Дървета и Двоични Дървета за Търсене
+
+<ProgressTracker
+  exercises={[
+    { id: 1, difficulty: "easy" },
+    { id: 2, difficulty: "easy" },
+    { id: 3, difficulty: "easy" },
+    { id: 4, difficulty: "easy" },
+    { id: 5, difficulty: "easy" },
+    { id: 6, difficulty: "easy" },
+    { id: 7, difficulty: "medium" },
+    { id: 8, difficulty: "medium" },
+    { id: 9, difficulty: "medium" },
+    { id: 10, difficulty: "medium" },
+    { id: 11, difficulty: "medium" },
+    { id: 12, difficulty: "medium" },
+    { id: 13, difficulty: "hard" },
+    { id: 14, difficulty: "hard" },
+    { id: 15, difficulty: "hard" },
+    { id: 16, difficulty: "hard" },
+    { id: 17, difficulty: "hard" },
+    { id: 18, difficulty: "hard" },
+    { id: 19, difficulty: "hard" }
+  ]}
+/>
+
+---
 
 <InfoBox title="Цел на Упражненията">
 
@@ -36,7 +64,16 @@ import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 
 ### Упражнение 1: Дефиниция на Дърво
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Дефинирайте какво прави една структура от данни "дърво" и обяснете защо дърветата се считат за нелинейни структури от данни.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -74,12 +111,21 @@ import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 
 ### Упражнение 2: Tree Terminology
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Дадено е дървовиден възел със стойност 50, лявото му дете е 30, а дясното му дете е 70. Определете кои от следните твърдения са верни:
 
 a) 30 е родител на 50
 b) 30 и 70 са братя и сестри
 c) 50 е коренен възел
 d) Ако 30 няма деца, то е лист
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -109,6 +155,12 @@ d) ✅ **Вярно** - Node без children се нарича **leaf node**
 
 ### Упражнение 3: Node Structure Definition
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Попълнете следната C++ struct дефиниция за възел на двоично дърво, който съхранява цели числа:
 
 ```cpp
@@ -118,6 +170,9 @@ struct TreeNode {
     TreeNode* _______;
 };
 ```
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -162,7 +217,16 @@ root->right = new TreeNode(70);
 
 ### Упражнение 4: Complexity Calculation
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Изчислете колко сравнения са необходими в най-лошия случай, за да намерите елемент в балансирано BST, съдържащо 1,000 елемента. Покажете работата си.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -206,9 +270,18 @@ Height = ⌈log₂(1000)⌉
 
 ### Упражнение 5: BST Construction
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** За следната последователност от стойности, вмъкнати в първоначално празно BST: **50, 30, 70, 20, 40**
 
 Нарисувайте получената структура на дървото.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -267,7 +340,16 @@ Height = ⌈log₂(1000)⌉
 
 ### Упражнение 6: Recursive Base Case
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Дадено е `TreeNode* root`, напишете базовия случай за рекурсивна функция за дърво, която проверява дали дървото е празно.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -325,6 +407,12 @@ bool search(TreeNode* root, int key) {
 
 ### Упражнение 7: Tree Traversal Types
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Съпоставете всеки тип обхождане с неговия ред на посещение:
 
 - **Inorder:** _______
@@ -332,6 +420,9 @@ bool search(TreeNode* root, int key) {
 - **Postorder:** _______
 
 **Опции:** (Root, Left, Right), (Left, Root, Right), (Left, Right, Root)
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -389,7 +480,16 @@ void postorder(TreeNode* root) {
 
 ### Упражнение 8: BST Property
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Вярно или Невярно: В BST всички стойности в лявото поддърво трябва да бъдат по-малки от корена, а всички стойности в дясното поддърво трябва да бъдат по-големи от корена. Обяснете защо това свойство е важно.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -461,6 +561,12 @@ void postorder(TreeNode* root) {
 
 ### Упражнение 9: Count Nodes
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Напишете рекурсивна функция в C++, за да преброите общия брой възли в двоично дърво:
 
 ```cpp
@@ -468,6 +574,9 @@ int countNodes(TreeNode* root) {
     // Вашият код тук
 }
 ```
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -544,7 +653,16 @@ int countNodesIterative(TreeNode* root) {
 
 ### Упражнение 10: Inorder Traversal Property
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Дадено е BST свойството, обяснете защо inorder обхождането на BST произвежда стойности във възходящ ред. Предоставете прост пример с 3-възлово дърво.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -627,6 +745,12 @@ void inorder(TreeNode* root) {
 
 ### Упражнение 11: Search Implementation
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Имплементирайте функция за търсене в BST, която връща true, ако стойността съществува, и false в противен случай:
 
 ```cpp
@@ -634,6 +758,9 @@ bool search(Node* root, int key) {
     // Вашият код тук
 }
 ```
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -727,11 +854,20 @@ BST property гарантира, че:
 
 ### Упражнение 12: Tree Height Analysis
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** За дърво с височина h, какъв е:
 - Минималният възможен брой възли?
 - Максималният възможен брой възли?
 
 Изразете отговорите си чрез h и обяснете своите разсъждения.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -817,11 +953,20 @@ Min nodes (h=3):    Max nodes (h=3):
 
 ### Упражнение 13: BST Construction и Traversal
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Дадена е следната последователност от вмъквания в BST: **10, 5, 15, 3, 7, 12, 20**
 
 - Нарисувайте полученото дърво
 - Покажете изхода на inorder обхождане
 - Покажете изхода на preorder обхождане
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -952,6 +1097,12 @@ preorder(10):
 
 ### Упражнение 14: BST Validation
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Определете кое от следните двоични дървета е валидно BST. Обяснете защо невалидните дървета не отговарят на BST свойството:
 
 ```
@@ -962,6 +1113,9 @@ preorder(10):
  / \          / \  / \       /
 3   7        2  6 12 20     12
 ```
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -1083,6 +1237,12 @@ bool isValidBST(TreeNode* root, long min = LONG_MIN, long max = LONG_MAX) {
 
 ### Упражнение 15: Complete Insertion Function
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Попълнете функцията за вмъкване в BST. Попълнете липсващите условия:
 
 ```cpp
@@ -1095,6 +1255,9 @@ Node* insert(Node* root, int key) {
     return root;
 }
 ```
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -1208,7 +1371,16 @@ int main() {
 
 ### Упражнение 16: Degeneracy Problem
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Обяснете защо BST, което получава данни в сортиран ред, дегенерира в свързан списък. Каква е времевата сложност на търсенето в такова дегенерирало дърво?
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -1354,6 +1526,12 @@ Naive BST без balancing е **unsuitable за production** системи, к�
 
 ### Упражнение 17: Find Minimum Value
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Напишете функция, за да намерите минималната стойност в BST:
 
 ```cpp
@@ -1363,6 +1541,9 @@ Node* minValue(Node* node) {
 ```
 
 Обяснете защо вашият подход работи, базирайки се на BST свойството.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -1498,6 +1679,12 @@ if (minNode != nullptr) {
 
 ### Упражнение 21: Complete Deletion Function
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Имплементирайте пълната функция за изтриване в BST, която обработва всички три случая (лист, едно дете, две деца):
 
 ```cpp
@@ -1505,6 +1692,9 @@ Node* deleteNode(Node* root, int key) {
     // Вашата пълна имплементация тук
 }
 ```
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 
@@ -1741,11 +1931,20 @@ int main() {
 
 ### Упражнение 27: Phone Book Application
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Проектирайте прост телефонен указател в паметта, използвайки BST, където имената са ключове, а телефонните номера са стойности. Имплементирайте:
 - Вмъкване на контакт
 - Търсене на контакт
 - Изтриване на контакт
 - Отпечатване на всички контакти в азбучен ред
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
 

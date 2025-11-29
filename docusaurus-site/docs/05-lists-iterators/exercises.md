@@ -11,8 +11,47 @@ import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
+import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
+import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 # Упражнения: Списъци, Итератори и Управление на Паметта
+
+<ProgressTracker
+  exercises={[
+    { id: 1, difficulty: "easy" },
+    { id: 2, difficulty: "easy" },
+    { id: 3, difficulty: "easy" },
+    { id: 4, difficulty: "easy" },
+    { id: 5, difficulty: "easy" },
+    { id: 6, difficulty: "easy" },
+    { id: 7, difficulty: "easy" },
+    { id: 8, difficulty: "easy" },
+    { id: 9, difficulty: "easy" },
+    { id: 10, difficulty: "easy" },
+    { id: 11, difficulty: "medium" },
+    { id: 12, difficulty: "medium" },
+    { id: 13, difficulty: "medium" },
+    { id: 14, difficulty: "medium" },
+    { id: 15, difficulty: "medium" },
+    { id: 16, difficulty: "medium" },
+    { id: 17, difficulty: "medium" },
+    { id: 18, difficulty: "medium" },
+    { id: 19, difficulty: "medium" },
+    { id: 20, difficulty: "medium" },
+    { id: 21, difficulty: "hard" },
+    { id: 22, difficulty: "hard" },
+    { id: 23, difficulty: "hard" },
+    { id: 24, difficulty: "hard" },
+    { id: 25, difficulty: "hard" },
+    { id: 26, difficulty: "hard" },
+    { id: 27, difficulty: "hard" },
+    { id: 28, difficulty: "hard" },
+    { id: 29, difficulty: "hard" },
+    { id: 30, difficulty: "hard" }
+  ]}
+/>
+
+---
 
 <InfoBox title="Структура на Упражненията">
 
@@ -29,6 +68,12 @@ import Card from '@site/src/components/Grid/Card';
 
 ### Упражнение 1: Multiple Choice
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Въпрос**: Кое е основното предимство на свързания списък пред масива?
 
 A) По-бърз произволен достъп до елементи
@@ -36,7 +81,10 @@ B) По-добра локалност на кеша
 C) Динамичен размер, който може да расте или намалява по време на изпълнение
 D) По-малко паметно натоварване на елемент
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор: C) Динамичен размер, който може да расте или намалява по време на изпълнение**
 
@@ -48,9 +96,18 @@ D) По-малко паметно натоварване на елемент
 
 ### Упражнение 2: True/False
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Въпрос**: В едносвързан списък, указателят `next` на последния възел трябва да сочи към първия възел за завършване на списъка.
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор: False (Невярно)**
 
@@ -62,9 +119,18 @@ D) По-малко паметно натоварване на елемент
 
 ### Упражнение 3: Fill in the Blank
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Въпрос**: В C++, указател съхранява __________ на друга променлива.
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор: адреса (или паметния адрес)**
 
@@ -76,6 +142,12 @@ D) По-малко паметно натоварване на елемент
 
 ### Упражнение 4: Multiple Choice
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Въпрос**: На какво се преобразува операцията за индексиране на масив `arr[3]` използвайки аритметика на указатели?
 
 A) `*(arr - 3)`
@@ -83,7 +155,10 @@ B) `*(arr + 3)`
 C) `&(arr + 3)`
 D) `arr->3`
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор: B) `*(arr + 3)`**
 
@@ -95,9 +170,18 @@ D) `arr->3`
 
 ### Упражнение 5: Short Answer
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Въпрос**: Каква е разликата между `struct` и `class` в C++ относно достъпа до членовете по подразбиране?
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор**: В `struct`, членовете са `public` по подразбиране, докато в `class`, членовете са `private` по подразбиране. Това е единствената реална разлика между двете ключови думи в C++. Традицията е да се използва `struct` за прости структури от данни и `class` за по-сложни обекти с поведение.
 
@@ -106,6 +190,12 @@ D) `arr->3`
 ---
 
 ### Упражнение 6: Code Identification
+
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
 
 **Въпрос**: Идентифицирайте грешката в този код за създаване на възел:
 
@@ -120,7 +210,10 @@ head->data = 10;
 // Програмата завършва без почистване
 ```
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор: Изтичане на памет (Memory Leak)**
 
@@ -140,6 +233,12 @@ delete head;  // Освобождаване на паметта
 
 ### Упражнение 7: Multiple Choice
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Въпрос**: Каква е времевата сложност на достъпа до елемент по индекс в едносвързан списък?
 
 A) O(1)
@@ -147,7 +246,10 @@ B) O(log n)
 C) O(n)
 D) O(n²)
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор: C) O(n)**
 
@@ -159,9 +261,18 @@ D) O(n²)
 
 ### Упражнение 8: True/False
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Въпрос**: Възел на двусвързан списък съдържа указатели както към следващия, така и към предишния възел.
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор: True (Вярно)**
 
@@ -181,9 +292,18 @@ struct Node {
 
 ### Упражнение 9: Short Answer
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Въпрос**: Към каква стойност трябва да бъдат инициализирани указателите при създаване на нов възел?
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор: nullptr (или NULL)**
 
@@ -202,6 +322,12 @@ newNode->prev = nullptr;  // За двусвързан списък
 
 ### Упражнение 10: Multiple Choice
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Въпрос**: Коя операция е обикновено O(1) и за масиви, и за свързани списъци?
 
 A) Търсене на елемент
@@ -209,7 +335,10 @@ B) Достъп по индекс
 C) Вмъкване в началото
 D) Обхождане на всички елементи
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор: C) Вмъкване в началото**
 
@@ -222,6 +351,12 @@ D) Обхождане на всички елементи
 ## 🟡 Средни Упражнения (11-20)
 
 ### Упражнение 11: Code Writing
+
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
 
 **Задача**: Напишете функция за обхождане на едносвързан списък и преброяване на възлите:
 
@@ -236,7 +371,10 @@ int countNodes(Node* head) {
 }
 ```
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Решение**:
 
@@ -260,9 +398,18 @@ int countNodes(Node* head) {
 
 ### Упражнение 12: Problem Analysis
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Обяснете защо изтриването на възел в края на едносвързан списък (без tail указател) е O(n), докато същата операция в двусвързан списък (с tail указател) е O(1).
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор**:
 
@@ -287,6 +434,12 @@ if (tail && tail->prev) {
 
 ### Упражнение 13: Code Debugging
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Намерете и поправете всички бъгове в тази функция за вмъкване в двусвързан списък:
 
 ```cpp
@@ -300,7 +453,10 @@ void insertAtHead(Node** head, int value) {
 
 *Подсказка: Това трябва да работи за двусвързан списък*
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Проблеми**:
 - Не се инициализира newNode->prev
@@ -329,9 +485,18 @@ void insertAtHead(Node** head, int value) {
 
 ### Упражнение 14: Design Question
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Каква е целта на шаблона за дизайн Iterator и какъв проблем решава в контекста на структурите от данни?
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор**: Шаблонът Iterator предоставя унифициран начин за обхождане на елементите в контейнер **без да се излагат вътрешните му детайли** за представяне (инкапсулация).
 
@@ -348,6 +513,12 @@ void insertAtHead(Node** head, int value) {
 ---
 
 ### Упражнение 15: Code Implementation
+
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
 
 **Задача**: Имплементирайте оператора за дереференциране (`operator*`) и оператора за неравенство (`operator!=`) за итератор на едносвързан списък:
 
@@ -370,7 +541,10 @@ public:
 };
 ```
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Решение**:
 
@@ -394,6 +568,12 @@ bool operator!=(const SinglyLinkedListIterator<T>& other) const {
 
 ### Упражнение 16: Multiple Choice
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Въпрос**: Какво представлява изтичане на памет?
 
 A) Когато програма използва твърде много памет
@@ -401,7 +581,10 @@ B) Когато динамично заделена памет не се осв�
 C) Когато указател сочи към невалидна памет
 D) Когато заделянето на памет се провали
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор: B) Когато динамично заделена памет не се освободи след като вече не е необходима**
 
@@ -422,9 +605,18 @@ void leak() {
 
 ### Упражнение 17: Short Answer
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Обяснете разликата между `std::unique_ptr` и `std::shared_ptr` относно семантиката на собственост.
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор**:
 
@@ -450,6 +642,12 @@ std::shared_ptr<int> p2 = p1; // OK - споделяне
 
 ### Упражнение 18: Code Analysis
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Ще причини ли този код изтичане на памет? Обяснете защо или защо не:
 
 ```cpp
@@ -463,7 +661,10 @@ void processData() {
 }
 ```
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор: Да, ще причини изтичане на памет**
 
@@ -497,6 +698,12 @@ void processData() {
 
 ### Упражнение 19: Comparison Question
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Попълнете следващата таблица сравняваща операции:
 
 | Операция           | Масив | Едносвързан списък | Двусвързан списък (с tail ptr) |
@@ -505,7 +712,10 @@ void processData() {
 | Изтриване в началото | ?   | ?                 | ?                              |
 | Произволен достъп  | ?     | ?                 | ?                              |
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Отговор**:
 
@@ -523,6 +733,12 @@ void processData() {
 
 ### Упражнение 20: Code Writing
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Имплементирайте функция за вмъкване на възел след даден възел в двусвързан списък:
 
 ```cpp
@@ -532,7 +748,10 @@ void insertAfter(Node* prevNode, int value) {
 }
 ```
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Решение**:
 
@@ -572,6 +791,12 @@ void insertAfter(Node* prevNode, int value) {
 
 ### Упражнение 21: Implementation Challenge
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Имплементирайте пълен метод `push_back` за клас двусвързан списък, който правилно обработва:
 - Празен списък
 - Непразен списък
@@ -592,7 +817,10 @@ public:
 };
 ```
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Решение**:
 
@@ -628,6 +856,12 @@ void push_back(const T& value) {
 
 ### Упражнение 22: Debugging Challenge
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Този деструктор причинява изтичане на памет. Идентифицирайте проблема и предоставете коректна имплементация:
 
 ```cpp
@@ -643,7 +877,10 @@ class DoublyLinkedList {
 };
 ```
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Проблеми**:
 1. Преместваме `current` към `next` **преди** да го изтрием
@@ -674,6 +911,12 @@ class DoublyLinkedList {
 
 ### Упражнение 23: Design & Implementation
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Имплементирайте пълен клас iterator за двусвързан списък, който поддържа:
 - Pre-increment (++iter)
 - Post-increment (iter++)
@@ -684,7 +927,10 @@ class DoublyLinkedList {
 
 Включете методите `begin()` и `end()` в класа за списъка.
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Решение**:
 
@@ -766,9 +1012,18 @@ public:
 
 ### Упражнение 24: Memory Management
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Имплементирайте правилен копиращ конструктор за двусвързан списък, който извършва дълбоко копиране. Обяснете защо плиткото копиране би било проблематично.
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Решение (Deep Copy)**:
 
@@ -820,9 +1075,18 @@ DoublyLinkedList<int> list2 = list1; // Shallow copy
 
 ### Упражнение 25: Problem Solving
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Напишете функция, която открива дали има цикъл в едносвързан списък без използване на допълнителна памет (O(1) пространствена сложност). Обяснете вашия алгоритъм.
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Решение (Floyd's Cycle Detection - Tortoise and Hare)**:
 
@@ -868,6 +1132,12 @@ bool hasCycle(Node* head) {
 
 ### Упражнение 26: Tool Usage
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Даден е този код с умишлено изтичане на памет, опишете точните команди, които бихте използвали с Valgrind за да го открият, и обяснете какво би показал изходът:
 
 ```cpp
@@ -883,7 +1153,10 @@ int main() {
 }
 ```
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Стъпки за откриване с Valgrind**:
 
@@ -946,6 +1219,12 @@ void fixedFunction() {
 
 ### Упражнение 27: Advanced Implementation
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Имплементирайте метод `insert`, който приема позиция итератор и стойност, вмъквайки нов възел преди позицията на итератора. Обработете всички крайни случаи:
 
 ```cpp
@@ -957,7 +1236,10 @@ void DoublyLinkedList<T>::insert(iterator position, const T& value) {
 }
 ```
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Решение**:
 
@@ -1023,6 +1305,12 @@ void DoublyLinkedList<T>::push_front(const T& value) {
 
 ### Упражнение 28: RAII Application
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Рефакторирайте този код да използва RAII принципи и интелигентни указатели за предотвратяване на изтичане на памет:
 
 ```cpp
@@ -1049,7 +1337,10 @@ public:
 };
 ```
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Рефакториран код с RAII**:
 
@@ -1170,6 +1461,12 @@ public:
 
 ### Упражнение 29: Analysis & Optimization
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Имате приложение, което трябва да:
 1. Често вмъква елементи и на двата края
 2. Понякога достъпва средния елемент
@@ -1178,7 +1475,10 @@ public:
 
 Трябва ли да използвате масив, едносвързан списък или двусвързан списък? Обосновете избора си с анализ на сложността и компромиси.
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Анализ на изискванията**:
 
@@ -1245,6 +1545,12 @@ class OptimizedList {
 
 ### Упражнение 30: Comprehensive Problem
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача**: Проектирайте и имплементирайте генеричен метод `reverse()` за двусвързан списък, който обръща списъка на място (без заделяне на нови възли). Вашата имплементация трябва да:
 - Обработва празни списъци
 - Обработва списъци с един възел
@@ -1258,7 +1564,10 @@ void DoublyLinkedList<T>::reverse() {
 }
 ```
 
-<CollapsibleSection title="Покажи Отговор" icon="✅" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
 **Решение**:
 

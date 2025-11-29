@@ -11,8 +11,46 @@ import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
+import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
+import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 # Упражнения: Proxy, Stack и Queue
+
+<ProgressTracker
+  exercises={[
+    { id: 1, difficulty: "easy" },
+    { id: 2, difficulty: "easy" },
+    { id: 3, difficulty: "easy" },
+    { id: 4, difficulty: "easy" },
+    { id: 5, difficulty: "easy" },
+    { id: 6, difficulty: "easy" },
+    { id: 7, difficulty: "easy" },
+    { id: 8, difficulty: "easy" },
+    { id: 9, difficulty: "easy" },
+    { id: 10, difficulty: "medium" },
+    { id: 11, difficulty: "medium" },
+    { id: 12, difficulty: "medium" },
+    { id: 13, difficulty: "medium" },
+    { id: 14, difficulty: "medium" },
+    { id: 15, difficulty: "medium" },
+    { id: 16, difficulty: "medium" },
+    { id: 17, difficulty: "medium" },
+    { id: 18, difficulty: "medium" },
+    { id: 19, difficulty: "hard" },
+    { id: 20, difficulty: "hard" },
+    { id: 21, difficulty: "hard" },
+    { id: 22, difficulty: "hard" },
+    { id: 23, difficulty: "hard" },
+    { id: 24, difficulty: "hard" },
+    { id: 25, difficulty: "hard" },
+    { id: 26, difficulty: "hard" },
+    { id: 27, difficulty: "hard" },
+    { id: 28, difficulty: "hard" },
+    { id: 29, difficulty: "hard" }
+  ]}
+/>
+
+---
 
 <InfoBox title="Цел на Упражненията">
 
@@ -30,6 +68,12 @@ import Card from '@site/src/components/Grid/Card';
 
 ### Упражнение 1: Разпознаване на Proxy Pattern
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Каква е основната цел на Proxy дизайн шаблона?**
 
 a) Да създаде множество инстанции на обект
@@ -37,7 +81,10 @@ b) Да предостави заместител или placeholder за дру
 c) Да сортира данни ефективно
 d) Да комбинира множество обекти в един
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 <SuccessBox title="Отговор: b">
 
@@ -51,12 +98,21 @@ Proxy pattern **предоставя заместител или placeholder** �
 
 ### Упражнение 2: LIFO vs FIFO Принципи
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Свържете следните операции с правилния принцип на структура от данни:**
 
 - Последният добавен елемент е първият премахнат: ______
 - Първият добавен елемент е първият премахнат: ______
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 <SuccessBox title="Отговор">
 
@@ -75,9 +131,18 @@ Proxy pattern **предоставя заместител или placeholder** �
 
 ### Упражнение 3: Stack Операции
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Избройте трите основни операции на стек и опишете накратко какво прави всяка.**
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 <SuccessBox title="Основни Stack Операции">
 
@@ -110,9 +175,18 @@ Proxy pattern **предоставя заместител или placeholder** �
 
 ### Упражнение 3
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Какво е изтичане на памет (memory leak)? Опишете с едно изречение.**
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:** Изтичане на памет е ситуация, при която програмата заделя динамична памет, но не я освобождава след използването ѝ, което води до натрупване на неизползвана памет.
 
@@ -122,9 +196,18 @@ Proxy pattern **предоставя заместител или placeholder** �
 
 ### Упражнение 4
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Какво съдържа всеки възел в двусвързан списък?**
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:** Всеки възел съдържа:
 - **Данни** (стойността, която се съхранява)
@@ -137,6 +220,12 @@ Proxy pattern **предоставя заместител или placeholder** �
 
 ### Упражнение 5
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Какво винаги трябва да правите след извикване на `delete` на указател като добра практика?**
 
 ```cpp
@@ -145,7 +234,10 @@ delete ptr;
 // Какво трябва да следва?
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp
@@ -160,9 +252,18 @@ ptr = nullptr;
 
 ### Упражнение 6
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Каква е времевата сложност O() за добавяне на елемент в края на двусвързан списък, когато имате указател към tail?**
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:** `O(1)` - константно време.
 
@@ -173,6 +274,12 @@ ptr = nullptr;
 ---
 
 ### Упражнение 7
+
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
 
 **Кое от следните ще причини изтичане на памет?**
 
@@ -191,7 +298,10 @@ int* ptr = new int(5);
 ptr = nullptr;
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:** Опция B и Опция C причиняват изтичане на памет.
 
@@ -205,9 +315,18 @@ ptr = nullptr;
 
 ### Упражнение 8
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Каква е основната роля на итератор в C++?**
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:** Итераторът предоставя унифициран начин за обхождане на елементите на различни контейнери, скривайки детайлите на вътрешната им структура. Това позволява писането на общ код, който работи с масиви, списъци, вектори и др., без да се налага промяна при смяна на типа контейнер.
 
@@ -219,6 +338,12 @@ ptr = nullptr;
 
 ### Упражнение 9
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Допълнете следния код за правилно освобождаване на масив:**
 
 ```cpp
@@ -227,7 +352,10 @@ int* arr = new int[10];
 // Напишете правилния код за освобождаване тук:
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp
@@ -243,6 +371,12 @@ arr = nullptr;
 
 ### Упражнение 10
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Какво ще се случи в следния код?**
 
 ```cpp
@@ -257,7 +391,10 @@ n->data = 42;
 // Програмата приключва без delete
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:** Ще има **изтичане на памет**. Заделената памет за възела не се освобождава преди приключване на програмата. Правилният код трябва да включва:
 
@@ -272,6 +409,12 @@ n = nullptr;
 
 ### Упражнение 11
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Намерете грешката в тази функция за премахване на възел от двусвързан списък:**
 
 ```cpp
@@ -282,7 +425,10 @@ void removeNode(Node* node) {
 }
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:** Липсва `delete node;`
 
@@ -304,6 +450,12 @@ void removeNode(Node* node) {
 
 ### Упражнение 12
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Имплементирайте метод за добавяне на елемент в началото на двусвързан списък:**
 
 ```cpp
@@ -318,7 +470,10 @@ public:
 };
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp
@@ -342,9 +497,18 @@ void addFront(int value) {
 
 ### Упражнение 13
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Какво е RAII и как помага за предотвратяване на изтичане на памет? Дайте пример.**
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:** **RAII (Resource Acquisition Is Initialization)** е идиом в C++, при който ресурсите (като памет) се придобиват в конструктора на обекта и автоматично се освобождават в деструктора му.
 
@@ -374,6 +538,12 @@ public:
 
 ### Упражнение 14
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Допълнете класа итератор за прост масив:**
 
 ```cpp
@@ -398,7 +568,10 @@ public:
 };
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp
@@ -422,6 +595,12 @@ bool operator!=(const ArrayIterator& other) const {
 
 ### Упражнение 15
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Обяснете защо този код има изтичане на памет и го поправете:**
 
 ```cpp
@@ -437,7 +616,10 @@ void processData() {
 }
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Проблем:** При ранно връщане (`return`), `delete[] data` никога не се изпълнява, което води до изтичане на памет.
 
@@ -476,9 +658,18 @@ void processData() {
 
 ### Упражнение 16
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Какви са трите основни типа smart pointers в C++ и кога бихте използвали всеки?**
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 - **`std::unique_ptr`:** Ексклузивна собственост. Използвайте когато само един обект трябва да притежава ресурса. Не може да се копира, само да се премести с `std::move`.
@@ -491,6 +682,12 @@ void processData() {
 
 ### Упражнение 17
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Имплементирайте функция за броене на елементите в двусвързан списък:**
 
 ```cpp
@@ -499,7 +696,10 @@ int countElements(Node* head) {
 }
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp
@@ -524,6 +724,12 @@ int countElements(Node* head) {
 
 ### Упражнение 18
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Напишете деструктор за двусвързан списък, който правилно освобождава всички възли:**
 
 ```cpp
@@ -538,7 +744,10 @@ public:
 };
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp
@@ -564,6 +773,12 @@ public:
 
 ### Упражнение 19
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Имплементирайте метод `insert`, който добавя нов елемент след дадена итераторна позиция:**
 
 ```cpp
@@ -581,7 +796,10 @@ public:
 };
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp
@@ -615,6 +833,12 @@ void insertAfter(Iterator position, T value) {
 
 ### Упражнение 20
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Анализирайте следния код и идентифицирайте всички проблеми, свързани с паметта:**
 
 ```cpp
@@ -639,7 +863,10 @@ public:
 };
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Проблеми:**
 1. **Липсва деструктор:** Няма `~DataManager()` за освобождаване на `buffer`.
@@ -696,6 +923,12 @@ public:
 
 ### Упражнение 21
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Имплементирайте двупосочен итератор за двусвързан списък с `operator++` и `operator--`:**
 
 ```cpp
@@ -716,7 +949,10 @@ class DoublyLinkedList {
 };
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp
@@ -774,9 +1010,18 @@ public:
 
 ### Упражнение 22
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Имплементирайте пълен двусвързан списък с exception-safe вмъкване. Гарантирайте, че няма изтичане на памет дори при хвърляне на изключения.**
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:** Ключът е да използваме RAII и да заделим паметта така, че ако възникне изключение, всичко да се освободи автоматично:
 
@@ -821,6 +1066,12 @@ public:
 
 ### Упражнение 23
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Разгледайте сценарий с циклични референции използвайки `std::shared_ptr`. Обяснете проблема и предоставете решение с `std::weak_ptr`:**
 
 ```cpp
@@ -832,7 +1083,10 @@ public:
 };
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Проблем:** Ако два възела се сочат взаимно чрез `shared_ptr`, reference count никога не достига нула и паметта никога не се освобождава.
 
@@ -857,6 +1111,12 @@ public:
 
 ### Упражнение 24
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Използвайки Valgrind концептуално, анализирайте тази програма:**
 
 ```cpp
@@ -880,7 +1140,10 @@ int main() {
 }
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Valgrind би докладвал:**
 - **Memory leak:** 50 * sizeof(int) * 1000 = 200,000 байта изтичат, защото `arr1` се презаписва без да се освободи първата заделена памет.
@@ -907,9 +1170,18 @@ void fixedFunction() {
 
 ### Упражнение 25
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Проектирайте memory-efficient двусвързан списък, който използва sentinel nodes (фиктивни head и tail) за опростяване на граничните условия.**
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp
@@ -969,9 +1241,18 @@ Sentinel nodes опростяват логиката, защото винаги 
 
 ### Упражнение 26
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Създайте custom iterator, който автоматично прескача елементи, удовлетворяващи даден предикат.**
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp
@@ -1024,6 +1305,12 @@ auto it = FilteringIterator<int, auto>(
 
 ### Упражнение 27
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Имплементирайте move constructor и move assignment operator за двусвързан списък:**
 
 ```cpp
@@ -1040,7 +1327,10 @@ public:
 };
 ```
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp
@@ -1081,9 +1371,18 @@ Move семантиката позволява ефективно трансфе
 
 ### Упражнение 28
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Проектирайте memory pool allocator за възли на двусвързан списък за намаляване на overhead и фрагментация.**
 
-<CollapsibleSection title="Покажи отговор" icon="💡" defaultOpen={false}>
+</ExerciseCard>
+
+
+<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
 
 **Отговор:**
 ```cpp

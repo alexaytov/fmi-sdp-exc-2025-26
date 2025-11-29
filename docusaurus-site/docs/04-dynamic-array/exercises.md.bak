@@ -1233,7 +1233,7 @@ Percentage = 63/128 ≈ 49.2%
   tags={["practice", "exercise"]}
 >
 
-
+<Card>
 
 **Задача:** Имплементирайте метод `reserve(int new_capacity)`, подобен на `std::vector::reserve()`, който **предварително** заделя капацитет. Защо такъв метод може да подобри производителността?
 
@@ -1345,7 +1345,7 @@ for (int i = 0; i < 50; i++) {
 
 </CollapsibleSection>
 
-
+</Card>
 
 ### Упражнение 24 [HARD]
 
@@ -1355,7 +1355,7 @@ for (int i = 0; i < 50; i++) {
   tags={["practice", "exercise"]}
 >
 
-
+<Card>
 
 **Задача:** Представете си, че работите със **системи с ограничена памет** (embedded systems). Каква алтернативна стратегия за растеж бихте предложили вместо експоненциално удвояване? Обосновете отговора си.
 
@@ -1489,7 +1489,7 @@ DynamicArray arr(estimated_max_size);
 
 </CollapsibleSection>
 
-
+</Card>
 
 ### Упражнение 25 [HARD]
 
@@ -1499,7 +1499,7 @@ DynamicArray arr(estimated_max_size);
   tags={["practice", "exercise"]}
 >
 
-
+<Card>
 
 **Задача:** Напишете функция `benchmark()`, която **измерва времето** за добавяне на 1 милион елемента в:
 1. Динамичен масив с начален капацитет 1
@@ -1688,7 +1688,7 @@ for (int i = 0; i < BIG_NUMBER; i++) {
 
 </CollapsibleSection>
 
-
+</Card>
 
 ---
 

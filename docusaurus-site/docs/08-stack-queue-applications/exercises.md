@@ -11,8 +11,43 @@ import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
+import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
+import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 # Упражнения: Shunting Yard Алгоритъм и Приложения на Stack/Queue
+
+<ProgressTracker
+  exercises={[
+    { id: 1, difficulty: "easy" },
+    { id: 2, difficulty: "easy" },
+    { id: 3, difficulty: "easy" },
+    { id: 4, difficulty: "easy" },
+    { id: 5, difficulty: "easy" },
+    { id: 6, difficulty: "easy" },
+    { id: 7, difficulty: "easy" },
+    { id: 8, difficulty: "easy" },
+    { id: 9, difficulty: "medium" },
+    { id: 10, difficulty: "medium" },
+    { id: 11, difficulty: "medium" },
+    { id: 12, difficulty: "medium" },
+    { id: 13, difficulty: "medium" },
+    { id: 14, difficulty: "medium" },
+    { id: 15, difficulty: "medium" },
+    { id: 16, difficulty: "medium" },
+    { id: 17, difficulty: "hard" },
+    { id: 18, difficulty: "hard" },
+    { id: 19, difficulty: "hard" },
+    { id: 20, difficulty: "hard" },
+    { id: 21, difficulty: "hard" },
+    { id: 22, difficulty: "hard" },
+    { id: 23, difficulty: "hard" },
+    { id: 24, difficulty: "hard" },
+    { id: 25, difficulty: "hard" },
+    { id: 26, difficulty: "hard" }
+  ]}
+/>
+
+---
 
 <InfoBox title="Цел на Упражненията">
 
@@ -33,7 +68,16 @@ import Card from '@site/src/components/Grid/Card';
 
 ### Упражнение 1: Stack и Queue Основи
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Дадена е следната последователност от операции върху празен стек: `push(5), push(3), pop(), push(7), top(), pop()`. Каква стойност връща операцията `top()`?
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="💡 Подсказка" icon="💡" defaultOpen={false}>
 
@@ -70,7 +114,16 @@ import Card from '@site/src/components/Grid/Card';
 
 ### Упражнение 2: LIFO vs FIFO
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Обяснете със свои думи защо стекът използва LIFO (Last In, First Out) подредба и защо това свойство го прави подходящ за Shunting Yard алгоритъма.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -97,7 +150,16 @@ import Card from '@site/src/components/Grid/Card';
 
 ### Упражнение 3: Приоритет на Операторите
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Подредете следните оператори от най-нисък към най-висок приоритет: `^`, `+`, `*`, `-`, `/`
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -125,11 +187,20 @@ import Card from '@site/src/components/Grid/Card';
 
 ### Упражнение 4: Разпознаване на Инфиксна vs RPN Нотация
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Идентифицирайте кои от следните изрази са в инфиксна нотация и кои в RPN (постфиксна):
 - a) `3 + 4`
 - b) `3 4 +`
 - c) `5 2 * 3 +`
 - d) `(2 + 3) * 4`
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -152,7 +223,16 @@ import Card from '@site/src/components/Grid/Card';
 
 ### Упражнение 5: Просто RPN Изчисляване
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Изчислете RPN израза `5 3 +` стъпка по стъпка, показвайки съдържанието на стека след всяка операция.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -189,7 +269,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 6: Основна Токенизация
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Изброете всички токени в израза `12 + 34 * 5` в реда, в който ще бъдат обработени.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -215,7 +304,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 7: Концепция за Асоциативност
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Каква е разликата между ляво-асоциативни и дясно-асоциативни оператори? Дайте по един пример за всеки от лекцията.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -258,7 +356,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 8: Роля на Скобите
 
+<ExerciseCard
+  difficulty="easy"
+  timeEstimate="10 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Защо изразът `2 + 3 * 4` се изчислява на 14, но `(2 + 3) * 4` се изчислява на 20? Обяснете ролята на скобите.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -296,7 +403,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 9: Проста Конверсия Инфикс към RPN
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Конвертирайте инфиксния израз `A + B` в RPN нотация. Покажете работата си стъпка по стъпка със състоянията на стека и изходната опашка.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -323,7 +439,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 10: RPN Изчисляване с Множество Операции
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Изчислете RPN израза `2 3 + 4 *`, показвайки състоянието на стека след обработката на всеки токен.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -351,7 +476,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 11: Приоритет в Действие
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Конвертирайте инфиксния израз `2 + 3 * 4` в RPN. Обяснете защо операторът за умножение се обработва преди събирането.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -386,7 +520,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 12: Проследяване на Stack Операции
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Дадени са операциите `push(10), push(20), push(30), pop(), top()`. Какво е крайното състояние на стека и каква стойност връща `top()`?
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -414,7 +557,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 13: Инфикс към RPN със Скоби
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Конвертирайте инфиксния израз `(A + B) * C` в RPN нотация. Покажете стека с оператори и изходната опашка на всяка стъпка.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -445,7 +597,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 14: Множество Оператори
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Конвертирайте `A + B * C - D` в RPN. Покажете всички междинни стъпки със съдържанието на стека и опашката.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -476,7 +637,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 15: Предизвикателство с Асоциативност
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Конвертирайте `10 - 3 - 2` в RPN, след това го изчислете. Обяснете как лявата асоциативност влияе на резултата (сравнете с това какво би се случило, ако изваждането беше дясно-асоциативно).
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -531,7 +701,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 16: RPN Изчисляване с Деление
 
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="15 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Изчислете RPN израза `15 3 / 2 +`, показвайки всяка стъпка. Какъв е крайният резултат?
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -559,7 +738,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 17: Откриване на Грешки
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Идентифицирайте какво не е наред със следния RPN израз: `3 + 4 5 *`. Как бихте го поправили?
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -598,7 +786,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 18: Вложени Скоби
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Конвертирайте инфиксния израз `((A + B) * C)` в RPN. Проследете алгоритъма, показвайки как се обработват вложените скоби.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -633,7 +830,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 19: Дясна Асоциативност
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Конвертирайте `2 ^ 3 ^ 2` в RPN, правилно обработвайки дясната асоциативност на степенуването. След това изчислете RPN израза.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -676,7 +882,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 20: Смесен Приоритет
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Конвертирайте инфиксния израз `A * B + C / D` в RPN. Покажете как се обработват операторите с еднакъв приоритет.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -713,7 +928,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 21: Конверсия на Сложен Израз
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Конвертирайте инфиксния израз `3 + 4 * 2 / (1 - 5)` в RPN. Покажете пълни проследявания на стека с оператори и изходната опашка.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -754,7 +978,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 22: Идентификация на Унарен Оператор
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** В израза `-3 + 4 * -5`, идентифицирайте кои знаци за минус са унарни и кои са бинарни. Обяснете как сте определили това.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -822,7 +1055,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 23: Симулация на Алгоритъма
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Дадени израз `A + B * C + D`, ръчно симулирайте Shunting Yard алгоритъма. Създайте таблица, показваща: Текущ токен | Стек с оператори | Изходна опашка за всяка стъпка.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -857,7 +1099,16 @@ return st.top();      // Резултат: 8
 
 ### Упражнение 24: Изчисляване с Проверка за Грешки
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Напишете псевдокод за RPN изчислител, който включва проверка за грешки при недостатъчни операнди и невалидни изрази.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
 
@@ -937,7 +1188,16 @@ double evaluateRPN(vector<string> tokens) {
 
 ### Упражнение 25: Класическият Пример от Wikipedia
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 **Задача:** Конвертирайте пълния израз `3 + 4 * 2 / (1 - 5) ^ 2 ^ 3` в RPN, следвайки всички правила за приоритет, асоциативност и скоби. След това изчислете RPN израза, за да получите крайния числен резултат.
+
+</ExerciseCard>
+
 
 <CollapsibleSection title="💡 Подсказка" icon="💡" defaultOpen={false}>
 
@@ -1007,6 +1267,12 @@ double evaluateRPN(vector<string> tokens) {
 
 ### Упражнение 26-32: Напреднали Теми
 
+<ExerciseCard
+  difficulty="hard"
+  timeEstimate="20 min"
+  tags={["practice", "exercise"]}
+>
+
 <InfoBox title="Напреднали упражнения">
 
 Останалите упражнения (26-32) изискват по-задълбочени имплементации и дизайнерски решения:
@@ -1060,3 +1326,7 @@ double evaluateRPN(vector<string> tokens) {
 5. Проучете как компилаторите използват подобни техники
 
 </InfoBox>
+
+</ExerciseCard>
+
+

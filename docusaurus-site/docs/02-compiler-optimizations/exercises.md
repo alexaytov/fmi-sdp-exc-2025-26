@@ -10,8 +10,46 @@ import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
+import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 # Упражнения: Компилаторни оптимизации, локалност, контейнери и масиви
+
+<ProgressTracker
+  exercises={[
+    { id: 1, difficulty: "easy" },
+    { id: 2, difficulty: "easy" },
+    { id: 3, difficulty: "easy" },
+    { id: 4, difficulty: "easy" },
+    { id: 5, difficulty: "easy" },
+    { id: 6, difficulty: "easy" },
+    { id: 7, difficulty: "easy" },
+    { id: 8, difficulty: "easy" },
+    { id: 9, difficulty: "easy-medium" },
+    { id: 10, difficulty: "easy-medium" },
+    { id: 11, difficulty: "easy-medium" },
+    { id: 12, difficulty: "easy-medium" },
+    { id: 13, difficulty: "easy-medium" },
+    { id: 14, difficulty: "medium" },
+    { id: 15, difficulty: "medium" },
+    { id: 16, difficulty: "medium" },
+    { id: 17, difficulty: "medium" },
+    { id: 18, difficulty: "medium" },
+    { id: 19, difficulty: "medium" },
+    { id: 20, difficulty: "medium" },
+    { id: 21, difficulty: "medium-hard" },
+    { id: 22, difficulty: "medium-hard" },
+    { id: 23, difficulty: "medium-hard" },
+    { id: 24, difficulty: "medium-hard" },
+    { id: 25, difficulty: "medium-hard" },
+    { id: 26, difficulty: "hard" },
+    { id: 27, difficulty: "hard" },
+    { id: 28, difficulty: "hard" },
+    { id: 29, difficulty: "hard" },
+    { id: 30, difficulty: "hard" }
+  ]}
+/>
+
+---
 
 <InfoBox title="Информация за упражненията">
 
@@ -32,7 +70,7 @@ import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
 
 Фундаментални концепции и базови разбирания
 
-<ExerciseCard difficulty="easy" number={1}>
+<ExerciseCard difficulty="easy">
 
 ### Какво е показалец в C++?
 
@@ -46,7 +84,7 @@ import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="easy" number={2}>
+<ExerciseCard difficulty="easy">
 
 ### Тест с многовариантни отговори
 
@@ -73,7 +111,7 @@ import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="easy" number={3}>
+<ExerciseCard difficulty="easy">
 
 ### Дефиниция на пространствена локалност
 
@@ -87,7 +125,7 @@ import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="easy" number={4}>
+<ExerciseCard difficulty="easy">
 
 ### Call-by-value vs Call-by-reference
 
@@ -101,7 +139,7 @@ import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="easy" number={5}>
+<ExerciseCard difficulty="easy">
 
 ### Декларация и инициализация на масив
 
@@ -128,7 +166,7 @@ int main() {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="easy" number={6}>
+<ExerciseCard difficulty="easy">
 
 ### Компилатор флаг за debugging
 
@@ -155,7 +193,7 @@ int main() {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="easy" number={7}>
+<ExerciseCard difficulty="easy">
 
 ### std::vector памет
 
@@ -171,7 +209,7 @@ int main() {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="easy" number={8}>
+<ExerciseCard difficulty="easy">
 
 ### Constant Folding
 
@@ -208,7 +246,7 @@ int y = 25;
 
 Изграждане на разбиране и приложение на концепциите
 
-<ExerciseCard difficulty="easy-medium" number={9}>
+<ExerciseCard difficulty="easy-medium">
 
 ### Временна vs Пространствена локалност
 
@@ -222,7 +260,7 @@ int y = 25;
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="easy-medium" number={10}>
+<ExerciseCard difficulty="easy-medium">
 
 ### std::array vs чисти масиви
 
@@ -241,7 +279,7 @@ int y = 25;
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="easy-medium" number={11}>
+<ExerciseCard difficulty="easy-medium">
 
 ### Out-of-bounds достъп
 
@@ -274,7 +312,7 @@ int y = 25;
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="easy-medium" number={12}>
+<ExerciseCard difficulty="easy-medium">
 
 ### Функция с const reference
 
@@ -318,7 +356,7 @@ int sum_vector(const std::vector<int>& vec) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="easy-medium" number={13}>
+<ExerciseCard difficulty="easy-medium">
 
 ### Dead Code Elimination
 
@@ -362,7 +400,7 @@ int calculate(int x) {
 
 Приложение и анализ на концепциите
 
-<ExerciseCard difficulty="medium" number={14}>
+<ExerciseCard difficulty="medium">
 
 ### Сравнение на контейнери
 
@@ -376,7 +414,7 @@ int calculate(int x) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="medium" number={15}>
+<ExerciseCard difficulty="medium">
 
 ### Последователен vs Strided достъп
 
@@ -434,7 +472,7 @@ void multiply_strided(int* arr, int size, int stride) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="medium" number={16}>
+<ExerciseCard difficulty="medium">
 
 ### Loop Unrolling
 
@@ -480,7 +518,7 @@ for (; i < 100; ++i) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="medium" number={17}>
+<ExerciseCard difficulty="medium">
 
 ### Идентифициране на оптимизации
 
@@ -522,7 +560,7 @@ int calculate(int x) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="medium" number={18}>
+<ExerciseCard difficulty="medium">
 
 ### Избор на контейнер
 
@@ -568,7 +606,7 @@ int calculate(int x) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="medium" number={19}>
+<ExerciseCard difficulty="medium">
 
 ### Common Subexpression Elimination (CSE)
 
@@ -610,7 +648,7 @@ int c = temp + 5;
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="medium" number={20}>
+<ExerciseCard difficulty="medium">
 
 ### Cache lines и cache misses
 
@@ -679,7 +717,7 @@ for (int i = 0; i < 1000; i += 100) {
 
 Напреднало приложение и експериментиране
 
-<ExerciseCard difficulty="medium-hard" number={21}>
+<ExerciseCard difficulty="medium-hard">
 
 ### Compiler Explorer анализ
 
@@ -701,7 +739,7 @@ void add_arrays(int* a, int* b, int* result, int n) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="medium-hard" number={22}>
+<ExerciseCard difficulty="medium-hard">
 
 ### __restrict keyword
 
@@ -761,7 +799,7 @@ void add_arrays_with_restrict(int* __restrict a,
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="medium-hard" number={23}>
+<ExerciseCard difficulty="medium-hard">
 
 ### Benchmark: vector vs list
 
@@ -775,7 +813,7 @@ void add_arrays_with_restrict(int* __restrict a,
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="medium-hard" number={24}>
+<ExerciseCard difficulty="medium-hard">
 
 ### Проблеми с локалността при матрично умножение
 
@@ -858,7 +896,7 @@ void matrix_multiply_ikj(int** A, int** B, int** C, int n) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="medium-hard" number={25}>
+<ExerciseCard difficulty="medium-hard">
 
 ### Loop Invariant Code Motion
 
@@ -908,7 +946,7 @@ for (int i = 0; i < n; i++) {
 
 Комплексен анализ и решаване на проблеми
 
-<ExerciseCard difficulty="hard" number={26}>
+<ExerciseCard difficulty="hard">
 
 ### Performance comparison: Arrays vs Containers
 
@@ -922,7 +960,7 @@ for (int i = 0; i < n; i++) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="hard" number={27}>
+<ExerciseCard difficulty="hard">
 
 ### Векторизация (SIMD)
 
@@ -960,7 +998,7 @@ void add_arrays(float* a, float* b, float* result, int n) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="hard" number={28}>
+<ExerciseCard difficulty="hard">
 
 ### Проектиране на структура от данни за игра
 
@@ -979,7 +1017,7 @@ void add_arrays(float* a, float* b, float* result, int n) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="hard" number={29}>
+<ExerciseCard difficulty="hard">
 
 ### Cache performance анализ
 
@@ -1040,7 +1078,7 @@ void process_matrix_rows(int matrix[1024][1024]) {
 
 </ExerciseCard>
 
-<ExerciseCard difficulty="hard" number={30}>
+<ExerciseCard difficulty="hard">
 
 ### Cache-oblivious matrix transpose
 
