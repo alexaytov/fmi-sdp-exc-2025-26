@@ -302,16 +302,52 @@ int main() {
 
 За математически формули използвайте LaTeX синтаксис:
 
+**⚠️ ВАЖНО: MDX v3 LaTeX Escaping Правило**
+
+В MDX v3 (което Docusaurus използва), **ВСИЧКИ къдрави скоби `{` и `}` в LaTeX формули ТРЯБВА да се escape-ват** с backslash (`\{` и `\}`), защото иначе MDX ги интерпретира като JSX expressions!
+
+**✅ ПРАВИЛНО:**
 ```markdown
 Времева сложност: $O(n \log n)$
 
 $$
-T(n) = \begin{cases}
+T(n) = \begin\{cases\}
+  O(1) & \text\{ако \} n = 1 \\
+  2T(n/2) + O(n) & \text\{иначе\}
+\end\{cases\}
+$$
+
+$$
+\text\{parent\}(i) = \left\lfloor \frac\{i-1\}\{4\} \right\rfloor
+$$
+
+$$
+\sum_\{i=0\}^\{h\} \frac\{n\}\{2^\{i+1\}\} \times (h - i)
+$$
+```
+
+**❌ ГРЕШНО** (ще предизвика React JSX грешка):
+```markdown
+$$
+T(n) = \begin{cases}    <!-- { без \ -->
   O(1) & \text{ако } n = 1 \\
   2T(n/2) + O(n) & \text{иначе}
 \end{cases}
 $$
 ```
+
+**Често срещани грешки:**
+- `\frac{n}{2}` ❌ → `\frac\{n\}\{2\}` ✅
+- `\text{parent}` ❌ → `\text\{parent\}` ✅
+- `\sum_{i=0}^{h}` ❌ → `\sum_\{i=0\}^\{h\}` ✅
+- `2^{h+1}` ❌ → `2^\{h+1\}` ✅
+
+**Типична грешка в browser console:**
+```
+Error: Objects are not valid as a React child (found: [object Window])
+```
+
+Това означава, че има неescaped `{` или `}` в LaTeX формула!
 
 ### Стъпка 10: Тестване локално
 
