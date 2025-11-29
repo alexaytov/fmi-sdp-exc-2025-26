@@ -79,6 +79,20 @@ const lectures = [
     status: 'ready',
     topics: ['AVL', 'Red-Black', 'Балансиране', 'Ротации']
   },
+  {
+    number: 11,
+    title: 'Binary Heaps и Heap Sort',
+    slug: 'binary-heaps-heap-sort',
+    status: 'ready',
+    topics: ['Heap', 'Priority Queue', 'Heapify', 'Heap Sort']
+  },
+  {
+    number: 12,
+    title: 'Алгоритми за Сортиране',
+    slug: 'sorting-algorithms',
+    status: 'ready',
+    topics: ['Bubble Sort', 'Merge Sort', 'Quick Sort', 'Complexity']
+  },
 ];
 
 function HomepageHeader() {
@@ -144,7 +158,7 @@ function LecturesSection() {
           📚 Учебни Материали
         </Heading>
         <p className={styles.sectionSubtitle}>
-          Курсът съдържа 10 лекции, всяка с теория и практически упражнения
+          Курсът съдържа лекции, всяка с теория и практически упражнения
         </p>
         <div className={styles.lecturesGrid}>
           {lectures.map((lecture) => (
