@@ -12,33 +12,7 @@ import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
 
 # Упражнения - Complexity, Big-O, Testing и Double Precision
 
-<ProgressTracker
-  exercises={[
-    { id: 1, difficulty: "easy" },
-    { id: 2, difficulty: "easy" },
-    { id: 3, difficulty: "easy" },
-    { id: 4, difficulty: "easy" },
-    { id: 5, difficulty: "easy" },
-    { id: 6, difficulty: "easy" },
-    { id: 7, difficulty: "easy" },
-    { id: 8, difficulty: "easy" },
-    { id: 9, difficulty: "easy-medium" },
-    { id: 10, difficulty: "easy-medium" },
-    { id: 11, difficulty: "easy-medium" },
-    { id: 12, difficulty: "easy-medium" },
-    { id: 13, difficulty: "medium" },
-    { id: 14, difficulty: "medium" },
-    { id: 15, difficulty: "medium" },
-    { id: 16, difficulty: "medium" },
-    { id: 17, difficulty: "medium-hard" },
-    { id: 18, difficulty: "medium-hard" },
-    { id: 19, difficulty: "medium-hard" },
-    { id: 20, difficulty: "medium-hard" },
-    { id: 21, difficulty: "hard" },
-    { id: 22, difficulty: "hard" },
-    { id: 23, difficulty: "hard" }
-  ]}
-/>
+<ProgressTracker />
 
 ---
 

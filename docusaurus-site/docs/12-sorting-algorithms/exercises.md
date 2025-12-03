@@ -14,40 +14,7 @@ import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 
 # Упражнения - Алгоритми за Сортиране
 
-<ProgressTracker
-  exercises={[
-    { id: 1, difficulty: "easy" },
-    { id: 2, difficulty: "easy" },
-    { id: 3, difficulty: "easy" },
-    { id: 4, difficulty: "easy" },
-    { id: 5, difficulty: "easy" },
-    { id: 6, difficulty: "easy" },
-    { id: 7, difficulty: "easy" },
-    { id: 8, difficulty: "easy" },
-    { id: 9, difficulty: "easy-medium" },
-    { id: 10, difficulty: "easy-medium" },
-    { id: 11, difficulty: "easy-medium" },
-    { id: 12, difficulty: "easy-medium" },
-    { id: 13, difficulty: "medium" },
-    { id: 14, difficulty: "medium" },
-    { id: 15, difficulty: "medium" },
-    { id: 16, difficulty: "medium" },
-    { id: 17, difficulty: "medium" },
-    { id: 18, difficulty: "medium" },
-    { id: 19, difficulty: "medium-hard" },
-    { id: 20, difficulty: "medium-hard" },
-    { id: 21, difficulty: "medium-hard" },
-    { id: 22, difficulty: "medium-hard" },
-    { id: 23, difficulty: "hard" },
-    { id: 24, difficulty: "hard" },
-    { id: 25, difficulty: "hard" },
-    { id: 26, difficulty: "hard" },
-    { id: 27, difficulty: "hard" },
-    { id: 28, difficulty: "hard" },
-    { id: 29, difficulty: "hard" },
-    { id: 30, difficulty: "hard" }
-  ]}
-/>
+<ProgressTracker />
 
 ---
 

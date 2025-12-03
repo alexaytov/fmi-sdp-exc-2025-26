@@ -1,28 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, JSX } from 'react';
 import styles from './styles.module.css';
+import { useExerciseContext } from './ExerciseContext';
+
+interface Exercise {
+  id: number | string;
+  difficulty?: string;
+}
 
 interface ProgressTrackerProps {
-  exercises: string[]; // Array of exercise IDs
+  exercises?: Exercise[] | string[] | number[]; // Optional: Array of exercise objects or IDs. If not provided, will auto-detect from DOM
   title?: string;
 }
 
 export default function ProgressTracker({
-  exercises,
+  exercises: providedExercises,
   title = 'Напредък'
 }: ProgressTrackerProps): JSX.Element {
   const [completed, setCompleted] = useState(0);
-  const [total, setTotal] = useState(exercises.length);
+  const [total, setTotal] = useState(0);
 
+  const context = useExerciseContext();
+
+  // Calculate progress based on context exercises
   const calculateProgress = () => {
+    const registeredExercises = context.exercises;
     let count = 0;
-    exercises.forEach(id => {
-      if (localStorage.getItem(`exercise_${id}`) === 'true') {
+
+    registeredExercises.forEach(exercise => {
+      const key = context.getStorageKey(exercise.id);
+      if (localStorage.getItem(key) === 'true') {
         count++;
       }
     });
+
     setCompleted(count);
+    setTotal(registeredExercises.length);
   };
 
+  // Recalculate when exercises change or on storage events
   useEffect(() => {
     calculateProgress();
 
@@ -33,14 +48,15 @@ export default function ProgressTracker({
     return () => {
       window.removeEventListener('exerciseProgressChanged', handleProgressChange);
     };
-  }, [exercises]);
+  }, [context.exercises]);
 
   const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
 
   const clearProgress = () => {
     if (confirm('Сигурни ли сте, че искате да изчистите целия напредък?')) {
-      exercises.forEach(id => {
-        localStorage.removeItem(`exercise_${id}`);
+      context.exercises.forEach(exercise => {
+        const key = context.getStorageKey(exercise.id);
+        localStorage.removeItem(key);
       });
       setCompleted(0);
       window.dispatchEvent(new Event('exerciseProgressChanged'));

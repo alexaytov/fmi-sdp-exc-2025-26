@@ -18,29 +18,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 # Упражнения: Дървета и Двоични Дървета за Търсене
 
-<ProgressTracker
-  exercises={[
-    { id: 1, difficulty: "easy" },
-    { id: 2, difficulty: "easy" },
-    { id: 3, difficulty: "easy" },
-    { id: 4, difficulty: "easy" },
-    { id: 5, difficulty: "easy" },
-    { id: 6, difficulty: "easy" },
-    { id: 7, difficulty: "medium" },
-    { id: 8, difficulty: "medium" },
-    { id: 9, difficulty: "medium" },
-    { id: 10, difficulty: "medium" },
-    { id: 11, difficulty: "medium" },
-    { id: 12, difficulty: "medium" },
-    { id: 13, difficulty: "hard" },
-    { id: 14, difficulty: "hard" },
-    { id: 15, difficulty: "hard" },
-    { id: 16, difficulty: "hard" },
-    { id: 17, difficulty: "hard" },
-    { id: 18, difficulty: "hard" },
-    { id: 19, difficulty: "hard" }
-  ]}
-/>
+<ProgressTracker />
 
 ---
 

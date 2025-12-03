@@ -137,25 +137,32 @@ import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
 
 # Упражнения - Заглавие
 
-<ProgressTracker
-  exercises={[
-    { id: 1, difficulty: "easy" },
-    { id: 2, difficulty: "medium" },
-    { id: 3, difficulty: "hard" }
-  ]}
-/>
+<ProgressTracker />
 
 ---
 
-## Задача 1: Заглавие
+## Задача 1: Терминология на Графите
 
 <ExerciseCard
   difficulty="easy"
   timeEstimate="15 min"
-  tags={["arrays", "basics"]}
+  tags={["theory", "terminology"]}
 >
 
-Описание на задачата
+Дефинирайте следните термини...
+
+</ExerciseCard>
+
+---
+
+## Задача 2: Класификация на Графи
+
+<ExerciseCard
+  difficulty="medium"
+  timeEstimate="20 min"
+>
+
+За всеки сценарий...
 
 </ExerciseCard>
 
@@ -240,16 +247,122 @@ import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
    />
    ```
 
-9. **ExerciseCard** - Карти за задачи
+9. **ExerciseCard и ProgressTracker** - Автоматична система за проследяване на прогреса
+
+   **✨ ZERO-CONFIG РЕШЕНИЕ С REACT CONTEXT (Декември 2025)**
+
+   Системата за упражнения е напълно автоматична и използва **React Context API** за централизирано управление на състоянието. **НЕ е нужна ръчна конфигурация!**
+
+   **🎯 Препоръчан Workflow (Zero Config):**
+
    ```jsx
+   # Упражнения - Графи
+
+   <ProgressTracker />
+
+   ---
+
+   ### Задача 1: Терминология на Графите
+
    <ExerciseCard
-     difficulty="easy|medium|hard"
-     timeEstimate="XX min"
-     tags={["tag1", "tag2"]}
+     difficulty="easy"
+     timeEstimate="15 min"
+     tags={["theory", "terminology"]}
    >
-   Описание
+
+   Дефинирайте следните термини...
+
    </ExerciseCard>
    ```
+
+   **Как работи автоматичната система:**
+
+   1. **ExerciseProvider Context**: Всички MDX страници се обвиват автоматично с `<ExerciseProvider>` чрез Docusaurus theme swizzling (`src/theme/MDXContent/index.tsx`)
+
+   2. **Автоматична регистрация**: `ExerciseCard` автоматично се регистрира в Context при mount:
+      - Търси най-близкото предходно H2/H3 заглавие
+      - Извлича заглавието: "Задача 1: Терминология на Графите"
+      - Премахва префикса → "Терминология на Графите"
+      - Транслитерира на английски → "Terminologiya na Grafite"
+      - Конвертира в kebab-case → `"terminologiya-na-grafite"`
+      - Генерира storage ключ: `${pathname}_exercise_terminologiya-na-grafite`
+
+   3. **ProgressTracker**: Автоматично чете от Context и показва прогреса - **НЕ е нужен `exercises` prop!**
+
+   4. **LocalStorage**: Прогресът се съхранява автоматично в browser LocalStorage
+
+   **⚠️ КРИТИЧНО: Избягване на Infinite Loops**
+
+   При работа с Context и useEffect hooks, **трябва да внимаваш за infinite loops!**
+
+   **❌ ГРЕШНО (Infinite Loop):**
+   ```jsx
+   const context = useExerciseContext();
+
+   useEffect(() => {
+     context.registerExercise(difficulty, id);
+   }, [difficulty, context]); // ❌ context обект като dependency!
+   ```
+
+   **Проблем:** Context обектът се променя при всяка промяна на `exercises` array-а → useEffect се изпълнява → registerExercise → exercises се променят → loop!
+
+   **✅ ПРАВИЛНО (Destructure Functions):**
+   ```jsx
+   const context = useExerciseContext();
+   const { registerExercise, unregisterExercise, getStorageKey } = context;
+
+   useEffect(() => {
+     registerExercise(difficulty, id);
+     return () => unregisterExercise(id);
+   }, [difficulty, registerExercise, unregisterExercise]); // ✅ Стабилни функции!
+   ```
+
+   **Защо работи:** Функциите са мemoized с `useCallback` със стабилни dependencies, така че те НЕ се променят при всяко re-render.
+
+   **⚠️ ВАЖНИ ПРАВИЛА:**
+
+   1. **НЕ използвай context обект като dependency** - винаги destructure функциите!
+   2. **НЕ съхранявай pathname в state** - използвай `getPathname()` callback вместо това
+   3. **Memoize context value** с `useMemo` за да намалиш ненужните re-renders
+   4. **Използвай useCallback** за функции в Context с празен/стабилен dependency array
+
+   **🏗️ Архитектура:**
+
+   ```
+   MDXContent (wrapper)
+   └── ExerciseProvider (Context)
+       ├── exercises: ExerciseInfo[]
+       ├── registerExercise(difficulty, id)
+       ├── unregisterExercise(id)
+       └── getStorageKey(id)
+           │
+           ├── ProgressTracker (чете от Context)
+           │   └── Показва: X/Y completed, percentage
+           │
+           └── ExerciseCard (регистрира се в Context)
+               ├── Auto-extracts heading
+               ├── Auto-generates semantic ID
+               ├── Registers with Context
+               └── Saves completion to LocalStorage
+   ```
+
+   **💡 Best Practices:**
+
+   - **НЕ задавай `exercises` prop на ProgressTracker** - автоматично!
+   - **НЕ задавай `id` prop на ExerciseCard** - автоматично!
+   - **Пиши стабилни заглавия** - променянето на заглавие променя ID
+   - **Използвай описателни заглавия на български**
+   - **Destructure функции от Context** - избягвай infinite loops!
+
+   **⚠️ Backward Compatibility:**
+   - Може да задаваш `id` prop ръчно (за миграция на стари exercises)
+   - Ако `id` е зададен, той ще се използва вместо auto-generated
+
+   **🔧 Troubleshooting:**
+
+   - **"useExerciseContext must be used within ExerciseProvider"**: Изчисти `.docusaurus` cache
+   - **"Maximum update depth exceeded"**: Проверете дали използвате context обект като dependency вместо destructured функции
+   - **Прогресът не се актуализира**: Проверете дали `window.dispatchEvent(new Event('exerciseProgressChanged'))` се извиква след промяна
 
 ### Стъпка 7: Добавяне на Ресурси
 
@@ -324,10 +437,18 @@ $$
 $$
 \sum_\{i=0\}^\{h\} \frac\{n\}\{2^\{i+1\}\} \times (h - i)
 $$
+
+### Graph Density
+- **Dense:** Many edges (close to maximum possible \(\frac\{n(n-1)\}\{2\}\)).
 ```
 
-**❌ ГРЕШНО** (ще предизвика React JSX грешка):
+**❌ ГРЕШНО** (ще предизвика React 
+JSX грешка):
 ```markdown
+
+### Graph Density
+- **Dense:** Many edges (close to maximum possible \(\frac{n(n-1)}{2}\)).
+
 $$
 T(n) = \begin{cases}    <!-- { без \ -->
   O(1) & \text{ако } n = 1 \\
@@ -348,6 +469,37 @@ Error: Objects are not valid as a React child (found: [object Window])
 ```
 
 Това означава, че има неescaped `{` или `}` в LaTeX формула!
+
+**⚠️ ВАЖНО: MDX Escaping за `<<` и `>>` Символи**
+
+В MDX, символите `<<` и `>>` се интерпретират като JSX тагове и **ТРЯБВА да се escape-ват** извън code blocks!
+
+**✅ ПРАВИЛНО:**
+```markdown
+- Разредени графи (E &lt;&lt; V²)
+- Битово преместване надясно (x &gt;&gt; 2)
+```
+
+**❌ ГРЕШНО:**
+```markdown
+- Разредени графи (E << V²)  <!-- Ще предизвика MDX грешка! -->
+```
+
+**Важно:** В markdown code blocks (обградени с \`\`\`) не е нужно escape-ване:
+```markdown
+\`\`\`cpp
+cout << "Hello" << endl;  // Това е ОК в code block
+x = x >> 2;                // Това също е ОК
+\`\`\`
+```
+
+**Типична грешка:**
+```
+Error: Unexpected character `<` (U+003C) before name, expected a character
+that can start a name, such as a letter, `$`, or `_`
+```
+
+Това означава, че има неescaped `<<` или `>>` извън code block!
 
 ### Стъпка 10: Тестване локално
 
@@ -390,17 +542,172 @@ git push origin main
 - Общи: `data-structures`, `algorithms`, `cpp`, `practice`, `exercises`
 - Специфични: `hash-tables`, `graphs`, `trees`, `sorting`, и т.н.
 
+## React Context Architecture - Exercise Tracking System
+
+### Автоматично Генериране и Управление на Упражнения
+
+От **декември 2025**, цялата система за упражнения е **напълно автоматична** и базирана на **React Context API**.
+
+**🎯 Zero Config Approach:**
+- **НЕ** е нужно да задаваш `id` prop на `<ExerciseCard>`
+- **НЕ** е нужно да задаваш `exercises` prop на `<ProgressTracker>`
+- Всичко работи автоматично чрез Context!
+
+### Техническа Имплементация
+
+**1. ExerciseContext.tsx** - Централизирано управление на състоянието
+
+```typescript
+interface ExerciseInfo {
+  id: string;           // Semantic ID
+  difficulty: string;   // easy, medium, hard
+  pathname: string;     // URL path за namespace
+}
+
+interface ExerciseContextType {
+  exercises: ExerciseInfo[];
+  registerExercise: (difficulty: string, semanticId: string) => void;
+  unregisterExercise: (id: string) => void;
+  getStorageKey: (id: string) => string;
+}
+```
+
+**Критични имплементационни детайли:**
+- `getPathname()` е `useCallback` функция, **НЕ** state (избягва re-renders)
+- `registerExercise`, `unregisterExercise`, `getStorageKey` са memoized с `useCallback`
+- Context value е memoized с `useMemo`
+- `transliterateBulgarian()` и `slugify()` за генериране на IDs
+
+**2. ExerciseCard.tsx** - Автоматична регистрация
+
+**Auto-ID Generation Flow:**
+1. `useEffect` при mount търси предходно H2/H3 заглавие с DOM traversal
+2. Извлича текст: "Задача 1: Терминология на Графите"
+3. Премахва префикс: "Терминология на Графите"
+4. `slugify()` → `"terminologiya-na-grafite"`
+5. `registerExercise(difficulty, id)` - регистрация в Context
+6. Cleanup: `unregisterExercise(id)` при unmount
+
+**⚠️ КРИТИЧНО - Правилни Dependencies:**
+```typescript
+// ✅ ПРАВИЛНО
+const { registerExercise, unregisterExercise, getStorageKey } = context;
+
+useEffect(() => {
+  registerExercise(difficulty, id);
+  return () => unregisterExercise(id);
+}, [difficulty, registerExercise, unregisterExercise]); // Стабилни функции
+```
+
+**3. ProgressTracker.tsx** - Автоматично показване на прогреса
+
+```typescript
+const context = useExerciseContext();
+
+const calculateProgress = () => {
+  context.exercises.forEach(exercise => {
+    const key = context.getStorageKey(exercise.id);
+    if (localStorage.getItem(key) === 'true') count++;
+  });
+};
+```
+
+- Слуша за `exerciseProgressChanged` events
+- Re-calculates при промяна на `context.exercises`
+- Показва процент и брой завършени упражнения
+
+**4. MDXContent Wrapper** - Автоматично обвиване
+
+Docusaurus theme swizzle осигурява че всички MDX страници са обвити с Context:
+
+```typescript
+// src/theme/MDXContent/index.tsx
+export default function MDXContentWrapper(props: Props): React.ReactElement {
+  return (
+    <ExerciseProvider>
+      <MDXContent {...props} />
+    </ExerciseProvider>
+  );
+}
+```
+
+### Миграция от Старо Решение
+
+**Ако имаш стари exercises.md файлове с `exercises` prop:**
+
+1. **Премахни `exercises` array от ProgressTracker:**
+   ```markdown
+   <!-- СТАРО -->
+   <ProgressTracker exercises={[...]} />
+
+   <!-- НOВО -->
+   <ProgressTracker />
+   ```
+
+2. **Премахни `id` props от ExerciseCard-ове** (опционално):
+   ```markdown
+   <!-- СТАРО -->
+   <ExerciseCard id="terminologiya-na-grafite" difficulty="easy">
+
+   <!-- НОВО (автоматично генериране) -->
+   <ExerciseCard difficulty="easy">
+   ```
+
+3. **Изчисти Docusaurus cache:**
+   ```bash
+   rm -rf docusaurus-site/.docusaurus
+   npm start
+   ```
+
+### Troubleshooting Common Issues
+
+**Issue 1: "useExerciseContext must be used within ExerciseProvider"**
+- **Причина:** Docusaurus cache не е актуализиран
+- **Решение:** `rm -rf .docusaurus && npm start`
+
+**Issue 2: "Maximum update depth exceeded" (Infinite Loop)**
+- **Причина:** Context обект като dependency в useEffect
+- **Решение:** Destructure функциите от context
+- **Пример:**
+  ```typescript
+  // ❌ ГРЕШНО
+  }, [context]);
+
+  // ✅ ПРАВИЛНО
+  const { registerExercise } = context;
+  }, [registerExercise]);
+  ```
+
+**Issue 3: Прогресът не се актуализира**
+- **Причина:** `exerciseProgressChanged` event не се извиква
+- **Решение:** След промяна в localStorage, извикай:
+  ```typescript
+  window.dispatchEvent(new Event('exerciseProgressChanged'));
+  ```
+
 ## Best Practices
 
-1. **Използвай компоненти** вместо обикновен markdown за по-добър UX
-2. **Добавяй ресурси** към всяка лекция
-3. **Включвай примери** с код
-4. **Създавай визуализации** където е възможно
-5. **Тествай локално** преди commit
-6. **Следвай naming conventions** за консистентност
-7. **Добавяй tags** за по-добра навигация
-8. **Пиши на български** за съдържанието
-9. **Използвай английски** за код и технически термини
+### Exercise System Best Practices
+
+1. **Zero Config Approach** - НЕ задавай `id` на ExerciseCard и `exercises` на ProgressTracker
+2. **Destructure Context Functions** - Винаги `const { registerExercise } = context;` за да избегнеш infinite loops
+3. **Стабилни заглавия** - Променянето на заглавие променя ID и губи прогрес
+4. **Описателни заглавия** - Използвай ясни български заглавия за автоматичното ID generation
+
+### General Development Best Practices
+
+5. **Използвай React компоненти** вместо обикновен markdown за по-добър UX
+6. **Добавяй ресурси** към всяка лекция (tutorials, videos, practice problems)
+7. **Включвай примери** с работещ C++ код
+8. **Създавай визуализации** където е възможно (диаграми, схеми)
+9. **Тествай локално** преди commit (`npm start`)
+10. **Следвай naming conventions** за консистентност (XX-topic-name)
+11. **Добавяй tags** за по-добра навигация и search
+12. **Пиши на български** за съдържанието на лекциите
+13. **Използвай английски** за код, променливи и технически термини
+14. **Escape LaTeX брейсове** в MDX (`\{` и `\}`)
+15. **Escape comparison operators** извън code blocks (`&lt;&lt;`, `&gt;&gt;`)
+16. **Изчиствай cache** при странни грешки (`rm -rf .docusaurus`)
 
 ## Troubleshooting
 
@@ -449,4 +756,17 @@ cd docusaurus-site && npm run clear
 
 ---
 
-**Последна актуализация**: 28 Ноември 2025
+**Последна актуализация**: 2 Декември 2025
+
+## Changelog
+
+### 2 Декември 2025
+- **React Context Architecture**: Пълна миграция към Context-based решение
+- **Zero Config Approach**: Премахнато нуждата от `exercises` prop и ръчни IDs
+- **Infinite Loop Prevention**: Документирани критични patterns за useEffect dependencies
+- **Auto-ID Generation**: Semantic IDs базирани на DOM traversal на заглавия
+- **MDX Theme Swizzling**: ExerciseProvider wrapper за всички MDX страници
+
+### 28 Ноември 2025
+- Първоначална документация за auto-generated IDs
+- Миграционни скриптове за semantic IDs
