@@ -1,0 +1,191 @@
+.quickSummary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.quickSummary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.header:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.icon {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content > :first-child {
+  margin-top: 0;
+}
+
+.content > :last-child {
+  margin-bottom: 0;
+}
+
+/* Style for lists inside content */
+.content ul,
+.content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.content li {
+  margin: 0.75rem 0;
+  line-height: 1.6;
+  color: var(--ifm-color-content);
+}
+
+.content li::marker {
+  color: #667eea;
+  font-weight: bold;
+}
+
+.content strong {
+  color: #764ba2;
+  font-weight: 600;
+}
+
+.content code {
+  background: #f5f2f0;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: #764ba2;
+  font-weight: 500;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .content {
+  background: rgba(30, 30, 30, 0.95);
+}
+
+[data-theme='dark'] .content li {
+  color: var(--ifm-color-content);
+}
+
+[data-theme='dark'] .content code {
+  background: rgba(255, 255, 255, 0.1);
+  color: #a78bfa;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .quickSummary {
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .quickSummary {
+    background: #f8f9fa;
+    border: 2px solid #667eea;
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+
+  .title,
+  .badge {
+    color: #667eea;
+  }
+
+  .content {
+    background: white;
+    box-shadow: none;
+  }
+}

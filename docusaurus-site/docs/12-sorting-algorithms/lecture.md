@@ -10,12 +10,192 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Алгоритми за Сортиране в C++: От Основи до Напреднали Техники
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### Comparison-Based Sorting - Обща Таблица
+
+| Алгоритъм | Best | Average | Worst | Space | Stable | In-Place | Adaptive |
+|-----------|------|---------|-------|-------|--------|----------|----------|
+| **Bubble** | O(n) | O(n²) | O(n²) | O(1) | ✅ | ✅ | ✅ |
+| **Selection** | O(n²) | O(n²) | O(n²) | O(1) | ❌ | ✅ | ❌ |
+| **Insertion** | O(n) | O(n²) | O(n²) | O(1) | ✅ | ✅ | ✅ |
+| **Merge Sort** | O(n log n) | O(n log n) | O(n log n) | O(n) | ✅ | ❌ | ❌ |
+| **Quick Sort** | O(n log n) | O(n log n) | O(n²) | O(log n) | ❌ | ✅ | ❌ |
+| **Heap Sort** | O(n log n) | O(n log n) | O(n log n) | O(1) | ❌ | ✅ | ❌ |
+
+### Важни Свойства
+
+**Stable Sort:** Равни елементи запазват относителната си подредба
+```
+Преди: [(3,a), (1,b), (3,c)]
+След:  [(1,b), (3,a), (3,c)]  ← 3a е преди 3c
+```
+
+**In-Place:** Използва O(1) допълнително space (освен входа)
+
+**Adaptive:** По-бърз на частично сортирани данни
+
+### Bubble Sort
+
+```cpp
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n-1; i++) {
+        bool swapped = false;
+        for (int j = 0; j < n-i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                swap(arr[j], arr[j+1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) break;  // Early exit → O(n) best case
+    }
+}
+```
+
+### Insertion Sort
+
+```cpp
+void insertionSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = key;
+    }
+}
+// Идеален за малки масиви или почти сортирани данни
+```
+
+### Merge Sort (Divide & Conquer)
+
+**Алгоритъм:**
+1. Divide: Раздели масива на 2 половини
+2. Conquer: Рекурсивно сортирай всяка
+3. Combine: Merge сортираните половини
+
+```cpp
+void merge(vector<int>& arr, int l, int mid, int r) {
+    vector<int> L, R;  // Временни масиви
+    // Copy data...
+
+    int i = 0, j = 0, k = l;
+    while (i < L.size() && j < R.size()) {
+        if (L[i] <= R[j])
+            arr[k++] = L[i++];
+        else
+            arr[k++] = R[j++];
+    }
+    // Copy remaining...
+}
+
+void mergeSort(vector<int>& arr, int l, int r) {
+    if (l < r) {
+        int mid = l + (r - l) / 2;
+        mergeSort(arr, l, mid);
+        mergeSort(arr, mid + 1, r);
+        merge(arr, l, mid, r);
+    }
+}
+```
+
+### Quick Sort (Divide & Conquer)
+
+**Алгоритъм:**
+1. Избери pivot
+2. Partition: елементи &lt; pivot вляво, ≥ pivot вдясно
+3. Рекурсивно сортирай двете части
+
+```cpp
+int partition(vector<int>& arr, int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
+
+void quickSort(vector<int>& arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+```
+
+### Non-Comparison Based Sorting
+
+**Counting Sort:** O(n + k) за integers в диапазон [0, k]
+```cpp
+// Брои срещанията, изчислява позиции, построява output
+// Използва допълнително O(k) space
+```
+
+**Radix Sort:** O(d × (n + k)) за d-digit numbers
+```cpp
+// Сортира по digits от least към most significant
+// Използва counting sort като subroutine
+```
+
+### Кога Какво да Използваме?
+
+**Малки datasets (n &lt; 50):**
+- **Insertion Sort** - прост, бърз за малки n
+
+**Средни/Големи datasets:**
+- **Quick Sort** - най-бърз average case, in-place
+- **Merge Sort** - ако е нужна стабилност
+- **Heap Sort** - ако е нужно O(1) space
+
+**Специални случаи:**
+- **Почти сортирани:** Insertion Sort (O(n))
+- **Integers с малък диапазон:** Counting/Radix Sort
+- **Нужна стабилност:** Merge Sort
+- **Memory-constrained:** Heap Sort
+
+### Ключови Формули
+
+**Comparison-based долна граница:** $\\Omega(n \\log n)$
+
+**Master Theorem за Divide & Conquer:**
+$$
+T(n) = aT(n/b) + f(n)
+$$
+
+**Merge/Quick Sort recurrence:**
+$$
+T(n) = 2T(n/2) + O(n) = O(n \\log n)
+$$
+
+### Важни Точки
+
+✅ **Merge Sort винаги O(n log n)** - гарантирана производителност
+✅ **Quick Sort average O(n log n), worst O(n²)** - зависи от pivot
+✅ **Insertion Sort е O(n) за почти сортирани** - adaptive
+✅ **Stable sorts:** Bubble, Insertion, Merge (НЕ Quick, Selection, Heap)
+✅ **In-place:** Bubble, Selection, Insertion, Quick, Heap (НЕ Merge)
+✅ **Non-comparison sorts могат да бъдат O(n)** - но само за специфични типове
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

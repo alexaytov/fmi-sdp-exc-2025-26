@@ -10,12 +10,93 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Компилаторни Оптимизации, Локалност, Контейнери и Масиви в C++
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### Компилаторни Оптимизации (ЗАДЪЛЖИТЕЛНО!)
+
+| Оптимизация | Описание | Пример |
+|-------------|----------|--------|
+| **Constant Folding** | Изчислява константи при компилация | `int x = 5 + 3;` → `int x = 8;` |
+| **Dead Code Elimination** | Премахва неизползван код | `int unused = 42;` (никога не се чете) |
+| **Loop Unrolling** | Репликира тялото на цикъла | Намалява overhead, подобрява SIMD |
+| **Function Inlining** | Замества извикване с тяло | Елиминира call overhead |
+| **Vectorization (SIMD)** | Обработва множество данни наведнъж | `vpaddd` - 4 additions едновременно |
+
+**Нива на оптимизация:**
+- **-O0**: Без оптимизации (debugging)
+- **-O2**: Production по подразбиране (балансирано)
+- **-O3**: Агресивни оптимизации (unrolling, vectorization)
+
+### Локалност на Данните
+
+**Пространствена Локалност:**
+- Достъп до данни близо една до друга в паметта
+- Пример: `for (int i = 0; i < n; i++) sum += arr[i];`
+- Cache line зарежда съседни елементи
+
+**Временна Локалност:**
+- Повторен достъп до същите данни
+- Пример: променлива `sum` в loop се използва многократно
+- Данните остават в кеша
+
+**Cache Performance:**
+- **Cache Hit**: 1-10 CPU цикъла ⚡
+- **Cache Miss**: 100-300 CPU цикъла 🐌
+- Cache miss е **100-300x по-бавен!**
+
+### C++ Контейнери - Паметна Организация
+
+| Контейнер | Организация | Локалност | Употреба |
+|-----------|-------------|-----------|----------|
+| **`std::array`** | Непрекъснат, stack | ⭐⭐⭐⭐⭐ | Фиксиран размер, compile-time |
+| **`std::vector`** | Непрекъснат, heap | ⭐⭐⭐⭐ | Default избор за масиви |
+| **`std::list`** | Разпръснати възли | ⭐ | Само ако честите insert/delete са критични |
+| **`std::map`** | Red-Black дърво | ⭐ | Sorted key-value, O(log n) |
+
+### Call-by-Value vs Call-by-Reference
+
+```cpp
+// ❌ НЕЕФЕКТИВНО - копира целия вектор
+void process(std::vector<int> vec) { ... }
+
+// ✅ ЕФЕКТИВНО - const reference
+void process(const std::vector<int>& vec) { ... }
+
+// ✅ МОДИФИКАЦИЯ - reference
+void modify(std::vector<int>& vec) { ... }
+```
+
+### Cache-Friendly vs Cache-Unfriendly
+
+```cpp
+// ✅ Добра локалност - последователен достъп
+for (int i = 0; i < n; i++) {
+    sum += arr[i];  // arr[0], arr[1], arr[2]...
+}
+
+// ❌ Лоша локалност - strided достъп
+for (int i = 0; i < n; i += 100) {
+    sum += arr[i];  // arr[0], arr[100], arr[200]...
+}
+// Може да е 10-100x по-бавно!
+```
+
+### Ключови Формули
+- **Cache Miss Penalty** = 100-300 CPU cycles
+- **Performance разлика**: Последователен достъп може да е **10-100x по-бърз** от strided
+- **`std::vector` итерация** може да е **10-100x по-бърза** от `std::list`
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

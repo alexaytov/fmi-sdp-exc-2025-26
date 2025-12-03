@@ -10,12 +10,75 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Концепции за Сложност, Big-O Нотация, Тестване и Double Precision в C++
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### Big-O Класове Сложност (ЗАДЪЛЖИТЕЛНО!)
+
+| Нотация | Име | Пример Алгоритъм | Растеж |
+|---------|-----|------------------|---------|
+| **O(1)** | Константно | Достъп до масив по индекс | Не зависи от n |
+| **O(log n)** | Логаритмично | Двоично търсене | Много бавен растеж |
+| **O(n)** | Линейно | Линейно търсене | Директно пропорционално |
+| **O(n log n)** | Линеаритмично | Merge Sort, Quick Sort (среден) | Оптимално за сортиране |
+| **O(n²)** | Квадратично | Bubble Sort, вложени цикли | Бързо нарастване |
+| **O(2ⁿ)** | Експоненциално | Всички подмножества | Непрактично за n > 20 |
+
+### Формална Дефиниция на Big-O
+**f(n) = O(g(n))** ако съществуват C > 0 и n₀, такива че:
+f(n) ≤ C × g(n) за всички n ≥ n₀
+
+### Floating-Point Специални Стойности (IEEE 754)
+
+**NaN (Not a Number):**
+- Как възниква: `0.0/0.0`, `sqrt(-1.0)`, `Inf - Inf`
+- **ВАЖНО:** `NaN != NaN` (винаги false!)
+- Проверка: `std::isnan(x)`
+
+**Inf (Infinity):**
+- Как възниква: `1.0/0.0`, `DBL_MAX * 2.0`
+- Проверка: `std::isinf(x)`
+
+**Signed Zeros (+0, -0):**
+- `+0.0 == -0.0` (true), но `1.0/+0.0 = +Inf`, `1.0/-0.0 = -Inf`
+- Проверка: `std::signbit(x)`
+
+### Сравняване на Double Стойности
+```cpp
+// ❌ ГРЕШНО
+if (a == b) { ... }
+
+// ✅ ПРАВИЛНО
+const double epsilon = 1e-9;
+if (std::abs(a - b) < epsilon) { ... }
+```
+
+### Анализ на Алгоритми - Примери
+
+**Bubble Sort:**
+- Сравнения: (n-1) + (n-2) + ... + 1 = n(n-1)/2
+- Сложност: **O(n²)** worst-case
+
+**Quick Sort:**
+- Среден случай: **O(n log n)** (balanced partitioning)
+- Най-лош случай: **O(n²)** (лош избор на pivot)
+
+### Тестване - Задължителни Проверки
+1. **Edge cases:** празен вход, един елемент, максимални стойности
+2. **Off-by-one errors:** `i < n` vs `i <= n`
+3. **Floating-point:** проверка за NaN/Inf преди операции
+4. **Performance testing:** измерване на време за различни размери n
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

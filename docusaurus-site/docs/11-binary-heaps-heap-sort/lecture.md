@@ -10,12 +10,164 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Binary Heaps и Heap Sort
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### Heap Property (ЗАДЪЛЖИТЕЛНО!)
+
+**Max-Heap:** Всеки parent ≥ своите children (root = max)
+**Min-Heap:** Всеки parent ≤ своите children (root = min)
+
+```
+Max-Heap:               Min-Heap:
+     50                     10
+    /  \                   /  \
+   30   40                20   15
+  / \  / \               / \  / \
+ 10 20 15 35            30 40 35 50
+```
+
+### Array Representation - Формули
+
+```cpp
+// 0-indexed array:
+parent(i) = (i - 1) / 2
+leftChild(i) = 2 * i + 1
+rightChild(i) = 2 * i + 2
+```
+
+### Heap Операции
+
+| Операция | Сложност | Описание |
+|----------|----------|----------|
+| **Sift-Down (Heapify)** | O(log n) | Премества елемент надолу |
+| **Sift-Up** | O(log n) | Премества елемент нагоре |
+| **Insert** | O(log n) | Добавя елемент в края, sift-up |
+| **Extract Max/Min** | O(log n) | Премахва root, sift-down |
+| **Build Heap** | **O(n)** ⚠️ | Floyd's bottom-up |
+| **Peek** | O(1) | Връща root |
+
+### Sift-Down (Heapify) Код
+
+```cpp
+void siftDown(vector<int>& heap, int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < n && heap[left] > heap[largest])
+        largest = left;
+
+    if (right < n && heap[right] > heap[largest])
+        largest = right;
+
+    if (largest != i) {
+        swap(heap[i], heap[largest]);
+        siftDown(heap, n, largest);  // Recursive
+    }
+}
+```
+
+### Build Heap - Floyd's O(n) Метод
+
+```cpp
+void buildHeap(vector<int>& arr) {
+    int n = arr.size();
+
+    // Започни от последния parent, sift-down до root
+    for (int i = n / 2 - 1; i >= 0; i--) {
+        siftDown(arr, n, i);
+    }
+}
+// Защо O(n)? Повечето nodes са листа (0 swaps)
+// Само няколко nodes близо до root правят повече swaps
+```
+
+### Heap Sort Алгоритъм
+
+**Phase 1:** Build max-heap - **O(n)**
+**Phase 2:** Extract max n пъти - **O(n log n)**
+
+```cpp
+void heapSort(vector<int>& arr) {
+    int n = arr.size();
+
+    // Phase 1: Build max-heap
+    buildHeap(arr);
+
+    // Phase 2: Extract elements
+    for (int i = n - 1; i > 0; i--) {
+        swap(arr[0], arr[i]);      // Move max to end
+        siftDown(arr, i, 0);       // Re-heapify
+    }
+}
+```
+
+### Heap Sort Сложност (КРИТИЧНО!)
+
+| Характеристика | Стойност |
+|----------------|----------|
+| **Best Case** | O(n log n) |
+| **Average Case** | O(n log n) |
+| **Worst Case** | O(n log n) |
+| **Space** | **O(1)** (in-place) |
+| **Stable** | ❌ No |
+
+### Сравнение с Други Алгоритми
+
+| Алгоритъм | Time (worst) | Space | Stable | Predictable |
+|-----------|--------------|-------|--------|-------------|
+| **Heap Sort** | O(n log n) | O(1) | ❌ | ✅ |
+| **Merge Sort** | O(n log n) | O(n) | ✅ | ✅ |
+| **Quick Sort** | O(n²) | O(log n) | ❌ | ❌ |
+| **Insertion Sort** | O(n²) | O(1) | ✅ | ❌ |
+
+### Priority Queue Приложение
+
+**Operations с Binary Heap:**
+```cpp
+// Max Priority Queue
+void insert(int key) {
+    heap.push_back(key);
+    siftUp(heap.size() - 1);  // O(log n)
+}
+
+int extractMax() {
+    int max = heap[0];
+    heap[0] = heap.back();
+    heap.pop_back();
+    siftDown(0);              // O(log n)
+    return max;
+}
+
+int peek() { return heap[0]; }  // O(1)
+```
+
+### Ключови Формули
+
+- **Complete tree height:** $h = \\lfloor \\log_2 n \\rfloor$
+- **Max nodes на level h:** $2^h$
+- **Total nodes в complete tree:** $2^\{h+1\} - 1$
+- **Build heap complexity:** $\\sum_\{h=0\}^\{\\log n\} \\frac\{n\}\{2^\{h+1\}\} \\cdot h = O(n)$
+
+### Важни Точки за Изпита
+
+✅ **Build heap е O(n), НЕ O(n log n)** - Floyd's bottom-up метод
+✅ **Heap sort е in-place** - O(1) auxiliary space
+✅ **Heap sort е unstable** - относителната подредба не се запазва
+✅ **Root винаги е max/min** - O(1) достъп до екстремна стойност
+✅ **Height = log n** - всички операции са O(log n) или по-добри
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

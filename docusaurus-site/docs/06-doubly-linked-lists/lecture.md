@@ -10,12 +10,292 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Двусвързан Списък, Iterator и Управление на Паметта в C++
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### Структура на Двусвързан Списък
+
+```cpp
+struct Node {
+    int data;
+    Node* prev;  // Указател към предишен възел
+    Node* next;  // Указател към следващ възел
+
+    Node(int val) : data(val), prev(nullptr), next(nullptr) {}
+};
+
+class DoublyLinkedList {
+private:
+    Node* head;  // Първи възел
+    Node* tail;  // Последен възел (важно за O(1) операции!)
+public:
+    // ...
+};
+```
+
+### Основни Операции - Имплементация
+
+**Добавяне в края (push_back):**
+```cpp
+void add(int value) {
+    Node* newNode = new Node(value);
+
+    if (tail) {              // Списъкът не е празен
+        tail->next = newNode;
+        newNode->prev = tail;
+        tail = newNode;
+    } else {                // Списъкът е празен
+        head = newNode;
+        tail = newNode;
+    }
+}
+```
+
+**Изтриване на възел (O(1) при известен указател):**
+```cpp
+void remove(Node* node) {
+    if (!node) return;
+
+    // Актуализация на prev връзка
+    if (node->prev) {
+        node->prev->next = node->next;
+    } else {
+        head = node->next;  // Изтриваме head
+    }
+
+    // Актуализация на next връзка
+    if (node->next) {
+        node->next->prev = node->prev;
+    } else {
+        tail = node->prev;  // Изтриваме tail
+    }
+
+    delete node;  // КРИТИЧНО - освобождаване на паметта!
+}
+```
+
+**Обхождане напред и назад:**
+```cpp
+// Напред
+void traverseForward(Node* head) {
+    Node* current = head;
+    while (current != nullptr) {
+        cout << current->data << " ";
+        current = current->next;
+    }
+}
+
+// Назад
+void traverseBackward(Node* tail) {
+    Node* current = tail;
+    while (current != nullptr) {
+        cout << current->data << " ";
+        current = current->prev;
+    }
+}
+```
+
+### Сложност на Операциите
+
+| Операция | Със head/tail pointer | Без tail pointer |
+|----------|----------------------|------------------|
+| Вмъкване в началото | **O(1)** | **O(1)** |
+| Вмъкване в края | **O(1)** | O(n) |
+| Изтриване в началото | **O(1)** | **O(1)** |
+| Изтриване в края | **O(1)** | O(n) |
+| Изтриване на възел (известен pointer) | **O(1)** | **O(1)** |
+| Търсене по стойност | O(n) | O(n) |
+| Достъп по индекс | O(n) | O(n) |
+
+### Iterator за Двусвързан Списък
+
+```cpp
+template<typename T>
+class DoublyLinkedListWithIterator {
+public:
+    class Iterator {
+    private:
+        Node* current;
+
+    public:
+        Iterator(Node* node) : current(node) {}
+
+        T& operator*() const {
+            return current->data;
+        }
+
+        // Напред (++)
+        Iterator& operator++() {
+            if (current) current = current->next;
+            return *this;
+        }
+
+        // Назад (--) - специфично за DLL!
+        Iterator& operator--() {
+            if (current) current = current->prev;
+            return *this;
+        }
+
+        bool operator==(const Iterator& other) const {
+            return current == other.current;
+        }
+
+        bool operator!=(const Iterator& other) const {
+            return current != other.current;
+        }
+    };
+
+    Iterator begin() { return Iterator(head); }
+    Iterator end() { return Iterator(nullptr); }
+};
+```
+
+### Деструктор - ЗАДЪЛЖИТЕЛНО!
+
+```cpp
+~DoublyLinkedList() {
+    Node* current = head;
+    while (current != nullptr) {
+        Node* next_node = current->next;  // Запазваме next
+        delete current;                    // Изтриваме текущия
+        current = next_node;               // Преминаваме напред
+    }
+    head = nullptr;
+    tail = nullptr;
+}
+```
+
+### Memory Leaks - Инструменти за Откриване
+
+**Valgrind (Linux/Mac):**
+```bash
+g++ -g -o program program.cpp
+valgrind --leak-check=full ./program
+```
+
+**AddressSanitizer (GCC/Clang):**
+```bash
+g++ -fsanitize=address -g program.cpp -o program
+./program
+```
+
+**Какво търсим:**
+- "definitely lost" - явно изтичане
+- "possibly lost" - вероятно изтичане
+- "still reachable" - памет не е освободена при exit
+
+### Често Срещани Грешки
+
+```cpp
+// ❌ Грешка 1: Неправилна актуализация при вмъкване
+void insertAfter(Node* node, int value) {
+    Node* newNode = new Node(value);
+    newNode->next = node->next;
+    node->next = newNode;
+    // Забравяме да актуализираме prev указателите!
+}
+
+// ✅ ПРАВИЛНО
+void insertAfter(Node* node, int value) {
+    Node* newNode = new Node(value);
+    newNode->next = node->next;
+    newNode->prev = node;
+
+    if (node->next) {
+        node->next->prev = newNode;  // Актуализация на prev
+    } else {
+        tail = newNode;  // Новият възел е tail
+    }
+
+    node->next = newNode;
+}
+
+// ❌ Грешка 2: Изтичане в деструктора
+~DoublyLinkedList() {
+    head = nullptr;
+    tail = nullptr;
+    // Не освобождаваме паметта! Memory leak!
+}
+
+// ❌ Грешка 3: Shallow copy
+DoublyLinkedList(const DoublyLinkedList& other) {
+    head = other.head;  // И двата списъка сочат към едни възли!
+    tail = other.tail;
+}
+
+// ✅ ПРАВИЛНО - Deep copy
+DoublyLinkedList(const DoublyLinkedList& other)
+    : head(nullptr), tail(nullptr) {
+    Node* current = other.head;
+    while (current != nullptr) {
+        add(current->data);  // Създаваме нови възли
+        current = current->next;
+    }
+}
+```
+
+### RAII и Smart Pointers
+
+**RAII (Resource Acquisition Is Initialization):**
+```cpp
+class DoublyLinkedList {
+public:
+    DoublyLinkedList() {         // Придобиване на ресурси
+        // Заделяне на памет
+    }
+
+    ~DoublyLinkedList() {        // Освобождаване на ресурси
+        // Автоматично при излизане от scope
+        clear();
+    }
+};
+```
+
+**Smart Pointers:**
+```cpp
+#include <memory>
+
+// std::unique_ptr - единствена собственост
+std::unique_ptr<Node> head = std::make_unique<Node>(10);
+
+// std::shared_ptr - споделена собственост
+std::shared_ptr<Node> node = std::make_shared<Node>(20);
+
+// Автоматично освобождаване - няма нужда от delete!
+```
+
+### Предимства и Недостатъци на DLL
+
+| Предимства | Недостатъци |
+|-----------|-------------|
+| ✅ Двупосочно обхождане | ❌ Повече памет (2 указателя) |
+| ✅ O(1) изтриване при известен node | ❌ По-сложна имплементация |
+| ✅ O(1) вмъкване преди/след node | ❌ Лоша cache locality |
+| ✅ Гъвкави операции | ❌ Overhead от управление на 2 указателя |
+
+### Кога да използваме DLL?
+
+**✅ Подходящ за:**
+- История на браузъра (напред/назад)
+- Undo/Redo функционалност
+- Плейлисти с двупосочна навигация
+- Когато трябва ефективно да изтриваме произволни елементи
+
+**❌ Неподходящ за:**
+- Чест произволен достъп по индекс (използвай vector)
+- Паметта е критична (използвай singly linked list)
+- Cache performance е важен (използвай array/vector)
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

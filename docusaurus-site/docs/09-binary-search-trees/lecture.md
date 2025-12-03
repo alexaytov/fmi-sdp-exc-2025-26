@@ -10,12 +10,179 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Бинарни Дървета за Търсене: Концепции, Имплементация и Операции в C++
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### BST Свойство (КРИТИЧНО!)
+
+**За всеки node рекурсивно:**
+- **Ляво поддърво:** всички стойности &lt; node value
+- **Дясно поддърво:** всички стойности &gt; node value
+
+```
+Валиден BST:        Невалиден BST:
+       5                   5
+      / \                 / \
+     3   7               3   7
+    / \ / \             / \ / \
+   2  4 6  8           2  6 4  8  (6 > 5, но е в ляво!)
+```
+
+### Node Структура
+
+```cpp
+struct Node {
+    int key;
+    Node *left, *right;
+
+    Node(int k) : key(k), left(nullptr), right(nullptr) {}
+};
+```
+
+### Операции и Сложност (ЗАДЪЛЖИТЕЛНО!)
+
+| Операция | Балансирано | Изродено (worst-case) |
+|----------|-------------|----------------------|
+| **Search** | O(log n) | O(n) |
+| **Insert** | O(log n) | O(n) |
+| **Delete** | O(log n) | O(n) |
+| **Traversal** | O(n) | O(n) |
+| **Space** | O(n) | O(n) |
+
+### Insert Operation
+
+```cpp
+Node* insert(Node* root, int key) {
+    if (!root) return new Node(key);
+
+    if (key < root->key)
+        root->left = insert(root->left, key);
+    else if (key > root->key)
+        root->right = insert(root->right, key);
+
+    return root;
+}
+```
+
+### Search Operation
+
+```cpp
+Node* search(Node* root, int key) {
+    if (!root || root->key == key)
+        return root;
+
+    if (key < root->key)
+        return search(root->left, key);
+    else
+        return search(root->right, key);
+}
+```
+
+### Delete Operation - Три Случая
+
+**Case 1: Leaf Node (no children)**
+```cpp
+// Просто delete и return nullptr
+if (!root->left && !root->right) {
+    delete root;
+    return nullptr;
+}
+```
+
+**Case 2: One Child**
+```cpp
+// Замени с детето
+if (!root->left) {
+    Node* temp = root->right;
+    delete root;
+    return temp;
+}
+if (!root->right) {
+    Node* temp = root->left;
+    delete root;
+    return temp;
+}
+```
+
+**Case 3: Two Children** (НАЙ-ВАЖЕН!)
+```cpp
+// Намери inorder successor (min в дясното поддърво)
+Node* minValue(Node* node) {
+    while (node->left) node = node->left;
+    return node;
+}
+
+Node* deleteNode(Node* root, int key) {
+    // ... find node ...
+    if (две деца) {
+        Node* temp = minValue(root->right);
+        root->key = temp->key;  // Copy successor value
+        root->right = deleteNode(root->right, temp->key);
+    }
+    return root;
+}
+```
+
+### Traversal Methods
+
+| Traversal | Ред | Използване | Изход за BST |
+|-----------|-----|-----------|--------------|
+| **Inorder** | Left → Root → Right | **Sorted output** | 2 3 4 5 6 7 8 |
+| **Preorder** | Root → Left → Right | Copy tree | 5 3 2 4 7 6 8 |
+| **Postorder** | Left → Right → Root | Delete tree | 2 4 3 6 8 7 5 |
+
+**Inorder код:**
+```cpp
+void inorder(Node* root) {
+    if (!root) return;
+    inorder(root->left);
+    cout << root->key << " ";
+    inorder(root->right);
+}
+```
+
+### Балансирано vs Изродено Дърво
+
+```
+Балансирано O(log n):     Изродено O(n):
+        4                       1
+       / \                       \
+      2   6                       2
+     / \ / \                       \
+    1  3 5  7                       3
+                                     \
+                                      4
+                                       \
+                                        5
+
+Height = log n             Height = n
+```
+
+### Ключови Формули
+
+- **Max nodes на height h:** $2^\{h+1\} - 1$
+- **Height при n nodes (балансирано):** $h = \\lfloor \\log_2 n \\rfloor$
+- **Min height:** $\\lceil \\log_2(n+1) \\rceil - 1$
+- **Max height (изродено):** $n - 1$
+
+### Важни Точки за Изпита
+
+✅ **BST инвариантът е рекурсивен** - проверете ВСИЧКИ потомци, не само децата
+✅ **Inorder traversal дава сортиран изход** - уникално за BST
+✅ **Delete с две деца:** използвай inorder successor (или predecessor)
+✅ **Сортиран вход създава изродено дърво** - нужно е балансиране
+✅ **Винаги `delete` премахнати nodes** - избягвай memory leaks
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

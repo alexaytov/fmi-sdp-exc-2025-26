@@ -10,12 +10,159 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Trees, Binary Trees, BSTs и Balanced Trees: Представяне и Основни Операции
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### Array Representation на Binary Tree
+
+**Формули за 0-indexed array:**
+```cpp
+parent(i) = (i - 1) / 2
+leftChild(i) = 2 * i + 1
+rightChild(i) = 2 * i + 2
+```
+
+**Пример:**
+```
+Tree:     10              Array: [10, 8, 7, 4, 3, 2, 1]
+         /  \             Index:   0  1  2  3  4  5  6
+        8    7
+       / \  / \           parent(4) = (4-1)/2 = 1 ✓
+      4  3 2  1           leftChild(1) = 2*1+1 = 3 ✓
+```
+
+### Self-Balancing Trees Comparison
+
+| Дърво | Balance Property | Rotations | Search Speed | Insert Speed | Use Case |
+|-------|-----------------|-----------|--------------|--------------|----------|
+| **AVL** | Height diff ≤ 1 | Повече (strict) | **Най-бърз** | По-бавен | Read-heavy |
+| **Red-Black** | Color rules | По-малко (relaxed) | Малко по-бавен | **Най-бърз** | STL (map, set) |
+
+### AVL Trees - Balance Factor
+
+**Дефиниция:**
+```cpp
+BalanceFactor(node) = height(left) - height(right)
+```
+
+**Допустими стойности:** -1, 0, 1
+
+**Нарушение:** |BalanceFactor| &gt; 1 → rotation needed
+
+**Примери:**
+```
+Balanced (BF = 0, 1, -1):    Unbalanced (BF = 2):
+        10                          10
+       /  \                        /
+      5    15                     5
+     / \                         /
+    2   7                       2
+                               /
+                              1
+   BF(10) = 1 ✓              BF(10) = 2 ❌
+```
+
+### AVL Rotations (КРИТИЧНО!)
+
+**4 типа ротации:**
+
+**1. Left Rotation (LL case):**
+```
+    y                  x
+   /                    \
+  x       →              y
+   \                    /
+    T2                 T2
+```
+
+**2. Right Rotation (RR case):**
+```
+  x                    y
+   \                  /
+    y      →         x
+   /                  \
+  T2                  T2
+```
+
+**3. Left-Right (LR case):**
+```
+    z                z              x
+   /                /                \
+  y      Left→     x      Right→      y
+   \              /                  / \
+    x            y                  T  z
+```
+
+**4. Right-Left (RL case):**
+```
+  z                z                x
+   \                \              / \
+    y    Right→      x    Left→   z   y
+   /                  \
+  x                    y
+```
+
+### Red-Black Tree Properties
+
+1. Every node е **червен** или **черен**
+2. **Root** е черен
+3. All **leaves (NULL)** са черни
+4. **Червен node** има черни children (no two red nodes in a row)
+5. All paths от node до leaves имат **същия брой черни nodes**
+
+**Гаранция:** Height ≤ 2 log(n + 1)
+
+### Performance Гаранции
+
+| Tree Type | Height | Search | Insert | Delete |
+|-----------|--------|--------|--------|--------|
+| **BST (unbalanced)** | O(n) worst | O(n) worst | O(n) worst | O(n) worst |
+| **BST (balanced)** | O(log n) | O(log n) | O(log n) | O(log n) |
+| **AVL** | O(log n) | **O(log n)** | O(log n) | O(log n) |
+| **Red-Black** | O(log n) | O(log n) | **O(log n)** | **O(log n)** |
+
+### Кога Коя Структура?
+
+**Balanced BST (AVL):**
+- ✅ Frequent searches
+- ✅ Гарантирана производителност
+- ❌ По-скъпи insertions (повече rotations)
+
+**Red-Black Tree:**
+- ✅ Frequent insertions/deletions
+- ✅ C++ STL (`std::map`, `std::set`)
+- ❌ Малко по-бавен search от AVL
+
+**Unbalanced BST:**
+- ✅ Малки datasets
+- ✅ Random insertions (self-balancing)
+- ❌ Може да деградира до O(n)
+
+### Ключови Формули
+
+- **Complete tree nodes:** $n = 2^\{h+1\} - 1$
+- **Height от nodes:** $h = \\lfloor \\log_2 n \\rfloor$
+- **AVL max height:** $1.44 \\log_2 n$
+- **Red-Black max height:** $2 \\log_2(n + 1)$
+
+### Важни Точки
+
+✅ **Array representation** е ефективна за complete binary trees
+✅ **Self-balancing trees гарантират O(log n)** независимо от input order
+✅ **AVL е по-balanced** от Red-Black (по-бързи searches)
+✅ **Red-Black има по-малко rotations** (по-бързи insertions)
+✅ **Production системите използват Red-Black** (STL, Linux kernel)
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

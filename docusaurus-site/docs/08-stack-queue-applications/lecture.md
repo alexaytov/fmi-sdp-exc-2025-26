@@ -10,12 +10,153 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Приложения на Stack и Queue: Shunting Yard Алгоритъм, Изчисляване на Изрази и Reverse Polish Notation
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### Структури от Данни
+
+| Структура | Принцип | Операции | Сложност |
+|-----------|---------|----------|----------|
+| **Stack** | LIFO (Last In, First Out) | `push()`, `pop()`, `top()` | O(1) всички |
+| **Queue** | FIFO (First In, First Out) | `push()`, `pop()`, `front()` | O(1) всички |
+
+### Приоритет и Асоциативност на Операторите
+
+| Оператор | Приоритет | Асоциативност |
+|----------|-----------|---------------|
+| `^` (степенуване) | 3 | Дясна |
+| `*`, `/` | 2 | Лява |
+| `+`, `-` | 1 | Лява |
+
+### Shunting Yard Алгоритъм - Правила (ЗАДЪЛЖИТЕЛНО!)
+
+**Структури:**
+- **Operator Stack** - временно съхранява оператори
+- **Output Queue** - резултатът в RPN
+
+**Правила за всеки токен:**
+
+1. **Число** → директно към output queue
+2. **Оператор** →
+   - Pop operators от stack към queue докато:
+     - Stack не е празен
+     - Top има по-висок приоритет
+     - ИЛИ същия приоритет И е ляво-асоциативен
+   - Push оператора към stack
+3. **Лява скоба `(`** → push към stack
+4. **Дясна скоба `)`** → pop към queue докато не намериш `(`, изхвърли двете скоби
+5. **В края** → pop всички останали оператори към queue
+
+### Примери за Конверсия
+
+**Инфикс към RPN:**
+```
+Инфикс:  3 + 4 * 2
+RPN:     3 4 2 * +
+
+Инфикс:  (4 + 3 * 20) / (10 + 3)
+RPN:     4 3 20 * + 10 3 + /
+
+Инфикс:  2 ^ 3 ^ 2
+RPN:     2 3 2 ^ ^  (дясно-асоциативно!)
+```
+
+### RPN Оценка (ВАЖНО!)
+
+**Алгоритъм с Stack:**
+```cpp
+// За всеки токен:
+if (isNumber(token)) {
+    stack.push(token);
+} else {  // Оператор
+    b = stack.top(); stack.pop();
+    a = stack.top(); stack.pop();
+    stack.push(applyOperator(a, operator, b));
+}
+// Резултат = stack.top()
+```
+
+**Примери:**
+```
+RPN: 3 4 2 * +
+Стъпки:
+  push 3    → [3]
+  push 4    → [3, 4]
+  push 2    → [3, 4, 2]
+  * → pop 2, 4 → push 8    → [3, 8]
+  + → pop 8, 3 → push 11   → [11]
+Резултат: 11
+```
+
+### C++ Код Шаблони
+
+**Shunting Yard Skeleton:**
+```cpp
+vector<string> infixToRPN(const string& expr) {
+    stack<string> opStack;
+    vector<string> output;
+
+    for (token : tokens) {
+        if (isNumber(token))
+            output.push_back(token);
+        else if (isOperator(token)) {
+            while (!opStack.empty() &&
+                   shouldPop(opStack.top(), token))
+                output.push_back(opStack.top()), opStack.pop();
+            opStack.push(token);
+        }
+        else if (token == "(")
+            opStack.push(token);
+        else if (token == ")") {
+            while (opStack.top() != "(")
+                output.push_back(opStack.top()), opStack.pop();
+            opStack.pop();  // Премахни '('
+        }
+    }
+
+    while (!opStack.empty())
+        output.push_back(opStack.top()), opStack.pop();
+
+    return output;
+}
+```
+
+**RPN Оценка:**
+```cpp
+double evaluateRPN(const vector<string>& rpn) {
+    stack<double> st;
+
+    for (token : rpn) {
+        if (isNumber(token))
+            st.push(stod(token));
+        else {
+            double b = st.top(); st.pop();
+            double a = st.top(); st.pop();
+            st.push(applyOperator(token, a, b));
+        }
+    }
+
+    return st.top();
+}
+```
+
+### Ключови Точки
+
+✅ **Защо RPN?** Няма нужда от скоби или правила за приоритет при оценка
+✅ **Защо Stack?** LIFO е перфектен за обработка на вложени операции
+✅ **Дясна асоциативност:** `2^3^2` = `2^(3^2)` = 512, НЕ `(2^3)^2` = 64
+✅ **Унарен минус:** Третирай като специален оператор с най-висок приоритет
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

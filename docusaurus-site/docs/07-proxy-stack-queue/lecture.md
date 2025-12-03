@@ -10,12 +10,374 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Design Pattern: Proxy и Структури от Данни Stack и Queue
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### Proxy Design Pattern
+
+**Дефиниция:** Предоставя заместител (placeholder) за друг обект, за да контролира достъпа до него.
+
+**Структура:**
+```cpp
+// Subject Interface
+class Image {
+public:
+    virtual void display() = 0;
+    virtual ~Image() = default;
+};
+
+// RealSubject
+class RealImage : public Image {
+private:
+    string filename;
+public:
+    RealImage(string file) : filename(file) {
+        loadFromDisk();  // Скъпа операция
+    }
+    void display() override { /* показване */ }
+};
+
+// Proxy
+class ProxyImage : public Image {
+private:
+    string filename;
+    RealImage* realImage;
+public:
+    ProxyImage(string file) : filename(file), realImage(nullptr) {}
+
+    void display() override {
+        if (realImage == nullptr) {
+            realImage = new RealImage(filename);  // Lazy loading
+        }
+        realImage->display();
+    }
+
+    ~ProxyImage() { delete realImage; }
+};
+```
+
+**Видове Proxies:**
+| Тип | Цел | Пример |
+|-----|-----|--------|
+| **Virtual Proxy** | Lazy initialization | Зареждане на изображение при нужда |
+| **Remote Proxy** | Локален представител на отдалечен обект | RPC, REST API клиент |
+| **Protection Proxy** | Контрол на достъпа | Проверка на права преди операция |
+| **Smart Proxy** | Допълнителна логика | Кеширане, логване, reference counting |
+
+### Stack - LIFO (Last-In, First-Out)
+
+**Основни операции (всички O(1)):**
+```cpp
+push(element)   // Добавя на върха
+pop()           // Премахва и връща горния елемент
+top()           // Връща горния елемент без да го премахва
+isEmpty()       // Проверява дали е празен
+size()          // Връща броя елементи
+```
+
+**Имплементация с масив:**
+```cpp
+class ArrayStack {
+private:
+    int* arr;
+    int top;       // Индекс на върха
+    int capacity;
+
+public:
+    ArrayStack(int cap) : capacity(cap), top(-1) {
+        arr = new int[capacity];
+    }
+
+    void push(int x) {
+        if (top >= capacity - 1) {
+            // Stack overflow
+            return;
+        }
+        arr[++top] = x;
+    }
+
+    int pop() {
+        if (top < 0) {
+            // Stack underflow
+            return -1;
+        }
+        return arr[top--];
+    }
+
+    int peek() {
+        if (top < 0) return -1;
+        return arr[top];
+    }
+
+    bool isEmpty() { return top == -1; }
+
+    ~ArrayStack() { delete[] arr; }
+};
+```
+
+**Имплементация със свързан списък:**
+```cpp
+class LinkedStack {
+private:
+    struct Node {
+        int data;
+        Node* next;
+        Node(int val) : data(val), next(nullptr) {}
+    };
+    Node* top;
+
+public:
+    LinkedStack() : top(nullptr) {}
+
+    void push(int x) {
+        Node* newNode = new Node(x);
+        newNode->next = top;
+        top = newNode;
+    }
+
+    int pop() {
+        if (!top) return -1;
+        int value = top->data;
+        Node* temp = top;
+        top = top->next;
+        delete temp;
+        return value;
+    }
+
+    int peek() {
+        if (!top) return -1;
+        return top->data;
+    }
+
+    bool isEmpty() { return top == nullptr; }
+
+    ~LinkedStack() {
+        while (top) {
+            Node* temp = top;
+            top = top->next;
+            delete temp;
+        }
+    }
+};
+```
+
+### Queue - FIFO (First-In, First-Out)
+
+**Основни операции (всички O(1)):**
+```cpp
+enqueue(element)  // Добавя в края
+dequeue()         // Премахва и връща предния елемент
+front()           // Връща предния елемент без да го премахва
+isEmpty()         // Проверява дали е празна
+size()            // Връща броя елементи
+```
+
+**Circular Queue с масив:**
+```cpp
+class CircularQueue {
+private:
+    int* arr;
+    int front, rear;
+    int capacity;
+    int count;
+
+public:
+    CircularQueue(int cap) : capacity(cap), front(0), rear(-1), count(0) {
+        arr = new int[capacity];
+    }
+
+    void enqueue(int x) {
+        if (count >= capacity) return;  // Queue full
+
+        rear = (rear + 1) % capacity;   // Circular wrap
+        arr[rear] = x;
+        count++;
+    }
+
+    int dequeue() {
+        if (count == 0) return -1;      // Queue empty
+
+        int value = arr[front];
+        front = (front + 1) % capacity; // Circular wrap
+        count--;
+        return value;
+    }
+
+    int getFront() {
+        if (count == 0) return -1;
+        return arr[front];
+    }
+
+    bool isEmpty() { return count == 0; }
+    int size() { return count; }
+
+    ~CircularQueue() { delete[] arr; }
+};
+```
+
+**Имплементация със свързан списък:**
+```cpp
+class LinkedQueue {
+private:
+    struct Node {
+        int data;
+        Node* next;
+        Node(int val) : data(val), next(nullptr) {}
+    };
+    Node* front;
+    Node* rear;
+
+public:
+    LinkedQueue() : front(nullptr), rear(nullptr) {}
+
+    void enqueue(int x) {
+        Node* newNode = new Node(x);
+        if (rear) {
+            rear->next = newNode;
+        } else {
+            front = newNode;  // Първи елемент
+        }
+        rear = newNode;
+    }
+
+    int dequeue() {
+        if (!front) return -1;
+
+        int value = front->data;
+        Node* temp = front;
+        front = front->next;
+        if (!front) rear = nullptr;  // Последен елемент
+
+        delete temp;
+        return value;
+    }
+
+    int getFront() {
+        if (!front) return -1;
+        return front->data;
+    }
+
+    bool isEmpty() { return front == nullptr; }
+
+    ~LinkedQueue() {
+        while (front) {
+            Node* temp = front;
+            front = front->next;
+            delete temp;
+        }
+    }
+};
+```
+
+### STL Adapter Pattern
+
+**std::stack - адаптер над deque по подразбиране:**
+```cpp
+#include <stack>
+
+std::stack<int> s;
+s.push(10);           // Добавя
+s.push(20);
+s.top();              // 20
+s.pop();              // Премахва 20
+s.empty();            // false
+s.size();             // 1
+
+// Може да се базира на различен контейнер:
+std::stack<int, std::vector<int>> s_vec;
+std::stack<int, std::list<int>> s_list;
+```
+
+**std::queue - адаптер над deque по подразбиране:**
+```cpp
+#include <queue>
+
+std::queue<int> q;
+q.push(10);           // Добавя в края
+q.push(20);
+q.front();            // 10
+q.pop();              // Премахва 10
+q.empty();            // false
+q.size();             // 1
+
+// Може да се базира на различен контейнер:
+std::queue<int, std::list<int>> q_list;
+```
+
+### Сравнение: Array vs List Implementation
+
+| Критерий | Array-based | List-based |
+|----------|-------------|------------|
+| **Памет** | Фиксиран капацитет | Динамична, само нужното |
+| **Overflow/Underflow** | Възможен overflow | Само underflow (празна) |
+| **Cache locality** | Отлична | Лоша |
+| **Реализация** | По-проста | По-сложна (pointer management) |
+| **Resize** | Нужна реалокация | Не е нужна |
+
+### Приложения
+
+**Stack:**
+- Function call stack (рекурсия)
+- Undo/Redo функционалност
+- Парсване на изрази (infix → postfix)
+- Backtracking (DFS)
+- Балансиране на скоби
+
+**Queue:**
+- Task scheduling (CPU, printer)
+- Buffering (keyboard, network)
+- BFS (Breadth-First Search)
+- Cache replacement (FIFO)
+- Handling requests (server)
+
+### Често Срещани Грешки
+
+```cpp
+// ❌ Stack overflow без проверка
+void push(int x) {
+    arr[++top] = x;  // Ако top >= capacity - buffer overflow!
+}
+
+// ✅ С проверка
+void push(int x) {
+    if (top >= capacity - 1) return;
+    arr[++top] = x;
+}
+
+// ❌ Circular queue: Забравяне на modulo
+rear = rear + 1;  // Ще излезе извън границите!
+
+// ✅ С modulo
+rear = (rear + 1) % capacity;
+
+// ❌ Queue: Не актуализираме rear при dequeue на последния
+front = front->next;  // rear остава да сочи към изтрит възел!
+
+// ✅ Правилно
+front = front->next;
+if (!front) rear = nullptr;
+```
+
+### Сложност на Операциите
+
+| Операция | Stack (Array) | Stack (List) | Queue (Circular) | Queue (List) |
+|----------|---------------|--------------|------------------|--------------|
+| push/enqueue | **O(1)** | **O(1)** | **O(1)** | **O(1)** |
+| pop/dequeue | **O(1)** | **O(1)** | **O(1)** | **O(1)** |
+| top/front | **O(1)** | **O(1)** | **O(1)** | **O(1)** |
+| isEmpty | **O(1)** | **O(1)** | **O(1)** | **O(1)** |
+| Памет | O(capacity) | O(size) | O(capacity) | O(size) |
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

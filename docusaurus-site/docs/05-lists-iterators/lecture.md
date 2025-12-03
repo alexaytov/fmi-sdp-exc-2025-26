@@ -10,12 +10,284 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Списъци, Итератори и Управление на Паметта в C++
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### Сравнение: Едносвързан vs Двусвързан Списък
+
+| Характеристика | Едносвързан | Двусвързан |
+|----------------|-------------|------------|
+| **Указатели** | Само `next` | `prev` + `next` |
+| **Памет на възел** | `sizeof(T) + 1 ptr` | `sizeof(T) + 2 ptr` |
+| **Обхождане** | Само напред | Напред и назад |
+| **Изтриване** | Нужен prev pointer | Лесно с текущ pointer |
+
+### Структура на Възел
+
+```cpp
+// Едносвързан списък
+struct Node {
+    int data;
+    Node* next;
+    Node(int val) : data(val), next(nullptr) {}
+};
+
+// Двусвързан списък
+struct Node {
+    int data;
+    Node* prev;  // Към предишния
+    Node* next;  // Към следващия
+    Node(int val) : data(val), prev(nullptr), next(nullptr) {}
+};
+```
+
+### Сложност на Основните Операции
+
+| Операция | Масив | Списък (със указател) | Списък (без указател) |
+|----------|-------|----------------------|------------------------|
+| **Достъп по индекс** | O(1) | O(n) | O(n) |
+| **Търсене** | O(n) | O(n) | O(n) |
+| **Вмъкване в началото** | O(n) | **O(1)** | **O(1)** |
+| **Вмъкване в края** | O(1)* | **O(1)** с tail | O(n) без tail |
+| **Вмъкване след node** | O(n) | **O(1)** | O(n) |
+| **Изтриване в началото** | O(n) | **O(1)** | **O(1)** |
+| **Изтриване на node** | O(n) | **O(1)** (DLL) | O(n) |
+
+*ако има място
+
+### Iterator Pattern - Основни Операции
+
+```cpp
+template <typename T>
+class LinkedListIterator {
+private:
+    Node<T>* current;
+
+public:
+    LinkedListIterator(Node<T>* ptr) : current(ptr) {}
+
+    // Дереференциране - достъп до стойността
+    T& operator*() const {
+        return current->data;
+    }
+
+    // Pre-increment - преминаване към следващ
+    LinkedListIterator& operator++() {
+        current = current->next;
+        return *this;
+    }
+
+    // Post-increment
+    LinkedListIterator operator++(int) {
+        LinkedListIterator temp(*this);
+        current = current->next;
+        return temp;
+    }
+
+    // Pre-decrement (за DLL)
+    LinkedListIterator& operator--() {
+        current = current->prev;
+        return *this;
+    }
+
+    // Сравнение
+    bool operator==(const LinkedListIterator& other) const {
+        return current == other.current;
+    }
+
+    bool operator!=(const LinkedListIterator& other) const {
+        return current != other.current;
+    }
+};
+```
+
+### Използване на Итератор
+
+```cpp
+// В класа LinkedList:
+typedef LinkedListIterator<T> iterator;
+
+iterator begin() { return iterator(head); }
+iterator end() { return iterator(nullptr); }
+
+// Употреба:
+LinkedList<int> list;
+list.push_back(1);
+list.push_back(2);
+list.push_back(3);
+
+// Range-based for loop
+for (auto item : list) {  // Използва begin() и end()
+    cout << item << endl;
+}
+
+// Ръчно използване
+for (auto it = list.begin(); it != list.end(); ++it) {
+    cout << *it << endl;
+}
+```
+
+### Memory Management - Критични Правила
+
+```cpp
+// Деструктор за свързан списък - ЗАДЪЛЖИТЕЛНО!
+~LinkedList() {
+    Node* current = head;
+    while (current != nullptr) {
+        Node* next = current->next;  // Запазваме next преди delete
+        delete current;               // Освобождаване
+        current = next;
+    }
+    head = nullptr;
+    tail = nullptr;
+}
+
+// ✅ ПРАВИЛНО изтриване
+void remove(Node* node) {
+    if (!node) return;
+
+    // Актуализация на указателите
+    if (node->prev) node->prev->next = node->next;
+    else head = node->next;
+
+    if (node->next) node->next->prev = node->prev;
+    else tail = node->prev;
+
+    delete node;  // Освобождаване на паметта!
+}
+
+// ❌ ГРЕШНО - изтичане на памет
+void clear() {
+    head = nullptr;  // Губим достъп до всички възли!
+}
+```
+
+### Copy Constructor и Assignment (Deep Copy)
+
+```cpp
+// Copy Constructor
+LinkedList(const LinkedList& other) : head(nullptr), tail(nullptr), size(0) {
+    Node* current = other.head;
+    while (current != nullptr) {
+        push_back(current->data);  // Създаваме НОВИ възли
+        current = current->next;
+    }
+}
+
+// Assignment Operator
+LinkedList& operator=(const LinkedList& other) {
+    if (this != &other) {           // Self-assignment check!
+        clear();                      // Изчистваме старите данни
+        Node* current = other.head;
+        while (current != nullptr) {
+            push_back(current->data);
+            current = current->next;
+        }
+    }
+    return *this;
+}
+```
+
+### Valgrind - Откриване на Memory Leaks
+
+```bash
+# Компилиране с debug символи
+g++ -g -o program program.cpp
+
+# Стартиране с Valgrind
+valgrind --leak-check=full \
+         --show-leak-kinds=all \
+         --track-origins=yes \
+         ./program
+```
+
+**Изход при изтичане:**
+```
+==12345== HEAP SUMMARY:
+==12345==   in use at exit: 200 bytes in 5 blocks
+==12345==   definitely lost: 200 bytes in 5 blocks
+==12345==
+==12345== 40 bytes in 1 blocks are definitely lost
+==12345==    at operator new(unsigned long)
+==12345==    by LinkedList::push_back() (program.cpp:42)
+```
+
+### AddressSanitizer (ASan)
+
+```bash
+# Компилиране с ASan
+g++ -fsanitize=address -g -o program program.cpp
+
+# Стартиране (докладва грешки автоматично)
+./program
+```
+
+### Smart Pointers - Модерен C++
+
+```cpp
+#include <memory>
+
+// std::unique_ptr - единствена собственост
+std::unique_ptr<int> ptr = std::make_unique<int>(10);
+// Автоматично се изтрива при излизане от scope
+
+// std::shared_ptr - споделена собственост
+std::shared_ptr<int> ptr1 = std::make_shared<int>(42);
+std::shared_ptr<int> ptr2 = ptr1;  // Reference count = 2
+// Изтрива се когато последният shared_ptr бъде унищожен
+
+// std::weak_ptr - слаба референция (предотвратява циклични зависимости)
+std::weak_ptr<int> wptr = ptr1;
+```
+
+### Често Срещани Грешки
+
+```cpp
+// ❌ Грешка 1: Shallow copy
+head = other.head;  // И двата списъка сочат към едни възли!
+
+// ❌ Грешка 2: Забравяне на delete
+~LinkedList() \{ \}  // Memory leak!
+
+// ❌ Грешка 3: Изтриване преди запазване на next
+delete current;
+current = current->next;  // Undefined behavior!
+
+// ✅ ПРАВИЛНО
+Node* next = current->next;
+delete current;
+current = next;
+
+// ❌ Грешка 4: Неправилно вмъкване
+newNode->next = node;     // Пропускаме актуализация на prev!
+
+// ✅ ПРАВИЛНО (за DLL)
+newNode->next = node;
+newNode->prev = node->prev;
+if (node->prev) node->prev->next = newNode;
+node->prev = newNode;
+```
+
+### Кога да използваме List vs Array/Vector?
+
+| Ситуация | Структура |
+|----------|-----------|
+| Чести вмъквания/изтривания в средата | **Списък** |
+| Чест произволен достъп по индекс | Масив/Vector |
+| Неизвестен/променлив размер | Vector или Списък |
+| Фиксиран размер | Статичен масив |
+| Cache-friendly операции | Масив/Vector |
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

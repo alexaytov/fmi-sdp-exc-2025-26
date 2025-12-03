@@ -10,12 +10,271 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Графи: Представяне и Фундаментални Алгоритми в C++
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### Graph Дефиниция
+
+**Граф G = (V, E)** където:
+- **V (Vertices):** Множество от върхове
+- **E (Edges):** Множество от ребра между върхове
+
+**Типове графи:**
+- **Насочени (Directed):** Ребрата имат посока
+- **Ненасочени (Undirected):** Ребрата са двупосочни
+- **Претеглени (Weighted):** Ребрата имат стойности
+- **Плътни (Dense):** Много ребра (E ≈ V²)
+- **Разредени (Sparse):** Малко ребра (E &lt;&lt; V²)
+
+### Представяне на Графи (КРИТИЧНО!)
+
+**1. Матрица на Съседство (Adjacency Matrix):**
+```cpp
+// V × V матрица
+vector<vector<int>> adj(n, vector<int>(n, 0));
+
+// Добавяне на ребро
+adj[u][v] = 1;          // Насочен
+adj[v][u] = 1;          // Ненасочен (и обратното)
+
+// Проверка за ребро
+if (adj[u][v]) { ... }  // O(1)
+```
+
+| Операция | Сложност |
+|----------|----------|
+| Проверка за ребро | **O(1)** |
+| Добавяне ребро | O(1) |
+| Обхождане съседи | O(V) |
+| **Space** | **O(V²)** |
+
+**2. Списък на Съседство (Adjacency List):**
+```cpp
+// Вектор от вектори/списъци
+vector<vector<int>> adj(n);
+
+// Добавяне на ребро
+adj[u].push_back(v);    // Насочен
+adj[v].push_back(u);    // Ненасочен
+
+// Обхождане на съседите на u
+for (int neighbor : adj[u]) { ... }
+
+// Претеглен граф
+vector<vector<pair<int,int>>> adj(n);  // {neighbor, weight}
+adj[u].push_back({v, weight});
+```
+
+| Операция | Сложност |
+|----------|----------|
+| Проверка за ребро | O(degree) ≈ O(V) |
+| Добавяне ребро | O(1) amortized |
+| Обхождане съседи | O(degree) |
+| **Space** | **O(V + E)** |
+
+### BFS - Breadth-First Search (ЗАДЪЛЖИТЕЛНО!)
+
+**Принцип:** Обхождане ниво по ниво
+**Структура:** Queue (FIFO)
+**Сложност:** O(V + E)
+
+```cpp
+void BFS(const vector<vector<int>>& adj, int start) {
+    int n = adj.size();
+    vector<bool> visited(n, false);
+    queue<int> q;
+
+    visited[start] = true;
+    q.push(start);
+
+    while (!q.empty()) {
+        int v = q.front();
+        q.pop();
+        cout << v << " ";
+
+        for (int neighbor : adj[v]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push(neighbor);
+            }
+        }
+    }
+}
+```
+
+**Приложения:**
+- ✅ Най-кратък път в непретеглен граф
+- ✅ Level-order traversal
+- ✅ Shortest distance от начален връх
+
+### DFS - Depth-First Search (ЗАДЪЛЖИТЕЛНО!)
+
+**Принцип:** Обхождане в дълбочина
+**Структура:** Stack или рекурсия (LIFO)
+**Сложност:** O(V + E)
+
+```cpp
+// Рекурсивна версия
+void DFS(const vector<vector<int>>& adj, int v,
+         vector<bool>& visited) {
+    visited[v] = true;
+    cout << v << " ";
+
+    for (int neighbor : adj[v]) {
+        if (!visited[neighbor]) {
+            DFS(adj, neighbor, visited);
+        }
+    }
+}
+
+// Извикване
+vector<bool> visited(n, false);
+DFS(adj, start, visited);
+```
+
+**Итеративна версия:**
+```cpp
+void DFS_Iterative(const vector<vector<int>>& adj, int start) {
+    vector<bool> visited(n, false);
+    stack<int> s;
+    s.push(start);
+
+    while (!s.empty()) {
+        int v = s.top();
+        s.pop();
+
+        if (!visited[v]) {
+            visited[v] = true;
+            cout << v << " ";
+
+            // Push съседите в обратен ред
+            for (auto it = adj[v].rbegin(); it != adj[v].rend(); ++it) {
+                if (!visited[*it]) s.push(*it);
+            }
+        }
+    }
+}
+```
+
+**Приложения:**
+- ✅ Откриване на цикли
+- ✅ Топологично сортиране
+- ✅ Свързани компоненти
+- ✅ Path finding
+
+### BFS vs DFS Сравнение
+
+| Характеристика | BFS | DFS |
+|----------------|-----|-----|
+| **Структура** | Queue | Stack/Recursion |
+| **Обхождане** | Ниво по ниво | В дълбочина |
+| **Space** | O(V) | O(V) |
+| **Time** | O(V + E) | O(V + E) |
+| **Shortest Path** | ✅ Да (непретеглен) | ❌ Не |
+| **Cycle Detection** | ✅ Да | ✅ Да (по-лесно) |
+| **Memory** | По-голям за широки графи | По-голям за дълбоки графи |
+
+### Важни Приложения с Код
+
+**1. Откриване на Цикъл (DFS):**
+```cpp
+bool hasCycleDFS(const vector<vector<int>>& adj, int v,
+                 vector<int>& color) {
+    // 0=white, 1=gray (visiting), 2=black (done)
+    color[v] = 1;
+
+    for (int neighbor : adj[v]) {
+        if (color[neighbor] == 1) return true;  // Back edge!
+        if (color[neighbor] == 0 &&
+            hasCycleDFS(adj, neighbor, color))
+            return true;
+    }
+
+    color[v] = 2;
+    return false;
+}
+```
+
+**2. Свързани Компоненти:**
+```cpp
+int countComponents(const vector<vector<int>>& adj) {
+    int n = adj.size();
+    vector<bool> visited(n, false);
+    int count = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (!visited[i]) {
+            DFS(adj, i, visited);
+            count++;
+        }
+    }
+    return count;
+}
+```
+
+**3. Най-кратък Път (BFS):**
+```cpp
+vector<int> shortestPath(const vector<vector<int>>& adj,
+                         int start) {
+    int n = adj.size();
+    vector<int> dist(n, -1);
+    queue<int> q;
+
+    dist[start] = 0;
+    q.push(start);
+
+    while (!q.empty()) {
+        int v = q.front();
+        q.pop();
+
+        for (int neighbor : adj[v]) {
+            if (dist[neighbor] == -1) {
+                dist[neighbor] = dist[v] + 1;
+                q.push(neighbor);
+            }
+        }
+    }
+    return dist;
+}
+```
+
+### Избор на Представяне
+
+| Граф | Избор | Защо? |
+|------|-------|-------|
+| Разреден (E &lt;&lt; V²) | **Списък на съседство** | O(V+E) space |
+| Плътен (E ≈ V²) | **Матрица** | O(1) edge check |
+| Чести проверки за ребра | **Матрица** | O(1) проверка |
+| Чести обхождания | **Списък** | O(degree) обхождане |
+| Малък граф (&lt; 1000 върха) | **Матрица** | По-прост код |
+| Голям граф (&gt; 10000 върха) | **Списък** | Паметна ефективност |
+
+### Ключови Формули
+
+- **Max edges в undirected:** $\\frac\{V(V-1)\}\{2\}$
+- **Max edges в directed:** $V(V-1)$
+- **Dense граф:** $E = \\Theta(V^2)$
+- **Sparse граф:** $E = O(V)$
+
+### Важни Точки за Изпита
+
+✅ **Винаги маркирай visited** - избягвай infinite loops
+✅ **BFS намира shortest path** в непретеглени графи
+✅ **DFS e по-добър за cycle detection** - използва color marking
+✅ **Adjacency list е стандартът** за повечето графови задачи
+✅ **O(V + E) complexity** за BFS и DFS
+✅ **Queue за BFS, Stack/Recursion за DFS** - не ги бъркай!
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

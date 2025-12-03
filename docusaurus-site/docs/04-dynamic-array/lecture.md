@@ -10,12 +10,223 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Динамичен Масив: Свойства и Реализация в C++
+
+<QuickSummary>
+
+**📋 Най-важно за изпита:**
+
+### Size vs Capacity (КРИТИЧНО!)
+
+| Понятие | Описание | Пример |
+|---------|----------|--------|
+| **size** | Брой **реални** елементи в момента | `size = 5` означава 5 елемента |
+| **capacity** | **Заделена** памет (максимум без resize) | `capacity = 8` означава място за 8 |
+| **Правило** | size ≤ capacity (винаги!) | Ако size == capacity → resize! |
+
+### Амортизирана Сложност
+
+**Push_back:**
+- Обикновен случай: **O(1)** - има място
+- При resize: **O(n)** - копиране на всички елементи
+- **Амортизирано: O(1)** средно за всяка операция
+
+**Математическо обяснение:**
+```
+Копирания при удвояване: 1 + 2 + 4 + 8 + ... + n ≈ 2n
+За n операции → 2n копирания
+Средно: 2n/n = 2 операции на елемент = O(1)
+```
+
+### Стратегии за Растеж
+
+| Стратегия | Формула | Амортизирана | Памет |
+|-----------|---------|--------------|-------|
+| **Удвояване** (препоръчано) | `new_cap = cap * 2` | **O(1)** | 2x средно |
+| Коефициент 1.5 | `new_cap = cap * 1.5` | **O(1)** | 1.5x средно |
+| Добавяне на константа | `new_cap = cap + 10` | **O(n)** (лошо!) | По-малко |
+
+### Имплементация - Ключови Елементи
+
+```cpp
+class DynamicArray {
+private:
+    int* data;      // Указател към динамичната памет
+    int size;       // Брой елементи
+    int capacity;   // Заделена памет
+
+    void resize() {
+        int new_capacity = capacity * 2; // Удвояване!
+        int* new_data = new int[new_capacity];
+
+        // Копиране на старите данни
+        for (int i = 0; i < size; i++) {
+            new_data[i] = data[i];
+        }
+
+        delete[] data;              // Освобождаване на старата памет
+        data = new_data;
+        capacity = new_capacity;
+    }
+
+public:
+    DynamicArray(int initial_cap = 4)
+        : capacity(initial_cap), size(0) {
+        data = new int[capacity];
+    }
+
+    ~DynamicArray() {               // КРИТИЧНО за exam!
+        delete[] data;
+        data = nullptr;
+    }
+
+    void push_back(int value) {
+        if (size >= capacity) {     // Проверка за място
+            resize();                // Разширяване
+        }
+        data[size++] = value;        // Добавяне
+    }
+
+    int get(int index) const {
+        if (index < 0 || index >= size) {
+            // Грешка: индекс извън границите
+            return -1;
+        }
+        return data[index];
+    }
+
+    int operator[](int index) {     // Бърз достъп без проверка
+        return data[index];
+    }
+
+    int getSize() const { return size; }
+    int getCapacity() const { return capacity; }
+};
+```
+
+### Сложност на Основните Операции
+
+| Операция | Обикновена | При resize | Амортизирана |
+|----------|------------|------------|--------------|
+| **push_back** | O(1) | O(n) | **O(1)** |
+| **operator[]** | O(1) | - | **O(1)** |
+| **get** | O(1) | - | **O(1)** |
+| **resize** | - | O(n) | - |
+| **pop_back** | O(1) | - | **O(1)** |
+
+### Memory Management - Критични Правила
+
+```cpp
+// ✅ ПРАВИЛНО
+int* arr = new int[5];
+// ... използване ...
+delete[] arr;        // delete[] за масиви!
+arr = nullptr;
+
+// ❌ ГРЕШНО
+int* arr = new int[5];
+delete arr;          // Грешка! Трябва delete[]
+
+// ❌ ГРЕШНО - Memory leak
+int* arr = new int[5];
+arr = new int[10];   // Първата памет изтича!
+
+// ✅ ПРАВИЛНО
+delete[] arr;
+arr = new int[10];
+```
+
+### Rule of Three/Five/Zero
+
+```cpp
+class DynamicArray \{
+public:
+    // Деструктор
+    ~DynamicArray() \{
+        delete[] data;
+    \}
+
+    // Copy Constructor
+    DynamicArray(const DynamicArray& other)
+        : capacity(other.capacity), size(other.size) \{
+        data = new int[capacity];
+        for (int i = 0; i < size; i++) \{
+            data[i] = other.data[i];  // Deep copy!
+        \}
+    \}
+
+    // Copy Assignment
+    DynamicArray& operator=(const DynamicArray& other) \{
+        if (this != &other) \{          // Self-assignment check
+            delete[] data;
+            capacity = other.capacity;
+            size = other.size;
+            data = new int[capacity];
+            for (int i = 0; i < size; i++) \{
+                data[i] = other.data[i];
+            \}
+        \}
+        return *this;
+    \}
+\};
+```
+
+### Често Срещани Грешки
+
+```cpp
+// ❌ Грешка 1: Използване на capacity вместо size
+for (int i = 0; i < arr.getCapacity(); i++)  // ГРЕШНО!
+for (int i = 0; i < arr.getSize(); i++)      // ПРАВИЛНО
+
+// ❌ Грешка 2: Лош растеж
+new_capacity = capacity + 1;  // O(n) амортизирано - ЛОШО!
+new_capacity = capacity * 2;  // O(1) амортизирано - ДОБРО!
+
+// ❌ Грешка 3: Забравяне на delete в деструктора
+~DynamicArray() \{ \}  // Memory leak!
+~DynamicArray() \{ delete[] data; \}  // Правилно
+
+// ❌ Грешка 4: Shallow copy
+data = other.data;  // И двата сочат към едно място - опасно!
+```
+
+### std::vector vs Custom Dynamic Array
+
+```cpp
+#include <vector>
+
+std::vector<int> vec;
+vec.push_back(10);                // Аналог на нашия push_back
+vec.size();                       // size
+vec.capacity();                   // capacity
+vec.reserve(100);                 // Резервира място
+vec[0];                           // operator[]
+vec.at(0);                        // Проверка на границите
+```
+
+**Защо std::vector е по-добър?**
+- Автоматично управление на паметта
+- Exception-safe
+- Move semantics
+- Богат API (insert, erase, и др.)
+- **Винаги използвайте std::vector в production!**
+
+### Кога какво да използваме?
+
+| Ситуация | Структура |
+|----------|-----------|
+| Фиксиран известен размер | Статичен масив `int arr[10]` |
+| Променлив размер | **std::vector** (препоръчано!) |
+| Учебна цел | Custom DynamicArray |
+| Специални изисквания | Custom имплементация |
+
+</QuickSummary>
 
 <LearningObjectives
   objectives={[

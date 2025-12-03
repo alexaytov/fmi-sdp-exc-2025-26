@@ -76,12 +76,26 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 import WhyBox from '@site/src/components/InfoBoxes/WhyBox';
 import LearningObjectives from '@site/src/components/LearningObjectives';
+import QuickSummary from '@site/src/components/QuickSummary';
 import CollapsibleSection from '@site/src/components/CollapsibleSection';
 import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 import Grid from '@site/src/components/Grid/Grid';
 import Card from '@site/src/components/Grid/Card';
 
 # Заглавие на Лекцията
+
+<QuickSummary>
+
+**Ключови познания от тази лекция:**
+
+- **Точка 1**: Кратко резюме на основна концепция
+- **Точка 2**: Важен insight или формула
+- **Точка 3**: Практическо приложение
+- **Точка 4**: Какво студентът ще може да прави след лекцията
+
+</QuickSummary>
+
+**Важно:** QuickSummary компонентът е **сгъваем** (collapsible). Студентите могат да го разгънат когато имат нужда от бърз преглед за изпита. По подразбиране е затворен, но може да се отвори с `defaultOpen={true}`.
 
 <LearningObjectives
   objectives={[
@@ -823,6 +837,25 @@ $$
 - `\text{parent}` ❌ → `\text\{parent\}` ✅
 - `\sum_{i=0}^{h}` ❌ → `\sum_\{i=0\}^\{h\}` ✅
 - `2^{h+1}` ❌ → `2^\{h+1\}` ✅
+
+Код в cpp блок не трябва да се escape-ва:
+
+ТОВА Е ВЯРНО:
+```cpp
+int binarySearch(const vector<int>& arr, int target) {
+    int low = 0;
+    int high = arr.size() - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2; // Избягва overflow!
+
+        if (arr[mid] == target) return mid;
+        else if (arr[mid] < target) low = mid + 1;
+        else high = mid - 1;
+    }
+    return -1; // Не е намерен
+}
+```
 
 **Типична грешка в browser console:**
 ```
