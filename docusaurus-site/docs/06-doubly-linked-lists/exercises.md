@@ -17,13 +17,13 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 ## Лесни Упражнения (Основни Концепции)
 
-### Упражнение 1
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["practice", "exercise"]}
 >
+
+### Разлики между еднопосочен и двусвързан списък
 
 **Какви са основните разлики между еднопосочен списък (singly linked list) и двусвързан списък (doubly linked list)?**
 
@@ -42,13 +42,13 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 ---
 
-### Упражнение 2
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["practice", "exercise"]}
 >
+
+### Оператори за динамична памет в C++
 
 **В C++, кои оператори се използват за заделяне и освобождаване на динамична памет?**
 
@@ -70,13 +70,13 @@ d) `create` и `destroy`
 
 ---
 
-### Упражнение 3
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["practice", "exercise"]}
 >
+
+### Изтичане на памет (Memory Leak)
 
 **Какво е изтичане на памет (memory leak)? Опишете с едно изречение.**
 
@@ -91,13 +91,13 @@ d) `create` и `destroy`
 
 ---
 
-### Упражнение 4
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["practice", "exercise"]}
 >
+
+### Съдържание на възел в двусвързан списък
 
 **Какво съдържа всеки възел в двусвързан списък?**
 
@@ -115,13 +115,13 @@ d) `create` и `destroy`
 
 ---
 
-### Упражнение 5
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["practice", "exercise"]}
 >
+
+### Добра практика след delete
 
 **Какво винаги трябва да правите след извикване на `delete` на указател като добра практика?**
 
@@ -147,13 +147,14 @@ ptr = nullptr;
 
 ---
 
-### Упражнение 6
 
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["practice", "exercise"]}
 >
+
+### Каква е времевата сложност O() за добавяне на елемент в края...
 
 **Каква е времевата сложност O() за добавяне на елемент в края на двусвързан списък, когато имате указател към tail?**
 
@@ -170,13 +171,14 @@ ptr = nullptr;
 
 ---
 
-### Упражнение 7
 
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["practice", "exercise"]}
 >
+
+### Кое от следните ще причини изтичане на памет?
 
 **Кое от следните ще причини изтичане на памет?**
 
@@ -210,13 +212,14 @@ ptr = nullptr;
 
 ---
 
-### Упражнение 8
 
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["practice", "exercise"]}
 >
+
+### Каква е основната роля на итератор в C++?
 
 **Каква е основната роля на итератор в C++?**
 
@@ -233,13 +236,14 @@ ptr = nullptr;
 
 ## Средни Упражнения
 
-### Упражнение 9
 
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["practice", "exercise"]}
 >
+
+### Допълнете следния код за правилно освобождаване на масив:
 
 **Допълнете следния код за правилно освобождаване на масив:**
 
@@ -266,13 +270,14 @@ arr = nullptr;
 
 ---
 
-### Упражнение 10
 
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["practice", "exercise"]}
 >
+
+### Какво ще се случи в следния код?
 
 **Какво ще се случи в следния код?**
 
@@ -304,13 +309,14 @@ n = nullptr;
 
 ---
 
-### Упражнение 11
 
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["practice", "exercise"]}
 >
+
+### Намерете грешката в тази функция за премахване на възел от д...
 
 **Намерете грешката в тази функция за премахване на възел от двусвързан списък:**
 
@@ -345,13 +351,14 @@ void removeNode(Node* node) {
 
 ---
 
-### Упражнение 12
 
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["practice", "exercise"]}
 >
+
+### Имплементирайте метод за добавяне на елемент в началото на д...
 
 **Имплементирайте метод за добавяне на елемент в началото на двусвързан списък:**
 
@@ -392,13 +399,14 @@ void addFront(int value) {
 
 ---
 
-### Упражнение 13
 
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["practice", "exercise"]}
 >
+
+### Какво е RAII и как помага за предотвратяване на изтичане на ...
 
 **Какво е RAII и как помага за предотвратяване на изтичане на памет? Дайте пример.**
 
@@ -433,13 +441,14 @@ public:
 
 ---
 
-### Упражнение 14
 
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["practice", "exercise"]}
 >
+
+### Допълнете класа итератор за прост масив:
 
 **Допълнете класа итератор за прост масив:**
 
@@ -490,13 +499,14 @@ bool operator!=(const ArrayIterator& other) const {
 
 ---
 
-### Упражнение 15
 
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["practice", "exercise"]}
 >
+
+### Обяснете защо този код има изтичане на памет и го поправете:
 
 **Обяснете защо този код има изтичане на памет и го поправете:**
 
@@ -553,13 +563,14 @@ void processData() {
 
 ---
 
-### Упражнение 16
 
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["practice", "exercise"]}
 >
+
+### Какви са трите основни типа smart pointers в C++ и кога бихт...
 
 **Какви са трите основни типа smart pointers в C++ и кога бихте използвали всеки?**
 
@@ -577,13 +588,14 @@ void processData() {
 
 ---
 
-### Упражнение 17
 
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["practice", "exercise"]}
 >
+
+### Имплементирайте функция за броене на елементите в двусвързан...
 
 **Имплементирайте функция за броене на елементите в двусвързан списък:**
 
@@ -619,13 +631,14 @@ int countElements(Node* head) {
 
 ---
 
-### Упражнение 18
 
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["practice", "exercise"]}
 >
+
+### Напишете деструктор за двусвързан списък, който правилно осв...
 
 **Напишете деструктор за двусвързан списък, който правилно освобождава всички възли:**
 
@@ -668,13 +681,14 @@ public:
 
 ## Трудни Упражнения
 
-### Упражнение 19
 
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["practice", "exercise"]}
 >
+
+### Имплементирайте метод `insert`, който добавя нов елемент сле...
 
 **Имплементирайте метод `insert`, който добавя нов елемент след дадена итераторна позиция:**
 
@@ -728,13 +742,14 @@ void insertAfter(Iterator position, T value) {
 
 ---
 
-### Упражнение 20
 
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["practice", "exercise"]}
 >
+
+### Анализирайте следния код и идентифицирайте всички проблеми, ...
 
 **Анализирайте следния код и идентифицирайте всички проблеми, свързани с паметта:**
 
@@ -818,13 +833,14 @@ public:
 
 ---
 
-### Упражнение 21
 
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["practice", "exercise"]}
 >
+
+### Имплементирайте двупосочен итератор за двусвързан списък с `...
 
 **Имплементирайте двупосочен итератор за двусвързан списък с `operator++` и `operator--`:**
 
@@ -905,13 +921,14 @@ public:
 
 ---
 
-### Упражнение 22
 
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["practice", "exercise"]}
 >
+
+### Имплементирайте пълен двусвързан списък с exception-safe вмъ...
 
 **Имплементирайте пълен двусвързан списък с exception-safe вмъкване. Гарантирайте, че няма изтичане на памет дори при хвърляне на изключения.**
 
@@ -961,13 +978,14 @@ public:
 
 ---
 
-### Упражнение 23
 
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["practice", "exercise"]}
 >
+
+### Разгледайте сценарий с циклични референции използвайки `std:...
 
 **Разгледайте сценарий с циклични референции използвайки `std::shared_ptr`. Обяснете проблема и предоставете решение с `std::weak_ptr`:**
 
@@ -1006,13 +1024,14 @@ public:
 
 ---
 
-### Упражнение 24
 
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["practice", "exercise"]}
 >
+
+### Използвайки Valgrind концептуално, анализирайте тази програм...
 
 **Използвайки Valgrind концептуално, анализирайте тази програма:**
 
@@ -1065,13 +1084,14 @@ void fixedFunction() {
 
 ---
 
-### Упражнение 25
 
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["practice", "exercise"]}
 >
+
+### Проектирайте memory-efficient двусвързан списък, който изпол...
 
 **Проектирайте memory-efficient двусвързан списък, който използва sentinel nodes (фиктивни head и tail) за опростяване на граничните условия.**
 
@@ -1136,13 +1156,14 @@ Sentinel nodes опростяват логиката, защото винаги 
 
 ---
 
-### Упражнение 26
 
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["practice", "exercise"]}
 >
+
+### Създайте custom iterator, който автоматично прескача елемент...
 
 **Създайте custom iterator, който автоматично прескача елементи, удовлетворяващи даден предикат.**
 
@@ -1200,13 +1221,14 @@ auto it = FilteringIterator<int, auto>(
 
 ---
 
-### Упражнение 27
 
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["practice", "exercise"]}
 >
+
+### Имплементирайте move constructor и move assignment operator ...
 
 **Имплементирайте move constructor и move assignment operator за двусвързан списък:**
 
@@ -1266,13 +1288,14 @@ Move семантиката позволява ефективно трансфе
 
 ---
 
-### Упражнение 28
 
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["practice", "exercise"]}
 >
+
+### Проектирайте memory pool allocator за възли на двусвързан сп...
 
 **Проектирайте memory pool allocator за възли на двусвързан списък за намаляване на overhead и фрагментация.**
 

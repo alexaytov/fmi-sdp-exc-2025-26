@@ -37,22 +37,17 @@ export default function ExerciseCard({
   useEffect(() => {
     if (!cardRef.current) return;
 
-    // Find the previous heading (h2 or h3) before this ExerciseCard
-    let element = cardRef.current.previousElementSibling;
     let headingText = '';
+    let id = '';
 
-    while (element) {
-      if (element.tagName === 'H3' || element.tagName === 'H2') {
-        headingText = element.textContent || '';
-        break;
-      }
-      element = element.previousElementSibling;
-    }
+    // Check if there's a heading INSIDE this ExerciseCard (in children)
+    const innerHeading = cardRef.current.querySelector('h3, h2, h4');
+    if (innerHeading) {
+      headingText = innerHeading.textContent || '';
 
-    if (headingText) {
-      // Remove "Задача N:" prefix
-      const cleanTitle = headingText.replace(/^(Задача|Упражнение)\s+\d+:\s*/, '').trim();
-      const id = slugify(cleanTitle);
+      // Remove "Задача N:" or "Упражнение N" prefix
+      const cleanTitle = headingText.replace(/^(Задача|Упражнение)\s+\d+:?\s*/, '').trim();
+      id = slugify(cleanTitle);
 
       setSemanticId(id);
       registerExercise(difficulty, id);
@@ -61,14 +56,17 @@ export default function ExerciseCard({
         unregisterExercise(id);
       };
     } else {
-      // Fallback: use timestamp-based ID
-      const fallbackId = `exercise-${difficulty}-${Date.now()}`;
-      setSemanticId(fallbackId);
-      registerExercise(difficulty, fallbackId);
-
-      return () => {
-        unregisterExercise(fallbackId);
-      };
+      // No heading found - throw error to crash the site
+      throw new Error(
+        '❌ ExerciseCard Error: No heading (h2, h3, or h4) found inside this exercise card.\n\n' +
+        'Each ExerciseCard MUST have a descriptive heading inside for proper ID generation.\n\n' +
+        'Required structure:\n' +
+        '<ExerciseCard difficulty="easy">\n' +
+        '  ### Your Exercise Title Here\n' +
+        '  Content...\n' +
+        '</ExerciseCard>\n\n' +
+        'Please add a heading inside this ExerciseCard component.'
+      );
     }
   }, [difficulty, registerExercise, unregisterExercise]);
 
@@ -84,7 +82,7 @@ export default function ExerciseCard({
 
     const completed = localStorage.getItem(storageKey) === 'true';
     setIsCompleted(completed);
-  }, [storageKey, semanticId]);
+  }, [storageKey]);
 
   // Save completed state to localStorage
   const toggleCompleted = () => {

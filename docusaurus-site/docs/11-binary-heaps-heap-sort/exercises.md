@@ -21,13 +21,13 @@ import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
 
 ## EASY EXERCISES - Фундаментални Концепции
 
-### Задача 1: Разбиране на Heap Свойства
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["heap-property", "max-heap", "validation"]}
 >
+
+### Разбиране на Heap Свойства
 
 Кой от следните arrays представлява валиден max-heap?
 
@@ -111,13 +111,13 @@ D) `[10, 8, 6, 9, 7, 5, 4]`
 
 ---
 
-### Задача 2: Array Index Изчисления
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["array-indexing", "parent-child", "formulas"]}
 >
+
+### Array Index Изчисления
 
 Даден е 0-indexed heap array. Ако node е на index 5:
 - Какъв е index на неговия parent?
@@ -174,13 +174,13 @@ Index:  0  1  2  3  4  5  6  7  8  9 10 11 12
 
 ---
 
-### Задача 3: Heap Type Identification
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="7 min"
   tags={["heap-property", "min-heap", "max-heap", "validation"]}
 >
+
+### Heap Type Identification
 
 Дали array `[3, 5, 4, 8, 7, 9, 10]` е валиден min-heap, max-heap, и двете, или нито едно? Обяснете отговора си.
 
@@ -234,13 +234,13 @@ Array: `[3, 5, 4, 8, 7, 9, 10]`
 
 ---
 
-### Задача 4: Complete Binary Tree Properties
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["binary-tree", "height", "complete-tree"]}
 >
+
+### Complete Binary Tree Properties
 
 Complete binary tree има 15 nodes. Каква е неговата височина? Колко nodes са на последното ниво?
 
@@ -292,13 +292,13 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 ---
 
-### Задача 5: Big-O Recognition
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="7 min"
   tags={["complexity", "big-o", "heap-operations"]}
 >
+
+### Big-O Recognition
 
 Съпоставете всяка операция с нейната времева сложност:
 
@@ -356,13 +356,13 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 ---
 
-### Задача 6: Heap vs Array
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["data-structures", "array-representation", "efficiency"]}
 >
+
+### Heap vs Array
 
 Обяснете в 2-3 изречения защо съхраняването на complete binary tree в array е по-ефективно от използването на pointers/references.
 
@@ -405,13 +405,13 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 ## EASY-MEDIUM EXERCISES - Базови Операции
 
-### Задача 7: Sift-Up Trace
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="10 min"
   tags={["sift-up", "heap-insert", "tracing"]}
 >
+
+### Sift-Up Trace
 
 Даден е partial max-heap `[15, 12, 10, 8, 9, 5]`. Вмъкнете стойност 14. Покажете всяка стъпка на sift-up процеса и resulting array след всеки swap.
 
@@ -500,13 +500,13 @@ Final tree:
 
 ---
 
-### Задача 8: Identifying Violations
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="8 min"
   tags={["heap-property", "violation", "sift-operations"]}
 >
+
+### Identifying Violations
 
 В array `[20, 18, 15, 12, 10, 8, 14]`, един елемент нарушава max-heap property. Идентифицирайте го и обяснете коя операция (sift-up или sift-down) би го поправила.
 
@@ -582,13 +582,13 @@ Final tree:
 
 ---
 
-### Задача 9: Parent-Child Relationships
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="10 min"
   tags={["tree-drawing", "visualization", "array-to-tree"]}
 >
+
+### Parent-Child Relationships
 
 Нарисувайте binary tree representation на max-heap `[50, 30, 40, 10, 20, 15, 35]`. Етикирайте всеки node с неговия array index.
 
@@ -662,13 +662,13 @@ Level 2:     10    20     15    35
 
 ---
 
-### Задача 10: Heap Construction Starting Point
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="7 min"
   tags={["heapify", "floyd-algorithm", "bottom-up"]}
 >
+
+### Heap Construction Starting Point
 
 За array с размер n = 12, на кой index трябва да започнете heapify процеса при построяване на heap bottom-up? Обяснете защо.
 
@@ -748,13 +748,13 @@ Step 6: Heapify index 0 (root)
 
 ## MEDIUM EXERCISES - Algorithm Application
 
-### Задача 11: Complete Sift-Down
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="12 min"
   tags={["sift-down", "heapify", "tracing"]}
 >
+
+### Complete Sift-Down
 
 Даден е array `[5, 20, 15, 10, 12, 8, 7]` където heap property е нарушено на root. Извършете пълна sift-down операция. Покажете array състоянието след всеки swap докато heap property не се възстанови.
 
@@ -870,13 +870,13 @@ Final tree (ВАЛИДЕН max-heap):
 
 ---
 
-### Задача 12: Building a Heap
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["heap-construction", "floyd-method", "bottom-up"]}
 >
+
+### Building a Heap
 
 Построете max-heap от unsorted array `[4, 10, 3, 5, 1, 8, 9, 2]` използвайки Floyd's bottom-up heapify метод. Покажете:
 - Starting index за heapification
@@ -1040,13 +1040,13 @@ Final tree:
 
 ---
 
-### Задача 13: Heap Sort Phase 1
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["heap-sort", "heap-construction", "phase-1"]}
 >
+
+### Heap Sort Phase 1
 
 Даден е array `[7, 3, 9, 1, 5, 2, 8]`. Завършете Phase 1 на heap sort (heap construction). Покажете работата си стъпка по стъпка и идентифицирайте колко sift-down операции са извършени.
 
@@ -1185,13 +1185,13 @@ Final tree:
 
 ---
 
-### Задача 14: Algorithm Comparison
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["algorithm-comparison", "memory-constraints", "analysis"]}
 >
+
+### Algorithm Comparison
 
 Трябва да сортирате 500,000 records на устройство с само 2 MB налична памет. Всеки record е 100 bytes. Сравнете heap sort, merge sort и quick sort за този сценарий. Кой бихте избрали и защо? Разгледайте поне три фактора в отговора си.
 
@@ -1335,13 +1335,13 @@ mergeSortedRuns(numRuns);
 
 ---
 
-### Задача 15: Extraction Process
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["heap-sort", "extraction", "phase-2"]}
 >
+
+### Extraction Process
 
 Започвайки с max-heap `[25, 20, 18, 15, 10, 12, 8]`, извършете първите ТРИ extraction steps на heap sort. Покажете:
 - Елементът, който се премахва
@@ -1527,13 +1527,13 @@ Tree:
 
 ## MEDIUM-HARD EXERCISES - Complex Analysis
 
-### Задача 16: Time Complexity Proof
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["complexity-analysis", "proof", "big-o", "heapify"]}
 >
+
+### Time Complexity Proof
 
 Обяснете защо построяването на heap bottom-up е O(n) вместо O(n log n). Обяснението трябва да включва:
 - Връзката между node levels и брой swaps
@@ -1715,13 +1715,13 @@ Total: 2 + 2 + 0 = 4 < 7 → O(n)
 
 ---
 
-### Задача 17: Complete Heap Sort
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="25 min"
   tags={["heap-sort", "complete-trace", "analysis"]}
 >
+
+### Complete Heap Sort
 
 Извършете пълен heap sort на `[6, 2, 8, 1, 9, 3, 7, 5]`. Покажете:
 - **Phase 1:** Пълен heapification процес
@@ -1947,13 +1947,13 @@ Our estimate (~30) е reasonable!
 Поради дължината на съдържанието, ще продължа с останалите exercises в следващата част. Нека първо запазя това, което съм създал досега.
 
 
-### Задача 18: Stability Analysis
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="15 min"
   tags={["stability", "sorting-properties", "analysis"]}
 >
+
+### Stability Analysis
 
 Даден е array `[5a, 3, 5b, 2, 5c]` където subscripts различават равни елементи:
 - Извършете heap sort и покажете финалния ред
@@ -2155,13 +2155,13 @@ struct Element {
 
 ---
 
-### Задача 19: Min-Heap Application
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="15 min"
   tags={["min-heap", "priority-queue", "application"]}
 >
+
+### Min-Heap Application
 
 Имплементирате priority queue за emergency room на болница, където ПО-НИСКИТЕ числа индикират ПО-ВИСОК приоритет (1 = critical, 10 = minor).
 
@@ -2448,13 +2448,13 @@ Charlie (priority: 8)  ← Least urgent
 
 ## HARD EXERCISES - Advanced Applications
 
-### Задача 20: K-ary Heap Analysis
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="25 min"
   tags={["k-ary-heap", "analysis", "complexity"]}
 >
+
+### K-ary Heap Analysis
 
 Разгледайте 4-ary heap (всеки node има 4 children) с 1000 елемента.
 
@@ -2705,13 +2705,13 @@ public:
 
 ---
 
-### Задача 21: Hybrid Algorithm Design
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["hybrid-algorithm", "optimization", "design"]}
 >
+
+### Hybrid Algorithm Design
 
 Проектирайте hybrid sorting алгоритъм, който:
 - Използва heap sort за първата фаза
@@ -3076,13 +3076,13 @@ public:
 
 Due to length constraints, I'll continue with the remaining exercises (22-24) in the next part of the file.
 
-### Задача 22: Top-K Problem
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["top-k", "streaming", "space-efficient", "priority-queue"]}
 >
+
+### Top-K Problem
 
 Трябва да намерите top 10 values от stream от 1 милион integers, но можете да съхраните само 11 values в паметта едновременно.
 
@@ -3513,13 +3513,13 @@ Top-5 elements:
 
 ---
 
-### Задача 23: Heap Sort Optimization
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="20 min"
   tags={["heap-sort", "optimization", "descending-order", "partial-sort"]}
 >
+
+### Heap Sort Optimization
 
 Стандартният heap sort произвежда ascending order използвайки max-heap.
 
@@ -3889,13 +3889,13 @@ public:
 
 ---
 
-### Задача 24: Real-World Implementation
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="30 min"
   tags={["real-world", "constraints", "optimization", "production-code"]}
 >
+
+### Real-World Implementation
 
 Имплементирате heap sort за real-time система със следните constraints:
 

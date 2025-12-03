@@ -18,13 +18,13 @@ import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
 
 ## Базни Упражнения (Основни Концепции)
 
-### Задача 1: Типове Computational Complexity
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["complexity", "theory", "basics"]}
 >
+
+### Типове Computational Complexity
 
 Какви са двата основни типа computational complexity, обсъдени в лекцията? Опишете накратко какво измерва всеки.
 
@@ -40,13 +40,13 @@ import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
 
 ---
 
-### Задача 2: Big-O параметър 'n'
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["big-o", "notation", "theory"]}
 >
+
+### Big-O параметър 'n'
 
 В Big-O нотация, когато казваме, че алгоритъм е O(n), какво представлява 'n'?
 
@@ -63,13 +63,13 @@ import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
 
 ---
 
-### Задача 3: Big-O константи и членове от по-нисък ред
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["big-o", "simplification"]}
 >
+
+### Big-O константи и членове от по-нисък ред
 
 Вярно или Невярно: В Big-O нотация запазваме константните фактори и членовете от по-нисък ред когато изразяваме сложността.
 
@@ -89,13 +89,13 @@ Big-O описва **асимптотичното поведение** при г
 
 ---
 
-### Задача 4: Съпоставяне на Big-O класове
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["big-o", "complexity-classes"]}
 >
+
+### Съпоставяне на Big-O класове
 
 Съпоставете всеки Big-O клас със скоростта му на растеж:
 
@@ -123,13 +123,13 @@ O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ) < O(n!)
 
 ---
 
-### Задача 5: IEEE 754 double размер
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["double-precision", "ieee-754", "cpp"]}
 >
+
+### IEEE 754 double размер
 
 Според IEEE 754, колко bits използва `double` в C++?
 
@@ -153,13 +153,13 @@ d) 16 bits
 
 ---
 
-### Задача 6: C++ функции за NaN и Inf
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["cpp", "cmath", "nan", "inf"]}
 >
+
+### C++ функции за NaN и Inf
 
 Кой C++ header file съдържа функции като `std::isnan()` и `std::isinf()`?
 
@@ -187,13 +187,13 @@ if (std::isnan(x)) {
 
 ---
 
-### Задача 7: NaN (Not a Number)
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["nan", "floating-point"]}
 >
+
+### NaN (Not a Number)
 
 Какво означава NaN и дайте един пример за операция, която произвежда NaN.
 
@@ -214,13 +214,13 @@ if (std::isnan(x)) {
 
 ---
 
-### Задача 8: Arrange-Act-Assert Testing Pattern
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="5 min"
   tags={["testing", "aaa-pattern", "best-practices"]}
 >
+
+### Arrange-Act-Assert Testing Pattern
 
 Какви са трите стъпки в Arrange-Act-Assert (A-A-A) testing pattern?
 
@@ -250,13 +250,13 @@ assert(sum == 6);
 
 ## Лесно-Средни Упражнения
 
-### Задача 9: Анализ на код с два цикъла
-
 <ExerciseCard
   difficulty="easy-medium"
   timeEstimate="10 min"
   tags={["complexity", "loops", "analysis"]}
 >
+
+### Анализ на код с два цикъла
 
 Каква е времевата сложност на следния код фрагмент?
 
@@ -289,13 +289,13 @@ for (int i = 0; i < n; i++) {
 
 ---
 
-### Задача 10: Логаритмичен цикъл
-
 <ExerciseCard
   difficulty="easy-medium"
   timeEstimate="10 min"
   tags={["complexity", "logarithmic", "loops"]}
 >
+
+### Логаритмичен цикъл
 
 Каква е времевата сложност на следния код?
 
@@ -327,13 +327,13 @@ for (int i = 1; i < n; i *= 2) {
 
 ---
 
-### Задача 11: Създаване на тест case
-
 <ExerciseCard
   difficulty="easy-medium"
   timeEstimate="15 min"
   tags={["testing", "unit-test", "cpp"]}
 >
+
+### Създаване на тест case
 
 Напишете проста функция `max(int a, int b)`, която връща по-голямото от две числа, заедно с тест case използвайки assert statements.
 
@@ -380,13 +380,13 @@ int main() {
 
 ---
 
-### Задача 12: NaN сравнение
-
 <ExerciseCard
   difficulty="easy-medium"
   timeEstimate="10 min"
   tags={["nan", "floating-point", "comparison"]}
 >
+
+### NaN сравнение
 
 Напишете код, който проверява дали double променлива `x` е NaN **без** да използвате `std::isnan()`. Обяснете защо това работи.
 
@@ -426,13 +426,13 @@ int main() {
 
 ## Средни Упражнения
 
-### Задача 13: Сравнение на сложности
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["complexity", "comparison", "analysis"]}
 >
+
+### Сравнение на сложности
 
 Подредете следните функции по ред на растеж (от най-бавна към най-бърза):
 
@@ -465,13 +465,13 @@ int main() {
 
 ---
 
-### Задача 14: Edge cases в тестване
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["testing", "edge-cases", "best-practices"]}
 >
+
+### Edge cases в тестване
 
 Напишете comprehensive test cases за функция `divide(double a, double b)`, която дели две числа. Включете edge cases.
 
@@ -521,13 +521,13 @@ void testDivide() {
 
 ---
 
-### Задача 15: Рекурсивна сложност
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="20 min"
   tags={["complexity", "recursion", "analysis"]}
 >
+
+### Рекурсивна сложност
 
 Анализирайте времевата сложност на следната рекурсивна функция:
 
@@ -582,13 +582,13 @@ int fibMemo(int n, std::vector<int>& memo) {
 
 ---
 
-### Задача 16: Floating-point precision проблеми
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["floating-point", "precision", "comparison"]}
 >
+
+### Floating-point precision проблеми
 
 Обяснете защо `0.1 + 0.2 == 0.3` може да върне `false` в C++. Как да сравняваме floating-point numbers коректно?
 
@@ -634,13 +634,13 @@ if (almostEqual(0.1 + 0.2, 0.3)) {
 
 ## Средно-Трудни Упражнения
 
-### Задача 17: Master Theorem приложение
-
 <ExerciseCard
   difficulty="medium-hard"
   timeEstimate="20 min"
   tags={["complexity", "master-theorem", "recurrence"]}
 >
+
+### Master Theorem приложение
 
 Използвайки Master Theorem, определете времевата сложност на:
 
@@ -692,13 +692,13 @@ Master Theorem: T(n) = aT(n/b) + f(n)
 
 ---
 
-### Задача 18: Test-Driven Development (TDD)
-
 <ExerciseCard
   difficulty="medium-hard"
   timeEstimate="30 min"
   tags={["testing", "tdd", "implementation"]}
 >
+
+### Test-Driven Development (TDD)
 
 Следвайки TDD принципа (Red-Green-Refactor), имплементирайте функция `binarySearch` с comprehensive test suite.
 
@@ -783,13 +783,13 @@ int main() {
 
 ---
 
-### Задача 19: Space complexity анализ
-
 <ExerciseCard
   difficulty="medium-hard"
   timeEstimate="20 min"
   tags={["complexity", "space", "memory"]}
 >
+
+### Space complexity анализ
 
 Анализирайте space complexity (auxiliary space) на следните алгоритми:
 
@@ -860,13 +860,13 @@ void quickSort(vector<int>& arr, int low, int high) {
 
 ---
 
-### Задача 20: Floating-point denormalized numbers
-
 <ExerciseCard
   difficulty="medium-hard"
   timeEstimate="25 min"
   tags={["floating-point", "ieee-754", "advanced"]}
 >
+
+### Floating-point denormalized numbers
 
 Обяснете какво са denormalized (subnormal) numbers в IEEE 754. Защо съществуват и какви са performance implications?
 
@@ -922,13 +922,13 @@ _MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_ON);
 
 ## Трудни Упражнения
 
-### Задача 21: Амортизирана complexity анализ
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="30 min"
   tags={["complexity", "amortized", "analysis"]}
 >
+
+### Амортизирана complexity анализ
 
 Анализирайте амортизираната complexity на `push_back` операцията за dynamic array (като `std::vector`), който удвоява capacity при resize.
 
@@ -975,13 +975,13 @@ _MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_ON);
 
 ---
 
-### Задача 22: Comprehensive тестване на математически функции
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="40 min"
   tags={["testing", "floating-point", "comprehensive"]}
 >
+
+### Comprehensive тестване на математически функции
 
 Имплементирайте robust test suite за функция `sqrt(double x)`, която изчислява квадратен корен. Включете:
 - Normal cases
@@ -1098,13 +1098,13 @@ int main() {
 
 ---
 
-### Задача 23: Worst-case vs Average-case complexity
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="30 min"
   tags={["complexity", "analysis", "algorithms"]}
 >
+
+### Worst-case vs Average-case complexity
 
 Анализирайте Quick Sort алгоритъма:
 - Какъв е worst-case time complexity?

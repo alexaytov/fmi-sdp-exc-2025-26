@@ -19,13 +19,13 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 
 ## Основни Упражнения (EASY)
 
-### Задача 1: Терминология на Графите
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="15 min"
   tags={["theory", "terminology"]}
 >
+
+### Терминология на Графите
 
 Дефинирайте следните термини със свои думи и дайте реален пример за всеки:
 - **Връх (Vertex)**
@@ -55,13 +55,13 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 
 ---
 
-### Задача 2: Класификация на Графи
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["theory", "classification"]}
 >
+
+### Класификация на Графи
 
 За всеки сценарий, определете дали графът трябва да бъде:
 - Насочен или Ненасочен
@@ -99,13 +99,13 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 
 ---
 
-### Задача 3: Четене на Матрица на Съседство
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="15 min"
   tags={["adjacency-matrix", "graph-representation"]}
 >
+
+### Четене на Матрица на Съседство
 
 Дадена е тази матрица на съседство за ненасочен граф с върхове \{0, 1, 2, 3\}:
 
@@ -145,13 +145,13 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 
 ---
 
-### Задача 4: Избор на STL Контейнер
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["cpp", "stl", "containers"]}
 >
+
+### Избор на STL Контейнер
 
 Съпоставете всеки C++ STL контейнер с най-подходящия му случай на използване при имплементация на графи:
 
@@ -182,13 +182,13 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 
 ---
 
-### Задача 5: Анализ на Пространствена Сложност
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="15 min"
   tags={["complexity", "space-analysis"]}
 >
+
+### Анализ на Пространствена Сложност
 
 Един граф има 100 върха и 200 ребра.
 
@@ -219,13 +219,13 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 
 ## Изграждане на Разбиране (EASY-MEDIUM)
 
-### Задача 6: Четене на Код - Списък на Съседство
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["code-reading", "adjacency-list"]}
 >
+
+### Четене на Код - Списък на Съседство
 
 Какво извежда този код?
 
@@ -253,13 +253,13 @@ for (int n : adj[2]) {
 
 ---
 
-### Задача 7: Създаване на Матрица на Съседство
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="20 min"
   tags={["implementation", "adjacency-matrix"]}
 >
+
+### Създаване на Матрица на Съседство
 
 Напишете C++ код за създаване на матрица на съседство за насочен граф с 4 върха и следните ребра: (0→1), (0→2), (1→2), (2→3), (3→1)
 
@@ -309,13 +309,13 @@ int main() {
 
 ---
 
-### Задача 8: Допълване на Имплементацията
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="20 min"
   tags={["implementation", "weighted-graph"]}
 >
+
+### Допълване на Имплементацията
 
 Попълнете липсващия код за добавяне на ребро в списък на съседство за претеглен, ненасочен граф:
 
@@ -371,13 +371,13 @@ g.printGraph();
 
 ---
 
-### Задача 9: Проследяване на BFS
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="25 min"
   tags={["bfs", "trace", "algorithm"]}
 >
+
+### Проследяване на BFS
 
 Даден е този граф, представен като списък на съседство:
 ```
@@ -425,13 +425,13 @@ g.printGraph();
 
 ---
 
-### Задача 10: DFS vs BFS
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="25 min"
   tags={["dfs", "bfs", "comparison"]}
 >
+
+### DFS vs BFS
 
 За същия граф от Задача 9:
 
@@ -475,13 +475,13 @@ DFS(0) -> visited: {0}
 
 ## Приложение и Анализ (MEDIUM)
 
-### Задача 11: Избор на Представяне
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="20 min"
   tags={["graph-representation", "analysis"]}
 >
+
+### Избор на Представяне
 
 За всеки сценарий изберете най-доброто представяне на графа (матрица или списък на съседство) и обосновете избора си:
 
@@ -517,13 +517,13 @@ DFS(0) -> visited: {0}
 
 ---
 
-### Задача 12: Търсене на Бъг
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="15 min"
   tags={["debugging", "bfs"]}
 >
+
+### Търсене на Бъг
 
 Намерете и коригирайте бъга в тази BFS имплементация:
 
@@ -585,13 +585,13 @@ void BFS(const map<int, list<int>>& graph, int start) {
 
 ---
 
-### Задача 13: Имплементация на Проверка за Ребро
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="25 min"
   tags={["implementation", "complexity"]}
 >
+
+### Имплементация на Проверка за Ребро
 
 Имплементирайте функция `bool hasEdge(int u, int v)` както за матрица на съседство, така и за списък на съседство. Сравнете техните времеви сложности.
 
@@ -685,13 +685,13 @@ public:
 
 ---
 
-### Задача 14: Свързани Компоненти
-
 <ExerciseCard
   difficulty="medium"
   timeEstimate="30 min"
   tags={["dfs", "connected-components"]}
 >
+
+### Свързани Компоненти
 
 Напишете функция, която използва DFS за броене на свързаните компоненти в ненасочен граф, представен като списък на съседство:
 
@@ -780,13 +780,13 @@ int main() {
 
 ## Напреднали Приложения (HARD)
 
-### Задача 15: Най-кратък Път с BFS
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="40 min"
   tags={["bfs", "shortest-path", "path-reconstruction"]}
 >
+
+### Най-кратък Път с BFS
 
 Имплементирайте функция, която намира най-краткия път между два върха в непретеглен граф, използвайки BFS. Функцията трябва да върне както разстоянието, така и действителния път.
 
@@ -901,13 +901,13 @@ int main() {
 
 ---
 
-### Задача 16: Откриване на Цикъл
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="40 min"
   tags={["dfs", "cycle-detection"]}
 >
+
+### Откриване на Цикъл
 
 Имплементирайте функция, използваща DFS, която открива дали ненасочен граф съдържа цикъл. Обяснете вашия подход и защо DFS е подходящ за този проблем.
 
@@ -1009,13 +1009,13 @@ int main() {
 
 ---
 
-### Задача 17: Bipartite Graph Check
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="45 min"
   tags={["bfs", "graph-coloring", "bipartite"]}
 >
+
+### Bipartite Graph Check
 
 Напишете функция, която определя дали граф е bipartite (може да се оцвети с два цвята така, че никои съседни върхове да нямат същия цвят). Използвайте BFS за вашата имплементация.
 
@@ -1114,13 +1114,13 @@ int main() {
 
 ---
 
-### Задача 18: Конверсия между Представяния
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="35 min"
   tags={["graph-representation", "conversion"]}
 >
+
+### Конверсия между Представяния
 
 Имплементирайте две функции за конверсия:
 
@@ -1227,13 +1227,13 @@ int main() {
 
 ---
 
-### Задача 19: Диаметър на Граф
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="45 min"
   tags={["bfs", "graph-diameter", "shortest-path"]}
 >
+
+### Диаметър на Граф
 
 Диаметърът на граф е най-дългият най-кратък път между всеки два върха. Имплементирайте функция за изчисляване на диаметъра на свързан, ненасочен граф.
 
@@ -1325,13 +1325,13 @@ int main() {
 
 ---
 
-### Задача 20: Adaptive Graph Implementation
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="60 min"
   tags={["design", "optimization", "graph-representation"]}
 >
+
+### Adaptive Graph Implementation
 
 Проектирайте и имплементирайте клас за граф, който автоматично превключва между матрица и списък на съседство въз основа на плътността на графа. Включете:
 - Конструктор, който приема списък с ребра
@@ -1534,13 +1534,13 @@ int main() {
 
 ## Бонус Предизвикателство (HARD)
 
-### Задача 21: Multi-Source BFS
-
 <ExerciseCard
   difficulty="hard"
   timeEstimate="45 min"
   tags={["bfs", "multi-source", "advanced"]}
 >
+
+### Multi-Source BFS
 
 Имплементирайте модифициран BFS, който стартира от множество източници едновременно. Това е полезно в сценарии като намиране на най-близката болница от всяка точка в града.
 

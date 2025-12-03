@@ -16,35 +16,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 # Упражнения: Динамичен Масив в C++
 
-<ProgressTracker
-  exercises={[
-    { id: 1, difficulty: "easy" },
-    { id: 2, difficulty: "easy" },
-    { id: 3, difficulty: "easy" },
-    { id: 4, difficulty: "easy" },
-    { id: 5, difficulty: "easy" },
-    { id: 6, difficulty: "easy" },
-    { id: 7, difficulty: "easy" },
-    { id: 8, difficulty: "easy" },
-    { id: 9, difficulty: "medium" },
-    { id: 10, difficulty: "medium" },
-    { id: 11, difficulty: "medium" },
-    { id: 12, difficulty: "medium" },
-    { id: 13, difficulty: "medium" },
-    { id: 14, difficulty: "medium" },
-    { id: 15, difficulty: "medium" },
-    { id: 16, difficulty: "medium" },
-    { id: 17, difficulty: "hard" },
-    { id: 18, difficulty: "hard" },
-    { id: 19, difficulty: "hard" },
-    { id: 20, difficulty: "hard" },
-    { id: 21, difficulty: "hard" },
-    { id: 22, difficulty: "hard" },
-    { id: 23, difficulty: "hard" },
-    { id: 24, difficulty: "hard" },
-    { id: 25, difficulty: "hard" }
-  ]}
-/>
+<ProgressTracker />
 
 ---
 
@@ -81,13 +53,13 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 ## 🟢 Лесни Упражнения
 
-### Упражнение 1 [EASY]
-
 <ExerciseCard
   difficulty="easy"
   timeEstimate="10 min"
   tags={["practice", "exercise"]}
 >
+
+### Статични масиви в C++
 
 **Въпрос:** Кое от следните твърдения е **вярно** за статичните масиви в C++?
 
@@ -1233,7 +1205,7 @@ Percentage = 63/128 ≈ 49.2%
   tags={["practice", "exercise"]}
 >
 
-<Card>
+
 
 **Задача:** Имплементирайте метод `reserve(int new_capacity)`, подобен на `std::vector::reserve()`, който **предварително** заделя капацитет. Защо такъв метод може да подобри производителността?
 
@@ -1345,7 +1317,7 @@ for (int i = 0; i < 50; i++) {
 
 </CollapsibleSection>
 
-</Card>
+
 
 ### Упражнение 24 [HARD]
 
@@ -1355,7 +1327,7 @@ for (int i = 0; i < 50; i++) {
   tags={["practice", "exercise"]}
 >
 
-<Card>
+
 
 **Задача:** Представете си, че работите със **системи с ограничена памет** (embedded systems). Каква алтернативна стратегия за растеж бихте предложили вместо експоненциално удвояване? Обосновете отговора си.
 
@@ -1489,7 +1461,7 @@ DynamicArray arr(estimated_max_size);
 
 </CollapsibleSection>
 
-</Card>
+
 
 ### Упражнение 25 [HARD]
 
@@ -1499,7 +1471,7 @@ DynamicArray arr(estimated_max_size);
   tags={["practice", "exercise"]}
 >
 
-<Card>
+
 
 **Задача:** Напишете функция `benchmark()`, която **измерва времето** за добавяне на 1 милион елемента в:
 1. Динамичен масив с начален капацитет 1
@@ -1688,7 +1660,7 @@ for (int i = 0; i < BIG_NUMBER; i++) {
 
 </CollapsibleSection>
 
-</Card>
+
 
 ---
 
