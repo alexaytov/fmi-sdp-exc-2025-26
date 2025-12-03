@@ -50,10 +50,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 **Задача:** Дефинирайте какво прави една структура от данни "дърво" и обяснете защо дърветата се считат за нелинейни структури от данни.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -85,6 +83,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -102,10 +102,8 @@ b) 30 и 70 са братя и сестри
 c) 50 е коренен възел
 d) Ако 30 няма деца, то е лист
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -129,6 +127,8 @@ d) ✅ **Вярно** - Node без children се нарича **leaf node**
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -149,10 +149,8 @@ struct TreeNode {
 };
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -191,6 +189,8 @@ root->right = new TreeNode(70);
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -203,10 +203,8 @@ root->right = new TreeNode(70);
 
 **Задача:** Изчислете колко сравнения са необходими в най-лошия случай, за да намерите елемент в балансирано BST, съдържащо 1,000 елемента. Покажете работата си.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -244,6 +242,8 @@ Height = ⌈log₂(1000)⌉
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -258,10 +258,8 @@ Height = ⌈log₂(1000)⌉
 
 Нарисувайте получената структура на дървото.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -314,6 +312,8 @@ Height = ⌈log₂(1000)⌉
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -326,10 +326,8 @@ Height = ⌈log₂(1000)⌉
 
 **Задача:** Дадено е `TreeNode* root`, напишете базовия случай за рекурсивна функция за дърво, която проверява дали дървото е празно.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -381,6 +379,8 @@ bool search(TreeNode* root, int key) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -399,10 +399,8 @@ bool search(TreeNode* root, int key) {
 
 **Опции:** (Root, Left, Right), (Left, Root, Right), (Left, Right, Root)
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -454,6 +452,8 @@ void postorder(TreeNode* root) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -466,10 +466,8 @@ void postorder(TreeNode* root) {
 
 **Задача:** Вярно или Невярно: В BST всички стойности в лявото поддърво трябва да бъдат по-малки от корена, а всички стойности в дясното поддърво трябва да бъдат по-големи от корена. Обяснете защо това свойство е важно.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -533,6 +531,8 @@ void postorder(TreeNode* root) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Основно Приложение (Лесно-Средно)
@@ -553,10 +553,8 @@ int countNodes(TreeNode* root) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -627,6 +625,8 @@ int countNodesIterative(TreeNode* root) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -639,10 +639,8 @@ int countNodesIterative(TreeNode* root) {
 
 **Задача:** Дадено е BST свойството, обяснете защо inorder обхождането на BST произвежда стойности във възходящ ред. Предоставете прост пример с 3-възлово дърво.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -719,6 +717,8 @@ void inorder(TreeNode* root) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -737,10 +737,8 @@ bool search(Node* root, int key) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -828,6 +826,8 @@ BST property гарантира, че:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -844,10 +844,8 @@ BST property гарантира, че:
 
 Изразете отговорите си чрез h и обяснете своите разсъждения.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -927,6 +925,8 @@ Min nodes (h=3):    Max nodes (h=3):
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -943,10 +943,8 @@ Min nodes (h=3):    Max nodes (h=3):
 - Покажете изхода на inorder обхождане
 - Покажете изхода на preorder обхождане
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -1071,6 +1069,8 @@ preorder(10):
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1092,10 +1092,8 @@ preorder(10):
 3   7        2  6 12 20     12
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -1209,6 +1207,8 @@ bool isValidBST(TreeNode* root, long min = LONG_MIN, long max = LONG_MAX) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Междинен Анализ (Средно Ниво)
@@ -1234,10 +1234,8 @@ Node* insert(Node* root, int key) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -1345,6 +1343,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1357,10 +1357,8 @@ int main() {
 
 **Задача:** Обяснете защо BST, което получава данни в сортиран ред, дегенерира в свързан списък. Каква е времевата сложност на търсенето в такова дегенерирало дърво?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <WarningBox title="Решение: Degeneracy Problem">
 
@@ -1500,6 +1498,8 @@ Naive BST без balancing е **unsuitable за production** системи, к�
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1520,10 +1520,8 @@ Node* minValue(Node* node) {
 
 Обяснете защо вашият подход работи, базирайки се на BST свойството.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -1651,6 +1649,8 @@ if (minNode != nullptr) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Напреднали Операции (Трудно Ниво)
@@ -1671,10 +1671,8 @@ Node* deleteNode(Node* root, int key) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -1903,6 +1901,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Приложение и Синтез
@@ -1921,10 +1921,8 @@ int main() {
 - Изтриване на контакт
 - Отпечатване на всички контакти в азбучен ред
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Покажи решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Решение">
 
@@ -2185,6 +2183,8 @@ public:
 </SuccessBox>
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 

@@ -44,10 +44,8 @@ C) Дървото трябва да бъде перфектно балансир
 
 D) Родителските възли винаги имат точно две деца
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор: B**
 
@@ -59,6 +57,8 @@ BST свойството изисква всички стойности в ля�
 - D) Възлите могат да имат 0, 1 или 2 деца
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -82,10 +82,8 @@ BST свойството изисква всички стойности в ля�
 
 Отговорете с "Да" или "Не" и обяснете защо.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор: Да**
 
@@ -97,6 +95,8 @@ BST свойството изисква всички стойности в ля�
 Всяко поддърво удовлетворява BST свойството рекурсивно.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -110,10 +110,8 @@ BST свойството изисква всички стойности в ля�
 
 **Какъв е изходът от inorder обхождане на BST от Упражнение 2? Напишете последователността от стойности.**
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор: 3 5 7 10 12 15 20**
 
@@ -127,6 +125,8 @@ Inorder обхождането следва реда: ляво–корен–д
 **Важно:** Inorder обхождането на BST винаги произвежда **сортирана последователност**!
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -150,10 +150,8 @@ public:
 };
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -165,6 +163,8 @@ public:
 **Защо nullptr?** Когато създаваме нов възел, той първоначално няма деца, затова указателите са nullptr (нулеви указатели).
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -178,10 +178,8 @@ public:
 
 **Кой метод за обхождане (inorder, preorder или postorder) би произвел сортирана последователност от стойности от BST?**
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор: Inorder (ляво–корен–дясно)**
 
@@ -192,6 +190,8 @@ public:
 - **Postorder (ляво–дясно–корен):** Полезно за изтриване на дървото (изтриваме децата преди родителя)
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -205,10 +205,8 @@ public:
 
 **Ако вмъкнете стойностите 5, 3, 7, 1, 9 в този ред в първоначално празно BST, нарисувайте получената структура на дървото.**
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -228,6 +226,8 @@ public:
 5. Вмъкване 9: 9 > 5, отива надясно; 9 > 7, отива надясно от 7
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -253,10 +253,8 @@ node* search(node* root, int key) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -280,6 +278,8 @@ node* search(node* root, int key) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -292,10 +292,8 @@ node* search(node* root, int key) {
 
 **Каква е времевата сложност на търсене на стойност в балансирано BST с n възли? А в напълно изродено (небалансирано) BST?**
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -322,6 +320,8 @@ node* search(node* root, int key) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -342,10 +342,8 @@ node* search(node* root, int key) {
 5  12 18 25
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -361,6 +359,8 @@ node* search(node* root, int key) {
 **Обяснение:** Използваме BST свойството на всяка стъпка, за да решим да отидем наляво или надясно, което ни води директно към търсената стойност.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -382,10 +382,8 @@ C) 4, 2, 6, 1, 3
 
 D) 10, 5, 15, 3, 7
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор: B) 1, 2, 3, 4, 5**
 
@@ -411,6 +409,8 @@ D) 10, 5, 15, 3, 7
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Средни Упражнения - Имплементация и Анализ
@@ -425,10 +425,8 @@ D) 10, 5, 15, 3, 7
 
 **Напишете итеративната версия на функцията за търсене в BST (лекцията показа рекурсивна). Функцията трябва да връща указател към възела, ако е намерен, или nullptr, ако не е.**
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -457,6 +455,8 @@ node* searchIterative(node* root, int key) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -475,10 +475,8 @@ b) Каква е височината на това дърво?
 
 c) Колко листа има?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -503,6 +501,8 @@ c) Колко листа има?
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -523,10 +523,8 @@ c) Колко листа има?
 20 40
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -566,6 +564,8 @@ c) Колко листа има?
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -584,10 +584,8 @@ node* findMax(node* root) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -627,6 +625,8 @@ node* findMaxRecursive(node* root) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -650,10 +650,8 @@ node* insert(node* root, int key) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -681,6 +679,8 @@ node* insert(node* root, int key) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Средно-Трудни Упражнения - Сложни Операции
@@ -701,10 +701,8 @@ int countNodes(node* root) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -745,6 +743,8 @@ countNodes(5) = 1 + countNodes(3) + countNodes(7)
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -767,10 +767,8 @@ countNodes(5) = 1 + countNodes(3) + countNodes(7)
        65
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -809,6 +807,8 @@ countNodes(5) = 1 + countNodes(3) + countNodes(7)
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -827,10 +827,8 @@ bool isValidBST(node* root, int minVal, int maxVal) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -893,6 +891,8 @@ isValidBST(10, -∞, +∞)
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Трудни Упражнения - Напреднали Приложения и Анализ
@@ -913,10 +913,8 @@ b) Каква е пространствената сложност в най-л�
 
 c) Обяснете защо пространствената сложност се различава между тези случаи.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -953,6 +951,8 @@ O(log n) пространство            \
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -978,10 +978,8 @@ int kthSmallest(node* root, int k) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -1050,6 +1048,8 @@ count:   1  2  3  4  5  6  7
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1068,10 +1068,8 @@ void printRange(node* root, int k1, int k2) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -1132,6 +1130,8 @@ printRange(root, 7, 20):
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1150,10 +1150,8 @@ void deleteBST(node*& root) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -1215,6 +1213,8 @@ deleteBST(myTree);
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1233,10 +1233,8 @@ node* sortedArrayToBST(int arr[], int start, int end) {
 }
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -1314,6 +1312,8 @@ sortedArrayToBST([1,2,3,4,5,6,7], 0, 6)
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1339,10 +1339,8 @@ c) Изтриване на елемент, като се запазва сорт
 
 **Създайте сравнителна таблица и обяснете коя структура е най-добра за кои сценарии.**
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -1403,6 +1401,8 @@ c) Изтриване на елемент, като се запазва сорт
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1421,10 +1421,8 @@ c) Изтриване на елемент, като се запазва сорт
 
 **Би ли бил подходящ стандартен BST? Ако не, какви модификации или алтернативни дървовидни структури бихте предложили и защо? Обмислете дискусия за Tries, Ternary Search Trees или самобалансиращи се BST в отговора си.**
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 
@@ -1592,6 +1590,8 @@ Cache (за често търсени префикси)
 - **Redis:** Предлага Sorted Sets (BST подобни) за autocomplete функции
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 

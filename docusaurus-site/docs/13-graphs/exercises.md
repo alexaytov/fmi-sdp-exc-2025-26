@@ -33,9 +33,8 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 - **Степен (Degree)**
 - **Съседство (Adjacency)**
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Дефиниции:**
 
@@ -52,6 +51,8 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
    - *Пример:* Два града са съседни, ако има директен път (ребро) между тях.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -75,9 +76,8 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 
 **d)** Еднопосочни улици в град с времена за задръстване
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **a) Twitter follow отношения:**
 - **Насочен** - следването е едностранно
@@ -96,6 +96,8 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 - **Претеглен** - теглото е времето за задръстване
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -123,9 +125,8 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 
 **c)** Кои върхове са съседни на връх 2?
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **a) Всички ребра:**
 - (0, 1)
@@ -142,6 +143,8 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 Връх 2 е съседен на върхове **0 и 3**.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -167,9 +170,8 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 - C) Списък на съседство с гъвкави ID-та на върховете
 - D) Имплементация на алгоритъма на Dijkstra
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Съпоставяне:**
 
@@ -179,6 +181,8 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 - `priority_queue<pair<int,int>>` → **D)** Имплементация на алгоритъма на Dijkstra
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -198,9 +202,8 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 
 **c)** Кое представяне е по-ефективно по памет за този граф?
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **a) Матрица на съседство:**
 - Размер: V × V = 100 × 100 = **10,000 integer клетки**
@@ -214,6 +217,8 @@ import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
 - Графът е разреден (200 ребра от възможните 4,950), което прави списъка на съседство идеален избор
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -241,15 +246,16 @@ for (int n : adj[2]) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Изход:** `1 4 `
 
 Обяснение: Кодът обхожда списъка на съседство за връх 2, който съдържа върхове 1 и 4.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -263,9 +269,8 @@ for (int n : adj[2]) {
 
 Напишете C++ код за създаване на матрица на съседство за насочен граф с 4 върха и следните ребра: (0→1), (0→2), (1→2), (2→3), (3→1)
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <iostream>
@@ -307,6 +312,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -329,9 +336,8 @@ public:
 };
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 class WeightedGraph {
@@ -369,6 +375,8 @@ g.printGraph();
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -396,9 +404,8 @@ g.printGraph();
 
 **c)** BFS дървото (parent връзки)
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **a) Ред на посещение:** 0, 1, 2, 3, 4
 
@@ -423,6 +430,8 @@ g.printGraph();
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -441,9 +450,8 @@ g.printGraph();
 
 **c)** Обяснете защо редовете се различават
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **a) DFS обхождане от връх 0:**
 
@@ -471,6 +479,8 @@ DFS(0) -> visited: {0}
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Приложение и Анализ (MEDIUM)
@@ -493,9 +503,8 @@ DFS(0) -> visited: {0}
 
 **d)** Разредена мрежа от цитирания с 10,000 статии и 15,000 цитирания
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **a) Пълен граф с 50 върха:**
 - **Избор: Матрица на съседство**
@@ -514,6 +523,8 @@ DFS(0) -> visited: {0}
 - **Обосновка:** Разреден граф (E &lt;&lt; V²). Матрица би изисквала 100M клетки, докато списъкът изисква само 25K.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -547,9 +558,8 @@ void BFS(const map<int, list<int>>& graph, int start) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Проблем:** Върхът се маркира като посетен СЛЕД като се извади от опашката, а не когато се добави. Това може да доведе до добавяне на същия връх в опашката многократно.
 
@@ -583,6 +593,8 @@ void BFS(const map<int, list<int>>& graph, int start) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -615,9 +627,8 @@ public:
 };
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <vector>
@@ -683,6 +694,8 @@ public:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -712,9 +725,8 @@ int countComponents(const map<int, list<int>>& graph) {
 ```
 Очакван изход: 3 компонента
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <map>
@@ -776,6 +788,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Напреднали Приложения (HARD)
@@ -802,9 +816,8 @@ pair<int, vector<int>> shortestPath(
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <map>
@@ -899,6 +912,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -917,15 +932,15 @@ bool hasCycle(const map<int, list<int>>& graph) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 При ненасочен граф, цикъл съществува, ако по време на DFS срещнем връх, който вече е посетен и не е родителят на текущия връх.
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <map>
@@ -1007,6 +1022,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1025,15 +1042,15 @@ bool isBipartite(const map<int, list<int>>& graph, int start) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Опитайте се да оцветите графа с два цвята (например 0 и 1), използвайки BFS. Ако срещнете съседни върхове със същия цвят, графът не е bipartite.
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <map>
@@ -1112,6 +1129,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1136,9 +1155,8 @@ vector<vector<int>> listToMatrix(const map<int, list<int>>& adjList, int n) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <vector>
@@ -1225,6 +1243,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1244,15 +1264,15 @@ int graphDiameter(const map<int, list<int>>& graph) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Стартирайте BFS от всеки връх и намерете максималното разстояние. Диаметърът е максимумът от всички тези разстояния.
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <map>
@@ -1323,6 +1343,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1351,15 +1373,15 @@ public:
 };
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Изберете праг за плътност (например 30-50% от V²). Ако E > threshold, използвайте матрица, иначе списък.
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <vector>
@@ -1530,6 +1552,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Бонус Предизвикателство (HARD)
@@ -1554,15 +1578,15 @@ map<int, int> multiSourceBFS(
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Добавете всички източници в опашката едновременно в началото. След това BFS автоматично ще намери най-краткото разстояние от всеки връх до най-близкия източник.
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <map>
@@ -1640,6 +1664,8 @@ int main() {
 **Времева сложност:** O(V + E) - същата като стандартен BFS
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 

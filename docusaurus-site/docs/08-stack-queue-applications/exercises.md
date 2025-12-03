@@ -47,10 +47,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 **Задача:** Дадена е следната последователност от операции върху празен стек: `push(5), push(3), pop(), push(7), top(), pop()`. Каква стойност връща операцията `top()`?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="💡 Подсказка" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Проследете стека стъпка по стъпка след всяка операция:
 - След `push(5)`: `[5]`
@@ -60,7 +58,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Отговор: 7">
 
@@ -81,6 +80,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -93,10 +94,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 **Задача:** Обяснете със свои думи защо стекът използва LIFO (Last In, First Out) подредба и защо това свойство го прави подходящ за Shunting Yard алгоритъма.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="LIFO и Shunting Yard">
 
@@ -117,6 +116,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -129,10 +130,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 **Задача:** Подредете следните оператори от най-нисък към най-висок приоритет: `^`, `+`, `*`, `-`, `/`
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Подреждане по приоритет">
 
@@ -154,6 +153,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -170,10 +171,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 - c) `5 2 * 3 +`
 - d) `(2 + 3) * 4`
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Класификация">
 
@@ -190,6 +189,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -202,10 +203,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 **Задача:** Изчислете RPN израза `5 3 +` стъпка по стъпка, показвайки съдържанието на стека след всяка операция.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Стъпка по стъпка оценка">
 
@@ -236,6 +235,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -248,10 +249,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Изброете всички токени в израза `12 + 34 * 5` в реда, в който ще бъдат обработени.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Списък на токените">
 
@@ -271,6 +270,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -283,10 +284,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Каква е разликата между ляво-асоциативни и дясно-асоциативни оператори? Дайте по един пример за всеки от лекцията.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Асоциативност на операторите">
 
@@ -323,6 +322,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -335,10 +336,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Защо изразът `2 + 3 * 4` се изчислява на 14, но `(2 + 3) * 4` се изчислява на 20? Обяснете ролята на скобите.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Скоби и приоритет">
 
@@ -368,6 +367,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Лесни-Средни Упражнения (Приложение на Основни Концепции)
@@ -382,10 +383,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Конвертирайте инфиксния израз `A + B` в RPN нотация. Покажете работата си стъпка по стъпка със състоянията на стека и изходната опашка.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Конверсия стъпка по стъпка">
 
@@ -406,6 +405,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -418,10 +419,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Изчислете RPN израза `2 3 + 4 *`, показвайки състоянието на стека след обработката на всеки токен.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Пълно проследяване">
 
@@ -443,6 +442,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -455,10 +456,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Конвертирайте инфиксния израз `2 + 3 * 4` в RPN. Обяснете защо операторът за умножение се обработва преди събирането.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Конверсия с приоритет">
 
@@ -487,6 +486,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -499,10 +500,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Дадени са операциите `push(10), push(20), push(30), pop(), top()`. Какво е крайното състояние на стека и каква стойност връща `top()`?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Проследяване">
 
@@ -522,6 +521,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Средни Упражнения (Междинно Решаване на Проблеми)
@@ -536,10 +537,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Конвертирайте инфиксния израз `(A + B) * C` в RPN нотация. Покажете стека с оператори и изходната опашка на всяка стъпка.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Конверсия със скоби">
 
@@ -564,6 +563,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -576,10 +577,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Конвертирайте `A + B * C - D` в RPN. Покажете всички междинни стъпки със съдържанието на стека и опашката.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Пълно проследяване">
 
@@ -604,6 +603,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -616,10 +617,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Конвертирайте `10 - 3 - 2` в RPN, след това го изчислете. Обяснете как лявата асоциативност влияе на резултата (сравнете с това какво би се случило, ако изваждането беше дясно-асоциативно).
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Лява vs Дясна асоциативност">
 
@@ -668,6 +667,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -680,10 +681,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Изчислете RPN израза `15 3 / 2 +`, показвайки всяка стъпка. Какъв е крайният резултат?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Стъпка по стъпка">
 
@@ -705,6 +704,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -717,10 +718,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Идентифицирайте какво не е наред със следния RPN израз: `3 + 4 5 *`. Как бихте го поправили?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <WarningBox title="Грешка в израза">
 
@@ -753,6 +752,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -765,10 +766,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Конвертирайте инфиксния израз `((A + B) * C)` в RPN. Проследете алгоритъма, показвайки как се обработват вложените скоби.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Обработка на вложени скоби">
 
@@ -797,6 +796,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -809,10 +810,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Конвертирайте `2 ^ 3 ^ 2` в RPN, правилно обработвайки дясната асоциативност на степенуването. След това изчислете RPN израза.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Дясна асоциативност на ^">
 
@@ -849,6 +848,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -861,10 +862,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Конвертирайте инфиксния израз `A * B + C / D` в RPN. Покажете как се обработват операторите с еднакъв приоритет.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Еднакъв приоритет">
 
@@ -893,6 +892,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Средни-Трудни Упражнения (Сложни Приложения)
@@ -907,10 +908,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Конвертирайте инфиксния израз `3 + 4 * 2 / (1 - 5)` в RPN. Покажете пълни проследявания на стека с оператори и изходната опашка.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Пълна конверсия">
 
@@ -945,6 +944,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -957,10 +958,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** В израза `-3 + 4 * -5`, идентифицирайте кои знаци за минус са унарни и кои са бинарни. Обяснете как сте определили това.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Унарни vs Бинарни оператори">
 
@@ -1022,6 +1021,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1034,10 +1035,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Дадени израз `A + B * C + D`, ръчно симулирайте Shunting Yard алгоритъма. Създайте таблица, показваща: Текущ токен | Стек с оператори | Изходна опашка за всяка стъпка.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Пълна симулация">
 
@@ -1066,6 +1065,8 @@ return st.top();      // Резултат: 8
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1078,10 +1079,8 @@ return st.top();      // Резултат: 8
 
 **Задача:** Напишете псевдокод за RPN изчислител, който включва проверка за грешки при недостатъчни операнди и невалидни изрази.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Псевдокод с проверка за грешки">
 
@@ -1153,6 +1152,8 @@ double evaluateRPN(vector<string> tokens) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Трудни Упражнения (Напреднало Решаване на Проблеми)
@@ -1167,16 +1168,15 @@ double evaluateRPN(vector<string> tokens) {
 
 **Задача:** Конвертирайте пълния израз `3 + 4 * 2 / (1 - 5) ^ 2 ^ 3` в RPN, следвайки всички правила за приоритет, асоциативност и скоби. След това изчислете RPN израза, за да получите крайния числен резултат.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="💡 Подсказка" icon="💡" defaultOpen={false}>
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Обърнете специално внимание на дясната асоциативност на степенуването (`^`). Когато виждате `2 ^ 3`, не извличайте предишен `^` от стека.
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅" defaultOpen={false}>
+
+<CollapsibleSection title="Решение" icon="✅">
 
 <SuccessBox title="Пълно решение - Wikipedia Example">
 
@@ -1233,6 +1233,8 @@ double evaluateRPN(vector<string> tokens) {
 </SuccessBox>
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 

@@ -39,9 +39,8 @@ C) `[10, 9, 8, 7, 6, 5, 4]`
 
 D) `[10, 8, 6, 9, 7, 5, 4]`
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 За валиден max-heap, всеки parent трябва да е >= от своите children.
 
@@ -52,7 +51,8 @@ D) `[10, 8, 6, 9, 7, 5, 4]`
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор: C) [10, 9, 8, 7, 6, 5, 4]**
 
@@ -109,6 +109,8 @@ D) `[10, 8, 6, 9, 7, 5, 4]`
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -124,9 +126,8 @@ D) `[10, 8, 6, 9, 7, 5, 4]`
 - Какъв е index на left child?
 - Какъв е index на right child?
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Използвайте стандартните формули за 0-indexed array:
 ```cpp
@@ -137,7 +138,8 @@ rightChild(i) = 2 * i + 2
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 За index `i = 5`:
 
@@ -172,6 +174,8 @@ Index:  0  1  2  3  4  5  6  7  8  9 10 11 12
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -184,9 +188,8 @@ Index:  0  1  2  3  4  5  6  7  8  9 10 11 12
 
 Дали array `[3, 5, 4, 8, 7, 9, 10]` е валиден min-heap, max-heap, и двете, или нито едно? Обяснете отговора си.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 - **Min-heap:** Всеки parent ≤ children
 - **Max-heap:** Всеки parent ≥ children
@@ -195,7 +198,8 @@ Index:  0  1  2  3  4  5  6  7  8  9 10 11 12
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 Array: `[3, 5, 4, 8, 7, 9, 10]`
 
@@ -232,6 +236,8 @@ Array: `[3, 5, 4, 8, 7, 9, 10]`
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -244,9 +250,8 @@ Array: `[3, 5, 4, 8, 7, 9, 10]`
 
 Complete binary tree има 15 nodes. Каква е неговата височина? Колко nodes са на последното ниво?
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 **Формули:**
 - Height на complete binary tree с n nodes: $h = \lfloor \log_2 n \rfloor$
@@ -254,7 +259,8 @@ Complete binary tree има 15 nodes. Каква е неговата височ�
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Дадено:** n = 15 nodes
 
@@ -290,6 +296,8 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -310,9 +318,8 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 **Опции:** O(1), O(log n), O(n), O(n log n)
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Помислете за:
 - Къде се намира max елементът в max-heap?
@@ -322,7 +329,8 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **1. Намиране на максимума в max-heap: O(1)**
 - Максимумът винаги е на root (index 0)
@@ -354,6 +362,8 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -366,9 +376,8 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 Обяснете в 2-3 изречения защо съхраняването на complete binary tree в array е по-ефективно от използването на pointers/references.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Помислете за:
 - Memory overhead на pointers
@@ -377,7 +386,8 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Причини защо array representation е по-ефективна:**
 
@@ -401,6 +411,8 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## EASY-MEDIUM EXERCISES - Базови Операции
@@ -415,9 +427,8 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 Даден е partial max-heap `[15, 12, 10, 8, 9, 5]`. Вмъкнете стойност 14. Покажете всяка стъпка на sift-up процеса и resulting array след всеки swap.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 1. Добавете 14 в края на array
 2. Сравнете с parent
@@ -426,7 +437,8 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Initial heap:** `[15, 12, 10, 8, 9, 5]`
 
@@ -498,6 +510,8 @@ Final tree:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -510,9 +524,8 @@ Final tree:
 
 В array `[20, 18, 15, 12, 10, 8, 14]`, един елемент нарушава max-heap property. Идентифицирайте го и обяснете коя операция (sift-up или sift-down) би го поправила.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Нарисувайте tree структурата и проверете всяка parent-child връзка.
 
@@ -524,7 +537,8 @@ Final tree:
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Array:** `[20, 18, 15, 12, 10, 8, 14]`
 
@@ -580,6 +594,8 @@ Final tree:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -592,9 +608,8 @@ Final tree:
 
 Нарисувайте binary tree representation на max-heap `[50, 30, 40, 10, 20, 15, 35]`. Етикирайте всеки node с неговия array index.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Използвайте формулите:
 - Left child на index i: `2*i + 1`
@@ -604,7 +619,8 @@ Final tree:
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Array:** `[50, 30, 40, 10, 20, 15, 35]`
 
@@ -660,6 +676,8 @@ Level 2:     10    20     15    35
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -672,9 +690,8 @@ Level 2:     10    20     15    35
 
 За array с размер n = 12, на кой index трябва да започнете heapify процеса при построяване на heap bottom-up? Обяснете защо.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 В Floyd's bottom-up метод:
 - Започваме от последния **parent** node
@@ -684,7 +701,8 @@ Level 2:     10    20     15    35
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Дадено:** n = 12 nodes
 
@@ -744,6 +762,8 @@ Step 6: Heapify index 0 (root)
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## MEDIUM EXERCISES - Algorithm Application
@@ -758,9 +778,8 @@ Step 6: Heapify index 0 (root)
 
 Даден е array `[5, 20, 15, 10, 12, 8, 7]` където heap property е нарушено на root. Извършете пълна sift-down операция. Покажете array състоянието след всеки swap докато heap property не се възстанови.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Sift-down алгоритъм:
 1. Сравни node с left и right children
@@ -770,7 +789,8 @@ Sift-down алгоритъм:
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Initial array:** `[5, 20, 15, 10, 12, 8, 7]`
 
@@ -868,6 +888,8 @@ Final tree (ВАЛИДЕН max-heap):
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -883,9 +905,8 @@ Final tree (ВАЛИДЕН max-heap):
 - Array състоянието след обработване на всеки internal node
 - Final max-heap
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 1. Намерете последния parent: `n/2 - 1`
 2. За всеки index от `n/2 - 1` до 0, извършете sift-down
@@ -893,7 +914,8 @@ Final tree (ВАЛИДЕН max-heap):
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Initial array:** `[4, 10, 3, 5, 1, 8, 9, 2]`
 
@@ -1038,6 +1060,8 @@ Final tree:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1050,9 +1074,8 @@ Final tree:
 
 Даден е array `[7, 3, 9, 1, 5, 2, 8]`. Завършете Phase 1 на heap sort (heap construction). Покажете работата си стъпка по стъпка и идентифицирайте колко sift-down операции са извършени.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Phase 1 = Floyd's bottom-up heapify
 - Start от `n/2 - 1`
@@ -1061,7 +1084,8 @@ Phase 1 = Floyd's bottom-up heapify
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Initial array:** `[7, 3, 9, 1, 5, 2, 8]`
 
@@ -1183,6 +1207,8 @@ Final tree:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1195,9 +1221,8 @@ Final tree:
 
 Трябва да сортирате 500,000 records на устройство с само 2 MB налична памет. Всеки record е 100 bytes. Сравнете heap sort, merge sort и quick sort за този сценарий. Кой бихте избрали и защо? Разгледайте поне три фактора в отговора си.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Факториза да разгледате:
 1. **Memory използване** - auxiliary space requirements
@@ -1212,7 +1237,8 @@ Final tree:
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Анализ на ситуацията:**
 
@@ -1333,6 +1359,8 @@ mergeSortedRuns(numRuns);
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1348,9 +1376,8 @@ mergeSortedRuns(numRuns);
 - Heap след всяка extraction и re-heapification
 - Растящата sorted region
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Extraction процес:
 1. Swap root с последния елемент
@@ -1360,7 +1387,8 @@ Extraction процес:
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Initial max-heap:** `[25, 20, 18, 15, 10, 12, 8]`
 
@@ -1523,6 +1551,8 @@ Tree:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## MEDIUM-HARD EXERCISES - Complex Analysis
@@ -1540,9 +1570,8 @@ Tree:
 - Математическо обосновани (може да използвате summation notation)
 - Защо това е по-добро от вмъкване на n елемента един по един
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Ключова идея:
 - Повечето nodes са близо до leaves (малко swaps)
@@ -1559,7 +1588,8 @@ $$
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Защо Floyd's Bottom-Up Heapify е O(n)?**
 
@@ -1713,6 +1743,8 @@ Total: 2 + 2 + 0 = 4 < 7 → O(n)
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1729,9 +1761,8 @@ Total: 2 + 2 + 0 = 4 < 7 → O(n)
 - Финалния sorted array
 - Общ брой comparisons (приблизително)
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Това е comprehensive exercise!
 - Бъдете systematic
@@ -1740,7 +1771,8 @@ Total: 2 + 2 + 0 = 4 < 7 → O(n)
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Initial array:** `[6, 2, 8, 1, 9, 3, 7, 5]`
 
@@ -1942,6 +1974,8 @@ Our estimate (~30) е reasonable!
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 Поради дължината на съдържанието, ще продължа с останалите exercises в следващата част. Нека първо запазя това, което съм създал досега.
@@ -1960,9 +1994,8 @@ Our estimate (~30) е reasonable!
 - Обяснете защо heap sort не е stable използвайки този пример
 - Опишете какви модификации (ако има такива) биха направили heap sort stable и каква би била цената
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 **Stable sort:** Запазва относителния ред на равни елементи.
 
@@ -1970,7 +2003,8 @@ Our estimate (~30) е reasonable!
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Initial array:** `[5a, 3, 5b, 2, 5c]`
 
@@ -2153,6 +2187,8 @@ struct Element {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -2169,9 +2205,8 @@ struct Element {
 - Дадени arrivals с priorities `[5, 2, 8, 1, 6, 3]`, покажете heap структурата след всички insertions
 - Покажете extraction order когато пациентите се повикват
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 **Ключов въпрос:** Искаме винаги да извличаме пациента с най-висок priority.
 
@@ -2181,7 +2216,8 @@ struct Element {
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ## ИЗБОР НА HEAP TYPE
 
@@ -2444,6 +2480,8 @@ Charlie (priority: 8)  ← Least urgent
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## HARD EXERCISES - Advanced Applications
@@ -2464,9 +2502,8 @@ Charlie (priority: 8)  ← Least urgent
 - Сравнете броя comparisons за sift-down операция versus binary heap
 - В какви сценарии 4-ary heap може да превъзхожда binary heap?
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 **Key insights:**
 - K-ary heap има k children per node
@@ -2478,7 +2515,8 @@ Charlie (priority: 8)  ← Least urgent
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ## 1. ФОРМУЛА ЗА PARENT
 
@@ -2703,6 +2741,8 @@ public:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -2720,9 +2760,8 @@ public:
 
 Specify: кога да превключите, кой втори алгоритъм да използвате, общата сложност, и обосновете design choices.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Помислете за:
 - Силните страни на heap sort (worst-case guarantees)
@@ -2731,7 +2770,8 @@ Specify: кога да превключите, кой втори алгорит�
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ## HYBRID ALGORITHM DESIGN: HeapSort + InsertionSort
 
@@ -3072,6 +3112,8 @@ public:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 Due to length constraints, I'll continue with the remaining exercises (22-24) in the next part of the file.
@@ -3092,9 +3134,8 @@ Due to length constraints, I'll continue with the remaining exercises (22-24) in
 - Каква е времевата сложност?
 - Каква е пространствената сложност?
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 **Key insight:** Искаме да запазим top-k largest values.
 
@@ -3104,7 +3145,8 @@ Due to length constraints, I'll continue with the remaining exercises (22-24) in
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ## ALGORITHM DESIGN
 
@@ -3511,6 +3553,8 @@ Top-5 elements:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -3528,9 +3572,8 @@ Top-5 elements:
 - Анализирайте "smart" подход: можете ли да сортирате частично (извличайки само k най-големи елемента)? Каква би била сложността на намирането на k най-големи елемента използвайки heap sort?
 - Сравнете това с построяването на min-heap от размер k. Кой е по-добър и защо?
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Помислете за:
 - Къде се натрупват sorted елементи (ляво vs. дясно)
@@ -3539,7 +3582,8 @@ Top-5 elements:
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ## 1. ЗАЩО MAX-HEAP ЗА ASCENDING ORDER?
 
@@ -3887,6 +3931,8 @@ public:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -3911,9 +3957,8 @@ public:
 - Какви оптимизации бихте приложили?
 - Напишете pseudocode за вашата оптимизирана sift-down функция
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Помислете за:
 - Stack space vs. iterative loops
@@ -3923,7 +3968,8 @@ public:
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ## REAL-TIME HEAP SORT DESIGN
 
@@ -4360,6 +4406,8 @@ public:
 **Key insight:** Real-world constraints často позволяват MUCH better solutions than generic heap sort! 🚀
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 

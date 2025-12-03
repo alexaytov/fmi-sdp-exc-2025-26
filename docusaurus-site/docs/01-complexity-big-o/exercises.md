@@ -1,42 +1,59 @@
 ---
-title: "Упражнения"
 sidebar_position: 2
-slug: exercises
+title: "Упражнения"
 tags: [exercises, practice, complexity, big-o, testing, double-precision, cpp]
 ---
 
+import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
+import WarningBox from '@site/src/components/InfoBoxes/WarningBox';
+import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
+import CollapsibleSection from '@site/src/components/CollapsibleSection';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import ExerciseCard from '@site/src/components/Exercise/ExerciseCard';
 import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
-import CollapsibleSection from '@site/src/components/CollapsibleSection';
-import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
 
-# Упражнения - Complexity, Big-O, Testing и Double Precision
+# Упражнения: Complexity, Big-O, Testing и Double Precision
 
 <ProgressTracker />
 
 ---
 
-## Базни Упражнения (Основни Концепции)
+<InfoBox title="Информация за упражненията">
 
-<ExerciseCard
-  difficulty="easy"
-  timeEstimate="5 min"
-  tags={["complexity", "theory", "basics"]}
->
+Този набор от упражнения покрива:
+- Time и Space Complexity анализ
+- Big-O нотация и асимптотично поведение
+- Testing best practices (Arrange-Act-Assert, TDD)
+- IEEE 754 floating-point arithmetic
+- NaN, Infinity и precision проблеми
+- Master Theorem и амортизиран анализ
+
+**Общо упражнения:** 23 задачи в 5 нива на сложност
+
+</InfoBox>
+
+---
+
+## Лесни упражнения (EASY)
+
+Фундаментални концепции и базови разбирания
+
+<ExerciseCard difficulty="easy">
 
 ### Типове Computational Complexity
 
 Какви са двата основни типа computational complexity, обсъдени в лекцията? Опишете накратко какво измерва всеки.
 
-</ExerciseCard>
-
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 - **Time Complexity (Времева сложност):** Измерва колко време (брой операции) отнема алгоритъмът в зависимост от размера на входа.
 - **Space Complexity (Пространствена сложност):** Измерва колко памет използва алгоритъмът в зависимост от размера на входа.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -50,9 +67,8 @@ import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
 
 В Big-O нотация, когато казваме, че алгоритъм е O(n), какво представлява 'n'?
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:** 'n' представлява **размера на входа** (input size). Например:
 - Брой елементи в масив
@@ -60,6 +76,8 @@ import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
 - Брой nodes в дърво
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -73,9 +91,8 @@ import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
 
 Вярно или Невярно: В Big-O нотация запазваме константните фактори и членовете от по-нисък ред когато изразяваме сложността.
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:** **Невярно**
 
@@ -86,6 +103,8 @@ import InfoBox from '@site/src/components/InfoBoxes/InfoBox';
 Big-O описва **асимптотичното поведение** при големи n.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -106,9 +125,8 @@ Big-O описва **асимптотичното поведение** при г
 
 **Опции:** Constant, Linear, Quadratic, Logarithmic
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:**
 - **O(1)** → Constant (Константна)
@@ -120,6 +138,8 @@ Big-O описва **асимптотичното поведение** при г
 O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ) < O(n!)
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -138,9 +158,8 @@ b) 64 bits
 c) 128 bits
 d) 16 bits
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:** **b) 64 bits**
 
@@ -150,6 +169,8 @@ d) 16 bits
 - 52 bits за mantissa (fraction)
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -168,9 +189,8 @@ b) `<cmath>`
 c) `<iostream>`
 d) `<algorithm>`
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Отговор:** **b) `<cmath>`**
 
@@ -185,6 +205,8 @@ if (std::isnan(x)) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -197,9 +219,8 @@ if (std::isnan(x)) {
 
 Какво означава NaN и дайте един пример за операция, която произвежда NaN.
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **NaN** означава **"Not a Number"** (Не е число)
 
@@ -211,6 +232,8 @@ if (std::isnan(x)) {
 - `0.0 * Inf`
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -224,9 +247,8 @@ if (std::isnan(x)) {
 
 Какви са трите стъпки в Arrange-Act-Assert (A-A-A) testing pattern?
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 1. **Arrange (Подготовка):** Настройте test data и prerequisites
 2. **Act (Действие):** Извикайте функцията или метода, който тествате
@@ -245,6 +267,8 @@ assert(sum == 6);
 ```
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -268,15 +292,15 @@ for (int i = 0; i < n; i++) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Броете общо колко пъти се извиква `doSomething()`.
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Времева сложност:** O(n²)
 
@@ -286,6 +310,8 @@ for (int i = 0; i < n; i++) {
 - Общо: n × n = n² извиквания на `doSomething()`
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -305,15 +331,15 @@ for (int i = 1; i < n; i *= 2) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Колко пъти можете да удвоявате 1 преди да достигнете n?
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Времева сложност:** O(log n)
 
@@ -324,6 +350,8 @@ for (int i = 1; i < n; i *= 2) {
 - Броят итерации е log₂(n)
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -337,9 +365,8 @@ for (int i = 1; i < n; i *= 2) {
 
 Напишете проста функция `max(int a, int b)`, която връща по-голямото от две числа, заедно с тест case използвайки assert statements.
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <cassert>
@@ -378,6 +405,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -390,15 +419,15 @@ int main() {
 
 Напишете код, който проверява дали double променлива `x` е NaN **без** да използвате `std::isnan()`. Обяснете защо това работи.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Помислете за свойството на NaN при сравнения със себе си.
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <iostream>
@@ -422,6 +451,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Средни Упражнения
@@ -442,9 +473,8 @@ int main() {
 - k(n) = n!
 - m(n) = √n
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Ред от най-бърза към най-бавна:**
 
@@ -463,6 +493,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -475,9 +507,8 @@ int main() {
 
 Напишете comprehensive test cases за функция `divide(double a, double b)`, която дели две числа. Включете edge cases.
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <cassert>
@@ -519,6 +550,8 @@ void testDivide() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -538,15 +571,15 @@ int fibonacci(int n) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Нарисувайте дървото на рекурсивните извиквания за малко n (напр. n=5).
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Времева сложност:** O(2ⁿ) - експоненциална
 
@@ -580,6 +613,8 @@ int fibMemo(int n, std::vector<int>& memo) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -592,9 +627,8 @@ int fibMemo(int n, std::vector<int>& memo) {
 
 Обяснете защо `0.1 + 0.2 == 0.3` може да върне `false` в C++. Как да сравняваме floating-point numbers коректно?
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Проблем:** Много десетични дроби **не могат да бъдат представени точно** в binary floating-point.
 
@@ -630,6 +664,8 @@ if (almostEqual(0.1 + 0.2, 0.3)) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Средно-Трудни Упражнения
@@ -656,9 +692,8 @@ void algorithm(int n) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Master Theorem: T(n) = aT(n/b) + f(n)
 
@@ -666,7 +701,8 @@ Master Theorem: T(n) = aT(n/b) + f(n)
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Рекурентно уравнение:** T(n) = 2T(n/2) + O(n)
 
@@ -690,6 +726,8 @@ Master Theorem: T(n) = aT(n/b) + f(n)
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -707,9 +745,8 @@ Master Theorem: T(n) = aT(n/b) + f(n)
 2. Имплементирайте минимален код да минат
 3. Refactor за по-добър дизайн
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <vector>
@@ -781,6 +818,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -798,9 +837,8 @@ b) Recursive factorial
 c) Merge sort
 d) Quick sort
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **a) Iterative Factorial**
 ```cpp
@@ -858,6 +896,8 @@ void quickSort(vector<int>& arr, int low, int high) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -870,9 +910,8 @@ void quickSort(vector<int>& arr, int low, int high) {
 
 Обяснете какво са denormalized (subnormal) numbers в IEEE 754. Защо съществуват и какви са performance implications?
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Denormalized (Subnormal) Numbers:**
 
@@ -918,6 +957,8 @@ _MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_ON);
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## Трудни Упражнения
@@ -932,9 +973,8 @@ _MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_ON);
 
 Анализирайте амортизираната complexity на `push_back` операцията за dynamic array (като `std::vector`), който удвоява capacity при resize.
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Dynamic Array Resize Strategy:**
 - Започва с capacity = 1
@@ -973,6 +1013,8 @@ _MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_ON);
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -989,9 +1031,8 @@ _MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_ON);
 - Special values (NaN, Inf)
 - Precision validation
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <cmath>
@@ -1096,6 +1137,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1112,9 +1155,8 @@ int main() {
 - Защо има такава разлика?
 - Как можем да го подобрим?
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Quick Sort Complexity:**
 
@@ -1190,9 +1232,38 @@ int pivot = median(arr[left], arr[mid], arr[right]);
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
-:::info Забележка
-Тази лекция съдържа 23 упражнения, покриващи всички нива на трудност от easy до hard. За допълнителна практика, разгледайте упражненията от следващите лекции.
-:::
+## Допълнителни ресурси
+
+<InfoBox title="Полезни ресурси за практика">
+
+**Онлайн платформи за практика:**
+- [LeetCode - Time Complexity](https://leetcode.com/tag/time-complexity/) - Задачи за анализ на сложност
+- [HackerRank - Algorithms](https://www.hackerrank.com/domains/algorithms) - Разнообразни алгоритмични задачи
+- [Big-O Cheat Sheet](https://www.bigocheatsheet.com/) - Визуално справочно ръководство
+
+**Инструменти:**
+- [Compiler Explorer](https://godbolt.org) - Анализирайте performance на кода
+- [Quick Bench](https://quick-bench.com) - Micro-benchmarking online
+
+**Книги:**
+- "Introduction to Algorithms" (CLRS) - Comprehensive complexity analysis
+- "Algorithm Design Manual" - Practical algorithm analysis
+
+</InfoBox>
+
+<SuccessBox title="Ключови точки за запомняне">
+
+- **Big-O нотация** описва асимптотичното поведение при големи входове
+- **Time complexity** измерва брой операции, **Space complexity** измерва използвана памет
+- **Амортизиран анализ** е полезен за операции с променлива цена
+- **Master Theorem** помага за анализ на divide-and-conquer алгоритми
+- **IEEE 754** стандарт дефинира floating-point arithmetic и специални стойности (NaN, Inf)
+- **Testing best practices**: Arrange-Act-Assert, TDD, comprehensive edge cases
+- **Floating-point сравнения** изискват tolerance (epsilon) поради precision ограничения
+
+</SuccessBox>
 

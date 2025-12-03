@@ -49,6 +49,37 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 </CollapsibleSection>
 
+<CollapsibleSection title="Решение" icon="✅">
+
+```cpp
+#include <iostream>
+
+int main() {
+    // Декларираме integer променлива
+    int x = 42;
+
+    // Създаваме показалец към x
+    int* ptr = &x;  // & взема адреса на x
+
+    // Използваме показалеца да променим стойността
+    *ptr = 100;     // * дереференцира показалеца
+
+    std::cout << "x = " << x << std::endl;  // Отпечатва: x = 100
+    std::cout << "Адресът на x: " << &x << std::endl;
+    std::cout << "ptr сочи към: " << ptr << std::endl;
+
+    return 0;
+}
+```
+
+**Обяснение:**
+- `int* ptr` - декларация на показалец към int
+- `&x` - взима адреса на променливата x
+- `*ptr` - дереференцира показалеца (достъпва стойността, която сочи)
+- Променяйки `*ptr`, променяме директно стойността на `x`
+
+</CollapsibleSection>
+
 </ExerciseCard>
 
 <ExerciseCard difficulty="easy">
@@ -90,6 +121,44 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 </CollapsibleSection>
 
+<CollapsibleSection title="Решение" icon="✅">
+
+**Пространствена локалност (Spatial Locality)** е принципът, че когато достъпим дадена памет, е вероятно да достъпим и съседни памети в близко бъдеще.
+
+**Обяснение:**
+- Данните, които са физически близо в паметта, обикновено се достъпват в кратък период от време
+- CPU cache-овете използват този принцип, зареждайки цели "cache lines" (напр. 64 bytes) наведнъж
+
+**Пример за добра пространствена локалност:**
+
+```cpp
+int arr[1000];
+
+// Отлична пространствена локалност
+for (int i = 0; i < 1000; i++) {
+    arr[i] = i * 2;  // Последователен достъп до съседни елементи
+}
+```
+
+**Обяснение на примера:**
+- Масивът е съхранен в непрекъсната памет
+- Достъпваме `arr[0]`, след това `arr[1]`, `arr[2]`... (последователно)
+- Когато CPU-то зареди `arr[0]`, cache line-ът ще съдържа и `arr[1]`, `arr[2]`, и т.н.
+- Следващите достъпи са много бързи (cache hits)
+
+**Пример за лоша пространствена локалност:**
+
+```cpp
+// Лоша пространствена локалност
+for (int i = 0; i < 1000; i += 100) {
+    arr[i] = i * 2;  // Скачаме на всеки 100 елемента
+}
+```
+
+Този код скача през паметта, като пропуска много елементи, което води до по-малко ефективно използване на cache-а.
+
+</CollapsibleSection>
+
 </ExerciseCard>
 
 <ExerciseCard difficulty="easy">
@@ -101,6 +170,78 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 <CollapsibleSection title="Подсказка" icon="💡">
 
 Помислете за копиране на данни и производителност при предаване на големи обекти.
+
+</CollapsibleSection>
+
+<CollapsibleSection title="Решение" icon="✅">
+
+**Call-by-value vs Call-by-reference:**
+
+<Tabs>
+<TabItem value="value" label="Call-by-value" default>
+
+```cpp
+void increment_value(int x) {
+    x++;  // Променя само локалното копие
+}
+
+int main() {
+    int num = 10;
+    increment_value(num);
+    std::cout << num << std::endl;  // Отпечатва: 10 (непроменено!)
+}
+```
+
+**Характеристики:**
+- ✅ Функцията получава **копие** на стойността
+- ✅ Промените не афектират оригиналната променлива
+- ❌ Неефективно за големи обекти (копирането отнема време и памет)
+
+</TabItem>
+<TabItem value="reference" label="Call-by-reference">
+
+```cpp
+void increment_reference(int& x) {
+    x++;  // Променя оригиналната променлива
+}
+
+int main() {
+    int num = 10;
+    increment_reference(num);
+    std::cout << num << std::endl;  // Отпечатва: 11 (променено!)
+}
+```
+
+**Характеристики:**
+- ✅ Функцията получава **референция** към оригинала
+- ✅ Промените афектират оригиналната променлива
+- ✅ Ефективно (без копиране)
+- ❌ Може случайно да промени данните
+
+</TabItem>
+</Tabs>
+
+**Кога да използваме `const&`:**
+
+```cpp
+void process_large_vector(const std::vector<int>& vec) {
+    // Функцията може да чете vec, но НЕ може да го променя
+    for (int val : vec) {
+        std::cout << val << " ";
+    }
+}
+```
+
+**Предимства на `const&`:**
+1. ✅ **Ефективност**: Без копиране на големи обекти
+2. ✅ **Безопасност**: `const` гарантира, че функцията няма да промени данните
+3. ✅ **Ясна интенция**: Показва, че функцията само чете данните
+4. ✅ **Best practice**: Стандартен подход за readonly параметри
+
+**Препоръки:**
+- Използвай **copy (value)** за малки типове (`int`, `char`, `double`)
+- Използвай **`const&`** за големи обекти (`std::vector`, `std::string`, custom класове) когато само четеш
+- Използвай **`&`** (без const) когато искаш да модифицираш параметъра
 
 </CollapsibleSection>
 
@@ -222,6 +363,74 @@ int y = 25;
 <CollapsibleSection title="Подсказка" icon="💡">
 
 Временната локалност се отнася до многократна употреба на същите данни, докато пространствената локалност се отнася до достъп на близки данни.
+
+</CollapsibleSection>
+
+<CollapsibleSection title="Решение" icon="✅">
+
+**Разлика между временна и пространствена локалност:**
+
+<Tabs>
+<TabItem value="temporal" label="Временна локалност" default>
+
+**Temporal Locality**: Ако достъпим дадена памет, е вероятно да я достъпим **отново скоро**.
+
+**Характеристики:**
+- Многократна употреба на **същите данни**
+- Данните остават в cache между достъпите
+- Полезно за loop променливи, counters, често използвани променливи
+
+**Пример:**
+```cpp
+int sum = 0;  // 'sum' има отлична временна локалност
+for (int i = 0; i < 1000000; i++) {
+    sum += arr[i];  // 'sum' се достъпва 1,000,000 пъти!
+}
+// 'sum' остава в CPU registers/cache целия път
+```
+
+</TabItem>
+<TabItem value="spatial" label="Пространствена локалност">
+
+**Spatial Locality**: Ако достъпим дадена памет, е вероятно да достъпим **съседните паметни адреси** скоро.
+
+**Характеристики:**
+- Достъп до **близки данни**
+- Cache lines зареждат съседни байтове
+- Полезно за масиви, последователни структури
+
+**Пример:**
+```cpp
+int arr[100];
+// Отлична пространствена локалност
+for (int i = 0; i < 100; i++) {
+    arr[i] = i * 2;  // arr[0], arr[1], arr[2]... са съседни!
+}
+```
+
+</TabItem>
+</Tabs>
+
+**Комбиниран пример (и двете локалности):**
+
+```cpp
+void calculate_sum(int* arr, int size) {
+    int sum = 0;           // Временна локалност (използва се много пъти)
+
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];     // Пространствена локалност (последователен достъп)
+    }
+
+    return sum;
+}
+```
+
+**Визуално сравнение:**
+
+| Локалност | Фокус | Пример |
+|-----------|-------|--------|
+| **Временна** | Колко **често** достъпваме същите данни | Loop counter, accumulator |
+| **Пространствена** | Колко **близо** са данните, които достъпваме | Последователен array traversal |
 
 </CollapsibleSection>
 
@@ -376,6 +585,103 @@ int calculate(int x) {
 <CollapsibleSection title="Подсказка" icon="💡">
 
 Помислете за непрекъсната vs разпръсната памет и как това влияе на cache locality.
+
+</CollapsibleSection>
+
+<CollapsibleSection title="Решение" icon="✅">
+
+**Сравнение на контейнери: Памет и Cache**
+
+<Tabs>
+<TabItem value="vector" label="std::vector" default>
+
+**Паметна организация:**
+- ✅ Непрекъсната памет (всички елементи са един до друг)
+- ✅ Динамична памет на heap
+- ✅ Capacity overhead (обикновено 1.5x или 2x growth factor)
+
+**Cache характеристики:**
+- ✅ Отлична пространствена локалност
+- ✅ Отличен cache hit rate при итерация
+- ✅ CPU prefetching работи перфектно
+
+**Най-добра производителност за:**
+- ✅ Последователен достъп / итерация (O(n), много бързо)
+- ✅ Random access по индекс (O(1))
+- ✅ Push/pop на края (O(1) amortized)
+- ❌ Insert/delete в средата (O(n), бавно)
+
+**Memory overhead:** ~8 bytes (pointer, size, capacity)
+
+</TabItem>
+<TabItem value="list" label="std::list">
+
+**Паметна организация:**
+- ❌ Разпръсната памет (nodes разхвърляни из heap-а)
+- ❌ Всеки node има 2 указателя (prev/next)
+- ❌ Висок memory overhead
+
+**Cache характеристики:**
+- ❌ Лоша пространствена локалност
+- ❌ Много cache misses при итерация
+- ❌ CPU prefetching не работи
+- ❌ Всеки node достъп може да е cache miss
+
+**Най-добра производителност за:**
+- ✅ Insert/delete в средата (O(1) с iterator)
+- ✅ Splice operations
+- ❌ Итерация (O(n), много бавно!)
+- ❌ Random access (O(n), няма operator[])
+
+**Memory overhead:** ~16 bytes/елемент (2 указателя)
+
+</TabItem>
+<TabItem value="map" label="std::map">
+
+**Паметна организация:**
+- ❌ Tree структура (обикновено red-black tree)
+- ❌ Разпръсната памet (nodes в heap)
+- ❌ Всеки node има 2-3 указателя + metadata
+
+**Cache характеристики:**
+- ❌ Лоша пространствена локалност
+- ❌ Много cache misses при traversal
+- ❌ Tree traversal = pointer chasing
+
+**Най-добра производителност за:**
+- ✅ Sorted order (винаги сортиран)
+- ✅ Logarithmic lookup (O(log n))
+- ✅ Insert/delete със запазване на order (O(log n))
+- ❌ Итерация (O(n), бавно)
+- ❌ Sequential access (няма)
+
+**Memory overhead:** ~24+ bytes/елемент (указатели + color bit)
+
+</TabItem>
+</Tabs>
+
+**Performance Comparison (1 млн. елемента):**
+
+| Операция | vector | list | map |
+|----------|--------|------|-----|
+| Sequential iteration | **0.5ms** | 50ms | 100ms |
+| Random access | **1ns** | - | 50ns |
+| Insert at end | **10ns** | 100ns | 100ns |
+| Insert in middle | 50ms | **10ns** | 100ns |
+| Sorted order | ❌ | ❌ | ✅ |
+
+**Правило за избор:**
+
+1. **std::vector** - Default choice! (90% от случаите)
+   - Използвай когато: честа итерация, random access, push_back
+
+2. **std::list** - Рядко (5% от случаите)
+   - Използвай когато: много чести insert/delete в средата И рядко итерираш
+
+3. **std::map** - Специализиран (5% от случаите)
+   - Използвай когато: нуждаеш се от sorted order И logarithmic lookup
+
+**Важно:** Поради cache locality, дори `std::vector` с O(n) insert може да е по-бързо от `std::list` с O(1) insert за малки N!
 
 </CollapsibleSection>
 
@@ -704,6 +1010,104 @@ void add_arrays(int* a, int* b, int* result, int n) {
 
 </CollapsibleSection>
 
+<CollapsibleSection title="Решение" icon="✅">
+
+**Compiler Explorer анализ:**
+
+Отидете на [godbolt.org](https://godbolt.org) и въведете кода. Ето какво да търсите:
+
+**С -O0 (без оптимизации):**
+
+```asm
+add_arrays(int*, int*, int*, int):
+    push    rbp
+    mov     rbp, rsp
+    mov     QWORD PTR [rbp-24], rdi
+    mov     QWORD PTR [rbp-32], rsi
+    mov     QWORD PTR [rbp-40], rdx
+    mov     DWORD PTR [rbp-44], ecx
+    mov     DWORD PTR [rbp-4], 0          ; i = 0
+.L3:
+    mov     eax, DWORD PTR [rbp-4]
+    cmp     eax, DWORD PTR [rbp-44]       ; i < n проверка
+    jge     .L2                            ; branch
+    mov     eax, DWORD PTR [rbp-4]
+    cdqe
+    lea     rdx, [0+rax*4]
+    mov     rax, QWORD PTR [rbp-24]
+    add     rax, rdx
+    mov     ecx, DWORD PTR [rax]          ; зареди a[i]
+    mov     eax, DWORD PTR [rbp-4]
+    cdqe
+    lea     rdx, [0+rax*4]
+    mov     rax, QWORD PTR [rbp-32]
+    add     rax, rdx
+    mov     edx, DWORD PTR [rax]          ; зареди b[i]
+    add     edx, ecx                       ; a[i] + b[i]
+    ; ... още много инструкции за запис
+    add     DWORD PTR [rbp-4], 1          ; i++
+    jmp     .L3
+.L2:
+    pop     rbp
+    ret
+```
+
+**Характеристики на -O0:**
+- ❌ Много stack операции (push/pop)
+- ❌ Всяка променлива се пази в stack memory
+- ❌ Loop counter (`i`) се чете/пише от памет всяка итерация
+- ❌ Много load/store операции
+- ❌ Прост, неоптимизиран loop
+- ✅ Лесно за debugging (1-to-1 mapping с source кода)
+
+**С -O3 (агресивни оптимизации):**
+
+```asm
+add_arrays(int*, int*, int*, int):
+    test    ecx, ecx
+    jle     .L1                            ; ранен exit ако n <= 0
+    lea     eax, [rcx-1]
+    cmp     eax, 2
+    jbe     .L7                            ; малко n -> scalar loop
+
+    ; SIMD векторизация!
+    movdqu  xmm0, XMMWORD PTR [rdi]        ; зареди 4 ints от a[]
+    movdqu  xmm1, XMMWORD PTR [rsi]        ; зареди 4 ints от b[]
+    paddd   xmm0, xmm1                     ; добави 4 ints наведнъж!
+    movups  XMMWORD PTR [rdx], xmm0        ; запиши 4 ints
+
+    ; Loop е unroll-нат и обработва 4+ елемента/итерация
+    add     rdi, 16                        ; advance указателя с 4*4 bytes
+    add     rsi, 16
+    add     rdx, 16
+    sub     r8d, 4                         ; counter -= 4
+    jne     .L3                            ; повтори
+.L1:
+    ret
+```
+
+**Характеристики на -O3:**
+- ✅ **SIMD векторизация**: `paddd xmm0, xmm1` добавя 4 integers наведнъж!
+- ✅ **Loop unrolling**: обработва 4+ елемента/итерация вместо 1
+- ✅ **Register optimization**: променливите са в registers (rdi, rsi, rdx)
+- ✅ **Елиминирани проверки**: интелигентна branch оптимизация
+- ✅ **Малко инструкции**: 5-10x по-малко assembly код
+- ✅ **Pointer arithmetic**: вместо array indexing
+
+**Ключови разлики:**
+
+| Аспект | -O0 | -O3 |
+|--------|-----|-----|
+| **Инструкции/итерация** | ~20-30 | ~5-8 (4x по-малко) |
+| **SIMD** | ❌ Скаларни операции | ✅ 4 елемента наведнъж |
+| **Loop unrolling** | ❌ Няма | ✅ Фактор 4+ |
+| **Registers** | ❌ Stack memory | ✅ CPU registers |
+| **Performance** | Baseline | **5-10x по-бързо** |
+
+**Експеримент:** Копирайте кода в Compiler Explorer и сравнете!
+
+</CollapsibleSection>
+
 </ExerciseCard>
 
 <ExerciseCard difficulty="medium-hard">
@@ -775,6 +1179,135 @@ void add_arrays_with_restrict(int* __restrict a,
 <CollapsibleSection title="Подсказка" icon="💡">
 
 Използвайте std::chrono за измерване на времето. Тествайте с голям брой елементи (напр. 1 милион).
+
+</CollapsibleSection>
+
+<CollapsibleSection title="Решение" icon="✅">
+
+**Benchmark: vector vs list итерация**
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <list>
+#include <chrono>
+
+// Benchmark за std::vector
+void benchmark_vector(int size) {
+    std::vector<int> vec(size);
+
+    // Инициализация
+    for (int i = 0; i < size; i++) {
+        vec[i] = i;
+    }
+
+    // Измерване на итерация
+    auto start = std::chrono::high_resolution_clock::now();
+
+    long long sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += vec[i];
+    }
+
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+
+    std::cout << "vector iteration: " << duration.count() << " μs" << std::endl;
+    std::cout << "Sum: " << sum << " (to prevent optimization)" << std::endl;
+}
+
+// Benchmark за std::list
+void benchmark_list(int size) {
+    std::list<int> lst;
+
+    // Инициализация
+    for (int i = 0; i < size; i++) {
+        lst.push_back(i);
+    }
+
+    // Измерване на итерация
+    auto start = std::chrono::high_resolution_clock::now();
+
+    long long sum = 0;
+    for (int val : lst) {
+        sum += val;
+    }
+
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+
+    std::cout << "list iteration: " << duration.count() << " μs" << std::endl;
+    std::cout << "Sum: " << sum << " (to prevent optimization)" << std::endl;
+}
+
+int main() {
+    const int SIZE = 1000000;  // 1 милион елемента
+
+    std::cout << "Benchmarking with " << SIZE << " elements:" << std::endl;
+    std::cout << "===========================================" << std::endl;
+
+    benchmark_vector(SIZE);
+    std::cout << std::endl;
+    benchmark_list(SIZE);
+
+    return 0;
+}
+```
+
+**Компилация и изпълнение:**
+
+```bash
+# Компилирай с оптимизации
+g++ -O3 -std=c++17 benchmark.cpp -o benchmark
+
+# Изпълни
+./benchmark
+```
+
+**Очаквани резултати (типична x86-64 машина):**
+
+```
+Benchmarking with 1000000 elements:
+===========================================
+vector iteration: 450 μs
+Sum: 499999500000
+
+list iteration: 25000 μs
+Sum: 499999500000
+```
+
+**Анализ на резултатите:**
+
+| Метрика | std::vector | std::list | Разлика |
+|---------|-------------|-----------|---------|
+| **Време** | ~450 μs | ~25,000 μs | **50-60x по-бавно!** |
+| **Cache misses** | Малко (~6%) | Много (~95%) | - |
+| **Memory access pattern** | Последователен | Pointer chasing | - |
+| **CPU prefetching** | Работи отлично | Не работи | - |
+
+**Обяснение на резултатите:**
+
+**std::vector (бързо):**
+- ✅ **Непрекъсната памет**: Всички елементи са един до друг
+- ✅ **Cache hits**: При достъп до елемент, следващите 15-20 също са в кеша
+- ✅ **CPU prefetching**: CPU-то автоматично зарежда следващите данни
+- ✅ **SIMD потенциал**: Компилаторът може да векторизира (с -O3)
+
+**std::list (бавно):**
+- ❌ **Разпръсната памет**: Всеки node е произволно място в heap-а
+- ❌ **Cache misses**: Всеки node достъп е вероятно cache miss
+- ❌ **Pointer chasing**: Трябва да следваме 1,000,000 указателя
+- ❌ **No prefetching**: CPU не може да предвиди къде е следващият node
+- ❌ **No SIMD**: Невъзможна векторизация
+
+**Практически извод:**
+
+За операции, които изискват честа итерация, `std::vector` е **почти винаги по-добрият избор**, дори ако има O(n) complexity за някои операции като insert в средата.
+
+**Изключения когато list може да е по-добър:**
+- Много чести insert/delete операции в средата
+- Рядко итерираш през всички елементи
+- Нуждаеш се от stable iterators
 
 </CollapsibleSection>
 
@@ -925,6 +1458,219 @@ for (int i = 0; i < n; i++) {
 
 </CollapsibleSection>
 
+<CollapsibleSection title="Решение" icon="✅">
+
+**Performance Comparison: Arrays vs Containers**
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <list>
+#include <array>
+#include <chrono>
+#include <numeric>
+
+const int SIZE = 1000000;  // 1 милион integers
+
+// Benchmark за чист масив
+void benchmark_raw_array() {
+    int* arr = new int[SIZE];
+
+    // Инициализация
+    for (int i = 0; i < SIZE; i++) {
+        arr[i] = i;
+    }
+
+    auto start = std::chrono::high_resolution_clock::now();
+
+    // Processing
+    long long sum = 0;
+    for (int i = 0; i < SIZE; i++) {
+        sum += arr[i] * 2;
+    }
+
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+
+    std::cout << "Raw array: " << duration.count() << " μs (sum: " << sum << ")" << std::endl;
+
+    delete[] arr;
+}
+
+// Benchmark за std::vector
+void benchmark_vector() {
+    std::vector<int> vec(SIZE);
+
+    // Инициализация
+    for (int i = 0; i < SIZE; i++) {
+        vec[i] = i;
+    }
+
+    auto start = std::chrono::high_resolution_clock::now();
+
+    // Processing
+    long long sum = 0;
+    for (int i = 0; i < SIZE; i++) {
+        sum += vec[i] * 2;
+    }
+
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+
+    std::cout << "std::vector: " << duration.count() << " μs (sum: " << sum << ")" << std::endl;
+}
+
+// Benchmark за std::list
+void benchmark_list() {
+    std::list<int> lst;
+
+    // Инициализация
+    for (int i = 0; i < SIZE; i++) {
+        lst.push_back(i);
+    }
+
+    auto start = std::chrono::high_resolution_clock::now();
+
+    // Processing
+    long long sum = 0;
+    for (int val : lst) {
+        sum += val * 2;
+    }
+
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+
+    std::cout << "std::list: " << duration.count() << " μs (sum: " << sum << ")" << std::endl;
+}
+
+int main() {
+    std::cout << "Performance Comparison (1M integers):" << std::endl;
+    std::cout << "======================================" << std::endl;
+
+    benchmark_raw_array();
+    benchmark_vector();
+    benchmark_list();
+
+    return 0;
+}
+```
+
+**Компилация и измервания:**
+
+```bash
+# С оптимизации
+g++ -O3 -march=native -std=c++17 perf_test.cpp -o perf_test
+./perf_test
+```
+
+**Типични резултати:**
+
+```
+Performance Comparison (1M integers):
+======================================
+Raw array: 420 μs (sum: 999999000000)
+std::vector: 425 μs (sum: 999999000000)
+std::list: 28500 μs (sum: 999999000000)
+```
+
+**Анализ:**
+
+<Tabs>
+<TabItem value="raw" label="Чист масив" default>
+
+**Performance:** ⭐⭐⭐⭐⭐ (най-бърз)
+
+**Предимства:**
+- ✅ Директен memory access (без overhead)
+- ✅ Отлична compiler оптимизация
+- ✅ SIMD векторизация (с -O3)
+- ✅ Минимален overhead
+
+**Недостатъци:**
+- ❌ Ръчно memory management (new/delete)
+- ❌ Няма bounds checking
+- ❌ Unsafe (buffer overflow риск)
+- ❌ Няма size информация
+
+</TabItem>
+<TabItem value="vector" label="std::vector">
+
+**Performance:** ⭐⭐⭐⭐⭐ (почти идентична с масив!)
+
+**Предимства:**
+- ✅ Същата скорост като чист масив (с -O3)
+- ✅ Автоматично memory management
+- ✅ SIMD векторизация
+- ✅ .at() за bounds checking (optional)
+- ✅ STL съвместимост
+- ✅ Има .size(), .capacity()
+
+**Недостатъци:**
+- ❌ Малък overhead (3 указателя: data, size, capacity = 24 bytes)
+- ✅ Но overhead-ът е константен, не per-елемент!
+
+**Заключение:** Почти винаги е по-добър от чист масив!
+
+</TabItem>
+<TabItem value="list" label="std::list">
+
+**Performance:** ⭐ (60-70x по-бавен!)
+
+**Предимства:**
+- ✅ O(1) insert/delete в средата (с iterator)
+- ✅ Stable iterators
+
+**Недостатъци:**
+- ❌ **Катастрофална cache locality**
+- ❌ Pointer chasing (1M указателя да следваш)
+- ❌ 95%+ cache miss rate
+- ❌ Memory overhead: 16 bytes/елемент (2 указателя)
+- ❌ No random access
+- ❌ No SIMD векторизация
+
+**Заключение:** Избягвай за итеративни операции!
+
+</TabItem>
+</Tabs>
+
+**Assembly анализ (Compiler Explorer):**
+
+**Raw array / std::vector с -O3:**
+```asm
+; SIMD векторизация (обработва 4 integers наведнъж)
+.L3:
+    movdqu  xmm0, XMMWORD PTR [rax]     ; зареди 4 ints
+    paddd   xmm0, xmm0                   ; умножи по 2 (чрез добавяне)
+    paddq   xmm1, xmm0                   ; добави към sum
+    add     rax, 16                      ; следващи 4 елемента
+    cmp     rax, rdx
+    jne     .L3
+```
+
+**std::list:**
+```asm
+; Pointer chasing (скаларен код, no SIMD)
+.L3:
+    mov     eax, DWORD PTR [rbx]        ; зареди val
+    add     rbx, QWORD PTR [rbx+8]      ; следвай next указател
+    add     eax, eax                     ; умножи по 2
+    add     rcx, rax                     ; добави към sum
+    cmp     rbx, rbp
+    jne     .L3
+```
+
+**Практически извод:**
+
+| Use Case | Препоръка |
+|----------|-----------|
+| **Performance-critical код** | `std::vector` или raw array |
+| **General purpose** | `std::vector` (best balance) |
+| **Safety важна** | `std::vector` с `.at()` |
+| **Чести insert/delete** | Все пак `std::vector`! (освен ако наистина е bottleneck) |
+| **Stable iterators нужни** | `std::list` (рядко) |
+
+</CollapsibleSection>
+
 </ExerciseCard>
 
 <ExerciseCard difficulty="hard">
@@ -979,6 +1725,221 @@ void add_arrays(float* a, float* b, float* result, int n) {
 <CollapsibleSection title="Подсказка" icon="💡">
 
 Помислете за комбиниран подход или специализирани структури като entity-component systems.
+
+</CollapsibleSection>
+
+<CollapsibleSection title="Решение" icon="✅">
+
+**Дизайн на структура от данни за игра**
+
+**Изисквания анализ:**
+1. 100,000 entities (голям брой)
+2. **Честа операция:** итерация за update на позиции
+3. **Рядка операция:** insert/delete на произволни позиции
+
+**Решение: std::vector с "Tombstone" pattern (или Entity-Component System)**
+
+<Tabs>
+<TabItem value="solution1" label="Вариант 1: std::vector с swap-and-pop" default>
+
+```cpp
+struct Entity {
+    int id;
+    float x, y, z;      // Позиция
+    bool active;        // За "soft delete"
+
+    void update(float deltaTime) {
+        x += deltaTime;
+        y += deltaTime * 0.5f;
+    }
+};
+
+class EntityManager {
+private:
+    std::vector<Entity> entities;
+
+public:
+    // Добавяне на entity (O(1) amortized)
+    void add_entity(int id, float x, float y, float z) {
+        entities.push_back({id, x, y, z, true});
+    }
+
+    // Update на всички entities (отлична cache locality!)
+    void update_all(float deltaTime) {
+        for (Entity& e : entities) {
+            if (e.active) {
+                e.update(deltaTime);
+            }
+        }
+    }
+
+    // Delete с swap-and-pop (O(1), но променя реда)
+    void remove_entity_fast(int id) {
+        for (size_t i = 0; i < entities.size(); i++) {
+            if (entities[i].id == id) {
+                // Swap със последния елемент
+                std::swap(entities[i], entities.back());
+                entities.pop_back();
+                return;
+            }
+        }
+    }
+
+    // Delete със запазване на реда (O(n), рядко)
+    void remove_entity_ordered(int id) {
+        entities.erase(
+            std::remove_if(entities.begin(), entities.end(),
+                [id](const Entity& e) { return e.id == id; }),
+            entities.end()
+        );
+    }
+
+    // Soft delete (O(1), не премахва веднага)
+    void deactivate_entity(int id) {
+        for (Entity& e : entities) {
+            if (e.id == id) {
+                e.active = false;
+                return;
+            }
+        }
+    }
+
+    // Periodic cleanup (извиква се рядко)
+    void cleanup_inactive() {
+        entities.erase(
+            std::remove_if(entities.begin(), entities.end(),
+                [](const Entity& e) { return !e.active; }),
+            entities.end()
+        );
+    }
+};
+```
+
+**Предимства:**
+- ✅ **Отлична итерация**: Непрекъсната памет → cache-friendly
+- ✅ **SIMD потенциал**: Компилаторът може да векторизира update loop
+- ✅ **Бърз insert**: push_back е O(1) amortized
+- ✅ **Гъвкавост**: swap-and-pop за бързо изтриване, или ordered delete ако трябва
+
+**Недостатъци:**
+- ⚠️ Delete може да променя реда (swap-and-pop)
+- ⚠️ Soft delete изисква проверка на `active` (малък overhead)
+
+</TabItem>
+<TabItem value="solution2" label="Вариант 2: Entity-Component System (ECS)">
+
+```cpp
+// Data-Oriented Design: разделяме данните по компоненти
+class ECS_Manager {
+private:
+    std::vector<int> entity_ids;
+    std::vector<float> positions_x;  // SoA (Structure of Arrays)
+    std::vector<float> positions_y;
+    std::vector<float> positions_z;
+    std::vector<bool> active;
+
+public:
+    void add_entity(int id, float x, float y, float z) {
+        entity_ids.push_back(id);
+        positions_x.push_back(x);
+        positions_y.push_back(y);
+        positions_z.push_back(z);
+        active.push_back(true);
+    }
+
+    // Супер оптимизиран update - отличен за векторизация!
+    void update_positions(float deltaTime) {
+        // Компилаторът може да векторизира този loop перфектно
+        for (size_t i = 0; i < positions_x.size(); i++) {
+            if (active[i]) {
+                positions_x[i] += deltaTime;
+                positions_y[i] += deltaTime * 0.5f;
+            }
+        }
+    }
+
+    void remove_entity(int id) {
+        auto it = std::find(entity_ids.begin(), entity_ids.end(), id);
+        if (it != entity_ids.end()) {
+            size_t index = std::distance(entity_ids.begin(), it);
+
+            // Swap-and-pop за всички arrays
+            entity_ids[index] = entity_ids.back();
+            positions_x[index] = positions_x.back();
+            positions_y[index] = positions_y.back();
+            positions_z[index] = positions_z.back();
+            active[index] = active.back();
+
+            entity_ids.pop_back();
+            positions_x.pop_back();
+            positions_y.pop_back();
+            positions_z.pop_back();
+            active.pop_back();
+        }
+    }
+};
+```
+
+**Предимства:**
+- ✅ **Перфектна векторизация**: SoA layout е идеален за SIMD
+- ✅ **Минимален memory overhead**: Няма padding между полетата
+- ✅ **Cache-oblivious**: Автоматично оптимална cache употреба
+
+**Недостатъци:**
+- ❌ По-сложен код (multiple arrays)
+- ❌ Синхронизацията между arrays трябва да се поддържа
+
+</TabItem>
+<TabItem value="wrong" label="❌ Лош дизайн (std::list)">
+
+```cpp
+// НЕ правете това!
+class BadEntityManager {
+private:
+    std::list<Entity> entities;  // ❌ Катастрофа за performance!
+
+public:
+    void update_all(float deltaTime) {
+        for (Entity& e : entities) {
+            e.update(deltaTime);  // Cache miss на всеки елемент!
+        }
+    }
+};
+```
+
+**Защо е лошо:**
+- ❌ 100,000 cache misses при update
+- ❌ Pointer chasing за 100,000 nodes
+- ❌ Memory overhead: 16 bytes/entity само за указатели
+- ❌ Невъзможна векторизация
+- ❌ **50-100x по-бавно от vector!**
+
+</TabItem>
+</Tabs>
+
+**Trade-offs таблица:**
+
+| Критерий | std::vector | std::vector + SoA (ECS) | std::list |
+|----------|-------------|-------------------------|-----------|
+| **Iteration speed** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐ |
+| **Cache locality** | Отлична | Перфектна | Катастрофална |
+| **SIMD potential** | Добър | Перфектен | Няма |
+| **Insert speed** | O(1) amortized | O(1) amortized | O(1) |
+| **Delete speed** | O(n) или O(1)* | O(n) или O(1)* | O(1)** |
+| **Memory overhead** | Минимален | Минимален | 16 bytes/entity |
+| **Code complexity** | Прост | Средна | Прост |
+
+*O(1) със swap-and-pop, O(n) със запазване на ред
+**Само ако имаш iterator
+
+**Препоръка:**
+
+Използвай **std::vector с swap-and-pop** като начален дизайн. Ако update loop-ът стане bottleneck, мигрирай към **SoA/ECS**.
+
+**Практически измервания (100,000 entities update):**
+- std::vector: ~0.5ms ⭐⭐⭐⭐⭐
+- ECS (SoA): ~0.3ms ⭐⭐⭐⭐⭐
+- std::list: ~30ms ❌❌❌
 
 </CollapsibleSection>
 
@@ -1054,6 +2015,214 @@ void process_matrix_rows(int matrix[1024][1024]) {
 <CollapsibleSection title="Подсказка" icon="💡">
 
 Разгледайте recursive divide-and-conquer подход и blocked matrix operations.
+
+</CollapsibleSection>
+
+<CollapsibleSection title="Решение" icon="✅">
+
+**Cache-Oblivious Matrix Transpose**
+
+**Проблем:** Naive matrix transpose има лоша cache locality при едната от операциите (или read или write е column-wise).
+
+<Tabs>
+<TabItem value="naive" label="Naive имплементация" default>
+
+```cpp
+void transpose_naive(int** src, int** dst, int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            dst[j][i] = src[i][j];
+            // src[i][j] - row-wise access ✅ добра locality
+            // dst[j][i] - column-wise access ❌ лоша locality
+        }
+    }
+}
+```
+
+**Проблем:**
+- `src` се чете row-wise → добра locality
+- `dst` се пише column-wise → лоша locality
+- За матрица 1024x1024: ~50% cache miss rate
+- **Performance:** ~10ms за 1024x1024 матрица
+
+</TabItem>
+<TabItem value="blocked" label="Cache-Aware Blocking">
+
+```cpp
+void transpose_blocked(int** src, int** dst, int n) {
+    const int BLOCK_SIZE = 32;  // Избрано за L1 cache (32x32x4 = 4KB)
+
+    for (int i = 0; i < n; i += BLOCK_SIZE) {
+        for (int j = 0; j < n; j += BLOCK_SIZE) {
+            // Транспонирай един block
+            int max_i = std::min(i + BLOCK_SIZE, n);
+            int max_j = std::min(j + BLOCK_SIZE, n);
+
+            for (int bi = i; bi < max_i; bi++) {
+                for (int bj = j; bj < max_j; bj++) {
+                    dst[bj][bi] = src[bi][bj];
+                }
+            }
+        }
+    }
+}
+```
+
+**Предимства:**
+- Работи на blocks, които се побират в L1 cache
+- По-добра locality за и двете операции
+- **Performance:** ~3ms за 1024x1024 (3x подобрение!)
+
+**Недостатък:**
+- Трябва ръчно да настройваш BLOCK_SIZE за конкретния hardware
+
+</TabItem>
+<TabItem value="oblivious" label="Cache-Oblivious Recursive">
+
+```cpp
+void transpose_recursive(int** src, int** dst,
+                        int row_start, int col_start, int size) {
+    // Base case: достатъчно малък block
+    if (size <= 32) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                dst[col_start + j][row_start + i] =
+                    src[row_start + i][col_start + j];
+            }
+        }
+        return;
+    }
+
+    // Divide-and-conquer: разделяме матрицата на 4 квадранта
+    int half = size / 2;
+
+    // Top-left квадрант
+    transpose_recursive(src, dst, row_start, col_start, half);
+
+    // Top-right квадрант
+    transpose_recursive(src, dst, row_start, col_start + half, half);
+
+    // Bottom-left квадрант
+    transpose_recursive(src, dst, row_start + half, col_start, half);
+
+    // Bottom-right квадрант
+    transpose_recursive(src, dst, row_start + half, col_start + half, half);
+}
+
+// Wrapper функция
+void transpose_cache_oblivious(int** src, int** dst, int n) {
+    transpose_recursive(src, dst, 0, 0, n);
+}
+```
+
+**Предимства:**
+- ✅ **Cache-oblivious**: Работи оптимално на ВСЯКА cache архитектура
+- ✅ Автоматично се адаптира към L1, L2, L3 cache sizes
+- ✅ Няма нужда от hardware-specific параметри
+- ✅ Recursive subdivision → оптимална locality на всяко ниво
+
+**Performance:** ~2.5ms за 1024x1024 (4x подобрение!)
+
+**Как работи:**
+1. Разделя матрицата на 4 квадранта
+2. Рекурсивно транспонира всеки квадрант
+3. Когато block стане достатъчно малък (≤32), прави direct transpose
+4. Автоматично се вмества в различните cache levels по време на рекурсията
+
+</TabItem>
+</Tabs>
+
+**Пълен benchmark код:**
+
+```cpp
+#include <iostream>
+#include <chrono>
+#include <algorithm>
+
+const int N = 1024;
+
+// Helper: алокирай 2D масив
+int** allocate_matrix(int n) {
+    int** mat = new int*[n];
+    for (int i = 0; i < n; i++) {
+        mat[i] = new int[n];
+    }
+    return mat;
+}
+
+// Helper: инициализирай матрица
+void initialize_matrix(int** mat, int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            mat[i][j] = i * n + j;
+        }
+    }
+}
+
+// ... (paste transpose functions from above)
+
+int main() {
+    int** src = allocate_matrix(N);
+    int** dst_naive = allocate_matrix(N);
+    int** dst_blocked = allocate_matrix(N);
+    int** dst_oblivious = allocate_matrix(N);
+
+    initialize_matrix(src, N);
+
+    // Benchmark Naive
+    auto start = std::chrono::high_resolution_clock::now();
+    transpose_naive(src, dst_naive, N);
+    auto end = std::chrono::high_resolution_clock::now();
+    std::cout << "Naive: "
+              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
+              << " ms" << std::endl;
+
+    // Benchmark Blocked
+    start = std::chrono::high_resolution_clock::now();
+    transpose_blocked(src, dst_blocked, N);
+    end = std::chrono::high_resolution_clock::now();
+    std::cout << "Blocked: "
+              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
+              << " ms" << std::endl;
+
+    // Benchmark Cache-Oblivious
+    start = std::chrono::high_resolution_clock::now();
+    transpose_cache_oblivious(src, dst_oblivious, N);
+    end = std::chrono::high_resolution_clock::now();
+    std::cout << "Cache-Oblivious: "
+              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
+              << " ms" << std::endl;
+
+    return 0;
+}
+```
+
+**Очаквани резултати (1024x1024 матрица):**
+
+```
+Naive: 12 ms
+Blocked: 4 ms
+Cache-Oblivious: 3 ms
+```
+
+**Cache анализ:**
+
+| Метод | Cache Misses | Speedup |
+|-------|--------------|---------|
+| Naive | ~1M misses | Baseline |
+| Blocked (32x32) | ~300K misses | 3x |
+| Cache-Oblivious | ~250K misses | 4x |
+
+**Compiler Explorer анализ:**
+
+Тествайте на [godbolt.org](https://godbolt.org) с `-O3 -march=native`:
+- Naive: Генерира прост nested loop
+- Blocked: Loop tiling с известен block size
+- Recursive: Tail-call оптимизация + loop fusion
+
+**Ключов извод:**
+
+Cache-oblivious алгоритмите използват **divide-and-conquer** за да постигнат оптимална locality на всяко cache ниво **без** да знаят cache sizes!
 
 </CollapsibleSection>
 

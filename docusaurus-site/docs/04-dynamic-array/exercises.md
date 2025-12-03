@@ -68,16 +68,16 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 - C) Имат фиксиран размер, определен по време на компилация
 - D) Използват указатели за достъп до елементи
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор: C**
 
 Статичните масиви имат **фиксиран размер**, който се определя по време на **компилация** и не може да се променя по време на изпълнение.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -97,16 +97,16 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 - C) По-малко използване на памет
 - D) По-проста синтаксис
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор: B**
 
 Основното предимство на динамичните масиви е **възможността за автоматично изменение на размера** по време на изпълнение на програмата.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 
 <ExerciseCard
@@ -124,16 +124,16 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 - C) Размерът на всеки елемент в байтове
 - D) Броят на извършените операции push_back
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор: B**
 
 **Капацитетът (capacity)** е максималният брой елементи, които могат да бъдат съхранени в заделената памет **преди да се наложи преразпределение**.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 
 <ExerciseCard
@@ -151,10 +151,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 - C) `clear()`
 - D) `remove()`
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор: A**
 
@@ -163,6 +161,8 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 - `free()` за памет заделена с `malloc()`
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 
 <ExerciseCard
@@ -180,16 +180,16 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 - C) O(1)
 - D) O(n²)
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор: C**
 
 Достъпът по индекс в динамичен масив е **O(1) - константно време**, тъй като елементите се съхраняват в непрекъснат блок памет.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 
 <ExerciseCard
@@ -211,16 +211,16 @@ int arr[10];
 - C) В глобалната памет
 - D) В регистрите на процесора
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор: B**
 
 Статичните масиви се разпределят в **стека (stack)**, където паметта се управлява автоматично.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -237,10 +237,8 @@ int arr[10];
 
 **Задача:** Обяснете с **2-3 изречения** защо капацитетът на динамичен масив обикновено е **по-голям** от текущия размер. Каква е целта на тази стратегия?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор:**
 
@@ -249,6 +247,8 @@ int arr[10];
 Като имаме резервна памет, **амортизираме разходите** за преразпределение върху множество операции и постигаме **O(1) амортизирана сложност** за добавяне.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 
 <ExerciseCard
@@ -270,10 +270,8 @@ arr.push_back(30);
 
 Какъв ще бъде капацитетът след третата операция `push_back`, ако масивът удвоява капацитета си при преразпределение? Обяснете стъпка по стъпка.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор:**
 
@@ -291,6 +289,8 @@ arr.push_back(30);
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="medium"
@@ -302,10 +302,8 @@ arr.push_back(30);
 
 **Задача:** Каква е разликата между **size** и **capacity** в динамичен масив? Дайте конкретен пример със стойности.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор:**
 
@@ -330,6 +328,8 @@ arr.push_back(20);
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="medium"
@@ -352,10 +352,8 @@ data = new_data;
 
 Каква е **времевата сложност** на този код и защо?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор:**
 
@@ -371,6 +369,8 @@ data = new_data;
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="medium"
@@ -382,10 +382,8 @@ data = new_data;
 
 **Задача:** Защо използването на `std::vector` е **предпочитано** пред ръчна имплементация на динамичен масив в production код? Посочете поне **3 причини**.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор:**
 
@@ -414,6 +412,8 @@ data = new_data;
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="medium"
@@ -425,10 +425,8 @@ data = new_data;
 
 **Задача:** Какво е **RAII** принципът и как се прилага при реализацията на динамичен масив? Дайте пример с конструктор и деструктор.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор:**
 
@@ -469,6 +467,8 @@ public:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="medium"
@@ -480,10 +480,8 @@ public:
 
 **Задача:** Напишете **псевдокод** за метод `pop_back()`, който премахва последния елемент от динамичен масив. Трябва ли да се преразпределя памет?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор:**
 
@@ -521,6 +519,8 @@ void pop_back() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="medium"
@@ -539,10 +539,8 @@ arr->push_back(10);
 // програмата завършва
 ```
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж отговора" defaultOpen={false}>
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Отговор:**
 
@@ -569,6 +567,8 @@ arr.push_back(10);
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## 🟠 Средно-трудни Упражнения
@@ -584,10 +584,8 @@ arr.push_back(10);
 
 **Задача:** Имплементирайте метод `insert(int index, int value)`, който вмъква елемент на определена позиция в динамичен масив. Каква е времевата сложност на този метод в най-лошия случай?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж решението" defaultOpen={false}>
+<CollapsibleSection title="Виж решението">
 
 **Решение:**
 
@@ -631,6 +629,8 @@ int insert(int index, int value) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="medium"
@@ -642,10 +642,8 @@ int insert(int index, int value) {
 
 **Задача:** Обяснете концепцията за **амортизирана сложност**. Защо операцията `push_back` има амортизирана O(1) сложност, въпреки че понякога отнема O(n) време?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж обяснението" defaultOpen={false}>
+<CollapsibleSection title="Виж обяснението">
 
 **Отговор:**
 
@@ -687,6 +685,8 @@ int insert(int index, int value) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="hard"
@@ -698,10 +698,8 @@ int insert(int index, int value) {
 
 **Задача:** Напишете функция, която **обединява** два динамични масива в нов масив. Каква стратегия бихте използвали за определяне на началния капацитет?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж решението" defaultOpen={false}>
+<CollapsibleSection title="Виж решението">
 
 **Решение:**
 
@@ -754,6 +752,8 @@ DynamicArray merge(const DynamicArray& arr1, const DynamicArray& arr2) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="hard"
@@ -769,10 +769,8 @@ DynamicArray merge(const DynamicArray& arr1, const DynamicArray& arr2) {
 - Вмъкване в края
 - Използване на памет
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж сравнението" defaultOpen={false}>
+<CollapsibleSection title="Виж сравнението">
 
 **Отговор:**
 
@@ -810,6 +808,8 @@ _*амортизирано_
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## 🔴 Трудни Упражнения
@@ -825,10 +825,8 @@ _*амортизирано_
 
 **Задача:** Напишете пълна имплементация на метод `shrink_to_fit()`, който намалява капацитета на динамичен масив до текущия размер. Кога използването на такъв метод е **оправдано**?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж решението" defaultOpen={false}>
+<CollapsibleSection title="Виж решението">
 
 **Решение:**
 
@@ -900,6 +898,8 @@ int shrink_to_fit() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="hard"
@@ -914,10 +914,8 @@ int shrink_to_fit() {
 - Какви са предимствата и недостатъците на този подход?
 - Изчислете колко пъти ще се извърши преразпределение при добавяне на 100 елемента при начален капацитет 4 (за коефициент 1.5 и коефициент 2).
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж анализа" defaultOpen={false}>
+<CollapsibleSection title="Виж анализа">
 
 **Отговор:**
 
@@ -977,6 +975,8 @@ n=94:  capacity = 141 (стига за 100 елемента)
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="hard"
@@ -988,10 +988,8 @@ n=94:  capacity = 141 (стига за 100 елемента)
 
 **Задача:** Имплементирайте **generic** (шаблонен) клас `DynamicArray<T>`, който работи с произволен тип данни, не само с `int`. Какви допълнителни предизвикателства възникват?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж решението" defaultOpen={false}>
+<CollapsibleSection title="Виж решението">
 
 **Решение:**
 
@@ -1135,6 +1133,8 @@ objects.push_back(MyClass());
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="hard"
@@ -1146,10 +1146,8 @@ objects.push_back(MyClass());
 
 **Задача:** Анализирайте **пространствената сложност** на динамичен масив с коефициент на растеж 2. В най-лошия случай, каква е максималната неизползвана памет като процент от общата заделена памет?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж анализа" defaultOpen={false}>
+<CollapsibleSection title="Виж анализа">
 
 **Отговор:**
 
@@ -1218,6 +1216,8 @@ Percentage = 63/128 ≈ 49.2%
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 <ExerciseCard
   difficulty="hard"
@@ -1229,10 +1229,8 @@ Percentage = 63/128 ≈ 49.2%
 
 **Задача:** Имплементирайте метод `reserve(int new_capacity)`, подобен на `std::vector::reserve()`, който **предварително** заделя капацитет. Защо такъв метод може да подобри производителността?
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж решението" defaultOpen={false}>
+<CollapsibleSection title="Виж решението">
 
 **Решение:**
 
@@ -1337,6 +1335,8 @@ for (int i = 0; i < 50; i++) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 
 
@@ -1350,10 +1350,8 @@ for (int i = 0; i < 50; i++) {
 
 **Задача:** Представете си, че работите със **системи с ограничена памет** (embedded systems). Каква алтернативна стратегия за растеж бихте предложили вместо експоненциално удвояване? Обосновете отговора си.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж предложението" defaultOpen={false}>
+<CollapsibleSection title="Виж предложението">
 
 **Отговор:**
 
@@ -1480,6 +1478,8 @@ DynamicArray arr(estimated_max_size);
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 
 
 
@@ -1498,10 +1498,8 @@ DynamicArray arr(estimated_max_size);
 
 Обяснете разликите в производителността.
 
-</ExerciseCard>
 
-
-<CollapsibleSection title="Виж решението" defaultOpen={false}>
+<CollapsibleSection title="Виж решението">
 
 **Решение:**
 
@@ -1677,6 +1675,8 @@ for (int i = 0; i < BIG_NUMBER; i++) {
 ```
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 
 

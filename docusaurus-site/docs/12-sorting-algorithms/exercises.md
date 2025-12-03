@@ -34,9 +34,8 @@ import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 - C) In-place сорт винаги използва O(n) допълнителна памет
 - D) Всички алгоритми за сортиране имат O(n²) worst-case сложност
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Отговор" icon="✅">
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Правилен отговор: B**
 
@@ -46,6 +45,8 @@ import SuccessBox from '@site/src/components/InfoBoxes/SuccessBox';
 - D) Има алгоритми с O(n log n) worst-case (merge sort, heap sort)
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -72,9 +73,8 @@ for (int i = 0; i < n; i++) {
 - C) O(n log n)
 - D) O(2n)
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Отговор" icon="✅">
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Правилен отговор: B) O(n²)**
 
@@ -84,6 +84,8 @@ for (int i = 0; i < n; i++) {
 - Общо: n × n = n² операции
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -103,9 +105,8 @@ void swapElements(int arr[], int i, int j) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Има няколко начина:
 1. Използвайте `std::swap()`
@@ -114,7 +115,8 @@ void swapElements(int arr[], int i, int j) {
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Решение 1: С std::swap (препоръчително)**
 ```cpp
@@ -145,6 +147,8 @@ void swapElements(int arr[], int i, int j) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -162,9 +166,8 @@ void swapElements(int arr[], int i, int j) {
 - C) Insertion Sort
 - D) Merge Sort
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Отговор" icon="✅">
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Правилен отговор: B) Selection Sort**
 
@@ -174,6 +177,8 @@ Selection sort работи като:
 3. Повтаря за останалите елементи
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -192,16 +197,16 @@ Selection sort работи като:
 - C) 100
 - D) 500,000
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Binary search има сложност O(log₂ n). Използвайте формулата:
 - log₂(1,000,000) ≈ ?
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Отговор" icon="✅">
+
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Правилен отговор: B) 20**
 
@@ -212,6 +217,8 @@ Binary search сложност: O(log₂ n)
 - 1,000,000 → 500,000 → 250,000 → ... → 1
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -225,9 +232,8 @@ Binary search сложност: O(log₂ n)
 
 Проследете ЕДИН проход на bubble sort на масива `[5, 2, 8, 1]`. Покажете състоянието на масива след всяко сравнение/размяна.
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Начално състояние:** `[5, 2, 8, 1]`
 
@@ -244,6 +250,8 @@ Binary search сложност: O(log₂ n)
 Най-големият елемент (8) е "изплувал" към края на масива.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -267,9 +275,8 @@ Binary search сложност: O(log₂ n)
 - B) Адаптивен (бърз на почти сортирани данни)
 - C) Винаги прави един и същ брой сравнения
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Отговор" icon="✅">
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Съпоставяне:**
 
@@ -292,6 +299,8 @@ Binary search сложност: O(log₂ n)
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -309,9 +318,8 @@ Binary search сложност: O(log₂ n)
 - C) Merge Sort
 - D) Insertion Sort
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Отговор" icon="✅">
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Правилен отговор: C) Merge Sort**
 
@@ -324,6 +332,8 @@ Binary search сложност: O(log₂ n)
 Merge sort е единственият от изброените, който **не е in-place** алгоритъм.
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
@@ -345,15 +355,15 @@ void bubbleSortOptimized(int arr[], int n) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Използвайте булева променлива `swapped`, за да проследите дали са направени размени в текущия проход. Ако `swapped` остане `false`, масивът е сортиран.
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 void bubbleSortOptimized(int arr[], int n) {
@@ -381,6 +391,8 @@ void bubbleSortOptimized(int arr[], int n) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -395,9 +407,8 @@ void bubbleSortOptimized(int arr[], int n) {
 - Колко сравнения прави Selection Sort в най-лошия случай?
 - Колко размени прави Selection Sort в най-лошия случай?
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 **Сравнения**: Selection sort прави фиксиран брой сравнения:
 - Формула: (n-1) + (n-2) + ... + 1 = n(n-1)/2
@@ -406,7 +417,8 @@ void bubbleSortOptimized(int arr[], int n) {
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Сравнения:**
 - Формула: n(n-1)/2
@@ -422,6 +434,8 @@ void bubbleSortOptimized(int arr[], int n) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -434,9 +448,8 @@ void bubbleSortOptimized(int arr[], int n) {
 
 Обяснете защо insertion sort работи добре (O(n)) на масив, който е вече сортиран или почти сортиран. Коя конкретна характеристика го прави адаптивен?
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Отговор" icon="✅">
+<CollapsibleSection title="Отговор" icon="✅">
 
 **Защо Insertion Sort е бърз на почти сортирани данни:**
 
@@ -477,6 +490,8 @@ i=4: key=4, swap с 5 → 1 shift
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -501,15 +516,15 @@ void selectionSort(int arr[], int n) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 След като намерите минималния елемент и неговия индекс, какво трябва да направите с него?
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Проблем:** Липсва размяна на намерения минимален елемент с текущата позиция!
 
@@ -535,6 +550,8 @@ void selectionSort(int arr[], int n) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## СРЕДНИ ЗАДАЧИ (Имплементация и Сравнение на Алгоритми)
@@ -555,9 +572,8 @@ void insertionSort(std::vector<int>& arr) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <vector>
@@ -630,6 +646,8 @@ i=4, key=6:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -647,9 +665,8 @@ i=4, key=6:
 3. Сортиране на integers в диапазон 0-100 с n=10,000
 4. Сортиране на данни на embedded система с само 2KB RAM
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **1. Сортиране на 20 елемента за прост калкулатор**
 
@@ -707,6 +724,8 @@ i=4, key=6:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -725,9 +744,8 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Стъпки:
 1. Създайте временни масиви за лявата и дясната половина
@@ -737,7 +755,8 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 void merge(std::vector<int>& arr, int left, int mid, int right) {
@@ -794,6 +813,8 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -812,9 +833,8 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
 
 Покажете финалния масив за всеки алгоритъм. Кой запазва стабилността?
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 **Стабилен алгоритъм**: Равни елементи запазват относителната си подредба
 
@@ -822,7 +842,8 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Начален масив:** `[(3,0), (1,1), (3,2), (2,3)]`
 
@@ -880,6 +901,8 @@ i=3: key=(2,3)
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -901,9 +924,8 @@ struct Student {
 // Вашият сортиращ код тук
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <algorithm>
@@ -974,6 +996,8 @@ std::sort(students.begin(), students.end(),
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -993,9 +1017,8 @@ void countingSort(std::vector<int>& arr, int k) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Стъпки:
 1. Създайте count масив с размер k+1
@@ -1006,7 +1029,8 @@ void countingSort(std::vector<int>& arr, int k) {
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <vector>
@@ -1096,6 +1120,8 @@ output = [1, 2, 2, 3, 3, 4, 8]
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## СРЕДНО-ТРУДНИ ЗАДАЧИ (Напредната Имплементация и Анализ)
@@ -1116,9 +1142,8 @@ void mergeSort(std::vector<int>& arr, int left, int right) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <vector>
@@ -1226,6 +1251,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1242,9 +1269,8 @@ int main() {
 
 Имплементирайте и обяснете защо това може да е по-бързо от чист merge sort.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Добавете проверка в merge sort:
 - Ако `right - left + 1 < THRESHOLD` → използвайте insertion sort
@@ -1252,7 +1278,8 @@ int main() {
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <vector>
@@ -1398,6 +1425,8 @@ int main() {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1418,9 +1447,8 @@ int main() {
 
 Използвайте формули: Bubble/Selection ≈ n²/2, Merge ≈ n log₂(n)
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 **Формули:**
 - **Bubble Sort / Selection Sort**: n(n-1)/2 ≈ n²/2
@@ -1483,6 +1511,8 @@ Merge Sort е ~50 пъти по-бърз!
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1498,9 +1528,8 @@ Merge Sort е ~50 пъти по-бърз!
 
 Покажете състоянието на масива след сортиране по всяка позиция на цифрата.
 
-</ExerciseCard>
 
-<CollapsibleSection title="💡 Подсказка" icon="💡">
+<CollapsibleSection title="Подсказка" icon="💡">
 
 Radix sort сортира от най-малко значима цифра (единици) към най-значима (стотици):
 1. Сортирай по единици (rightmost цифра)
@@ -1511,7 +1540,8 @@ Radix sort сортира от най-малко значима цифра (ед
 
 </CollapsibleSection>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+
+<CollapsibleSection title="Решение" icon="✅">
 
 **Начален масив:** `[170, 45, 75, 90, 802, 24, 2, 66]`
 
@@ -1617,6 +1647,8 @@ Buckets по стотици:
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 ## ТРУДНИ ЗАДАЧИ (Комплексни Приложения и Оптимизация)
@@ -1639,9 +1671,8 @@ void bucketSort(std::vector<float>& arr) {
 }
 ```
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <vector>
@@ -1771,6 +1802,8 @@ for (int i = 0; i < NUM_BUCKETS; i++) {
 
 </CollapsibleSection>
 
+</ExerciseCard>
+
 ---
 
 <ExerciseCard
@@ -1787,9 +1820,8 @@ for (int i = 0; i < NUM_BUCKETS; i++) {
 3. Измерва и показва execution time за всяка комбинация
 4. Анализира и обяснява резултатите
 
-</ExerciseCard>
 
-<CollapsibleSection title="✅ Решение" icon="✅">
+<CollapsibleSection title="Решение" icon="✅">
 
 ```cpp
 #include <vector>
@@ -2025,6 +2057,8 @@ Array Size: 10000
 - Bubble sort е практически неизползваем за n > 1000
 
 </CollapsibleSection>
+
+</ExerciseCard>
 
 ---
 
