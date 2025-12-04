@@ -2,98 +2,18 @@ import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { usePluginData } from '@docusaurus/useGlobalData';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
-// Lecture data - updated as lectures are migrated
-const lectures = [
-  {
-    number: 1,
-    title: 'Концепции за Сложност и Big-O Нотация',
-    slug: 'complexity-big-o',
-    status: 'ready',
-    topics: ['Сложност', 'Big-O', 'Тестване', 'Double Precision']
-  },
-  {
-    number: 2,
-    title: 'Компилаторни Оптимизации',
-    slug: 'compiler-optimizations',
-    status: 'ready',
-    topics: ['Компилатор', 'Оптимизация', 'Кеш', 'Производителност']
-  },
-  {
-    number: 3,
-    title: 'Масиви и Двоично Търсене',
-    slug: 'arrays-binary-search',
-    status: 'ready',
-    topics: ['Масиви', 'Двоично Търсене', 'ООП', 'Линейни Структури']
-  },
-  {
-    number: 4,
-    title: 'Динамични Масиви',
-    slug: 'dynamic-array',
-    status: 'ready',
-    topics: ['Vector', 'Динамична Памет', 'Reallocate', 'Капацитет']
-  },
-  {
-    number: 5,
-    title: 'Списъци и Итератори',
-    slug: 'lists-iterators',
-    status: 'ready',
-    topics: ['Свързани Списъци', 'Итератори', 'Памет', 'Design Pattern']
-  },
-  {
-    number: 6,
-    title: 'Двусвързани Списъци',
-    slug: 'doubly-linked-lists',
-    status: 'ready',
-    topics: ['Двусвързани Списъци', 'Iterator', 'Навигация', 'Памет']
-  },
-  {
-    number: 7,
-    title: 'Proxy Pattern, Стек и Опашка',
-    slug: 'proxy-stack-queue',
-    status: 'ready',
-    topics: ['Proxy Pattern', 'Stack', 'Queue', 'LIFO', 'FIFO']
-  },
-  {
-    number: 8,
-    title: 'Приложения на Стек и Опашка',
-    slug: 'stack-queue-applications',
-    status: 'ready',
-    topics: ['Shunting Yard', 'Приложения', 'Алгоритми', 'Постфиксна Нотация']
-  },
-  {
-    number: 9,
-    title: 'Двоични Дървета за Търсене',
-    slug: 'binary-search-trees',
-    status: 'ready',
-    topics: ['BST', 'Дървета', 'Търсене', 'Обхождане']
-  },
-  {
-    number: 10,
-    title: 'Балансирани Дървета',
-    slug: 'trees-balanced',
-    status: 'ready',
-    topics: ['AVL', 'Red-Black', 'Балансиране', 'Ротации']
-  },
-  {
-    number: 11,
-    title: 'Binary Heaps и Heap Sort',
-    slug: 'binary-heaps-heap-sort',
-    status: 'ready',
-    topics: ['Heap', 'Priority Queue', 'Heapify', 'Heap Sort']
-  },
-  {
-    number: 12,
-    title: 'Алгоритми за Сортиране',
-    slug: 'sorting-algorithms',
-    status: 'ready',
-    topics: ['Bubble Sort', 'Merge Sort', 'Quick Sort', 'Complexity']
-  },
-];
+// Lecture data - automatically loaded from docs/_category_.json files by lectures-plugin
+// Data is loaded at build time by the Docusaurus plugin
+function useLectures() {
+  const { lectures } = usePluginData('lectures-plugin') as { lectures: any[] };
+  return lectures;
+}
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -116,7 +36,15 @@ function HomepageHeader() {
   );
 }
 
-function LectureCard({lecture}: {lecture: typeof lectures[0]}) {
+interface Lecture {
+  number: number;
+  title: string;
+  slug: string;
+  status: string;
+  topics: string[];
+}
+
+function LectureCard({lecture}: {lecture: Lecture}) {
   const isReady = lecture.status === 'ready';
 
   return (
@@ -151,6 +79,8 @@ function LectureCard({lecture}: {lecture: typeof lectures[0]}) {
 }
 
 function LecturesSection() {
+  const lectures = useLectures();
+
   return (
     <section className={styles.lecturesSection}>
       <div className="container">

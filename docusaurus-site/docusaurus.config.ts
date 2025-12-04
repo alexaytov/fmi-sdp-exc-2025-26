@@ -52,6 +52,10 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    './plugins/lectures-plugin.js',
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',

@@ -1,6 +1,6 @@
 {
-  "label": "10. Балансирани Дървета",
-  "position": 10,
+  "label": "11. Балансирани Дървета",
+  "position": 11,
   "link": {
     "type": "generated-index",
     "description": "Балансирани дървета и AVL"
