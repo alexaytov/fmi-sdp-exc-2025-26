@@ -1,6 +1,7 @@
 ---
 title: "Лекция"
 sidebar_position: 1
+id: graphs-basics-lecture
 slug: lecture
 tags: [graphs, data-structures, bfs, dfs, adjacency-matrix, adjacency-list, cpp]
 ---

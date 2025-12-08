@@ -1,6 +1,8 @@
 ---
 sidebar_position: 2
 title: "Упражнения"
+id: graphs-basics-exercises
+slug: exercises
 tags: [exercises, practice, graphs, bfs, dfs, adjacency-matrix, adjacency-list]
 ---
 
