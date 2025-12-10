@@ -1,0 +1,132 @@
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.slidesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.slideCard {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 24px;
+  transition: all 0.2s ease;
+  background: var(--ifm-card-background-color);
+}
+
+.slideCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+}
+
+.lectureNumber {
+  font-size: 14px;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.lectureTitle {
+  margin-bottom: 16px;
+  font-size: 20px;
+  line-height: 1.4;
+  min-height: 56px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 64px 24px;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 1.1rem;
+}
+
+.helpSection {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.helpSection h2 {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.helpGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.helpCard {
+  padding: 24px;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+}
+
+.helpCard h4 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.helpCard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.helpCard li {
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.helpCard code {
+  background: var(--ifm-color-emphasis-200);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .slidesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .helpGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бинарни Дървета за Търсене (BST) - FMI SDP</title>
+
+    <!-- Reveal.js Core -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/white.css">
+
+    <!-- Code Highlighting - using highlight.js directly -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+
+    <!-- Custom FMI Styles -->
+    <style>
+        .reveal .slides {
+            text-align: left;
+        }
+        .reveal h1 {
+            font-size: 2.2em;
+            text-transform: none;
+        }
+        .reveal h2 {
+            font-size: 1.8em;
+            text-transform: none;
+        }
+        .reveal h3 {
+            font-size: 1.4em;
+            text-transform: none;
+        }
+        .reveal p, .reveal li {
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+        .reveal pre code {
+            max-height: 500px;
+            font-size: 0.75em;
+        }
+        .reveal code {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .reveal {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            font-size: 32px;
+        }
+        .reveal ul, .reveal ol {
+            margin-left: 1em;
+        }
+        .reveal li {
+            margin-bottom: 0.4em;
+        }
+        .reveal table {
+            font-size: 0.8em;
+        }
+        .reveal img {
+            max-width: 70%;
+            max-height: 400px;
+            margin: 0.5em auto;
+            display: block;
+            object-fit: contain;
+        }
+        /* Two-column layout */
+        .reveal .columns {
+            display: flex;
+            gap: 2em;
+            align-items: center;
+        }
+        .reveal .column {
+            flex: 1;
+        }
+        .reveal .column img {
+            max-width: 100%;
+            max-height: 450px;
+            margin: 0;
+        }
+        .reveal .column.left {
+            text-align: left;
+        }
+        .reveal .column.right {
+            text-align: center;
+        }
+        /* Back to lecture button */
+        .back-button {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            z-index: 100;
+            font-size: 14px;
+            color: #666;
+            text-decoration: none;
+            background: rgba(255,255,255,0.9);
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            transition: all 0.2s;
+        }
+        .back-button:hover {
+            background: rgba(255,255,255,1);
+            color: #333;
+            border-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-markdown>
+<script type="text/template">
+# 🌳 Binary Search Trees
+
+## Концепции, Имплементация и Операции
+
+**Лекция 10** • Структури от Данни и Програмиране
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## 📋 Съдържание
+
+🎯 **BST Свойства**
+
+🔍 **Search, Insert, Delete**
+
+🔄 **Tree Traversal**
+
+📊 **Complexity Analysis**
+
+⚖️ **Балансирани vs Изродени**
+
+Note:
+Днес ще научим за една от най-важните йерархични структури от данни!
+</script>
+</section>
+<section data-background="#e7f3ff" data-markdown>
+<script type="text/template">
+# 🎯 Част 1
+
+## BST Свойства
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Какво е Binary Search Tree?
+
+**Дефиниция:** Двоично дърво, където за всеки възел:
+- **Ляво поддърво:** всички стойности < node value
+- **Дясно поддърво:** всички стойности > node value
+- Свойството важи **рекурсивно** за всички възли
+
+```
+Валиден BST:        Невалиден BST:
+       5                   5
+      / \                 / \
+     3   7               3   7
+    / \ / \             / \ / \
+   2  4 6  8           2  6 4  8
+                          ↑ 6 > 5!
+```
+
+Note:
+BST инвариантът е ключов - трябва да важи за ВСИЧКИ потомци, не само децата!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Node Структура
+
+```cpp
+struct Node {
+    int key;
+    Node* left;
+    Node* right;
+
+    Node(int k) : key(k), left(nullptr), right(nullptr) {}
+};
+
+class BST {
+private:
+    Node* root;
+
+public:
+    BST() : root(nullptr) {}
+
+    Node* search(Node* root, int key);
+    Node* insert(Node* root, int key);
+    Node* remove(Node* root, int key);
+};
+```
+
+Note:
+Простата структура с два указателя позволява мощни операции!
+</script>
+</section>
+<section data-background="#e8f5e9" data-markdown>
+<script type="text/template">
+# Част 2
+
+## Search Operation
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Binary Search в Дърво
+
+```cpp
+Node* search(Node* root, int key) {
+    // Base cases
+    if (!root || root->key == key)
+        return root;
+
+    // Ключът е по-малък → търси в ляво
+    if (key < root->key)
+        return search(root->left, key);
+
+    // Ключът е по-голям → търси в дясно
+    return search(root->right, key);
+}
+```
+
+**Complexity:**
+- Best/Average: O(log n)
+- Worst: O(n) - изродено дърво
+
+Note:
+BST свойството ни позволява да елиминираме половината от дървото на всяка стъпка!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Insert Operation
+
+```cpp
+Node* insert(Node* root, int key) {
+    // Base case - празно място
+    if (!root)
+        return new Node(key);
+
+    // Рекурсивно вмъкване
+    if (key < root->key)
+        root->left = insert(root->left, key);
+    else if (key > root->key)
+        root->right = insert(root->right, key);
+
+    return root;
+}
+```
+
+**Идея:** Търси правилното място като при search, създай нов възел там
+
+Note:
+Insert следва същата логика като search - O(log n) average!
+</script>
+</section>
+<section data-background="#fff3e0" data-markdown>
+<script type="text/template">
+# Част 3
+
+## Delete Operation
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Delete - Три Случая
+
+**Case 1: Leaf Node**
+```cpp
+if (!root->left && !root->right) {
+    delete root;
+    return nullptr;
+}
+```
+
+**Case 2: One Child**
+```cpp
+if (!root->left) {
+    Node* temp = root->right;
+    delete root;
+    return temp;
+}
+```
+
+**Case 3: Two Children** - НАЙ-СЛОЖЕН!
+
+Note:
+Изтриването е най-сложната операция заради третия случай!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Delete - Two Children Case
+
+**Стратегия:** Замени с inorder successor (min в дясното)
+
+```cpp
+Node* minValue(Node* node) {
+    while (node->left)
+        node = node->left;
+    return node;
+}
+
+Node* deleteNode(Node* root, int key) {
+    // ... find node ...
+
+    // Case 3: Two children
+    if (root->left && root->right) {
+        Node* temp = minValue(root->right);
+        root->key = temp->key;  // Copy value
+        root->right = deleteNode(root->right, temp->key);
+    }
+
+    return root;
+}
+```
+
+Note:
+Inorder successor е най-малката стойност в дясното поддърво!
+</script>
+</section>
+<section data-background="#f3e5f5" data-markdown>
+<script type="text/template">
+# Част 4
+
+## Tree Traversal
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Traversal Methods
+
+**Inorder (Left-Root-Right):**
+```cpp
+void inorder(Node* root) {
+    if (!root) return;
+    inorder(root->left);
+    cout << root->key << " ";
+    inorder(root->right);
+}
+```
+
+**Preorder (Root-Left-Right):**
+```cpp
+void preorder(Node* root) {
+    if (!root) return;
+    cout << root->key << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+```
+
+**Postorder (Left-Right-Root):**
+```cpp
+void postorder(Node* root) {
+    if (!root) return;
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->key << " ";
+}
+```
+
+Note:
+Редът на обхождане е критичен за различни приложения!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Inorder Traversal - Sorted Output
+
+```
+BST:
+       5
+      / \
+     3   7
+    / \ / \
+   2  4 6  8
+
+Inorder:  2 3 4 5 6 7 8  → Сортирано! ✅
+Preorder: 5 3 2 4 7 6 8
+Postorder: 2 4 3 6 8 7 5
+```
+
+**Важно:** Inorder traversal на BST винаги дава сортиран изход!
+
+Note:
+Това е уникално свойство на BST - използва се за валидация!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Traversal Applications
+
+| Traversal | Използване |
+|-----------|-----------|
+| **Inorder** | Сортиран изход, валидация |
+| **Preorder** | Копиране на дърво, prefix expression |
+| **Postorder** | Изтриване на дърво, postfix expression |
+| **Level-order** | BFS, принтиране по нива |
+
+Note:
+Различните traversals решават различни проблеми!
+</script>
+</section>
+<section data-background="#e0f2f1" data-markdown>
+<script type="text/template">
+# Част 5
+
+## Complexity & Balance
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Балансирано vs Изродено
+
+```
+Балансирано O(log n):     Изродено O(n):
+        4                       1
+       / \                       \
+      2   6                       2
+     / \ / \                       \
+    1  3 5  7                       3
+                                     \
+                                      4
+                                       \
+                                        5
+
+Height = log n             Height = n
+```
+
+Note:
+Формата на дървото ДРАСТИЧНО влияе на производителността!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Complexity Summary
+
+| Операция | Балансирано | Изродено |
+|----------|-------------|----------|
+| **Search** | O(log n) | O(n) |
+| **Insert** | O(log n) | O(n) |
+| **Delete** | O(log n) | O(n) |
+| **Traversal** | O(n) | O(n) |
+| **Space** | O(n) | O(n) |
+
+**Ключов факт:** Сортиран вход създава изродено дърво!
+
+Note:
+Балансирането е критично за ефективност!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Ключови Формули
+
+**Max nodes на height h:**
+```
+Max nodes = 2^(h+1) - 1
+```
+
+**Height при n nodes (балансирано):**
+```
+h = floor(log₂ n)
+```
+
+**Height при n nodes (изродено):**
+```
+h = n - 1
+```
+
+Note:
+Тези формули са често на изпити!
+</script>
+</section>
+<section data-background="#e8eaf6" data-markdown>
+<script type="text/template">
+# Обобщение
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Ключови Изводи
+
+**BST Свойство:**
+- Рекурсивно за всички възли
+- Left < Root < Right
+
+**Операции:**
+- Search, Insert: O(log n) average
+- Delete: три случая, inorder successor
+- Traversal: Inorder дава сортиран изход
+
+**Balance:**
+- Балансирано → O(log n)
+- Изродено → O(n)
+- Сортиран вход → изродено дърво
+
+Note:
+BST е мощна структура, но балансирането е критично!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## За Изпита
+
+✅ **BST инвариант** - рекурсивна дефиниция
+
+✅ **Delete с две деца** - inorder successor
+
+✅ **Inorder traversal** → сортиран изход
+
+✅ **Complexity** - балансирано vs изродено
+
+✅ **Формули** за height и nodes
+
+Note:
+Тези точки са често срещани на изпити и интервюта!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## BST vs Hash Table
+
+| Характеристика | BST | Hash Table |
+|----------------|-----|------------|
+| **Search** | O(log n) | O(1) average |
+| **Insert** | O(log n) | O(1) average |
+| **Sorted** | ✅ Inorder | ❌ Няма |
+| **Range queries** | ✅ Лесно | ❌ Трудно |
+| **Space** | O(n) | O(n) |
+
+Note:
+BST запазва подредба, hash table е по-бърза за точно търсене!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Допълнителни Ресурси
+
+**Binary Search Trees:**
+- [BST - GeeksforGeeks](https://www.geeksforgeeks.org/binary-search-tree-data-structure/)
+- [std::set - C++ Reference](https://en.cppreference.com/w/cpp/container/set)
+
+**Visualizations:**
+- [BST Visualization](https://www.cs.usfca.edu/~galles/visualization/BST.html)
+
+**Practice:**
+- [LeetCode - BST Problems](https://leetcode.com/tag/binary-search-tree/)
+
+Note:
+Практиката е ключова - имплементирайте собствен BST!
+</script>
+</section>
+<section data-background="#4caf50" data-markdown>
+<script type="text/template">
+# Благодаря за Вниманието!
+
+## Въпроси? 🎓
+
+**Следваща лекция:** Balanced Trees (AVL, Red-Black)
+
+Note:
+Време за въпроси!
+</script>
+</section>
+
+        </div>
+    </div>
+
+    <!-- Navigation Helper -->
+    <a href="/fmi-sdp-exc-2025-26/docs/binary-search-trees/lecture" class="back-button">
+        ← Back to Lecture
+    </a>
+
+    <!-- Reveal.js Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/highlight.js"></script>
+
+    <!-- marked library required by reveal.js markdown plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.0/marked.min.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            history: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            center: true,
+            width: 1280,
+            height: 720,
+            margin: 0.04,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+            markdown: {
+                smartypants: false,
+                gfm: true,
+                breaks: false,
+                pedantic: false,
+                sanitize: false,
+                smartLists: true
+            },
+            highlight: {
+                highlightOnLoad: true,
+                escapeHTML: false
+            }
+        });
+    </script>
+</body>
+</html>

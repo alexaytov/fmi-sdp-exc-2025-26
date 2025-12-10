@@ -1,0 +1,615 @@
+---
+title: Графи - Представяне и Основни Алгоритми
+theme: white
+highlightTheme: github
+transition: slide
+controls: true
+progress: true
+slideNumber: true
+---
+
+# 🌐 Graphs
+
+## Представяне и Алгоритми
+
+**Лекция 13** • Структури от Данни и Програмиране
+
+---
+
+## 📋 Съдържание
+
+🎯 **Graph Terminology**
+
+📊 **Graph Representations**
+
+🔍 **BFS - Breadth-First Search**
+
+🌲 **DFS - Depth-First Search**
+
+💡 **Applications**
+
+Note:
+Графите са най-общата структура от данни - моделират връзки!
+
+---
+
+<!-- .slide: data-background="#e7f3ff" -->
+
+# 🎯 Част 1
+
+## Graph Basics
+
+---
+
+## Какво е Graph?
+
+**Дефиниция:** G = (V, E)
+- **V** = Vertices (върхове/nodes)
+- **E** = Edges (ребра/връзки)
+
+```
+Пример:
+V = {A, B, C, D}
+E = {(A,B), (A,C), (B,D), (C,D)}
+
+    A ---- B
+    |      |
+    C ---- D
+```
+
+Note:
+Графите моделират връзки между обекти!
+
+---
+
+## Типове Графи
+
+<div class="columns">
+<div class="column left">
+
+**Undirected (Ненасочен):**
+```
+A ---- B
+```
+- Приятелства в Facebook
+- Двупосочна връзка
+
+**Unweighted:**
+```
+A ---- B
+```
+- Всички ребра равни
+
+</div>
+<div class="column right">
+
+**Directed (Насочен):**
+```
+A --→ B
+```
+- Follows в Twitter
+- Еднопосочна връзка
+
+**Weighted:**
+```
+A --5-- B
+```
+- Разстояния, цени
+
+</div>
+</div>
+
+Note:
+Изборът на тип граф зависи от моделираната система!
+
+---
+
+## Graph Terminology
+
+**Degree:** Брой ребра свързани към връх
+- **Undirected:** degree(v)
+- **Directed:** in-degree(v) + out-degree(v)
+
+**Path:** Последователност от върхове
+- Simple path: без повторения
+
+**Cycle:** Path започващ и завършващ в същия връх
+
+**Connected:** Има път между всеки две точки
+
+Note:
+Тези термини са фундаментални за graph алгоритмите!
+
+---
+
+<!-- .slide: data-background="#e8f5e9" -->
+
+# Част 2
+
+## Graph Representations
+
+---
+
+## Adjacency Matrix
+
+**2D Array:** matrix[i][j] = 1 ако има ребро от i до j
+
+```
+Graph:       Matrix:
+A--B           A B C D
+|  |         A[0 1 1 0]
+C--D         B[1 0 0 1]
+             C[1 0 0 1]
+             D[0 1 1 0]
+```
+
+**Implementation:**
+```cpp
+class Graph {
+    int V;  // Брой върхове
+    vector<vector<int>> adj;
+
+public:
+    Graph(int vertices) : V(vertices) {
+        adj.resize(V, vector<int>(V, 0));
+    }
+
+    void addEdge(int u, int v) {
+        adj[u][v] = 1;
+        adj[v][u] = 1;  // Undirected
+    }
+
+    bool hasEdge(int u, int v) {
+        return adj[u][v] == 1;
+    }
+};
+```
+
+Note:
+Adjacency matrix е прост, но използва O(V²) памет!
+
+---
+
+## Adjacency List
+
+**Array of Lists:** list[i] съдържа всички съседи на i
+
+```
+Graph:       List:
+A--B         A: [B, C]
+|  |         B: [A, D]
+C--D         C: [A, D]
+             D: [B, C]
+```
+
+**Implementation:**
+```cpp
+class Graph {
+    int V;
+    vector<list<int>> adj;
+
+public:
+    Graph(int vertices) : V(vertices) {
+        adj.resize(V);
+    }
+
+    void addEdge(int u, int v) {
+        adj[u].push_back(v);
+        adj[v].push_back(u);  // Undirected
+    }
+
+    // Обхождане на съседи
+    void printNeighbors(int v) {
+        for (int neighbor : adj[v]) {
+            cout << neighbor << " ";
+        }
+    }
+};
+```
+
+Note:
+Adjacency list е ефективна за разредени графи!
+
+---
+
+## Matrix vs List
+
+| Характеристика | Matrix | List |
+|----------------|--------|------|
+| **Памет** | O(V²) | O(V + E) |
+| **Проверка за ребро** | O(1) | O(degree) |
+| **Обхождане на съседи** | O(V) | O(degree) |
+| **Добавяне на ребро** | O(1) | O(1) |
+| **Best for** | Плътни графи | Разредени графи |
+
+Note:
+Изборът зависи от плътността на графа!
+
+---
+
+<!-- .slide: data-background="#fff3e0" -->
+
+# Част 3
+
+## BFS - Breadth-First Search
+
+---
+
+## BFS Algorithm
+
+**Идея:** Обхождане ниво по ниво с queue
+
+```cpp
+void BFS(int start) {
+    vector<bool> visited(V, false);
+    queue<int> q;
+
+    visited[start] = true;
+    q.push(start);
+
+    while (!q.empty()) {
+        int v = q.front();
+        q.pop();
+        cout << v << " ";
+
+        // Обходи всички съседи
+        for (int neighbor : adj[v]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push(neighbor);
+            }
+        }
+    }
+}
+```
+
+**Complexity: O(V + E)**
+
+Note:
+BFS използва queue за обхождане по нива!
+
+---
+
+## BFS Example
+
+```
+Graph:
+    0
+   / \
+  1   2
+ / \   \
+3   4   5
+
+BFS от 0:
+Ниво 0: 0
+Ниво 1: 1, 2
+Ниво 2: 3, 4, 5
+
+Output: 0 1 2 3 4 5
+
+Queue changes:
+[0]
+[1, 2]
+[2, 3, 4]
+[3, 4, 5]
+...
+```
+
+Note:
+BFS обхожда всички върхове на ниво преди да премине на следващото!
+
+---
+
+## BFS Applications
+
+**Shortest Path (unweighted):**
+```cpp
+vector<int> BFS_shortest_path(int start, int end) {
+    vector<int> parent(V, -1);
+    queue<int> q;
+    q.push(start);
+    parent[start] = start;
+
+    while (!q.empty()) {
+        int v = q.front(); q.pop();
+        if (v == end) break;
+
+        for (int neighbor : adj[v]) {
+            if (parent[neighbor] == -1) {
+                parent[neighbor] = v;
+                q.push(neighbor);
+            }
+        }
+    }
+
+    // Reconstruct path
+    vector<int> path;
+    for (int v = end; v != start; v = parent[v])
+        path.push_back(v);
+    path.push_back(start);
+    reverse(path.begin(), path.end());
+    return path;
+}
+```
+
+Note:
+BFS намира най-краткия път в нетеглен граф!
+
+---
+
+<!-- .slide: data-background="#f3e5f5" -->
+
+# Част 4
+
+## DFS - Depth-First Search
+
+---
+
+## DFS Algorithm
+
+**Идея:** Обхождане в дълбочина със stack/recursion
+
+```cpp
+void DFS(int v, vector<bool>& visited) {
+    visited[v] = true;
+    cout << v << " ";
+
+    for (int neighbor : adj[v]) {
+        if (!visited[neighbor]) {
+            DFS(neighbor, visited);
+        }
+    }
+}
+
+void startDFS(int start) {
+    vector<bool> visited(V, false);
+    DFS(start, visited);
+}
+```
+
+**Complexity: O(V + E)**
+
+Note:
+DFS използва recursion (stack) за обхождане в дълбочина!
+
+---
+
+## DFS Example
+
+```
+Graph:
+    0
+   / \
+  1   2
+ / \   \
+3   4   5
+
+DFS от 0:
+0 → 1 → 3 (backtrack)
+    → 4 (backtrack)
+  → 2 → 5
+
+Output: 0 1 3 4 2 5
+
+Call Stack:
+DFS(0)
+  DFS(1)
+    DFS(3)
+    DFS(4)
+  DFS(2)
+    DFS(5)
+```
+
+Note:
+DFS отива максимално надълбоко преди да backtrack!
+
+---
+
+## DFS Applications
+
+**Cycle Detection:**
+```cpp
+bool hasCycle(int v, vector<bool>& visited, int parent) {
+    visited[v] = true;
+
+    for (int neighbor : adj[v]) {
+        if (!visited[neighbor]) {
+            if (hasCycle(neighbor, visited, v))
+                return true;
+        }
+        else if (neighbor != parent) {
+            return true;  // Back edge → cycle
+        }
+    }
+    return false;
+}
+```
+
+**Други приложения:**
+- Topological sorting
+- Connected components
+- Path finding
+- Maze solving
+
+Note:
+DFS е мощен за откриване на цикли и свързаност!
+
+---
+
+## BFS vs DFS
+
+| Характеристика | BFS | DFS |
+|----------------|-----|-----|
+| **Структура** | Queue | Stack/Recursion |
+| **Обхождане** | По нива | В дълбочина |
+| **Shortest path** | ✅ Намира | ❌ Не гарантира |
+| **Memory** | O(V) | O(h) |
+| **Use case** | Shortest path, близки  nodes | Cycle detection, paths |
+
+Note:
+Изборът между BFS и DFS зависи от задачата!
+
+---
+
+<!-- .slide: data-background="#e0f2f1" -->
+
+# Част 5
+
+## Real-World Applications
+
+---
+
+## Social Networks
+
+```cpp
+// Намери mutual friends
+set<int> mutualFriends(int user1, int user2) {
+    set<int> friends1(adj[user1].begin(),
+                      adj[user1].end());
+    set<int> friends2(adj[user2].begin(),
+                      adj[user2].end());
+
+    set<int> mutual;
+    set_intersection(friends1.begin(), friends1.end(),
+                    friends2.begin(), friends2.end(),
+                    inserter(mutual, mutual.begin()));
+    return mutual;
+}
+```
+
+**Други:**
+- Friend recommendations
+- Community detection
+- Влияние и популярност
+
+Note:
+Графите са перфектни за моделиране на социални мрежи!
+
+---
+
+## Navigation Systems
+
+**Shortest Path (Dijkstra's Algorithm):**
+```cpp
+// Weighted graph - най-къс път
+vector<int> dijkstra(int start, int end) {
+    priority_queue<pair<int,int>> pq;
+    vector<int> dist(V, INT_MAX);
+    vector<int> parent(V, -1);
+
+    dist[start] = 0;
+    pq.push({0, start});
+
+    while (!pq.empty()) {
+        int u = pq.top().second;
+        pq.pop();
+
+        for (auto [v, weight] : adj[u]) {
+            if (dist[u] + weight < dist[v]) {
+                dist[v] = dist[u] + weight;
+                parent[v] = u;
+                pq.push({-dist[v], v});
+            }
+        }
+    }
+    // Reconstruct path...
+}
+```
+
+Note:
+GPS системите използват graph алгоритми за навигация!
+
+---
+
+<!-- .slide: data-background="#e8eaf6" -->
+
+# Обобщение
+
+---
+
+## Ключови Изводи
+
+**Graph Representations:**
+- Adjacency Matrix: O(V²) памет, O(1) проверка
+- Adjacency List: O(V+E) памет, ефективно обхождане
+
+**BFS:**
+- Обхождане по нива с queue
+- Намира shortest path в unweighted graph
+- O(V + E) complexity
+
+**DFS:**
+- Обхождане в дълбочина с recursion
+- Открива цикли и connected components
+- O(V + E) complexity
+
+Note:
+Графите са мощна структура за моделиране на сложни връзки!
+
+---
+
+## За Изпита
+
+✅ **Graph terminology** - degree, path, cycle
+
+✅ **Representations** - matrix vs list trade-offs
+
+✅ **BFS vs DFS** - кога какъв да използваме
+
+✅ **Complexity** - O(V + E) за и двата
+
+✅ **Applications** - shortest path, cycle detection
+
+Note:
+Тези концепции са фундаментални за graph алгоритмите!
+
+---
+
+## STL for Graphs
+
+```cpp
+// Adjacency list
+vector<vector<int>> adj;
+
+// Weighted graph
+vector<vector<pair<int, int>>> adj;  // {neighbor, weight}
+
+// Set for fast lookup
+vector<set<int>> adj;
+
+// Unordered for O(1) average
+vector<unordered_set<int>> adj;
+```
+
+Note:
+Използвайте STL контейнерите за ефективна имплементация!
+
+---
+
+## Допълнителни Ресурси
+
+**Graphs:**
+- [Graph Data Structure - GeeksforGeeks](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)
+- [BFS and DFS](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
+
+**Visualizations:**
+- [Graph Algorithms Visualization](https://visualgo.net/en/dfsbfs)
+
+**Practice:**
+- [LeetCode - Graph Problems](https://leetcode.com/tag/graph/)
+
+Note:
+Практиката е ключова - решавайте graph задачи!
+
+---
+
+<!-- .slide: data-background="#4caf50" -->
+
+# Благодаря за Вниманието!
+
+## Въпроси? 🎓
+
+**Следваща лекция:** Sorting Algorithms
+
+Note:
+Време за въпроси!

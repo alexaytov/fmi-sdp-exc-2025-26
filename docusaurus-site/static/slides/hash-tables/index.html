@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Таблици и Криптографски Hash Функции - FMI SDP</title>
+
+    <!-- Reveal.js Core -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/white.css">
+
+    <!-- Code Highlighting - using highlight.js directly -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+
+    <!-- Custom FMI Styles -->
+    <style>
+        .reveal .slides {
+            text-align: left;
+        }
+        .reveal h1 {
+            font-size: 2.2em;
+            text-transform: none;
+        }
+        .reveal h2 {
+            font-size: 1.8em;
+            text-transform: none;
+        }
+        .reveal h3 {
+            font-size: 1.4em;
+            text-transform: none;
+        }
+        .reveal p, .reveal li {
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+        .reveal pre code {
+            max-height: 500px;
+            font-size: 0.75em;
+        }
+        .reveal code {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .reveal {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            font-size: 32px;
+        }
+        .reveal ul, .reveal ol {
+            margin-left: 1em;
+        }
+        .reveal li {
+            margin-bottom: 0.4em;
+        }
+        .reveal table {
+            font-size: 0.8em;
+        }
+        .reveal img {
+            max-width: 70%;
+            max-height: 400px;
+            margin: 0.5em auto;
+            display: block;
+            object-fit: contain;
+        }
+        /* Two-column layout */
+        .reveal .columns {
+            display: flex;
+            gap: 2em;
+            align-items: center;
+        }
+        .reveal .column {
+            flex: 1;
+        }
+        .reveal .column img {
+            max-width: 100%;
+            max-height: 450px;
+            margin: 0;
+        }
+        .reveal .column.left {
+            text-align: left;
+        }
+        .reveal .column.right {
+            text-align: center;
+        }
+        /* Back to lecture button */
+        .back-button {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            z-index: 100;
+            font-size: 14px;
+            color: #666;
+            text-decoration: none;
+            background: rgba(255,255,255,0.9);
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            transition: all 0.2s;
+        }
+        .back-button:hover {
+            background: rgba(255,255,255,1);
+            color: #333;
+            border-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-markdown>
+<script type="text/template">
+# 🔐 Hash Tables
+
+## Криптографски Hash Функции
+
+**Лекция 9** • Структури от Данни и Програмиране
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## 📋 Съдържание
+
+🎯 **Hash Functions Basics**
+
+🔐 **Криптографски Свойства**
+
+📊 **Hash Tables Structure**
+
+⚡ **Collision Resolution**
+
+💡 **Applications**
+
+Note:
+Hash таблиците осигуряват O(1) средна сложност за търсене!
+</script>
+</section>
+<section data-background="#e7f3ff" data-markdown>
+<script type="text/template">
+# 🎯 Част 1
+
+## Hash Functions
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Какво е Hash Function?
+
+**Дефиниция:** Функция, която картографира данни с произволен размер към фиксиран размер
+
+```
+Input (any size) → Hash Function → Output (fixed size)
+"Hello World" → hash() → 5d41402abc4b...
+```
+
+**Свойства:**
+- Детерминизъм - същият вход дава същия изход
+- Еднопосочност - не може да се обърне
+- Avalanche effect - малка промяна → различен hash
+
+Note:
+Hash функциите са фундаментални за много системи!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Криптографски Hash Функции
+
+| Алгоритъм | Размер | Сигурност | Използване |
+|-----------|--------|-----------|------------|
+| **MD5** | 128 bits | ❌ Компрометиран | НЕ използвай |
+| **SHA-1** | 160 bits | ❌ Компрометиран | НЕ използвай |
+| **SHA-256** | 256 bits | ✅ Силна | Bitcoin, SSL |
+| **SHA-3** | 224-512 bits | ✅ Силна | Нов стандарт |
+
+Note:
+MD5 и SHA-1 НЕ трябва да се използват за криптография!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Свойства на Hash Functions
+
+<div class="columns">
+<div class="column left">
+
+**Детерминизъм:**
+```cpp
+hash("password") = "xyz..."
+hash("password") = "xyz..."
+// Винаги същото!
+```
+
+**One-way:**
+```
+hash("secret") → "abc123"
+"abc123" → ??? (невъзможно!)
+```
+
+</div>
+<div class="column right">
+
+**Avalanche Effect:**
+```
+hash("password") → "7c6a..."
+hash("Password") → "9f2b..."
+// Напълно различно!
+```
+
+**Collision Resistance:**
+```
+hash(A) = hash(B)
+// Почти невъзможно!
+```
+
+</div>
+</div>
+
+Note:
+Тези свойства правят hash функциите подходящи за сигурност.
+</script>
+</section>
+<section data-background="#e8f5e9" data-markdown>
+<script type="text/template">
+# Част 2
+
+## Hash Tables
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Какво е Hash Table?
+
+**Структура от данни:** key → value mapping с O(1) средна сложност
+
+**Как работи:**
+```
+Key → Hash Function → Index → Value
+
+"alice" → hash("alice") % size → 3 → "Alice Smith"
+```
+
+**Компоненти:**
+- Array за съхранение
+- Hash function
+- Collision resolution strategy
+
+Note:
+Hash таблиците комбинират скоростта на масивите с гъвкавостта!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Hash Table Structure
+
+```cpp
+class HashTable {
+private:
+    static const int SIZE = 100;
+    struct Node {
+        string key;
+        int value;
+        Node* next;
+    };
+    Node* table[SIZE];
+
+    int hash(string key) {
+        int sum = 0;
+        for (char c : key) sum += c;
+        return sum % SIZE;
+    }
+
+public:
+    HashTable() {
+        for (int i = 0; i < SIZE; i++)
+            table[i] = nullptr;
+    }
+
+    void insert(string key, int value);
+    int search(string key);
+    void remove(string key);
+};
+```
+
+Note:
+Масив от указатели към Node-ове за separate chaining.
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Hash Functions - Simple Examples
+
+**Division Method:**
+```cpp
+int hash(int key) {
+    return key % TABLE_SIZE;
+}
+```
+
+**String Hash (djb2):**
+```cpp
+unsigned long hash(string str) {
+    unsigned long hash = 5381;
+    for (char c : str)
+        hash = ((hash << 5) + hash) + c;
+    return hash % TABLE_SIZE;
+}
+```
+
+Note:
+Добрата hash функция разпределя ключовете равномерно!
+</script>
+</section>
+<section data-background="#fff3e0" data-markdown>
+<script type="text/template">
+# Част 3
+
+## Collision Resolution
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Какво е Collision?
+
+**Проблем:** Два различни ключа → същия индекс
+
+```
+hash("alice") = 3
+hash("bob") = 3
+// Collision!
+```
+
+**Решения:**
+1. Separate Chaining (отворено адресиране)
+2. Open Addressing (затворено адресиране)
+
+Note:
+Колизиите са неизбежни - нуждаем се от стратегия за справяне!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Separate Chaining
+
+**Идея:** Всяка позиция е свързан списък
+
+```cpp
+void insert(string key, int value) {
+    int index = hash(key);
+    Node* newNode = new Node{key, value, nullptr};
+
+    if (!table[index]) {
+        table[index] = newNode;
+    } else {
+        // Добави в края на списъка
+        Node* current = table[index];
+        while (current->next)
+            current = current->next;
+        current->next = newNode;
+    }
+}
+```
+
+**Complexity:**
+- Best: O(1)
+- Worst: O(n) - всички в един bucket
+
+Note:
+Separate chaining е прост и ефективен метод!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Open Addressing - Linear Probing
+
+**Идея:** При колизия, търси следваща свободна позиция
+
+```cpp
+void insert(string key, int value) {
+    int index = hash(key);
+
+    while (table[index] != nullptr) {
+        index = (index + 1) % SIZE;  // Linear probing
+    }
+
+    table[index] = new Node{key, value, nullptr};
+}
+```
+
+**Проблем:** Clustering - групи заети клетки
+
+Note:
+Linear probing е прост, но води до clustering.
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Open Addressing - Quadratic Probing
+
+**Идея:** Използва квадратични стъпки
+
+```cpp
+int probe(int index, int attempt) {
+    return (index + attempt * attempt) % SIZE;
+}
+
+void insert(string key, int value) {
+    int index = hash(key);
+    int attempt = 0;
+
+    while (table[probe(index, attempt)] != nullptr) {
+        attempt++;
+    }
+
+    table[probe(index, attempt)] = new Node{key, value};
+}
+```
+
+**Предимство:** По-малко clustering
+
+Note:
+Quadratic probing намалява clustering, но може да не намери свободно място.
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Load Factor
+
+**Дефиниция:** λ = n / m
+- n = брой елементи
+- m = размер на таблицата
+
+**Препоръки:**
+- Separate chaining: λ < 1.0
+- Open addressing: λ < 0.7
+
+**Resizing:**
+```cpp
+if (load_factor() > 0.7) {
+    resize();  // Удвой размера и rehash
+}
+```
+
+Note:
+Ниският load factor гарантира добра производителност!
+</script>
+</section>
+<section data-background="#f3e5f5" data-markdown>
+<script type="text/template">
+# Част 4
+
+## Applications
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Password Storage
+
+```cpp
+// ❌ ГРЕШНО - plain text
+database["alice"] = "password123"
+
+// ✅ ПРАВИЛНО - hashed + salted
+string salt = generateRandomSalt();
+string hash = SHA256(password + salt);
+database["alice"] = {hash, salt};
+
+// Проверка при login:
+string inputHash = SHA256(inputPassword + storedSalt);
+if (inputHash == storedHash) {
+    // Успешен login
+}
+```
+
+Note:
+Никога не съхранявайте пароли в plain text!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## File Integrity Verification
+
+```bash
+# Изтегляне на файл
+wget ubuntu-22.04.iso
+
+# Изчисляване на hash
+sha256sum ubuntu-22.04.iso
+
+# Сравняване с публикувания hash
+# Ако съвпадат → файлът е неповреден ✅
+# Ако не съвпадат → файлът е корумпиран/подменен ❌
+```
+
+Note:
+Hash функциите откриват дори 1-битова промяна!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Blockchain
+
+```cpp
+struct Block {
+    string data;
+    string prevHash;
+    string hash;
+    int nonce;
+
+    string calculateHash() {
+        return SHA256(data + prevHash + to_string(nonce));
+    }
+
+    void mineBlock(int difficulty) {
+        string target(difficulty, '0');
+        while (hash.substr(0, difficulty) != target) {
+            nonce++;
+            hash = calculateHash();
+        }
+    }
+};
+```
+
+Note:
+Blockchain използва hash-ове за криптографска сигурност!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Caching
+
+```cpp
+class Cache {
+    unordered_map<string, string> cache;
+
+public:
+    string get(string url) {
+        if (cache.find(url) != cache.end()) {
+            return cache[url];  // Cache hit - O(1)
+        }
+
+        string data = fetchFromNetwork(url);  // Slow
+        cache[url] = data;
+        return data;
+    }
+};
+```
+
+Note:
+Hash таблиците са перфектни за caching с O(1) достъп!
+</script>
+</section>
+<section data-background="#e8eaf6" data-markdown>
+<script type="text/template">
+# Обобщение
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Сложност на Операциите
+
+| Операция | Average | Worst |
+|----------|---------|-------|
+| **Search** | O(1) | O(n) |
+| **Insert** | O(1) | O(n) |
+| **Delete** | O(1) | O(n) |
+
+**Worst case:** Всички ключове в един bucket
+
+**Best case:** Перфектно разпределение
+
+Note:
+Добрата hash функция и нисък load factor осигуряват O(1) средна сложност!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Ключови Изводи
+
+**Hash Functions:**
+- Детерминизъм, one-way, avalanche effect
+- SHA-256/SHA-3 за криптография
+- MD5/SHA-1 са компрометирани
+
+**Hash Tables:**
+- O(1) средна сложност
+- Collision resolution: chaining vs probing
+- Load factor определя производителността
+
+**Applications:**
+- Password storage
+- Caching
+- Blockchain
+- File integrity
+
+Note:
+Hash таблиците са една от най-важните структури от данни!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## STL Containers
+
+```cpp
+#include <unordered_map>
+
+unordered_map<string, int> map;
+
+map["alice"] = 25;
+map["bob"] = 30;
+
+cout << map["alice"];  // O(1) average
+
+// Итериране
+for (auto& pair : map) {
+    cout << pair.first << ": " << pair.second;
+}
+```
+
+**unordered_map** vs **map**:
+- unordered_map: O(1) average, hash table
+- map: O(log n), red-black tree
+
+Note:
+В production код използвайте STL контейнерите!
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## Допълнителни Ресурси
+
+**Hash Tables:**
+- [Hash Table - GeeksforGeeks](https://www.geeksforgeeks.org/hashing-data-structure/)
+- [std::unordered_map - cppreference](https://en.cppreference.com/w/cpp/container/unordered_map)
+
+**Cryptography:**
+- [SHA-256 Explained](https://en.wikipedia.org/wiki/SHA-2)
+- "Applied Cryptography" by Bruce Schneier
+
+Note:
+Практиката е ключова - имплементирайте собствена hash table!
+</script>
+</section>
+<section data-background="#4caf50" data-markdown>
+<script type="text/template">
+# Благодаря за Вниманието!
+
+## Въпроси? 🎓
+
+**Следваща лекция:** Binary Search Trees
+
+Note:
+Време за въпроси!
+</script>
+</section>
+
+        </div>
+    </div>
+
+    <!-- Navigation Helper -->
+    <a href="/fmi-sdp-exc-2025-26/docs/hash-tables/lecture" class="back-button">
+        ← Back to Lecture
+    </a>
+
+    <!-- Reveal.js Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/highlight.js"></script>
+
+    <!-- marked library required by reveal.js markdown plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.0/marked.min.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            history: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            center: true,
+            width: 1280,
+            height: 720,
+            margin: 0.04,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+            markdown: {
+                smartypants: false,
+                gfm: true,
+                breaks: false,
+                pedantic: false,
+                sanitize: false,
+                smartLists: true
+            },
+            highlight: {
+                highlightOnLoad: true,
+                escapeHTML: false
+            }
+        });
+    </script>
+</body>
+</html>

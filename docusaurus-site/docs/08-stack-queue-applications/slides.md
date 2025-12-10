@@ -1,0 +1,504 @@
+---
+title: Приложения на Stack и Queue - Shunting Yard, RPN
+theme: white
+highlightTheme: github
+transition: slide
+controls: true
+progress: true
+slideNumber: true
+---
+
+# 📚 Stack & Queue Applications
+
+## Shunting Yard, RPN, Expression Evaluation
+
+**Лекция 8** • Структури от Данни и Програмиране
+
+---
+
+## 📋 Съдържание
+
+🎯 **Infix, Prefix, Postfix Notation**
+
+📐 **Shunting Yard Algorithm**
+
+🧮 **Expression Evaluation**
+
+💡 **Практически Приложения**
+
+Note:
+Днес ще научим как stack-ът се използва за обработка на математически изрази.
+
+---
+
+<!-- .slide: data-background="#e7f3ff" -->
+
+# 🎯 Част 1
+
+## Notations
+
+---
+
+## Infix vs Postfix vs Prefix
+
+**Infix** (обичайна математика):
+```
+3 + 4 * 2
+```
+
+**Postfix (RPN - Reverse Polish Notation):**
+```
+3 4 2 * +
+```
+
+**Prefix (Polish Notation):**
+```
++ 3 * 4 2
+```
+
+**Резултат:** Всички три дават 11
+
+Note:
+Postfix и prefix елиминират нуждата от скоби и приоритет на операторите!
+
+---
+
+## Защо Postfix?
+
+**Предимства:**
+- Няма нужда от скоби
+- Няма нужда от приоритет
+- Лесно изчисляване със stack
+- Използва се в калкулатори
+
+**Пример:**
+```
+Infix:    (3 + 4) * 5
+Postfix:  3 4 + 5 *
+
+Стъпки:
+1. Push 3
+2. Push 4
+3. Pop 4, Pop 3, Push (3+4=7)
+4. Push 5
+5. Pop 5, Pop 7, Push (7*5=35)
+```
+
+Note:
+RPN е използван в HP калкулатори заради простотата на изчисляването.
+
+---
+
+<!-- .slide: data-background="#e8f5e9" -->
+
+# Част 2
+
+## Shunting Yard Algorithm
+
+---
+
+## Какво е Shunting Yard?
+
+**Алгоритъм на Dijkstra** за:
+- Преобразуване от Infix → Postfix
+- Използва Stack за операторите
+- Зачита приоритет и асоциативност
+
+**Пример:**
+```
+Infix:    3 + 4 * 2
+Postfix:  3 4 2 * +
+```
+
+Note:
+Името идва от операциите в железопътна гара за маневриране на влакове.
+
+---
+
+## Приоритет на Операторите
+
+| Оператор | Приоритет | Асоциативност |
+|----------|-----------|---------------|
+| `^` | 4 | Дясна |
+| `*`, `/` | 3 | Лява |
+| `+`, `-` | 2 | Лява |
+| `(`, `)` | 1 | - |
+
+**Правило:** По-висок приоритет = по-голямо число
+
+Note:
+Приоритетът определя кой оператор се изпълнява първи.
+
+---
+
+## Shunting Yard - Правила
+
+**За всеки token:**
+
+1. **Число** → добави към output
+2. **Оператор** →
+   - Pop операторите със по-висок/равен приоритет
+   - Push текущия оператор
+3. **`(`** → push към stack
+4. **`)`** → pop до `(`
+5. **Край** → pop всички оператори
+
+Note:
+Тези правила гарантират правилното подреждане според приоритета.
+
+---
+
+## Shunting Yard - Пример
+
+```
+Infix: 3 + 4 * 2
+
+Стъпка 1: Read '3'  → Output: [3]         Stack: []
+Стъпка 2: Read '+'  → Output: [3]         Stack: [+]
+Стъпка 3: Read '4'  → Output: [3 4]       Stack: [+]
+Стъпка 4: Read '*'  → Output: [3 4]       Stack: [+ *]
+Стъпка 5: Read '2'  → Output: [3 4 2]     Stack: [+ *]
+Край:                → Output: [3 4 2 * +] Stack: []
+
+Резултат: 3 4 2 * +
+```
+
+Note:
+Операторът `*` има по-висок приоритет, затова остава на stack-а.
+
+---
+
+## Код на Shunting Yard
+
+```cpp
+string infixToPostfix(string infix) {
+    stack<char> ops;
+    string output;
+
+    for (char c : infix) {
+        if (isdigit(c)) {
+            output += c;
+        }
+        else if (c == '(') {
+            ops.push(c);
+        }
+        else if (c == ')') {
+            while (!ops.empty() && ops.top() != '(') {
+                output += ops.top();
+                ops.pop();
+            }
+            ops.pop();  // Remove '('
+        }
+        else {  // Operator
+            while (!ops.empty() &&
+                   precedence(ops.top()) >= precedence(c)) {
+                output += ops.top();
+                ops.pop();
+            }
+            ops.push(c);
+        }
+    }
+
+    while (!ops.empty()) {
+        output += ops.top();
+        ops.pop();
+    }
+
+    return output;
+}
+```
+
+Note:
+Имплементацията следва правилата стъпка по стъпка.
+
+---
+
+<!-- .slide: data-background="#fff3e0" -->
+
+# Част 3
+
+## Expression Evaluation
+
+---
+
+## Изчисляване на Postfix
+
+**Алгоритъм:**
+1. За всеки token:
+   - Число → push към stack
+   - Оператор → pop два операнда, изчисли, push резултата
+2. Накрая остава един елемент - резултатът
+
+Note:
+Postfix се изчислява много лесно със stack!
+
+---
+
+## Код за Postfix Evaluation
+
+```cpp
+int evaluatePostfix(string postfix) {
+    stack<int> s;
+
+    for (char c : postfix) {
+        if (isdigit(c)) {
+            s.push(c - '0');
+        }
+        else {  // Operator
+            int op2 = s.top(); s.pop();
+            int op1 = s.top(); s.pop();
+
+            switch (c) {
+                case '+': s.push(op1 + op2); break;
+                case '-': s.push(op1 - op2); break;
+                case '*': s.push(op1 * op2); break;
+                case '/': s.push(op1 / op2); break;
+                case '^': s.push(pow(op1, op2)); break;
+            }
+        }
+    }
+
+    return s.top();
+}
+```
+
+Note:
+Редът на pop е важен - първо op2, после op1!
+
+---
+
+## Пример: Postfix Evaluation
+
+```
+Postfix: 3 4 2 * +
+
+Стъпка 1: Read '3' → Stack: [3]
+Стъпка 2: Read '4' → Stack: [3, 4]
+Стъпка 3: Read '2' → Stack: [3, 4, 2]
+Стъпка 4: Read '*' → Pop 2, Pop 4, Push 8
+                     Stack: [3, 8]
+Стъпка 5: Read '+' → Pop 8, Pop 3, Push 11
+                     Stack: [11]
+
+Резултат: 11
+```
+
+Note:
+Всеки оператор обработва двата последни елемента.
+
+---
+
+## Full Pipeline: Infix → Result
+
+```cpp
+int evaluateInfix(string infix) {
+    // 1. Преобразуване към postfix
+    string postfix = infixToPostfix(infix);
+
+    // 2. Изчисляване на postfix
+    int result = evaluatePostfix(postfix);
+
+    return result;
+}
+
+// Пример:
+// evaluateInfix("3+4*2")
+// → infixToPostfix("3+4*2") → "342*+"
+// → evaluatePostfix("342*+") → 11
+```
+
+Note:
+Комбинираме двата алгоритъма за пълна обработка на инфиксен израз.
+
+---
+
+<!-- .slide: data-background="#f3e5f5" -->
+
+# Част 4
+
+## Други Приложения
+
+---
+
+## Балансиране на Скоби
+
+```cpp
+bool isBalanced(string expr) {
+    stack<char> s;
+
+    for (char c : expr) {
+        if (c == '(' || c == '[' || c == '{') {
+            s.push(c);
+        }
+        else if (c == ')' || c == ']' || c == '}') {
+            if (s.empty()) return false;
+
+            char top = s.top();
+            if ((c == ')' && top == '(') ||
+                (c == ']' && top == '[') ||
+                (c == '}' && top == '{')) {
+                s.pop();
+            } else {
+                return false;
+            }
+        }
+    }
+
+    return s.empty();
+}
+```
+
+Note:
+Stack е перфектен за проверка на nested структури!
+
+---
+
+## Browser History
+
+```cpp
+class BrowserHistory {
+    stack<string> back;
+    stack<string> forward;
+    string current;
+
+public:
+    void visit(string url) {
+        back.push(current);
+        current = url;
+        // Clear forward history
+        while (!forward.empty()) forward.pop();
+    }
+
+    void goBack() {
+        if (!back.empty()) {
+            forward.push(current);
+            current = back.top();
+            back.pop();
+        }
+    }
+
+    void goForward() {
+        if (!forward.empty()) {
+            back.push(current);
+            current = forward.top();
+            forward.pop();
+        }
+    }
+};
+```
+
+Note:
+Два stack-а симулират back/forward навигацията в браузър!
+
+---
+
+## Undo/Redo System
+
+```cpp
+class Editor {
+    stack<string> undoStack;
+    stack<string> redoStack;
+    string current;
+
+public:
+    void write(string text) {
+        undoStack.push(current);
+        current = text;
+        // Clear redo
+        while (!redoStack.empty()) redoStack.pop();
+    }
+
+    void undo() {
+        if (!undoStack.empty()) {
+            redoStack.push(current);
+            current = undoStack.top();
+            undoStack.pop();
+        }
+    }
+
+    void redo() {
+        if (!redoStack.empty()) {
+            undoStack.push(current);
+            current = redoStack.top();
+            redoStack.pop();
+        }
+    }
+};
+```
+
+Note:
+Stack е идеален за undo/redo системи в editors!
+
+---
+
+<!-- .slide: data-background="#e8eaf6" -->
+
+# Обобщение
+
+---
+
+## Ключови Изводи
+
+**Notations:**
+- Infix: стандартна математика
+- Postfix (RPN): лесно изчисляване
+- Prefix: обратен ред
+
+**Shunting Yard:**
+- Преобразува Infix → Postfix
+- Зачита приоритет и скоби
+- O(n) сложност
+
+**Applications:**
+- Expression evaluation
+- Балансиране на скоби
+- Undo/Redo системи
+- Browser history
+
+Note:
+Stack е мощна структура с множество практически приложения.
+
+---
+
+## За Изпита
+
+✅ **Shunting Yard правила** - ЗАДЪЛЖИТЕЛНО!
+
+✅ **Приоритет на операторите**
+
+✅ **Postfix evaluation** - лесен със stack
+
+✅ **Балансиране на скоби**
+
+✅ **O(n) сложност** за всички операции
+
+Note:
+Shunting Yard е често срещан въпрос на интервюта!
+
+---
+
+## Допълнителни Ресурси
+
+**Algorithms:**
+- [Shunting Yard - Wikipedia](https://en.wikipedia.org/wiki/Shunting-yard_algorithm)
+- [RPN Calculator](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
+
+**Practice:**
+- [LeetCode - Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+- [LeetCode - Basic Calculator](https://leetcode.com/problems/basic-calculator/)
+
+Note:
+Практиката е ключова - имплементирайте собствен калкулатор!
+
+---
+
+<!-- .slide: data-background="#4caf50" -->
+
+# Благодаря за Вниманието!
+
+## Въпроси? 🎓
+
+**Следваща лекция:** Hash Tables
+
+Note:
+Време за въпроси!

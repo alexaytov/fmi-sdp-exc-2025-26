@@ -1,0 +1,15 @@
+.container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.container a:hover {
+  text-decoration: none;
+}

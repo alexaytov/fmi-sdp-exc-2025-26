@@ -1,8 +1,32 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import path from 'path';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+// Import the helper function to get slides data
+const { getSlidesForNavbar } = require('./plugins/reveal-slides-plugin.js');
+
+// Get all slides for navbar dropdown
+const docsPath = path.join(__dirname, 'docs');
+const slides = getSlidesForNavbar(docsPath);
+
+// Generate navbar items for slides dropdown
+const slidesDropdownItems = [
+  ...slides.map(slide => ({
+    label: `${String(slide.lectureNumber).padStart(2, '0')}. ${slide.lectureTitle}`,
+    href: `pathname:///slides/${slide.lectureSlug}/`,
+  })),
+  {
+    type: 'html' as const,
+    value: '<hr style="margin: 4px 0;">',
+  },
+  {
+    label: 'Всички презентации →',
+    to: '/slides',
+  },
+];
 
 const config: Config = {
   title: 'Структури от Данни и Програмиране',
@@ -25,7 +49,9 @@ const config: Config = {
   organizationName: 'alexaytov', // Usually your GitHub org/user name.
   projectName: 'fmi-sdp-exc-2025-26', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn', // Changed to warn for reveal.js slides (generated in postBuild)
+  onBrokenMarkdownLinks: 'warn',
+  trailingSlash: true, // Ensures URLs have trailing slashes (needed for slides/topic-name/)
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -43,6 +69,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           editUrl:
             'https://github.com/alexaytov/fmi-sdp-exc-2025-26/tree/main/docusaurus-site/',
+          exclude: ['**/slides.md'],
         },
         blog: false,
         theme: {
@@ -54,6 +81,7 @@ const config: Config = {
 
   plugins: [
     './plugins/lectures-plugin.js',
+    './plugins/reveal-slides-plugin.js',
   ],
 
   themeConfig: {
@@ -74,7 +102,13 @@ const config: Config = {
           label: 'Лекции',
         },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          type: 'dropdown',
+          label: 'Презентации',
+          position: 'left',
+          items: slidesDropdownItems,
+        },
+        {
+          href: 'https://github.com/alexaytov/fmi-sdp-exc-2025-26',
           label: 'GitHub',
           position: 'right',
         },
