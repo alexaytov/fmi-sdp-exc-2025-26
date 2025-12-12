@@ -41,7 +41,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 <ExerciseCard difficulty="easy">
 
-### Типове Computational Complexity
+### Задача 1: Типове Computational Complexity
 
 Какви са двата основни типа computational complexity, обсъдени в лекцията? Опишете накратко какво измерва всеки.
 
@@ -63,7 +63,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
   tags={["big-o", "notation", "theory"]}
 >
 
-### Big-O параметър 'n'
+### Задача 2: Big-O параметър 'n'
 
 В Big-O нотация, когато казваме, че алгоритъм е O(n), какво представлява 'n'?
 
@@ -87,7 +87,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
   tags={["big-o", "simplification"]}
 >
 
-### Big-O константи и членове от по-нисък ред
+### Задача 3: Big-O константи и членове от по-нисък ред
 
 Вярно или Невярно: В Big-O нотация запазваме константните фактори и членовете от по-нисък ред когато изразяваме сложността.
 
@@ -114,7 +114,7 @@ Big-O описва **асимптотичното поведение** при г
   tags={["big-o", "complexity-classes"]}
 >
 
-### Съпоставяне на Big-O класове
+### Задача 4: Съпоставяне на Big-O класове
 
 Съпоставете всеки Big-O клас със скоростта му на растеж:
 
@@ -149,7 +149,7 @@ O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ) < O(n!)
   tags={["double-precision", "ieee-754", "cpp"]}
 >
 
-### IEEE 754 double размер
+### Задача 5: IEEE 754 double размер
 
 Според IEEE 754, колко bits използва `double` в C++?
 
@@ -180,7 +180,7 @@ d) 16 bits
   tags={["cpp", "cmath", "nan", "inf"]}
 >
 
-### C++ функции за NaN и Inf
+### Задача 6: C++ функции за NaN и Inf
 
 Кой C++ header file съдържа функции като `std::isnan()` и `std::isinf()`?
 
@@ -215,7 +215,7 @@ if (std::isnan(x)) {
   tags={["nan", "floating-point"]}
 >
 
-### NaN (Not a Number)
+### Задача 7: NaN (Not a Number)
 
 Какво означава NaN и дайте един пример за операция, която произвежда NaN.
 
@@ -243,7 +243,7 @@ if (std::isnan(x)) {
   tags={["testing", "aaa-pattern", "best-practices"]}
 >
 
-### Arrange-Act-Assert Testing Pattern
+### Задача 8: Arrange-Act-Assert Testing Pattern
 
 Какви са трите стъпки в Arrange-Act-Assert (A-A-A) testing pattern?
 
@@ -280,7 +280,7 @@ assert(sum == 6);
   tags={["complexity", "loops", "analysis"]}
 >
 
-### Анализ на код с два цикъла
+### Задача 9: Анализ на код с два цикъла
 
 Каква е времевата сложност на следния код фрагмент?
 
@@ -321,7 +321,7 @@ for (int i = 0; i < n; i++) {
   tags={["complexity", "logarithmic", "loops"]}
 >
 
-### Логаритмичен цикъл
+### Задача 10: Логаритмичен цикъл
 
 Каква е времевата сложност на следния код?
 
@@ -361,7 +361,7 @@ for (int i = 1; i < n; i *= 2) {
   tags={["testing", "unit-test", "cpp"]}
 >
 
-### Създаване на тест case
+### Задача 11: Създаване на тест case
 
 Напишете проста функция `max(int a, int b)`, която връща по-голямото от две числа, заедно с тест case използвайки assert statements.
 
@@ -415,7 +415,7 @@ int main() {
   tags={["nan", "floating-point", "comparison"]}
 >
 
-### NaN сравнение
+### Задача 12: NaN сравнение
 
 Напишете код, който проверява дали double променлива `x` е NaN **без** да използвате `std::isnan()`. Обяснете защо това работи.
 
@@ -463,7 +463,7 @@ int main() {
   tags={["complexity", "comparison", "analysis"]}
 >
 
-### Сравнение на сложности
+### Задача 13: Сравнение на сложности
 
 Подредете следните функции по ред на растеж (от най-бавна към най-бърза):
 
@@ -503,7 +503,7 @@ int main() {
   tags={["testing", "edge-cases", "best-practices"]}
 >
 
-### Edge cases в тестване
+### Задача 14: Edge cases в тестване
 
 Напишете comprehensive test cases за функция `divide(double a, double b)`, която дели две числа. Включете edge cases.
 
@@ -560,7 +560,7 @@ void testDivide() {
   tags={["complexity", "recursion", "analysis"]}
 >
 
-### Рекурсивна сложност
+### Задача 15: Рекурсивна сложност
 
 Анализирайте времевата сложност на следната рекурсивна функция:
 
@@ -623,7 +623,7 @@ int fibMemo(int n, std::vector<int>& memo) {
   tags={["floating-point", "precision", "comparison"]}
 >
 
-### Floating-point precision проблеми
+### Задача 16: Floating-point precision проблеми
 
 Обяснете защо `0.1 + 0.2 == 0.3` може да върне `false` в C++. Как да сравняваме floating-point numbers коректно?
 
@@ -676,7 +676,7 @@ if (almostEqual(0.1 + 0.2, 0.3)) {
   tags={["complexity", "master-theorem", "recurrence"]}
 >
 
-### Master Theorem приложение
+### Задача 17: Master Theorem приложение
 
 Използвайки Master Theorem, определете времевата сложност на:
 
@@ -736,7 +736,7 @@ Master Theorem: T(n) = aT(n/b) + f(n)
   tags={["testing", "tdd", "implementation"]}
 >
 
-### Test-Driven Development (TDD)
+### Задача 18: Test-Driven Development (TDD)
 
 Следвайки TDD принципа (Red-Green-Refactor), имплементирайте функция `binarySearch` с comprehensive test suite.
 
@@ -828,7 +828,7 @@ int main() {
   tags={["complexity", "space", "memory"]}
 >
 
-### Space complexity анализ
+### Задача 19: Space complexity анализ
 
 Анализирайте space complexity (auxiliary space) на следните алгоритми:
 
@@ -906,7 +906,7 @@ void quickSort(vector<int>& arr, int low, int high) {
   tags={["floating-point", "ieee-754", "advanced"]}
 >
 
-### Floating-point denormalized numbers
+### Задача 20: Floating-point denormalized numbers
 
 Обяснете какво са denormalized (subnormal) numbers в IEEE 754. Защо съществуват и какви са performance implications?
 
@@ -969,7 +969,7 @@ _MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_ON);
   tags={["complexity", "amortized", "analysis"]}
 >
 
-### Амортизирана complexity анализ
+### Задача 21: Амортизирана complexity анализ
 
 Анализирайте амортизираната complexity на `push_back` операцията за dynamic array (като `std::vector`), който удвоява capacity при resize.
 
@@ -1023,7 +1023,7 @@ _MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_ON);
   tags={["testing", "floating-point", "comprehensive"]}
 >
 
-### Comprehensive тестване на математически функции
+### Задача 22: Comprehensive тестване на математически функции
 
 Имплементирайте robust test suite за функция `sqrt(double x)`, която изчислява квадратен корен. Включете:
 - Normal cases
@@ -1147,7 +1147,7 @@ int main() {
   tags={["complexity", "analysis", "algorithms"]}
 >
 
-### Worst-case vs Average-case complexity
+### Задача 23: Worst-case vs Average-case complexity
 
 Анализирайте Quick Sort алгоритъма:
 - Какъв е worst-case time complexity?

@@ -27,7 +27,7 @@ import ComparisonBox from '@site/src/components/Comparison/ComparisonBox';
   tags={["heap-property", "max-heap", "validation"]}
 >
 
-### Разбиране на Heap Свойства
+### Задача 1: Разбиране на Heap Свойства
 
 Кой от следните arrays представлява валиден max-heap?
 
@@ -119,7 +119,7 @@ D) `[10, 8, 6, 9, 7, 5, 4]`
   tags={["array-indexing", "parent-child", "formulas"]}
 >
 
-### Array Index Изчисления
+### Задача 2: Array Index Изчисления
 
 Даден е 0-indexed heap array. Ако node е на index 5:
 - Какъв е index на неговия parent?
@@ -184,7 +184,7 @@ Index:  0  1  2  3  4  5  6  7  8  9 10 11 12
   tags={["heap-property", "min-heap", "max-heap", "validation"]}
 >
 
-### Heap Type Identification
+### Задача 3: Heap Type Identification
 
 Дали array `[3, 5, 4, 8, 7, 9, 10]` е валиден min-heap, max-heap, и двете, или нито едно? Обяснете отговора си.
 
@@ -246,7 +246,7 @@ Array: `[3, 5, 4, 8, 7, 9, 10]`
   tags={["binary-tree", "height", "complete-tree"]}
 >
 
-### Complete Binary Tree Properties
+### Задача 4: Complete Binary Tree Properties
 
 Complete binary tree има 15 nodes. Каква е неговата височина? Колко nodes са на последното ниво?
 
@@ -306,7 +306,7 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
   tags={["complexity", "big-o", "heap-operations"]}
 >
 
-### Big-O Recognition
+### Задача 5: Big-O Recognition
 
 Съпоставете всяка операция с нейната времева сложност:
 
@@ -372,7 +372,7 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
   tags={["data-structures", "array-representation", "efficiency"]}
 >
 
-### Heap vs Array
+### Задача 6: Heap vs Array
 
 Обяснете в 2-3 изречения защо съхраняването на complete binary tree в array е по-ефективно от използването на pointers/references.
 
@@ -423,7 +423,7 @@ Total: 1 + 2 + 4 + 8 = 15 ✓
   tags={["sift-up", "heap-insert", "tracing"]}
 >
 
-### Sift-Up Trace
+### Задача 7: Sift-Up Trace
 
 Даден е partial max-heap `[15, 12, 10, 8, 9, 5]`. Вмъкнете стойност 14. Покажете всяка стъпка на sift-up процеса и resulting array след всеки swap.
 
@@ -520,7 +520,7 @@ Final tree:
   tags={["heap-property", "violation", "sift-operations"]}
 >
 
-### Identifying Violations
+### Задача 8: Identifying Violations
 
 В array `[20, 18, 15, 12, 10, 8, 14]`, един елемент нарушава max-heap property. Идентифицирайте го и обяснете коя операция (sift-up или sift-down) би го поправила.
 
@@ -604,7 +604,7 @@ Final tree:
   tags={["tree-drawing", "visualization", "array-to-tree"]}
 >
 
-### Parent-Child Relationships
+### Задача 9: Parent-Child Relationships
 
 Нарисувайте binary tree representation на max-heap `[50, 30, 40, 10, 20, 15, 35]`. Етикирайте всеки node с неговия array index.
 
@@ -686,7 +686,7 @@ Level 2:     10    20     15    35
   tags={["heapify", "floyd-algorithm", "bottom-up"]}
 >
 
-### Heap Construction Starting Point
+### Задача 10: Heap Construction Starting Point
 
 За array с размер n = 12, на кой index трябва да започнете heapify процеса при построяване на heap bottom-up? Обяснете защо.
 
@@ -774,7 +774,7 @@ Step 6: Heapify index 0 (root)
   tags={["sift-down", "heapify", "tracing"]}
 >
 
-### Complete Sift-Down
+### Задача 11: Complete Sift-Down
 
 Даден е array `[5, 20, 15, 10, 12, 8, 7]` където heap property е нарушено на root. Извършете пълна sift-down операция. Покажете array състоянието след всеки swap докато heap property не се възстанови.
 
@@ -898,7 +898,7 @@ Final tree (ВАЛИДЕН max-heap):
   tags={["heap-construction", "floyd-method", "bottom-up"]}
 >
 
-### Building a Heap
+### Задача 12: Building a Heap
 
 Построете max-heap от unsorted array `[4, 10, 3, 5, 1, 8, 9, 2]` използвайки Floyd's bottom-up heapify метод. Покажете:
 - Starting index за heapification
@@ -1070,7 +1070,7 @@ Final tree:
   tags={["heap-sort", "heap-construction", "phase-1"]}
 >
 
-### Heap Sort Phase 1
+### Задача 13: Heap Sort Phase 1
 
 Даден е array `[7, 3, 9, 1, 5, 2, 8]`. Завършете Phase 1 на heap sort (heap construction). Покажете работата си стъпка по стъпка и идентифицирайте колко sift-down операции са извършени.
 
@@ -1217,7 +1217,7 @@ Final tree:
   tags={["algorithm-comparison", "memory-constraints", "analysis"]}
 >
 
-### Algorithm Comparison
+### Задача 14: Algorithm Comparison
 
 Трябва да сортирате 500,000 records на устройство с само 2 MB налична памет. Всеки record е 100 bytes. Сравнете heap sort, merge sort и quick sort за този сценарий. Кой бихте избрали и защо? Разгледайте поне три фактора в отговора си.
 
@@ -1369,7 +1369,7 @@ mergeSortedRuns(numRuns);
   tags={["heap-sort", "extraction", "phase-2"]}
 >
 
-### Extraction Process
+### Задача 15: Extraction Process
 
 Започвайки с max-heap `[25, 20, 18, 15, 10, 12, 8]`, извършете първите ТРИ extraction steps на heap sort. Покажете:
 - Елементът, който се премахва
@@ -1563,7 +1563,7 @@ Tree:
   tags={["complexity-analysis", "proof", "big-o", "heapify"]}
 >
 
-### Time Complexity Proof
+### Задача 16: Time Complexity Proof
 
 Обяснете защо построяването на heap bottom-up е O(n) вместо O(n log n). Обяснението трябва да включва:
 - Връзката между node levels и брой swaps
@@ -1753,7 +1753,7 @@ Total: 2 + 2 + 0 = 4 < 7 → O(n)
   tags={["heap-sort", "complete-trace", "analysis"]}
 >
 
-### Complete Heap Sort
+### Задача 17: Complete Heap Sort
 
 Извършете пълен heap sort на `[6, 2, 8, 1, 9, 3, 7, 5]`. Покажете:
 - **Phase 1:** Пълен heapification процес
@@ -1795,7 +1795,7 @@ Initial tree:
 Heapify indices: 3, 2, 1, 0
 ```
 
-### Heapify index 3 (value 1):
+### Задача 18: Heapify index 3 (value 1):
 
 Children: index 7 (value 5)
 - Compare: 1 vs 5
@@ -1813,7 +1813,7 @@ After: [6, 2, 8, 5, 9, 3, 7, 1]
    1
 ```
 
-### Heapify index 2 (value 8):
+### Задача 19: Heapify index 2 (value 8):
 
 Children: index 5 (value 3), index 6 (value 7)
 - Compare: 8, 3, 7
@@ -1823,7 +1823,7 @@ Children: index 5 (value 3), index 6 (value 7)
 After: [6, 2, 8, 5, 9, 3, 7, 1] (unchanged)
 ```
 
-### Heapify index 1 (value 2):
+### Задача 20: Heapify index 1 (value 2):
 
 Children: index 3 (value 5), index 4 (value 9)
 - Compare: 2, 5, 9
@@ -1841,7 +1841,7 @@ After: [6, 9, 8, 5, 2, 3, 7, 1]
    1
 ```
 
-### Heapify index 0 (value 6):
+### Задача 21: Heapify index 0 (value 6):
 
 **Iteration 1:**
 Children: index 1 (value 9), index 2 (value 8)
@@ -1877,7 +1877,7 @@ Children: index 3 (value 5), index 4 (value 2)
 
 **Heap:** `[9, 6, 8, 5, 2, 3, 7, 1]`
 
-### Extraction 1: Remove 9
+### Задача 22: Extraction 1: Remove 9
 
 Swap 9 ↔ 1: `[1, 6, 8, 5, 2, 3, 7 | 9]`
 
@@ -1888,7 +1888,7 @@ Sift-down 1:
 
 **Result:** `[8, 6, 7, 5, 2, 3, 1 | 9]`
 
-### Extraction 2: Remove 8
+### Задача 23: Extraction 2: Remove 8
 
 Swap 8 ↔ 1: `[1, 6, 7, 5, 2, 3 | 8, 9]`
 
@@ -1899,7 +1899,7 @@ Sift-down 1:
 
 **Result:** `[7, 6, 3, 5, 2, 1 | 8, 9]`
 
-### Extraction 3: Remove 7
+### Задача 24: Extraction 3: Remove 7
 
 Swap 7 ↔ 1: `[1, 6, 3, 5, 2 | 7, 8, 9]`
 
@@ -1910,7 +1910,7 @@ Sift-down 1:
 
 **Result:** `[6, 5, 3, 1, 2 | 7, 8, 9]`
 
-### Extraction 4: Remove 6
+### Задача 25: Extraction 4: Remove 6
 
 Swap 6 ↔ 2: `[2, 5, 3, 1 | 6, 7, 8, 9]`
 
@@ -1921,7 +1921,7 @@ Sift-down 2:
 
 **Result:** `[5, 2, 3, 1 | 6, 7, 8, 9]`
 
-### Extraction 5: Remove 5
+### Задача 26: Extraction 5: Remove 5
 
 Swap 5 ↔ 1: `[1, 2, 3 | 5, 6, 7, 8, 9]`
 
@@ -1931,7 +1931,7 @@ Sift-down 1:
 
 **Result:** `[3, 2, 1 | 5, 6, 7, 8, 9]`
 
-### Extraction 6: Remove 3
+### Задача 27: Extraction 6: Remove 3
 
 Swap 3 ↔ 1: `[1, 2 | 3, 5, 6, 7, 8, 9]`
 
@@ -1941,7 +1941,7 @@ Sift-down 1:
 
 **Result:** `[2, 1 | 3, 5, 6, 7, 8, 9]`
 
-### Extraction 7: Remove 2
+### Задача 28: Extraction 7: Remove 2
 
 Swap 2 ↔ 1: `[1 | 2, 3, 5, 6, 7, 8, 9]`
 
@@ -1987,7 +1987,7 @@ Our estimate (~30) е reasonable!
   tags={["stability", "sorting-properties", "analysis"]}
 >
 
-### Stability Analysis
+### Задача 29: Stability Analysis
 
 Даден е array `[5a, 3, 5b, 2, 5c]` където subscripts различават равни елементи:
 - Извършете heap sort и покажете финалния ред
@@ -2197,7 +2197,7 @@ struct Element {
   tags={["min-heap", "priority-queue", "application"]}
 >
 
-### Min-Heap Application
+### Задача 30: Min-Heap Application
 
 Имплементирате priority queue за emergency room на болница, където ПО-НИСКИТЕ числа индикират ПО-ВИСОК приоритет (1 = critical, 10 = minor).
 
@@ -2234,7 +2234,7 @@ struct Element {
 
 **Arrivals:** `[5, 2, 8, 1, 6, 3]`
 
-### Insert 5:
+### Задача 31: Insert 5:
 ```
 Heap: [5]
 
@@ -2242,7 +2242,7 @@ Tree:
    5
 ```
 
-### Insert 2:
+### Задача 32: Insert 2:
 ```
 Array: [5, 2]
 Sift-up: 2 < 5, swap
@@ -2255,7 +2255,7 @@ Tree:
  5
 ```
 
-### Insert 8:
+### Задача 33: Insert 8:
 ```
 Array: [2, 5, 8]
 Sift-up: 8 > 2, no swap
@@ -2268,7 +2268,7 @@ Tree:
  5   8
 ```
 
-### Insert 1:
+### Задача 34: Insert 1:
 ```
 Array: [2, 5, 8, 1]
 Sift-up from index 3:
@@ -2289,7 +2289,7 @@ Tree:
  5
 ```
 
-### Insert 6:
+### Задача 35: Insert 6:
 ```
 Array: [1, 2, 8, 5, 6]
 Sift-up from index 4:
@@ -2306,7 +2306,7 @@ Tree:
  5   6
 ```
 
-### Insert 3:
+### Задача 36: Insert 3:
 ```
 Array: [1, 2, 8, 5, 6, 3]
 Sift-up from index 5:
@@ -2348,7 +2348,7 @@ Final Tree:
 
 ## EXTRACTION ORDER (Calling Patients)
 
-### Extract 1 (Priority 1 - CRITICAL):
+### Задача 37: Extract 1 (Priority 1 - CRITICAL):
 ```
 Patient with priority 1 called!
 Remove root, re-heapify
@@ -2361,7 +2361,7 @@ Heap: [2, 5, 3, 8, 6]
  8   6
 ```
 
-### Extract 2 (Priority 2):
+### Задача 38: Extract 2 (Priority 2):
 ```
 Patient with priority 2 called!
 Heap: [3, 5, 6, 8]
@@ -2373,7 +2373,7 @@ Heap: [3, 5, 6, 8]
  8
 ```
 
-### Extract 3 (Priority 3):
+### Задача 39: Extract 3 (Priority 3):
 ```
 Patient with priority 3 called!
 Heap: [5, 8, 6]
@@ -2383,7 +2383,7 @@ Heap: [5, 8, 6]
  8   6
 ```
 
-### Extract 4 (Priority 5):
+### Задача 40: Extract 4 (Priority 5):
 ```
 Patient with priority 5 called!
 Heap: [6, 8]
@@ -2393,7 +2393,7 @@ Heap: [6, 8]
  8
 ```
 
-### Extract 5 (Priority 6):
+### Задача 41: Extract 5 (Priority 6):
 ```
 Patient with priority 6 called!
 Heap: [8]
@@ -2401,7 +2401,7 @@ Heap: [8]
  8
 ```
 
-### Extract 6 (Priority 8):
+### Задача 42: Extract 6 (Priority 8):
 ```
 Patient with priority 8 called!
 Heap: []
@@ -2492,7 +2492,7 @@ Charlie (priority: 8)  ← Least urgent
   tags={["k-ary-heap", "analysis", "complexity"]}
 >
 
-### K-ary Heap Analysis
+### Задача 43: K-ary Heap Analysis
 
 Разгледайте 4-ary heap (всеки node има 4 children) с 1000 елемента.
 
@@ -2574,7 +2574,7 @@ $$
 
 ## 4. COMPARISONS PER SIFT-DOWN
 
-### Binary Heap (k=2):
+### Задача 44: Binary Heap (k=2):
 **Comparisons per level:**
 - Compare current with 2 children: **2 comparisons**
 - Find max of 3 elements: 2 comparisons
@@ -2582,7 +2582,7 @@ $$
 
 **Worst-case:** Height × 2 = 9 × 2 = **18 comparisons**
 
-### 4-ary Heap (k=4):
+### Задача 45: 4-ary Heap (k=4):
 **Comparisons per level:**
 - Compare current with 4 children: **4 comparisons**
 - Find max of 5 elements: 4 comparisons
@@ -2608,7 +2608,7 @@ $$
 
 ## 6. КОГА 4-ARY HEAP Е ПО-ДОБЪР?
 
-### Scenario 1: Cache-Friendly Operations
+### Задача 46: Scenario 1: Cache-Friendly Operations
 **4-ary heap advantages:**
 - **Better cache locality** - 4 children може да се поберат в един cache line
 - Modern CPUs have 64-byte cache lines
@@ -2618,7 +2618,7 @@ $$
 - Children са по-разпръснати в паметта
 - Повече cache misses
 
-### Scenario 2: Priority Queue с много извличания
+### Задача 47: Scenario 2: Priority Queue с много извличания
 **4-ary heap:**
 - Fewer levels → potentially faster extract-min
 - Ако comparisons са евтини (примитивни типове)
@@ -2626,7 +2626,7 @@ $$
 **Binary heap:**
 - Може да е по-бавен поради повече levels
 
-### Scenario 3: External Memory / Disk-based
+### Задача 48: Scenario 3: External Memory / Disk-based
 **4-ary heap:**
 - **Significantly fewer disk I/O operations**
 - Disk seeks са МНОГО скъпи
@@ -2637,7 +2637,7 @@ $$
 - Binary heap: height = 20 → 20 potential disk seeks
 - 4-ary heap: height = 10 → **10 disk seeks** (50% reduction!)
 
-### Scenario 4: Parallel Processing
+### Задача 49: Scenario 4: Parallel Processing
 **4-ary heap:**
 - 4 children могат да се сравнят паралелно
 - SIMD instructions (SSE, AVX)
@@ -2751,7 +2751,7 @@ public:
   tags={["hybrid-algorithm", "optimization", "design"]}
 >
 
-### Hybrid Algorithm Design
+### Задача 50: Hybrid Algorithm Design
 
 Проектирайте hybrid sorting алгоритъм, който:
 - Използва heap sort за първата фаза
@@ -2781,13 +2781,13 @@ Specify: кога да превключите, кой втори алгорит�
 
 ## DESIGN RATIONALE
 
-### Phase 1: Heap Sort (Large Data)
+### Задача 51: Phase 1: Heap Sort (Large Data)
 **Използваме heap sort за:**
 - **Guaranteed O(n log n)** - no worst-case degradation
 - **In-place** - O(1) space
 - **Predictable** - critical за real-time systems
 
-### Phase 2: Insertion Sort (Small/Nearly Sorted Data)
+### Задача 52: Phase 2: Insertion Sort (Small/Nearly Sorted Data)
 **Преминаваме към insertion sort защото:**
 - **O(n)** за nearly sorted data
 - **Excellent cache locality**
@@ -2798,7 +2798,7 @@ Specify: кога да превключите, кой втори алгорит�
 
 ## SWITCHING STRATEGY
 
-### Threshold-Based Switching
+### Задача 53: Threshold-Based Switching
 
 **Define threshold K (experimentally determined):**
 - Typical values: K = 16 to 64
@@ -2829,7 +2829,7 @@ void hybridHeapSort(vector<int>& arr) {
 
 ## DETAILED ALGORITHM
 
-### Partial Heap Sort
+### Задача 54: Partial Heap Sort
 
 **Idea:** Heap sort до data е "nearly sorted enough" за insertion sort да е ефективен.
 
@@ -2897,7 +2897,7 @@ bool isNearlySorted(vector<int>& arr, int end) {
 
 ## COMPLEXITY ANALYSIS
 
-### Time Complexity
+### Задача 55: Time Complexity
 
 **Phase 1: Partial Heap Sort**
 - Build heap: O(n)
@@ -2915,7 +2915,7 @@ bool isNearlySorted(vector<int>& arr, int end) {
 
 **Key insight:** Worst-case остава O(n log n) благодарение на heap sort! ✓
 
-### Space Complexity
+### Задача 56: Space Complexity
 
 - **Auxiliary space:** O(1) - in-place
 - Heap sort е in-place
@@ -2925,7 +2925,7 @@ bool isNearlySorted(vector<int>& arr, int end) {
 
 ## WHY THIS DESIGN?
 
-### Advantages
+### Задача 57: Advantages
 
 1. **Worst-Case Guarantee:**
    - Heap sort осигурява O(n log n) ceiling
@@ -2943,7 +2943,7 @@ bool isNearlySorted(vector<int>& arr, int end) {
    - O(1) space requirement
    - Critical за memory-constrained systems
 
-### Disadvantages
+### Задача 58: Disadvantages
 
 1. **Not Stable:**
    - Heap sort губи stability
@@ -2960,7 +2960,7 @@ bool isNearlySorted(vector<int>& arr, int end) {
 
 ## ALTERNATIVE DESIGNS
 
-### Variant 1: HeapSort + QuickSort Hybrid
+### Задача 59: Variant 1: HeapSort + QuickSort Hybrid
 
 ```cpp
 void heapQuickHybrid(vector<int>& arr, int left, int right) {
@@ -2984,7 +2984,7 @@ void heapQuickHybrid(vector<int>& arr, int left, int right) {
 
 **When to use:** Когато average-case speed е по-важен, но искаш worst-case protection.
 
-### Variant 2: HeapSort + Merge for Stability
+### Задача 60: Variant 2: HeapSort + Merge for Stability
 
 ```cpp
 void hybridStableSort(vector<int>& arr) {
@@ -3124,7 +3124,7 @@ Due to length constraints, I'll continue with the remaining exercises (22-24) in
   tags={["top-k", "streaming", "space-efficient", "priority-queue"]}
 >
 
-### Top-K Problem
+### Задача 61: Top-K Problem
 
 Трябва да намерите top 10 values от stream от 1 милион integers, но можете да съхраните само 11 values в паметта едновременно.
 
@@ -3150,7 +3150,7 @@ Due to length constraints, I'll continue with the remaining exercises (22-24) in
 
 ## ALGORITHM DESIGN
 
-### Избор на Heap Type: MIN-HEAP
+### Задача 62: Избор на Heap Type: MIN-HEAP
 
 **Използваме MIN-HEAP! Ето защо:**
 
@@ -3212,14 +3212,14 @@ vector<int> findTopK(Stream& stream, int k) {
 
 **Stream:** `[15, 8, 23, 42, 4, 16, 50, 12, 9, 31, 7, 19]`
 
-### Process 15:
+### Задача 63: Process 15:
 ```
 Heap size < 5, insert
 Heap: [15]
 Top-5 so far: \{15\}
 ```
 
-### Process 8:
+### Задача 64: Process 8:
 ```
 Heap size < 5, insert
 Heap: [8, 15]
@@ -3229,7 +3229,7 @@ Heap: [8, 15]
 Top-5: \{8, 15\}
 ```
 
-### Process 23:
+### Задача 65: Process 23:
 ```
 Heap size < 5, insert
 Heap: [8, 15, 23]
@@ -3239,7 +3239,7 @@ Heap: [8, 15, 23]
 Top-5: \{8, 15, 23\}
 ```
 
-### Process 42:
+### Задача 66: Process 42:
 ```
 Heap size < 5, insert
 Heap: [8, 15, 23, 42]
@@ -3251,7 +3251,7 @@ Heap: [8, 15, 23, 42]
 Top-5: \{8, 15, 23, 42\}
 ```
 
-### Process 4:
+### Задача 67: Process 4:
 ```
 Heap size < 5, insert
 Heap: [4, 8, 23, 42, 15]
@@ -3266,7 +3266,7 @@ After heapify:
 Top-5: \{4, 8, 15, 23, 42\}
 ```
 
-### Process 16:
+### Задача 68: Process 16:
 ```
 Heap full, compare: 16 > min(4)
 Remove 4, insert 16
@@ -3281,7 +3281,7 @@ Heap: [8, 15, 23, 42, 16]
 Top-5: \{8, 15, 16, 23, 42\}
 ```
 
-### Process 50:
+### Задача 69: Process 50:
 ```
 Compare: 50 > min(8)
 Remove 8, insert 50
@@ -3296,7 +3296,7 @@ Heap: [15, 16, 23, 42, 50]
 Top-5: \{15, 16, 23, 42, 50\}
 ```
 
-### Process 12:
+### Задача 70: Process 12:
 ```
 Compare: 12 < min(15)
 Ignore (не е в top-5)
@@ -3304,7 +3304,7 @@ Ignore (не е в top-5)
 Heap: [15, 16, 23, 42, 50] (unchanged)
 ```
 
-### Process 9:
+### Задача 71: Process 9:
 ```
 Compare: 9 < min(15)
 Ignore
@@ -3312,7 +3312,7 @@ Ignore
 Heap: [15, 16, 23, 42, 50] (unchanged)
 ```
 
-### Process 31:
+### Задача 72: Process 31:
 ```
 Compare: 31 > min(15)
 Remove 15, insert 31
@@ -3327,7 +3327,7 @@ Heap: [16, 31, 23, 42, 50]
 Top-5: \{16, 23, 31, 42, 50\}
 ```
 
-### Process 7:
+### Задача 73: Process 7:
 ```
 Compare: 7 < min(16)
 Ignore
@@ -3335,7 +3335,7 @@ Ignore
 Heap: [16, 31, 23, 42, 50] (unchanged)
 ```
 
-### Process 19:
+### Задача 74: Process 19:
 ```
 Compare: 19 > min(16)
 Remove 16, insert 19
@@ -3362,7 +3362,7 @@ Top-5: \{19, 23, 31, 42, 50\}
 
 ## COMPLEXITY ANALYSIS
 
-### Time Complexity
+### Задача 75: Time Complexity
 
 **Per element:**
 - Compare with min: **O(1)**
@@ -3375,7 +3375,7 @@ Top-5: \{19, 23, 31, 42, 50\}
 - O(1,000,000 × log 10) ≈ O(1,000,000 × 3.32) ≈ **3,320,000 operations**
 - Very efficient! Much better than sorting O(n log n)
 
-### Space Complexity
+### Задача 76: Space Complexity
 
 **Heap size:** **O(k)**
 
@@ -3390,7 +3390,7 @@ Top-5: \{19, 23, 31, 42, 50\}
 
 ## COMPARISON WITH ALTERNATIVES
 
-### Alternative 1: Sort All Data
+### Задача 77: Alternative 1: Sort All Data
 
 ```cpp
 vector<int> sortApproach(Stream& stream) {
@@ -3407,7 +3407,7 @@ vector<int> sortApproach(Stream& stream) {
 - Time: O(n log n) = O(1M × 20) = 20M operations ← WORSE!
 - Space: O(n) = O(1M integers) = ~4MB ← MUCH WORSE!
 
-### Alternative 2: Partial QuickSelect
+### Задача 78: Alternative 2: Partial QuickSelect
 
 ```cpp
 // QuickSelect за top-k
@@ -3418,7 +3418,7 @@ vector<int> sortApproach(Stream& stream) {
 - Space: O(n) - need to store all data first
 - **Problem:** Не работи за streaming data!
 
-### Our Min-Heap Approach: WINNER!
+### Задача 79: Our Min-Heap Approach: WINNER!
 
 - **Time:** O(n log k) ← BEST!
 - **Space:** O(k) ← BEST!
@@ -3563,7 +3563,7 @@ Top-5 elements:
   tags={["heap-sort", "optimization", "descending-order", "partial-sort"]}
 >
 
-### Heap Sort Optimization
+### Задача 80: Heap Sort Optimization
 
 Стандартният heap sort произвежда ascending order използвайки max-heap.
 
@@ -3587,7 +3587,7 @@ Top-5 elements:
 
 ## 1. ЗАЩО MAX-HEAP ЗА ASCENDING ORDER?
 
-### Интуитивно Обяснение
+### Задача 81: Интуитивно Обяснение
 
 **Heap sort процес:**
 1. Build max-heap
@@ -3623,7 +3623,7 @@ Result: [heap...] [MIN]
 
 ## 2. МОДИФИЦИРАНЕ ЗА DESCENDING ORDER
 
-### Вариант A: Използвай Min-Heap (Най-прост)
+### Задача 82: Вариант A: Използвай Min-Heap (Най-прост)
 
 ```cpp
 void heapSortDescending(vector<int>& arr) {
@@ -3647,7 +3647,7 @@ void heapSortDescending(vector<int>& arr) {
 - Space: O(1)
 - **Просто и ефективно!** ✓
 
-### Вариант B: Reverse След Ascending Heap Sort
+### Задача 83: Вариант B: Reverse След Ascending Heap Sort
 
 ```cpp
 void heapSortDescending(vector<int>& arr) {
@@ -3661,7 +3661,7 @@ void heapSortDescending(vector<int>& arr) {
 - Space: O(1)
 - **Работи, но прави повече работа**
 
-### Вариант C: Negate Values (Hack)
+### Задача 84: Вариант C: Negate Values (Hack)
 
 ```cpp
 void heapSortDescending(vector<int>& arr) {
@@ -3687,9 +3687,9 @@ void heapSortDescending(vector<int>& arr) {
 
 ## 3. ЧАСТИЧНО СОРТИРАНЕ: TOP-K ИЗВЛИЧАНЕ
 
-### Задача: Намери k най-големи елемента
+### Задача 85: Задача: Намери k най-големи елемента
 
-### Approach 1: Частичен Heap Sort
+### Задача 86: Approach 1: Частичен Heap Sort
 
 ```cpp
 vector<int> topKHeapSort(vector<int>& arr, int k) {
@@ -3716,7 +3716,7 @@ vector<int> topKHeapSort(vector<int>& arr, int k) {
 **Example:** k = 10, n = 1,000,000
 - O(1,000,000 + 10 × 20) = O(1,000,200) ≈ **O(n)** ← Excellent!
 
-### Approach 2: Min-Heap от размер k
+### Задача 87: Approach 2: Min-Heap от размер k
 
 ```cpp
 vector<int> topKMinHeap(vector<int>& arr, int k) {
@@ -3763,7 +3763,7 @@ vector<int> topKMinHeap(vector<int>& arr, int k) {
 | **Streaming** | ❌ No (needs all data) | ✅ Yes |
 | **Cache Locality** | Good | Moderate |
 
-### Кога е по-добър Partial Heap Sort?
+### Задача 88: Кога е по-добър Partial Heap Sort?
 
 **Partial Heap Sort е по-добър когато:**
 1. **k е близо до n (например k > n/2)**
@@ -3784,7 +3784,7 @@ vector<int> topKMinHeap(vector<int>& arr, int k) {
 - Min-heap: O(1M × log 900K) = O(1M × 19.8) = O(19.8M)
 - **Similar, но partial е in-place!**
 
-### Кога е по-добър Min-Heap?
+### Задача 89: Кога е по-добър Min-Heap?
 
 **Min-heap е по-добър когато:**
 1. **`k << n (например k < n/100)`**
@@ -3810,7 +3810,7 @@ vector<int> topKMinHeap(vector<int>& arr, int k) {
 
 ## 5. ДЕТАЙЛЕН АНАЛИЗ
 
-### Scenario 1: k = 10, n = 1M
+### Задача 90: Scenario 1: k = 10, n = 1M
 
 | Method | Time | Space | Winner |
 |--------|------|-------|--------|
@@ -3820,7 +3820,7 @@ vector<int> topKMinHeap(vector<int>& arr, int k) {
 
 **Winner: Partial Heap Sort** ← Nearly linear time!
 
-### Scenario 2: k = 100K, n = 1M
+### Задача 91: Scenario 2: k = 100K, n = 1M
 
 | Method | Time | Space |
 |--------|------|-------|
@@ -3830,7 +3830,7 @@ vector<int> topKMinHeap(vector<int>& arr, int k) {
 
 **Winner: Partial Heap Sort** ← Significantly faster!
 
-### Scenario 3: Streaming Data, k = 10
+### Задача 92: Scenario 3: Streaming Data, k = 10
 
 | Method | Works? | Time | Space |
 |--------|--------|------|-------|
@@ -3941,7 +3941,7 @@ public:
   tags={["real-world", "constraints", "optimization", "production-code"]}
 >
 
-### Real-World Implementation
+### Задача 93: Real-World Implementation
 
 Имплементирате heap sort за real-time система със следните constraints:
 
@@ -3977,7 +3977,7 @@ public:
 
 ## 1. RECURSIVE VS. ITERATIVE SIFT-DOWN
 
-### Избор: **ITERATIVE**
+### Задача 94: Избор: **ITERATIVE**
 
 **Защо НЕ recursive?**
 
@@ -4013,7 +4013,7 @@ public:
 
 ## 2. RESPONSIVENESS CONSTRAINT (< 5ms)
 
-### Problem Analysis
+### Задача 95: Problem Analysis
 
 **Worst-case timing за n = 100K:**
 - Heap construction: O(100K) ≈ 100K operations
@@ -4027,7 +4027,7 @@ public:
 - Worst-case може да е 5-10× по-бавно
 - **Potential risk за 5ms constraint!**
 
-### Solution: **Time-Sliced Sorting**
+### Задача 96: Solution: **Time-Sliced Sorting**
 
 **Approach 1: Incremental Sorting**
 
@@ -4126,7 +4126,7 @@ void adaptiveSort(vector<int>& arr, int maxTime_ms) {
 
 ## 3. АЛГОРИТЪМ SELECTION STRATEGY
 
-### Input Size Based Selection
+### Задача 97: Input Size Based Selection
 
 | Size Range | Algorithm | Reason |
 |------------|-----------|--------|
@@ -4135,7 +4135,7 @@ void adaptiveSort(vector<int>& arr, int maxTime_ms) {
 | 1000 ≤ n < 10K | Heap Sort | Predictable, ~1-2ms |
 | n ≥ 10K | Time-Sliced Heap | Guaranteed responsiveness |
 
-### Counting Sort Optimization
+### Задача 98: Counting Sort Optimization
 
 **Key insight:** Data range е [0, 1000]!
 
@@ -4176,11 +4176,11 @@ void smartSort(vector<int>& arr) {
 
 ## 4. OPTIMIZATIONS
 
-### Optimization 1: Bottom-Up Heapify (Floyd's Method)
+### Задача 99: Optimization 1: Bottom-Up Heapify (Floyd's Method)
 
 Already using O(n) instead of O(n log n) ✓
 
-### Optimization 2: Iterative Sift-Down
+### Задача 100: Optimization 2: Iterative Sift-Down
 
 ```cpp
 void siftDown(vector<int>& arr, int n, int i) {
@@ -4203,7 +4203,7 @@ void siftDown(vector<int>& arr, int n, int i) {
 }
 ```
 
-### Optimization 3: Manual Swap (Avoid std::swap overhead)
+### Задача 101: Optimization 3: Manual Swap (Avoid std::swap overhead)
 
 ```cpp
 inline void fastSwap(int& a, int& b) {
@@ -4213,7 +4213,7 @@ inline void fastSwap(int& a, int& b) {
 }
 ```
 
-### Optimization 4: Early Termination
+### Задача 102: Optimization 4: Early Termination
 
 ```cpp
 void siftDownOptimized(vector<int>& arr, int n, int i) {
@@ -4245,7 +4245,7 @@ void siftDownOptimized(vector<int>& arr, int n, int i) {
 
 **Benefit:** Избягва половината swaps!
 
-### Optimization 5: Prefetching (Advanced)
+### Задача 103: Optimization 5: Prefetching (Advanced)
 
 ```cpp
 void siftDownPrefetch(vector<int>& arr, int n, int i) {

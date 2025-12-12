@@ -40,7 +40,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 <ExerciseCard difficulty="easy" timeEstimate="5-10 min">
 
-### Конвертиране от десетична в двоична система
+### Задача 1: Конвертиране от десетична в двоична система
 
 Конвертирайте десетичното число **13** в двоична бройна система. Покажете стъпките на преобразуването.
 
@@ -71,7 +71,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 <ExerciseCard difficulty="easy" timeEstimate="5 min">
 
-### Представяне на число в двоична форма
+### Задача 2: Представяне на число в двоична форма
 
 Какво е представянето на числото **127** в 8-битов `unsigned char`? Запишете резултата в двоична форма.
 
@@ -90,7 +90,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 <ExerciseCard difficulty="easy" timeEstimate="5 min">
 
-### Най-младши бит (LSB)
+### Задача 3: Най-младши бит (LSB)
 
 **Въпрос:** Каква е стойността на най-младшия бит (LSB) в числото **26**?
 
@@ -114,7 +114,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 <ExerciseCard difficulty="easy" timeEstimate="5 min">
 
-### Капацитет на 16-битово число
+### Задача 4: Капацитет на 16-битово число
 
 Колко различни стойности може да представи 16-битово число без знак (`unsigned short`)?
 
@@ -134,7 +134,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 <ExerciseCard difficulty="easy" timeEstimate="5-10 min">
 
-### Побитово AND
+### Задача 5: Побитово AND
 
 Каква е стойността на израза `7 & 5`? Покажете побитовата операция.
 
@@ -164,7 +164,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 <ExerciseCard difficulty="easy" timeEstimate="5-10 min">
 
-### Побитово OR
+### Задача 6: Побитово OR
 
 Каква е стойността на израза `4 | 2`? Обяснете резултата с двоични числа.
 
@@ -193,7 +193,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 <ExerciseCard difficulty="easy" timeEstimate="5 min">
 
-### Побитово NOT върху 0
+### Задача 7: Побитово NOT върху 0
 
 **Въпрос:** Операторът `~` (NOT) върху числото **0** (в 8-битово представяне) дава:
 
@@ -224,7 +224,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 <ExerciseCard difficulty="easy" timeEstimate="5 min">
 
-### Сдвиг наляво като умножение
+### Задача 8: Сдвиг наляво като умножение
 
 **Въпрос:** Какво прави операцията `x << 1` върху числото x?
 
@@ -262,7 +262,7 @@ $5 \times 2 = 10$ ✅
 
 <ExerciseCard difficulty="easy-medium" timeEstimate="10-15 min">
 
-### Проверка на бит
+### Задача 9: Проверка на бит
 
 Напишете израз в C++, който проверява дали **3-тият бит** (броейки от 0) на променлива `num` е установен (равен на 1).
 
@@ -300,7 +300,7 @@ bool bit3 = num & (1 << 3);  // 1101 & 1000 = 1000 (true)
 
 <ExerciseCard difficulty="easy-medium" timeEstimate="10-15 min">
 
-### Побитово XOR
+### Задача 10: Побитово XOR
 
 Каква е стойността на израза `15 ^ 10`? Покажете побитовата операция и обяснете XOR оператора.
 
@@ -336,7 +336,7 @@ bool bit3 = num & (1 << 3);  // 1101 & 1000 = 1000 (true)
 
 <ExerciseCard difficulty="easy-medium" timeEstimate="10-15 min">
 
-### Установяване на бит
+### Задача 11: Установяване на бит
 
 Напишете C++ код, който **установява** (прави равен на 1) **5-ия бит** на променлива `flags`, без да променя останалите битове.
 
@@ -371,7 +371,7 @@ flags = flags | (1 << 5);
 
 <ExerciseCard difficulty="easy-medium" timeEstimate="10-15 min">
 
-### Сдвиг надясно
+### Задача 12: Сдвиг надясно
 
 Дадена е променлива `int value = 80;`. Каква ще бъде стойността след `value >> 3`? Обяснете защо.
 
@@ -400,7 +400,7 @@ flags = flags | (1 << 5);
 
 <ExerciseCard difficulty="easy-medium" timeEstimate="10-15 min">
 
-### Извличане с битова маска
+### Задача 13: Извличане с битова маска
 
 Напишете израз, който извлича **последните 6 бита** от променлива `data` използвайки битова маска.
 
@@ -470,7 +470,7 @@ int last6 = data & 0x3F;
 
 <ExerciseCard difficulty="medium" timeEstimate="15-20 min">
 
-### Дебъгване на побитов код
+### Задача 14: Дебъгване на побитов код
 
 Открийте грешката в следния код:
 
@@ -525,7 +525,7 @@ if (x & 2) {
 
 <ExerciseCard difficulty="medium" timeEstimate="15-20 min">
 
-### Побитово NOT върху 0
+### Задача 15: Побитово NOT върху 0
 
 Каква е стойността на `~0` в 32-битов `signed int`? Обяснете резултата.
 
@@ -562,7 +562,7 @@ cout << y;  // 4294967295 (2³² - 1)
 
 <ExerciseCard difficulty="medium" timeEstimate="20-25 min">
 
-### Проверка за степен на 2
+### Задача 16: Проверка за степен на 2
 
 Напишете функция `bool isPowerOfTwo(int n)`, която проверява дали числото `n` е степен на 2, използвайки побитови операции.
 
@@ -634,7 +634,7 @@ cout << isPowerOfTwo(-2);  // false
 
 <ExerciseCard difficulty="medium-hard" timeEstimate="20-30 min">
 
-### Нулиране на определен бит
+### Задача 17: Нулиране на определен бит
 
 Напишете C++ функция, която **нулира** (прави равен на 0) определен бит на позиция `pos` в числото `num`.
 
@@ -697,7 +697,7 @@ x = clearBit(x, 3);           // 0b11110111 (247)
 
 <ExerciseCard difficulty="medium-hard" timeEstimate="25-35 min">
 
-### Система за разрешения с флагове
+### Задача 18: Система за разрешения с флагове
 
 Даден е следният код за управление на разрешения:
 
@@ -792,7 +792,7 @@ int main() {
 
 <ExerciseCard difficulty="medium-hard" timeEstimate="25-35 min">
 
-### Извличане на RGB компоненти
+### Задача 19: Извличане на RGB компоненти
 
 Дадено е 32-битово RGB число `0x00FF8040` (формат: `0x00RRGGBB`).
 
@@ -877,7 +877,7 @@ unsigned char getAlpha(Color c) {
 
 <ExerciseCard difficulty="medium-hard" timeEstimate="25-35 min">
 
-### Броене на установени битове
+### Задача 20: Броене на установени битове
 
 Напишете функция `int countSetBits(unsigned int n)`, която брои колко бита са установени (равни на 1) в числото `n`.
 
@@ -977,7 +977,7 @@ cout << countSetBits(13);   // 3 (1101)
 
 <ExerciseCard difficulty="hard" timeEstimate="30-45 min">
 
-### Размяна на два бита
+### Задача 21: Размяна на два бита
 
 Напишете функция `void swapBits(unsigned int &num, int pos1, int pos2)`, която разменя битовете на позиции `pos1` и `pos2` в числото `num`.
 
@@ -1069,7 +1069,7 @@ After:  00111
 
 <ExerciseCard difficulty="hard" timeEstimate="30-40 min">
 
-### XOR криптиране/декриптиране
+### Задача 22: XOR криптиране/декриптиране
 
 Имплементирайте функция за прост XOR cipher:
 
@@ -1184,7 +1184,7 @@ XOR   --------
 
 <ExerciseCard difficulty="hard" timeEstimate="35-50 min">
 
-### Обръщане на реда на битовете
+### Задача 23: Обръщане на реда на битовете
 
 Напишете функция `unsigned int reverseBits(unsigned int num)`, която обръща реда на всички битове в 32-битово число (първият става последен и обратно).
 
@@ -1311,7 +1311,7 @@ Decimal: 2952790016
 
 <ExerciseCard difficulty="hard" timeEstimate="40-60 min">
 
-### Умножение с побитови операции
+### Задача 24: Умножение с побитови операции
 
 Имплементирайте функция, която изчислява `x * y` използвайки **САМО** побитови операции (без аритметични оператори `*`, `+`, `-`).
 
@@ -1446,7 +1446,7 @@ cout << multiply(0, 100) << "\n";  // 0
 
 <ExerciseCard difficulty="hard" timeEstimate="50-70 min">
 
-### BitSet клас за флагове
+### Задача 25: BitSet клас за флагове
 
 Създайте клас `BitSet`, който съхранява до 32 булеви флага в един `unsigned int` и предоставя методи:
 

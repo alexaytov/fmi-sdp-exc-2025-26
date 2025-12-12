@@ -39,7 +39,7 @@ import ProgressTracker from '@site/src/components/Exercise/ProgressTracker';
 
 <ExerciseCard difficulty="easy">
 
-### Какво е показалец в C++?
+### Задача 1: Какво е показалец в C++?
 
 Напишете код, който декларира integer променлива `x` със стойност 42, създава показалец към `x`, и използва показалеца да промени стойността на 100.
 
@@ -84,7 +84,7 @@ int main() {
 
 <ExerciseCard difficulty="easy">
 
-### Тест с многовариантни отговори
+### Задача 2: Тест с многовариантни отговори
 
 **Въпрос:** Коя памет се използва за локални променливи във функция?
 
@@ -111,7 +111,7 @@ int main() {
 
 <ExerciseCard difficulty="easy">
 
-### Дефиниция на пространствена локалност
+### Задача 3: Дефиниция на пространствена локалност
 
 Дефинирайте пространствена локалност с ваши думи и дайте прост пример за код, който демонстрира добра пространствена локалност.
 
@@ -163,7 +163,7 @@ for (int i = 0; i < 1000; i += 100) {
 
 <ExerciseCard difficulty="easy">
 
-### Call-by-value vs Call-by-reference
+### Задача 4: Call-by-value vs Call-by-reference
 
 Каква е разликата между call-by-value и call-by-reference в C++? Кога бихте предпочели да използвате `const&` за параметри на функция?
 
@@ -249,7 +249,7 @@ void process_large_vector(const std::vector<int>& vec) {
 
 <ExerciseCard difficulty="easy">
 
-### Декларация и инициализация на масив
+### Задача 5: Декларация и инициализация на масив
 
 Декларирайте и инициализирайте C++ масив от 5 integers със стойности {10, 20, 30, 40, 50}. Напишете код, който отпечатва третия елемент.
 
@@ -276,7 +276,7 @@ int main() {
 
 <ExerciseCard difficulty="easy">
 
-### Компилатор флаг за debugging
+### Задача 6: Компилатор флаг за debugging
 
 **Въпрос:** Кой флаг за оптимизация бихте използвали за debugging и защо?
 
@@ -303,7 +303,7 @@ int main() {
 
 <ExerciseCard difficulty="easy">
 
-### std::vector памет
+### Задача 7: std::vector памет
 
 **Вярно или невярно:** `std::vector` съхранява елементите си в непрекъснати паметни локации, точно като чист C++ масив.
 
@@ -319,7 +319,7 @@ int main() {
 
 <ExerciseCard difficulty="easy">
 
-### Constant Folding
+### Задача 8: Constant Folding
 
 Какво е constant folding? Дайте пример за statement, където компилаторът може да приложи constant folding.
 
@@ -356,7 +356,7 @@ int y = 25;
 
 <ExerciseCard difficulty="easy-medium">
 
-### Временна vs Пространствена локалност
+### Задача 9: Временна vs Пространствена локалност
 
 Обяснете разликата между временна локалност и пространствена локалност. Дайте код пример, който демонстрира временна локалност.
 
@@ -438,7 +438,7 @@ void calculate_sum(int* arr, int size) {
 
 <ExerciseCard difficulty="easy-medium">
 
-### std::array vs чисти масиви
+### Задача 10: std::array vs чисти масиви
 
 Сравнете `std::array` и чистите C++ масиви. Изброете две предимства на `std::array` пред чистите масиви.
 
@@ -457,7 +457,7 @@ void calculate_sum(int* arr, int size) {
 
 <ExerciseCard difficulty="easy-medium">
 
-### Out-of-bounds достъп
+### Задача 11: Out-of-bounds достъп
 
 Какво се случва когато достъпите елемент извън границите на чист C++ масив (напр. `arr[100]` когато масивът има само 10 елемента)? Защо е това опасно?
 
@@ -490,7 +490,7 @@ void calculate_sum(int* arr, int size) {
 
 <ExerciseCard difficulty="easy-medium">
 
-### Функция с const reference
+### Задача 12: Функция с const reference
 
 Напишете функция, която приема `std::vector<int>` по константна референция и връща сумата на всичките му елементи. Обяснете защо предаването по константна референция е предпочитано пред предаване по стойност за тази функция.
 
@@ -534,7 +534,7 @@ int sum_vector(const std::vector<int>& vec) {
 
 <ExerciseCard difficulty="easy-medium">
 
-### Dead Code Elimination
+### Задача 13: Dead Code Elimination
 
 Какво е dead code elimination? Дайте код snippet, където компилаторът може да премахне dead code, и обяснете какво би било премахнато.
 
@@ -578,7 +578,7 @@ int calculate(int x) {
 
 <ExerciseCard difficulty="medium">
 
-### Сравнение на контейнери
+### Задача 14: Сравнение на контейнери
 
 Сравнете паметната организация и cache характеристиките на `std::vector`, `std::list`, и `std::map`. За кои операции всеки контейнер би имал най-добра производителност?
 
@@ -689,7 +689,7 @@ int calculate(int x) {
 
 <ExerciseCard difficulty="medium">
 
-### Последователен vs Strided достъп
+### Задача 15: Последователен vs Strided достъп
 
 Напишете две версии на функция, която умножава всички елементи в integer масив по 2: една с последователен достъп и една със strided достъп (stride = 10). Обяснете коя версия ще има по-добра cache производителност и защо.
 
@@ -747,7 +747,7 @@ void multiply_strided(int* arr, int size, int stride) {
 
 <ExerciseCard difficulty="medium">
 
-### Loop Unrolling
+### Задача 16: Loop Unrolling
 
 Обяснете какво е loop unrolling и защо може да подобри производителността. Напишете прост цикъл, който сумира масив, после покажете как цикълът може да изглежда след като компилаторът го unroll-не с фактор 4.
 
@@ -793,7 +793,7 @@ for (; i < 100; ++i) {
 
 <ExerciseCard difficulty="medium">
 
-### Идентифициране на оптимизации
+### Задача 17: Идентифициране на оптимизации
 
 При даден следния код, идентифицирайте поне три оптимизации, които компилаторът може да приложи на ниво `-O3`:
 
@@ -835,7 +835,7 @@ int calculate(int x) {
 
 <ExerciseCard difficulty="medium">
 
-### Избор на контейнер
+### Задача 18: Избор на контейнер
 
 Трябва да съхранявате 10,000 integers и често да итерирате през всички, за да правите изчисления. Бихте ли избрали `std::vector` или `std::list`? Обосновете отговора си базирайки се на локалност на данните и производителни характеристики.
 
@@ -881,7 +881,7 @@ int calculate(int x) {
 
 <ExerciseCard difficulty="medium">
 
-### Common Subexpression Elimination (CSE)
+### Задача 19: Common Subexpression Elimination (CSE)
 
 Какво е Common Subexpression Elimination? При даден следния код, покажете как компилаторът може да го оптимизира използвайки CSE:
 
@@ -923,7 +923,7 @@ int c = temp + 5;
 
 <ExerciseCard difficulty="medium">
 
-### Cache lines и cache misses
+### Задача 20: Cache lines и cache misses
 
 Обяснете концепцията за cache lines и cache misses. Защо strided достъп с голяма stride стойност води до лоша производителност?
 
@@ -992,7 +992,7 @@ for (int i = 0; i < 1000; i += 100) {
 
 <ExerciseCard difficulty="medium-hard">
 
-### Compiler Explorer анализ
+### Задача 21: Compiler Explorer анализ
 
 Използвайки Compiler Explorer (godbolt.org), напишете проста функция, която събира два масива element-wise. Компилирайте с `-O0` и `-O3`. Опишете поне три разлики, които наблюдавате в генерирания assembly код.
 
@@ -1112,7 +1112,7 @@ add_arrays(int*, int*, int*, int):
 
 <ExerciseCard difficulty="medium-hard">
 
-### __restrict keyword
+### Задача 22: __restrict keyword
 
 Обяснете какво прави ключовата дума `__restrict` и защо позволява по-агресивни компилаторни оптимизации. Дайте пример, където използването на `__restrict` би направило значителна разлика в производителността.
 
@@ -1172,7 +1172,7 @@ void add_arrays_with_restrict(int* __restrict a,
 
 <ExerciseCard difficulty="medium-hard">
 
-### Benchmark: vector vs list
+### Задача 23: Benchmark: vector vs list
 
 Проектирайте малък benchmark за измерване на разликата в производителността между итериране през `std::vector<int>` последователно versus итериране през `std::list<int>`. Обяснете очакваните резултати базирани на принципите за локалност на данните.
 
@@ -1315,7 +1315,7 @@ Sum: 499999500000
 
 <ExerciseCard difficulty="medium-hard">
 
-### Проблеми с локалността при матрично умножение
+### Задача 24: Проблеми с локалността при матрично умножение
 
 Анализирайте следния код за матрично умножение. Идентифицирайте проблемите с локалността и предложете модификация, която би подобрила cache производителността:
 
@@ -1398,7 +1398,7 @@ void matrix_multiply_ikj(int** A, int** B, int** C, int n) {
 
 <ExerciseCard difficulty="medium-hard">
 
-### Loop Invariant Code Motion
+### Задача 25: Loop Invariant Code Motion
 
 Какво е loop invariant code motion? При дадения следния цикъл, идентифицирайте loop-invariant изчислението и покажете как компилаторът би го оптимизирал:
 
@@ -1448,7 +1448,7 @@ for (int i = 0; i < n; i++) {
 
 <ExerciseCard difficulty="hard">
 
-### Performance comparison: Arrays vs Containers
+### Задача 26: Performance comparison: Arrays vs Containers
 
 Имплементирайте performance-critical функция, която обработва голям dataset (1 милион integers). Сравнете три имплементации: използвайки чисти масиви, `std::vector`, и `std::list`. Измерете и обяснете разликите в производителността, като вземете предвид компилаторни оптимизации, паметна организация, и cache поведение.
 
@@ -1675,7 +1675,7 @@ std::list: 28500 μs (sum: 999999000000)
 
 <ExerciseCard difficulty="hard">
 
-### Векторизация (SIMD)
+### Задача 27: Векторизация (SIMD)
 
 Обяснете концепцията за векторизация (SIMD). Напишете функция, която събира два масива от floats, компилирайте с `-O3 -march=native`, и анализирайте assembly output в Compiler Explorer. Можете ли да идентифицирате SIMD инструкции? Какви условия трябва да бъдат изпълнени за да може компилаторът да векторизира цикъл?
 
@@ -1713,7 +1713,7 @@ void add_arrays(float* a, float* b, float* result, int n) {
 
 <ExerciseCard difficulty="hard">
 
-### Проектиране на структура от данни за игра
+### Задача 28: Проектиране на структура от данни за игра
 
 Проектирайте структура от данни за игра, която трябва да:
 - Съхранява 100,000 game entities
@@ -1947,7 +1947,7 @@ public:
 
 <ExerciseCard difficulty="hard">
 
-### Cache performance анализ
+### Задача 29: Cache performance анализ
 
 Анализирайте следния код за cache производителност. Изчислете (приблизително) колко cache lines биха били достъпени ако cache line size е 64 bytes и `int` е 4 bytes:
 
@@ -2008,7 +2008,7 @@ void process_matrix_rows(int matrix[1024][1024]) {
 
 <ExerciseCard difficulty="hard">
 
-### Cache-oblivious matrix transpose
+### Задача 30: Cache-oblivious matrix transpose
 
 Имплементирайте и анализирайте cache-oblivious matrix transpose алгоритъм. Сравнете производителните характеристики с naive имплементация, обяснявайки как cache blocking подобрява локалността. Използвайте Compiler Explorer за да разгледате как различните нива на оптимизация влияят на двете имплементации.
 
